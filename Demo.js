@@ -47,14 +47,15 @@ window.camPos = [0.0,0.0,0.0];
 window.camPosLength = 1.0;
 window.camFov = 0.0;
 window.beat = 60/80;
-window.pattern = window.beat*6;
+window.tick = window.beat/6;
+window.pattern = window.beat*4;
 window.camNear = 0.0;
 window.camFar = 0.0;
 includeFile('multiSceneEffects/PostProcess.js');
 includeFile('multiSceneEffects/dof.js')
 includeFile('multiSceneEffects/EffectExplosion.js');
 includeFile('sceneIntro/intro.js');
-
+includeFile('sceneInvestigationBoard/investigationBoard.js');
 Demo.prototype.cameraSetup = function() {
   this.loader.addAnimation({
       "camera": "cam1"
@@ -122,11 +123,12 @@ Demo.prototype.init = function () {
   const pattern = beat*6;
 
   this.sceneIntro();
-
+  this.sceneInvestigationBoard();
   this.loader.setScene('main');
 
   const scenes = [
-    {start: 0*window.pattern, duration: 4*window.pattern, name: 'intro',dof:true},
+    {start: 0*window.pattern, duration: 8*window.pattern, name: 'intro',dof:true},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'investigationBoard',dof:true},
   ];
 
   scenes.forEach((scene) => {
