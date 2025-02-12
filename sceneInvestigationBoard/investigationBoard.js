@@ -6,7 +6,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   this.loader.addAnimation({image: '_embedded/defaultWhite.png', color: [{r:.6,g:.3,b:.1}]});
   this.loader.addAnimation({image:'chemTrail.color.fbo'});
-  this.polaroid(0,0,0,'chemTrail');
+  this.polaroid(0,0,0,'chemTrail.color.fbo');
 }
 
 Demo.prototype.polaroid = function (startTime, x, y, imageName)
@@ -14,10 +14,12 @@ Demo.prototype.polaroid = function (startTime, x, y, imageName)
   this.loader.addAnimation([
     {
       start: startTime,
+      material: {
+        map: imageName
+      },
       object: {
         name: 'sceneInvestigationBoard/polaroid.obj'
       },
-      image: ['chemTrail.color.fbo'],
       position: [
         {
           x: x,
@@ -27,7 +29,8 @@ Demo.prototype.polaroid = function (startTime, x, y, imageName)
       ],
       angle: [
         {
-          degreesZ: () => 25*Math.sin(getSceneTimeFromStart())
+          degreesZ: () => 25*Math.sin(getSceneTimeFromStart()),
+          degreesY: () => 25
         }
       ],
       scale: [{ uniform3d: 0.5 }]
