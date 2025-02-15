@@ -81,7 +81,7 @@ Demo.prototype.cameraSetup = function() {
   this.loader.addAnimation({
       "light": {
           "type": "Directional",
-          "properties": { "intensity": 5.85 },
+          "properties": { "intensity": 2.85 },
           "castShadow": true
       }
       ,position:[{x:()=>window.camPos[0],y:()=>window.camPos[1],z:()=>window.camPos[2]}]

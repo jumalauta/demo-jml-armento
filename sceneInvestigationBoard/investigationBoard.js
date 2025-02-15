@@ -1,16 +1,22 @@
 
 Demo.prototype.sceneInvestigationBoard = function () {
-  this.chemTrail(0,0,0,0);
   
+  this.loader.setScene('main');
+  this.chemTrail(0,0,0,0);
+
   this.setScene('investigationBoard');
 
   this.loader.addAnimation({image: '_embedded/defaultWhite.png', color: [{r:.6,g:.3,b:.1}]});
-  this.loader.addAnimation({image:'chemTrail.color.fbo'});
+  //this.loader.addAnimation({image: 'chemTrail.color.fbo'});
+
   this.polaroid(0,0,0,'chemTrail.color.fbo');
+  this.polaroid(.05,0,0,'chemTrail.color.fbo');
 }
 
 Demo.prototype.polaroid = function (startTime, x, y, imageName)
 {
+
+
   this.loader.addAnimation([
     {
       start: startTime,
@@ -29,11 +35,11 @@ Demo.prototype.polaroid = function (startTime, x, y, imageName)
       ],
       angle: [
         {
-          degreesZ: () => 25*Math.sin(getSceneTimeFromStart()),
-          degreesY: () => 25
+          degreesZ: -10,
+          degreesY: 0
         }
       ],
-      scale: [{ uniform3d: 0.5 }]
+      scale: [{ uniform3d: 0.75 }]
     }
   ]);
 }
@@ -41,7 +47,72 @@ Demo.prototype.chemTrail = function (start, duration, x, y)
 {
   this.loader.addAnimation({fbo:{name:'chemTrail',action:'begin',storeDepth:false}});
 
-    this.loader.addAnimation({image: 'multiSceneEffects/lut.png', color: [{r:0,g:.5,b:1}]});
+    this.loader.addAnimation({
+      "light": {
+          "type": "Directional",
+          "properties": { "intensity": 5.85 },
+          "castShadow": false
+      }
+      ,position:[{x:0,y:0,z:5}]
+    });    
+
+    this.loader.addAnimation([
+      {
+        image: {
+          name: 'images/sky.png'
+        },
+        perspective: '2d',
+        position: [
+          {
+            x: 0,
+            y: 0,
+            z: 0
+          }
+        ],  
+        scale: [{ uniform2d: 1.9 }],
+      }
+    ]);
+
+    this.loader.addAnimation([
+      {
+        object: {
+          name: '3d_models/f15.obj'
+        },
+        position: [
+          {
+            x: 0,
+            y: .6,
+            z: 0
+          }
+        ],
+        angle: [
+          {
+            degreesX: 55,
+            degreesZ: () => 55*getSceneTimeFromStart(),
+            degreesY: 15,
+ 
+          }
+        ],
+        scale: [{ uniform3d: 0.2 }]
+      }
+    ]);
+
+    this.loader.addAnimation([
+      {
+        image: {
+          name: 'sceneInvestigationBoard/tex_polaroid.png'
+        },
+        perspective: '2d',
+        position: [
+          {
+            x: 0,
+            y: 0,
+            z: 0
+          }
+        ],  
+        scale: [{ uniform2d: .9 }],
+      }
+    ]);
 
   this.loader.addAnimation({fbo:{name:'chemTrail',action:'unbind'}});
 }
