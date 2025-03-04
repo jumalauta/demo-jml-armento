@@ -56,27 +56,69 @@ includeFile('multiSceneEffects/dof.js')
 includeFile('multiSceneEffects/EffectExplosion.js');
 includeFile('sceneIntro/intro.js');
 includeFile('sceneInvestigationBoard/investigationBoard.js');
-Demo.prototype.cameraSetup = function() {
+Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
       "camera": "cam1"
-      ,"position":[{"x":0,"y":0,"z":0.0}]
-      ,"lookAt":[{"x":0,"y":0.0,"z":0.0}]
+      ,"position":[{"x":0,"y":0,"z":-5}]
+      ,"lookAt":[{"x":0.0,"y":0.0,"z":0.0}]
       ,"up":[{"x":0,"y":1,"z":0}]
-      ,"perspective":[{"fov":45,"aspect":16/9,"near":0.1,"far":1000}]
+      ,"perspective":[{"fov":75,"aspect":16/9,"near":.05,"far":1000}]
+      ,"distYawPitch":[-5.0,1,2.0]
+      ,"instableTimer":[0.0,0.0,0.0,0.0,0.0]
       ,"runPreFunction": (animation)=>{
-          animation.position[0].x = 0 + Sync.get('General:CamRot')*Math.sin(Sync.get('General:CamRotSpeed')*getSceneTimeFromStart());
-          animation.position[0].z = Sync.get('General:CamDistance') + Sync.get('General:CamRot')*Math.cos(Sync.get('General:CamRotSpeed')*getSceneTimeFromStart());
-          animation.position[0].y = Sync.get('General:CamY');
-          window.camPos = [animation.position[0].x,animation.position[0].y,animation.position[0].z];
+          if (stopCamAt !== undefined) {
+              if (getSceneTimeFromStart() >= stopCamAt) {
+                  return;
+              }
+          }
+
+          for(let i=0;i<animation.instableTimer.length;i++)
+              {
+                  animation.instableTimer[i]+=Math.random()*getDeltaTime();
+              }
+          let distance = .05*Sync.get('Cam:Instability')*Math.sin(2*animation.instableTimer[3])+Sync.get('Cam:Distance');
+          let pitch = (Sync.get('Cam:Instability')*5*Math.cos(2*animation.instableTimer[1])+Sync.get('Cam:Yaw'))*deg2rad;
+          let roll = (Sync.get('Cam:Instability')*5*Math.sin(2*animation.instableTimer[2])+Sync.get('Cam:Pitch'))*deg2rad;
+          let yaw = 0.0;
+          let target = [Sync.get('Cam:TargetX'),Sync.get('Cam:TargetY'),Sync.get('Cam:TargetZ')]
+          let points = [0,0,distance];
+          let cosa = Math.cos(yaw),
+              sina = Math.sin(yaw);
+          let cosb = Math.cos(pitch),
+              sinb = Math.sin(pitch);
+          let cosc = Math.cos(roll),
+              sinc = Math.sin(roll);
+          let Axx = cosa*cosb,
+              Axy = cosa*sinb*sinc - sina*cosc,
+              Axz = cosa*sinb*cosc + sina*sinc;
+          let Ayx = sina*cosb,
+              Ayy = sina*sinb*sinc + cosa*cosc,
+              Ayz = sina*sinb*cosc - cosa*sinc;
+          let Azx = -sinb,
+              Azy = cosb*sinc,
+              Azz = cosb*cosc;
+          let px = points[0];
+          let py = points[1];
+          let pz = points[2];
+          let newPoints = [
+              (Axx*px + Axy*py + Axz*pz) + target[0],
+              Ayx*px + Ayy*py + Ayz*pz + target[1],
+              Azx*px + Azy*py + Azz*pz + target[2]
+              ];
+          window.camPos = newPoints;
+          window.camPosLength = Math.sqrt(newPoints[0]*newPoints[0]+newPoints[1]*newPoints[1]+newPoints[2]*newPoints[2]);
+          animation.position[0].x = newPoints[0];
+          animation.position[0].y = newPoints[1];
+          animation.position[0].z = newPoints[2];
+          animation.lookAt[0].x = Sync.get('Cam:Instability')*.25*Math.sin(2*animation.instableTimer[3])+Sync.get('Cam:TargetX');
+          animation.lookAt[0].y = Sync.get('Cam:Instability')*.25*Math.cos(2*animation.instableTimer[4])+Sync.get('Cam:TargetY');
+          animation.lookAt[0].z = Sync.get('Cam:TargetZ');
+          animation.perspective[0].fov = Sync.get('Cam:FOV');
           window.camNear = animation.perspective[0].near;
-          //window.camFar = animation.perspective[0].far;
           window.camFar = animation.perspective[0].far;
           window.camFov = animation.perspective[0].fov*deg2rad;
-          
-          // console.log("camPos "+window.camPos);
-          // console.log("camInvProjMat: " + window.camInvProjMat.elements + " camToWorldMat: "+ window.camToWorldMat.elements);
         }
-  });    
+  });       
 
   this.loader.addAnimation({
       "light": {
