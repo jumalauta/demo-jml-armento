@@ -54,6 +54,7 @@ window.camFar = 0.0;
 includeFile('multiSceneEffects/PostProcess.js');
 includeFile('multiSceneEffects/dof.js')
 includeFile('multiSceneEffects/EffectExplosion.js');
+includeFile('multiSceneEffects/particleStream.js');
 includeFile('sceneIntro/intro.js');
 includeFile('sceneInvestigationBoard/investigationBoard.js');
 Demo.prototype.cameraSetup = function(stopCamAt) {
@@ -166,11 +167,15 @@ Demo.prototype.init = function () {
 
   this.sceneIntro();
   this.sceneInvestigationBoard();
+  this.sceneChemTrail();
+
   this.loader.setScene('main');
 
   const scenes = [
-    {start: 0*window.pattern, duration: 8*window.pattern, name: 'intro',dof:true},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'investigationBoard',dof:true},
+    {start: 0*window.pattern, duration: 8*window.pattern, name: 'intro', dof:true, polaroid:false},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'investigationBoard', dof:true, polaroid:false},
+    //polaroid scenes
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'chemTrail', dof:false, polaroid:true}
   ];
 
   scenes.forEach((scene) => {
@@ -190,10 +195,9 @@ Demo.prototype.init = function () {
 
   this.loader.addAnimation({fbo:{name:'screenFbo',action:'begin',storeDepth:false}});
     scenes.forEach((scene) => {
-        if (!scene.prePostProcessing) {
+        if (!scene.polaroid || !scene.prePostProcessing) {
             this.loader.addAnimation({start: scene.start, duration: scene.duration, color:scene.color, image: scene.name + 'Fbo.color.fbo'});
         }
-
     });
   this.loader.addAnimation({fbo:{name:'screenFbo',action:'unbind'}});
   
