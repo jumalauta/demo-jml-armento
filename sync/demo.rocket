@@ -62,7 +62,7 @@
 			<key row="0" value="1" interpolation="0"/>
 		</track>
 		<track name="Cam:Instability">
-			<key row="0" value="0" interpolation="0"/>
+			<key row="0" value="0.15" interpolation="0"/>
 		</track>
 		<track name="Cam:Distance">
 			<key row="0" value="-1" interpolation="0"/>
@@ -85,6 +85,10 @@
 		<track name="Cam:FOV">
 			<key row="0" value="60" interpolation="0"/>
 		</track>
+		<track name="Sub:X"/>
+		<track name="Sub:Rot"/>
+		<track name="Sub:Y"/>
+		<track name="Sub:Z"/>
 	</tracks>
 	<bookmarks/>
 </sync>
