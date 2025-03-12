@@ -10,26 +10,58 @@ Demo.prototype.sceneInvestigationBoard = function () {
       object: {
         name: 'sceneInvestigationBoard/investigationboard.obj'
       },
-
       position: [{
           x: 0,
           y: 0,
           z: 0
         }],
-        angle: [
-          {
-            degreesY: 90,
-          }
-        ],
-      scale: [{ uniform3d: 1.0 }]
+      angle: [{ degreesY: -90,}],
+      scale: [{ uniform3d: 1.1 }]
     }
   ]);
 
-  this.polaroid(0,0,0,'chemTrail.color.fbo');
-  this.polaroid(.05,0,0,'chemTrail.color.fbo');
+  // center
+  this.polaroid(0.0 ,0, 0, -3,.5,'chemTrail.color.fbo');
+
+  // left bottom corner
+  this.polaroid(0.0 ,-1.65, -.88, -1.5,.43,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,-1.3, -.9, 2,.38,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,-.95, -.91, -1,.35,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,-.60, -.97, 15,.37,'chemTrail.color.fbo');
+  
+  // left center
+  this.polaroid(0.0 ,-1.25, 0, -2,.55,'chemTrail.color.fbo');
+ 
+  // left top corner
+  this.polaroid(0.0 ,-1.65, 1.0, -10,.33,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,-1.35, .9, 5,.33,'chemTrail.color.fbo');
+
+  // top center
+  this.polaroid(0.0 ,-.22, .95, -1,.25,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,-.25, .7, 2,.25,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,.0, .95 , -4,.25,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,.0, .7, 1,.25,'chemTrail.color.fbo');
+
+  // right top corner
+  this.polaroid(0.0 ,1.37, .7, 5,.75,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,1.0, .55, 5,.28,'chemTrail.color.fbo');
+
+  // right center
+
+  this.polaroid(0.0 ,.9, -.2, 90,.28,'chemTrail.color.fbo');
+
+  // right bottom corner
+  this.polaroid(0.0 ,1.55, -.7, -3,.25,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,1.56, -1., 1,.28,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,1.25, -.9, -2,.45,'chemTrail.color.fbo');
+
+  // bottom center
+
+  this.polaroid(0.0 ,.2, -.9, -85,.45,'chemTrail.color.fbo');
+
 }
 
-Demo.prototype.polaroid = function (startTime, x, y, imageName)
+Demo.prototype.polaroid = function (startTime, x, y, zAngle, scale, imageName)
 {
 
 
@@ -47,19 +79,20 @@ Demo.prototype.polaroid = function (startTime, x, y, imageName)
         {
           x: x,
           y: y,
-          z: -0.01
+          z: 0
         }
       ],
       angle: [
         {
-          degreesZ: -10,
-          degreesY: 1
+          degreesZ: zAngle,
+          degreesY: 180
         }
       ],
-      scale: [{ uniform3d: 0.75 }]
+      scale: [{ uniform3d: scale }]
     }
   ]);
 }
+
 
 
 Demo.prototype.sceneChemTrail = function () 
@@ -138,4 +171,3 @@ Demo.prototype.sceneChemTrail = function ()
 
   this.loader.addAnimation({fbo:{name:'chemTrail',action:'unbind'}});
 }
-

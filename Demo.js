@@ -57,6 +57,8 @@ includeFile('multiSceneEffects/EffectExplosion.js');
 includeFile('multiSceneEffects/particleStream.js');
 includeFile('sceneIntro/intro.js');
 includeFile('sceneInvestigationBoard/investigationBoard.js');
+includeFile('sceneInvestigationBoard/chemTrail.js');
+
 Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
       "camera": "cam1"
