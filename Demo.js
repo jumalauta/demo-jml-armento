@@ -129,7 +129,7 @@ Demo.prototype.cameraSetup = function(stopCamAt) {
           "properties": { "intensity": 6.85 },
           "castShadow": true
       }
-      ,position:[{x:()=>window.camPos[0],y:()=>window.camPos[1],z:()=>window.camPos[2]}]
+      ,position:[{x:()=>window.camPos[0],y:()=>window.camPos[1],z:()=>window.camPos[2]+1.0}]
       
       ,"color": [{
           "r": ()=>Sync.get('Light:R'), "g": ()=>Sync.get('Light:G'), "b": ()=>Sync.get('Light:B')
@@ -170,6 +170,7 @@ Demo.prototype.init = function () {
   this.sceneIntro();
   this.sceneInvestigationBoard();
   this.sceneChemTrail();
+  this.sceneFarjan();
 
   this.loader.setScene('main');
 
@@ -177,7 +178,8 @@ Demo.prototype.init = function () {
     {start: 0*window.pattern, duration: 8*window.pattern, name: 'intro', dof:true, polaroid:false},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'investigationBoard', dof:true, polaroid:false},
     //polaroid scenes
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'chemTrail', dof:false, polaroid:true}
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'chemTrail', dof:false, polaroid:true},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'farjan', dof:false, polaroid:true}
   ];
 
   scenes.forEach((scene) => {

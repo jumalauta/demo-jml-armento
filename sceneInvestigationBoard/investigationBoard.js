@@ -34,7 +34,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
  
   // left top corner
   this.polaroid(0.0 ,-1.65, 1.0, -10,.33,'chemTrail.color.fbo');
-  this.polaroid(0.0 ,-1.35, .9, 5,.33,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,-1.35, .9, 5,.33,'farjan.color.fbo');
 
   // top center
   this.polaroid(0.0 ,-.22, .95, -1,.25,'chemTrail.color.fbo');
@@ -170,4 +170,81 @@ Demo.prototype.sceneChemTrail = function ()
     this.addEffectParticleStream(0,200,100,.25,"multiSceneEffects/tex_basicParticle.png",.25,-.1,0,5,5,.02,100);
 
   this.loader.addAnimation({fbo:{name:'chemTrail',action:'unbind'}});
+}
+
+Demo.prototype.sceneFarjan = function () 
+{
+  this.loader.setScene('farjan');
+  this.loader.addAnimation({fbo:{name:'farjan',action:'begin',storeDepth:false}});
+
+    this.loader.addAnimation({
+      "light": {
+          "type": "Directional",
+          "properties": { "intensity": 3.85 },
+          "castShadow": false
+      }
+      ,position:[{x:0,y:0,z:5}]
+    });    
+
+    this.loader.addAnimation([
+      {
+        image: {
+          name: 'images/tex_waves.png'
+        },
+        perspective: '2d',
+        position: [
+          {
+            x: ()=>Math.sin(getSceneTimeFromStart()*2.5)*.05+.3,
+            y: ()=>Math.sin(getSceneTimeFromStart()*1.5)*.07-.15,
+            z: 0
+          }
+        ],  
+        scale: [{ uniform2d: 1.9 }],
+        color: [{
+          r: 0.35, g: .35, "b": 0.75
+      }]
+      }
+    ]);
+
+    this.loader.addAnimation([
+      {
+        image: {
+          name: 'images/tex_waves.png'
+        },
+        perspective: '2d',
+        position: [
+          {
+            x: ()=>Math.sin(getSceneTimeFromStart()*2)*.05+.25,
+            y: ()=>Math.sin(getSceneTimeFromStart())*.05-.25,
+            z: 0
+          }
+        ],  
+        scale: [{ uniform2d: 1.9 }],
+        color: [{
+          r: 0.5, g: .5, "b": 1.0
+      }]
+      }
+    ]);
+
+
+
+    this.loader.addAnimation([
+      {
+        image: {
+          name: 'sceneInvestigationBoard/tex_polaroid.png'
+        },
+        perspective: '2d',
+        position: [
+          {
+            x: 0,
+            y: 0,
+            z: 0
+          }
+        ],  
+        scale: [{ uniform2d: .9 }],
+      }
+    ]);
+
+
+  this.loader.addAnimation({fbo:{name:'farjan',action:'unbind'}});
 }
