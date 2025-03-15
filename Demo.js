@@ -129,7 +129,7 @@ Demo.prototype.cameraSetup = function(stopCamAt) {
           "properties": { "intensity": 6.85 },
           "castShadow": true
       }
-      ,position:[{x:()=>window.camPos[0],y:()=>window.camPos[1],z:()=>window.camPos[2]+1.0}]
+      ,position:[{x:()=>window.camPos[0],y:()=>window.camPos[1],z:()=>window.camPos[2]+2.0}]
       
       ,"color": [{
           "r": ()=>Sync.get('Light:R'), "g": ()=>Sync.get('Light:G'), "b": ()=>Sync.get('Light:B')

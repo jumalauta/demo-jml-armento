@@ -34,13 +34,14 @@ Demo.prototype.sceneInvestigationBoard = function () {
  
   // left top corner
   this.polaroid(0.0 ,-1.65, 1.0, -10,.33,'chemTrail.color.fbo');
-  this.polaroid(0.0 ,-1.35, .9, 5,.33,'farjan.color.fbo');
+  this.photo15x10(0.0 ,-1.25, .9, 5,.33,'farjan.color.fbo');
 
   // top center
   this.polaroid(0.0 ,-.22, .95, -1,.25,'chemTrail.color.fbo');
   this.polaroid(0.0 ,-.25, .7, 2,.25,'chemTrail.color.fbo');
   this.polaroid(0.0 ,.0, .95 , -4,.25,'chemTrail.color.fbo');
   this.polaroid(0.0 ,.0, .7, 1,.25,'chemTrail.color.fbo');
+  this.textPaper(0,-1.25, 1.05, 15, .25, .88,.12,'BIG FÄRJAN IS HIDING THE TRUTH');
 
   // right top corner
   this.polaroid(0.0 ,1.37, .7, 5,.75,'chemTrail.color.fbo');
@@ -59,6 +60,42 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   this.polaroid(0.0 ,.2, -.9, -85,.45,'chemTrail.color.fbo');
 
+}
+Demo.prototype.textPaper = function (startTime, x, y, zAngle, scale, paperScaleX, paperScaleY, textString)
+{
+  this.loader.addAnimation([{
+    text:{string:textString,name:"multiSceneEffects/handWriting.ttf"
+    },
+    perspective:"3d", 
+    color:[{"r":0.0,"g":0.0,"b":0.0}],
+    position:[{x:x, y:y}],
+    scale: [{ uniform3d: scale }],
+    angle:[{degreesZ:zAngle+Math.random()}]
+    }]);
+
+  this.loader.addAnimation([
+    {
+
+      object: {
+        name: 'sceneInvestigationBoard/paper.obj'
+      },
+      position: [
+        {
+          x: x,
+          y: y,
+          z: 0
+        }
+      ],
+      angle: [
+        {
+          degreesX: 90,
+          degreesY: zAngle,
+        }
+      ],
+      color: [{r:.45,g:.45,b:.45}],
+      scale: [{ x: scale*paperScaleX, z: scale*paperScaleY }]
+    }
+  ]);
 }
 
 Demo.prototype.polaroid = function (startTime, x, y, zAngle, scale, imageName)
@@ -93,6 +130,37 @@ Demo.prototype.polaroid = function (startTime, x, y, zAngle, scale, imageName)
   ]);
 }
 
+Demo.prototype.photo15x10 = function (startTime, x, y, zAngle, scale, imageName)
+{
+
+
+  this.loader.addAnimation([
+    {
+      start: startTime,
+      material: {
+        map: imageName
+      },
+      object: {
+        name: 'sceneInvestigationBoard/15X10.obj'
+      },
+      color: [{r:.25,g:.25,b:.25}],
+      position: [
+        {
+          x: x,
+          y: y,
+          z: 0
+        }
+      ],
+      angle: [
+        {
+          degreesZ: zAngle,
+          degreesY: 180
+        }
+      ],
+      scale: [{ uniform3d: scale }]
+    }
+  ]);
+}
 
 
 Demo.prototype.sceneChemTrail = function () 
@@ -189,20 +257,94 @@ Demo.prototype.sceneFarjan = function ()
     this.loader.addAnimation([
       {
         image: {
+          name: 'images/sky.png'
+        },
+        perspective: '2d',
+        position: [
+          {
+            x: 0,
+            y: .5,
+            z: 0
+          }
+        ],  
+        scale: [{ uniform2d: 3.9 }],
+      }
+    ]);
+
+    this.loader.addAnimation([
+      {
+        image: {
+          name: 'images/tex_sun.png'
+        },
+        perspective: '2d',
+        position: [
+          {
+            x: .23,
+            y: ()=>Math.sin(getSceneTimeFromStart()*2.25)*.02+.30,
+            z: 0
+          }
+        ],  
+        scale: [{ uniform2d: 0.57 }],
+        color: [{
+          r: 0., g: .0, "b": 0.
+      }]
+      }
+    ]);
+
+    this.loader.addAnimation([
+      {
+        image: {
+          name: 'images/tex_sun.png'
+        },
+        perspective: '2d',
+        position: [
+          {
+            x: .23,
+            y: ()=>Math.sin(getSceneTimeFromStart()*1.95)*.02+.31,
+            z: 0
+          }
+        ],  
+        scale: [{ uniform2d: 0.57 }],
+
+      }
+    ]);
+
+    this.loader.addAnimation([
+      {
+        image: {
           name: 'images/tex_waves.png'
         },
         perspective: '2d',
         position: [
           {
-            x: ()=>Math.sin(getSceneTimeFromStart()*2.5)*.05+.3,
-            y: ()=>Math.sin(getSceneTimeFromStart()*1.5)*.07-.15,
+            x: ()=>Math.sin(getSceneTimeFromStart()*2.0)*.05+.4,
+            y: ()=>Math.sin(getSceneTimeFromStart()*1.0)*.15-.38,
             z: 0
           }
         ],  
-        scale: [{ uniform2d: 1.9 }],
+        scale: [{ uniform2d: 2.75 }],
         color: [{
           r: 0.35, g: .35, "b": 0.75
       }]
+      }
+    ]);
+
+    this.loader.addAnimation([
+      {
+        image: {
+          name: 'images/tex_boat.png'
+        },
+        perspective: '2d',
+        position: [
+          {
+            x: ()=>Math.sin(getSceneTimeFromStart()*.75)*.06-.2,
+            y: ()=>Math.sin(getSceneTimeFromStart()*1.25)*.06-.25,
+            z: 0
+          }
+        ],
+        angle: [{ degreesZ: ()=>Math.sin(getSceneTimeFromStart()*2.0)*20+10}],
+        scale: [{ uniform2d: 2.0 }],
+
       }
     ]);
 
@@ -215,11 +357,11 @@ Demo.prototype.sceneFarjan = function ()
         position: [
           {
             x: ()=>Math.sin(getSceneTimeFromStart()*2)*.05+.25,
-            y: ()=>Math.sin(getSceneTimeFromStart())*.05-.25,
+            y: ()=>Math.sin(getSceneTimeFromStart())*.05-.4,
             z: 0
           }
         ],  
-        scale: [{ uniform2d: 1.9 }],
+        scale: [{ uniform2d: 2.75 }],
         color: [{
           r: 0.5, g: .5, "b": 1.0
       }]
@@ -231,7 +373,7 @@ Demo.prototype.sceneFarjan = function ()
     this.loader.addAnimation([
       {
         image: {
-          name: 'sceneInvestigationBoard/tex_polaroid.png'
+          name: 'sceneInvestigationBoard/tex_15X10.png'
         },
         perspective: '2d',
         position: [
@@ -241,9 +383,9 @@ Demo.prototype.sceneFarjan = function ()
             z: 0
           }
         ],  
-        scale: [{ uniform2d: .9 }],
-      }
-    ]);
+        scale: [{ uniform2d: .855 }],
+        color: [{ r: 1.0, g: 1.0, "b": 1.0 }]
+      }]);
 
 
   this.loader.addAnimation({fbo:{name:'farjan',action:'unbind'}});
