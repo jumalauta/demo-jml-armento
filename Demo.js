@@ -58,6 +58,7 @@ includeFile('multiSceneEffects/particleStream.js');
 includeFile('sceneIntro/intro.js');
 includeFile('sceneInvestigationBoard/investigationBoard.js');
 includeFile('sceneInvestigationBoard/chemTrail.js');
+includeFile('sceneInvestigationBoard/farjan.js');
 
 Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
