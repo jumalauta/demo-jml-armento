@@ -25,7 +25,9 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   // left bottom corner
   this.polaroid(0.0 ,-1.65, -.88, -1.5,.43,'chemTrail.color.fbo');
-  this.polaroid(0.0 ,-1.3, -.9, 2,.38,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,-1.3, -.9, 2,.38,'flatTorus.color.fbo');
+  this.textPaper(0, -1.35, -1.05, 3, .25, .5,.12,'TORUS IS FLAT!');
+  this.textPaper(0, -1.21, -1.085, -2, .25, .4,.12,'RESEARCH IT!');
   this.polaroid(0.0 ,-.95, -.91, -1,.35,'chemTrail.color.fbo');
   this.polaroid(0.0 ,-.60, -.97, 15,.37,'chemTrail.color.fbo');
   

@@ -60,6 +60,7 @@ includeFile('sceneIntro/intro.js');
 includeFile('sceneInvestigationBoard/investigationBoard.js');
 includeFile('sceneInvestigationBoard/chemTrail.js');
 includeFile('sceneInvestigationBoard/farjan.js');
+includeFile('sceneInvestigationBoard/flatTorus.js');
 
 Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
@@ -173,7 +174,7 @@ Demo.prototype.init = function () {
   this.sceneInvestigationBoard();
   this.sceneChemTrail();
   this.sceneFarjan();
-
+  this.sceneFlatTorus();
   this.loader.setScene('main');
 
   const scenes = [
@@ -181,7 +182,8 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'investigationBoard', dof:true, polaroid:false},
     //polaroid scenes
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'chemTrail', dof:false, polaroid:true},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'farjan', dof:false, polaroid:true}
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'farjan', dof:false, polaroid:true},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'flatTorus', dof:false, polaroid:true}
   ];
 
   scenes.forEach((scene) => {
