@@ -55,6 +55,7 @@ includeFile('multiSceneEffects/PostProcess.js');
 includeFile('multiSceneEffects/dof.js')
 includeFile('multiSceneEffects/EffectExplosion.js');
 includeFile('multiSceneEffects/particleStream.js');
+includeFile('multiSceneEffects/EffectStarfield.js');
 includeFile('sceneIntro/intro.js');
 includeFile('sceneInvestigationBoard/investigationBoard.js');
 includeFile('sceneInvestigationBoard/chemTrail.js');
