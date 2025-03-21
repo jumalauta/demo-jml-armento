@@ -61,6 +61,8 @@ includeFile('sceneInvestigationBoard/investigationBoard.js');
 includeFile('sceneInvestigationBoard/chemTrail.js');
 includeFile('sceneInvestigationBoard/farjan.js');
 includeFile('sceneInvestigationBoard/flatTorus.js');
+includeFile('sceneInvestigationBoard/greetings.js');
+includeFile('sceneInvestigationBoard/aliens.js');
 
 Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
@@ -175,6 +177,9 @@ Demo.prototype.init = function () {
   this.sceneChemTrail();
   this.sceneFarjan();
   this.sceneFlatTorus();
+  this.sceneGreetings();
+  this.sceneAliens();
+
   this.loader.setScene('main');
 
   const scenes = [
@@ -183,7 +188,9 @@ Demo.prototype.init = function () {
     //polaroid scenes
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'chemTrail', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'farjan', dof:false, polaroid:true},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'flatTorus', dof:false, polaroid:true}
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'flatTorus', dof:false, polaroid:true},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'greetings', dof:false, polaroid:true},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'aliens', dof:false, polaroid:true},
   ];
 
   scenes.forEach((scene) => {

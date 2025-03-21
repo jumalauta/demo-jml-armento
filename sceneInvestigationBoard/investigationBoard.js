@@ -46,8 +46,8 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0,-1.25, 1.05, 15, .25, .88,.12,'BIG FÄRJAN IS HIDING THE TRUTH');
 
   // right top corner
-  this.polaroid(0.0 ,1.37, .7, 5,.75,'chemTrail.color.fbo');
-  this.polaroid(0.0 ,1.0, .55, 5,.28,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,1.37, .7, 5,.75,'greetings.color.fbo');
+  this.polaroid(0.0 ,1.0, .55, 5,.28,'aliens.color.fbo');
 
   // right center
 
