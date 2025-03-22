@@ -21,7 +21,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   ]);
 
   // center
-  this.polaroid(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo');
+  this.photo15x10(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo');
 
   // left bottom corner
   this.polaroid(0.0 ,-1.65, -.88, -1.5,.43,'chemTrail.color.fbo');
