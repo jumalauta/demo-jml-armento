@@ -116,6 +116,7 @@
 			<key row="0" interpolation="0" value="0.15"/>
 			<key row="216" interpolation="0" value="0.01"/>
 			<key row="240" interpolation="0" value="0.15"/>
+			<key row="600" interpolation="0" value="0.05"/>
 		</track>
 		<track name="Cam:Distance">
 			<key row="0" interpolation="0" value="3"/>
@@ -127,6 +128,8 @@
 			<key row="312" interpolation="0" value="0.4"/>
 			<key row="503" interpolation="0" value="0.5"/>
 			<key row="504" interpolation="0" value="3"/>
+			<key row="600" interpolation="0" value="0.2"/>
+			<key row="792" interpolation="0" value="3"/>
 			<key row="888" interpolation="2" value="0.65"/>
 			<key row="904" interpolation="2" value="0.75"/>
 			<key row="920" interpolation="2" value="0.65"/>
@@ -177,6 +180,14 @@
 			<key row="424" interpolation="2" value="0"/>
 			<key row="456" interpolation="0" value="-1.15"/>
 			<key row="504" interpolation="0" value="0"/>
+			<key row="600" interpolation="0" value="-0.8"/>
+			<key row="616" interpolation="2" value="-0.8"/>
+			<key row="648" interpolation="0" value="-0.65"/>
+			<key row="664" interpolation="2" value="-0.65"/>
+			<key row="696" interpolation="0" value="-0.65"/>
+			<key row="712" interpolation="2" value="-0.65"/>
+			<key row="744" interpolation="0" value="-1.5"/>
+			<key row="792" interpolation="0" value="0"/>
 			<key row="888" interpolation="0" value="1.4"/>
 			<key row="1080" interpolation="0" value="0"/>
 		</track>
@@ -193,6 +204,14 @@
 			<key row="424" interpolation="2" value="-0.9"/>
 			<key row="456" interpolation="0" value="0"/>
 			<key row="504" interpolation="0" value="0"/>
+			<key row="600" interpolation="0" value="0.95"/>
+			<key row="616" interpolation="2" value="0.95"/>
+			<key row="648" interpolation="0" value="0.375"/>
+			<key row="664" interpolation="2" value="0.38"/>
+			<key row="696" interpolation="0" value="-0.375"/>
+			<key row="712" interpolation="2" value="-0.375"/>
+			<key row="744" interpolation="0" value="-0.375"/>
+			<key row="792" interpolation="0" value="0"/>
 			<key row="888" interpolation="0" value="0.75"/>
 			<key row="1080" interpolation="0" value="0"/>
 		</track>
@@ -211,5 +230,8 @@
 	</tracks>
 	<bookmarks>
 		<bookmark row="312"/>
+		<bookmark row="504"/>
+		<bookmark row="552"/>
+		<bookmark row="600"/>
 	</bookmarks>
 </sync>

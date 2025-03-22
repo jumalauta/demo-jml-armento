@@ -37,17 +37,19 @@ Demo.prototype.sceneInvestigationBoard = function () {
   // left top corner
   this.polaroid(0.0 ,-1.65, 1.0, -10,.33,'chemTrail.color.fbo');
   this.photo15x10(0.0 ,-1.25, .9, 5,.33,'farjan.color.fbo');
+  this.textPaper(0,-1.25, 1.05, 15, .25, .88,.12,'BIG FÄRJAN IS HIDING THE TRUTH');
 
+
+  
   // top center
   this.polaroid(0.0 ,-.22, .95, -1,.25,'chemTrail.color.fbo');
   this.polaroid(0.0 ,-.25, .7, 2,.25,'chemTrail.color.fbo');
   this.polaroid(0.0 ,.0, .95 , -4,.25,'chemTrail.color.fbo');
   this.polaroid(0.0 ,.0, .7, 1,.25,'chemTrail.color.fbo');
-  this.textPaper(0,-1.25, 1.05, 15, .25, .88,.12,'BIG FÄRJAN IS HIDING THE TRUTH');
 
   // right top corner
   this.polaroid(0.0 ,1.37, .7, 5,.75,'greetings.color.fbo');
-  this.polaroid(0.0 ,1.0, .55, 5,.28,'aliens.color.fbo');
+  this.animatedPolaroid(91.0 ,1.0, .65, 5,.28,'aliens.color.fbo', 5.0, 4.5 , 3.55, 5);
 
   // right center
   this.polaroid(0.0 ,1.5, -.2, 90,.28,'introPolaroid.color.fbo');
@@ -63,6 +65,11 @@ Demo.prototype.sceneInvestigationBoard = function () {
     // linedraw 1, photo 3
   this.polaroid(0.0 ,.2, -.9, -85,.45,'chemTrail.color.fbo');
 
+  // cam 2
+  this.polaroid(0.0 ,-.8, .95 , 5,.23,'introPolaroid.color.fbo');
+  this.polaroid(0.0 ,-.65, .375 , 5,.23,'introPolaroid.color.fbo');
+  this.polaroid(0.0 ,-.65 , -.375 , 5,.23,'introPolaroid.color.fbo');
+  this.polaroid(0.0 ,-1.5, -.375 , 5,.23,'introPolaroid.color.fbo');
 }
 Demo.prototype.textPaper = function (startTime, x, y, zAngle, scale, paperScaleX, paperScaleY, textString)
 {
@@ -103,8 +110,6 @@ Demo.prototype.textPaper = function (startTime, x, y, zAngle, scale, paperScaleX
 
 Demo.prototype.polaroid = function (startTime, x, y, zAngle, scale, imageName)
 {
-
-
   this.loader.addAnimation([
     {
       start: startTime,
@@ -122,6 +127,36 @@ Demo.prototype.polaroid = function (startTime, x, y, zAngle, scale, imageName)
           z: 0
         }
       ],
+      angle: [
+        {
+          degreesZ: zAngle,
+          degreesY: 180
+        }
+      ],
+      scale: [{ uniform3d: scale }]
+    }
+  ]);
+}
+
+Demo.prototype.animatedPolaroid = function (startTime, x, y, zAngle, scale, imageName, animDuration, xStart,yStart, zStart)
+{
+  this.loader.addAnimation([
+    {
+      start: startTime,
+      material: {
+        map: imageName
+      },
+      object: {
+        name: 'sceneInvestigationBoard/polaroid.obj'
+      },
+      color: [{r:.25,g:.25,b:.25}],
+      position: [
+        {
+          x: xStart,
+          y: yStart,
+          z: zStart
+        },
+      {duration:animDuration, x:x,y:y, z:0}],
       angle: [
         {
           degreesZ: zAngle,
