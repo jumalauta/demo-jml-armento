@@ -64,6 +64,8 @@ includeFile('sceneInvestigationBoard/flatTorus.js');
 includeFile('sceneInvestigationBoard/greetings.js');
 includeFile('sceneInvestigationBoard/aliens.js');
 includeFile('sceneInvestigationBoard/introPolaroid.js');
+includeFile('sceneInvestigationBoard/endZoomer.js');
+
 Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
       "camera": "cam1"
@@ -180,6 +182,8 @@ Demo.prototype.init = function () {
   this.sceneGreetings();
   this.sceneAliens();
   this.sceneIntroPolaroid();
+  this.sceneEndZoomer ();
+
   this.loader.setScene('main');
 
   const scenes = [ 
@@ -192,6 +196,7 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'greetings', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'aliens', dof:false, polaroid:true},
     {start: 9 *window.pattern, duration: 48*window.pattern, name: 'introPolaroid', dof:false, polaroid:true},
+    {start: 9 *window.pattern, duration: 48*window.pattern, name: 'endZoomer', dof:false, polaroid:true},
   ];
 
   scenes.forEach((scene) => {
