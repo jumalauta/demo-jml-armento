@@ -32,7 +32,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.polaroid(0.0 ,-.60, -.97, 15,.37,'chemTrail.color.fbo');
   
   // left center
-  this.polaroid(0.0 ,-1.25, 0, -2,.55,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,-1.15, 0, -2,.55,'chemTrail.color.fbo');
  
   // left top corner
   this.polaroid(0.0 ,-1.65, 1.0, -10,.33,'chemTrail.color.fbo');
@@ -50,8 +50,9 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.polaroid(0.0 ,1.0, .55, 5,.28,'aliens.color.fbo');
 
   // right center
-
-  this.polaroid(0.0 ,.9, -.2, 90,.28,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,1.5, -.2, 90,.28,'introPolaroid.color.fbo');
+    // linedraw 1, photo 2
+  this.polaroid(0.0 ,0.9, -.15, 2,.28,'introPolaroid.color.fbo');
 
   // right bottom corner
   this.polaroid(0.0 ,1.55, -.7, -3,.25,'chemTrail.color.fbo');
@@ -59,7 +60,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.polaroid(0.0 ,1.25, -.9, -2,.45,'chemTrail.color.fbo');
 
   // bottom center
-
+    // linedraw 1, photo 3
   this.polaroid(0.0 ,.2, -.9, -85,.45,'chemTrail.color.fbo');
 
 }

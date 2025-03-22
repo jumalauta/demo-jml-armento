@@ -39,6 +39,50 @@ Demo.prototype.sceneGreetings = function ()
         scale: [{ uniform3d: 0.3 }]
       }
     ]);
+
+    this.loader.addAnimation([{
+        "text":{"string":`MFX - WIDE LOAD - GORBAT SOFT - UNIQUE - MATT CURRENT - GRAYMARCHERS - BYTERAPERS - FUTURE CREW`,
+        "name":"multiSceneEffects/handWriting.ttf",
+        "parameters": {depth:0.2,bevelEnabled:true,bevelThickness:0.02,bevelSize:0.02,bevelSegments:6}
+        },
+        angle: [
+            {
+              degreesZ: -90
+            }
+          ],
+        "perspective":"3d",
+        "color":[{"r":()=>Math.random()*4,"g":()=>Math.random()*4,"b":()=>Math.random()*4}],
+
+        position: [
+            {
+              x: 0,
+              y: 0.75,
+              z: 0
+            }
+          ],
+        "scale":[{"uniform3d":2.0}]
+          ,shader:{
+            // heart beat
+            vertexShaderPrefix:`
+              uniform float time;
+              uniform float beater;
+            `,
+            vertexShaderSuffix:`
+              float lenght = 250.;
+              float amp = 4.;
+              float t = clamp(sin(time * 3.28 + 0.5) * amp, -amp/2., 0.);
+              vec3 pos = position;
+              float size = 0.2;
+              pos.y = pos.y + .25*sin(time+pos.x);
+              pos.x = mod(pos.x-time*20., lenght);
+              pos.z = pos.z;
+
+
+              gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+            `
+          } 
+      }]);
+
 /*
     this.loader.addAnimation([
       {
