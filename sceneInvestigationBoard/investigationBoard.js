@@ -54,7 +54,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   // right center
   this.polaroid(0.0 ,1.5, -.2, 90,.28,'introPolaroid.color.fbo',{visible:false});
     // linedraw 1, photo 2
-  this.polaroid(0.0 ,0.9, -.15, 2,.28,'introPolaroid.color.fbo',{visible:false});
+  this.polaroid(0.0 ,0.9, -.15, 2,.28,'chess.color.fbo',{visible:false});
 
   // right bottom corner
   this.polaroid(0.0 ,1.55, -.7, -3,.25,'chemTrail.color.fbo');
