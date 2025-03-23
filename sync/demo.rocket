@@ -150,7 +150,7 @@
 			<key row="1064" interpolation="2" value="0.75"/>
 			<key row="1079" interpolation="0" value="0.65"/>
 			<key row="1080" interpolation="0" value="3"/>
-			<key row="1176" interpolation="0" value="0.4"/>
+			<key row="1176" interpolation="0" value="0.6"/>
 		</track>
 		<track name="Cam:Yaw">
 			<key row="0" interpolation="0" value="0"/>
@@ -214,7 +214,7 @@
 			<key row="712" interpolation="2" value="-0.375"/>
 			<key row="744" interpolation="0" value="-0.375"/>
 			<key row="792" interpolation="0" value="0"/>
-			<key row="888" interpolation="0" value="0.75"/>
+			<key row="888" interpolation="0" value="0.7"/>
 			<key row="1080" interpolation="0" value="0"/>
 		</track>
 		<track name="Cam:TargetZ">
@@ -245,12 +245,12 @@
 			<key row="0" interpolation="0" value="1.3"/>
 			<key row="1168" interpolation="0" value="0.5"/>
 			<key row="1176" interpolation="3" value="0.25"/>
-			<key row="1224" interpolation="1" value="4"/>
 			<key row="1240" interpolation="0" value="8"/>
 		</track>
 		<track name="EndZoomer:Image1Scale">
-			<key row="1224" interpolation="1" value="1.5"/>
-			<key row="1240" interpolation="1" value="2.5"/>
+			<key row="1224" interpolation="3" value="1.5"/>
+			<key row="1288" interpolation="0" value="32"/>
+			<key row="1320" interpolation="0" value="5"/>
 		</track>
 		<track name="EndZoomer:Image1X">
 			<key row="1224" interpolation="0" value="0"/>
@@ -266,32 +266,90 @@
 		<track name="EndZoomer:FlatEarthX">
 			<key row="1168" interpolation="0" value="0"/>
 			<key row="1208" interpolation="1" value="0"/>
-			<key row="1224" interpolation="0" value="-0.1"/>
+			<key row="1224" interpolation="0" value="-0.2"/>
 		</track>
 		<track name="EndZoomer:FlatEarthY">
 			<key row="1168" interpolation="0" value="0.3"/>
 			<key row="1208" interpolation="1" value="0.3"/>
 			<key row="1224" interpolation="1" value="0.7"/>
-			<key row="1240" interpolation="0" value="1.25"/>
+			<key row="1240" interpolation="0" value="1.1"/>
 		</track>
 		<track name="EndZoomer:Image2Scale">
-			<key row="1240" interpolation="0" value="0"/>
-			<key row="1336" interpolation="0" value="12"/>
+			<key row="1240" interpolation="3" value="1.5"/>
+			<key row="1304" interpolation="0" value="16"/>
 		</track>
-		<track name="EndZoomer:Image2X"/>
-		<track name="EndZoomer:Image2Y"/>
+		<track name="EndZoomer:Image2X">
+			<key row="1240" interpolation="0" value="0"/>
+		</track>
+		<track name="EndZoomer:Image2Y">
+			<key row="1240" interpolation="0" value="0"/>
+		</track>
 		<track name="EndZoomer:Image2A">
-			<key row="1288" interpolation="0" value="1"/>
+			<key row="1240" interpolation="1" value="0"/>
+			<key row="1256" interpolation="0" value="1"/>
+			<key row="1272" interpolation="0" value="1"/>
 		</track>
 		<track name="EndZoomer:Image3Scale">
-			<key row="1288" interpolation="3" value="1.5"/>
-			<key row="1336" interpolation="0" value="4"/>
+			<key row="1272" interpolation="3" value="1.5"/>
+			<key row="1304" interpolation="0" value="12"/>
+			<key row="1336" interpolation="0" value="16"/>
 		</track>
-		<track name="EndZoomer:Image3X"/>
-		<track name="EndZoomer:Image3Y"/>
+		<track name="EndZoomer:Image3X">
+			<key row="1272" interpolation="3" value="0"/>
+			<key row="1304" interpolation="0" value="0"/>
+		</track>
+		<track name="EndZoomer:Image3Y">
+			<key row="1272" interpolation="1" value="0.1"/>
+			<key row="1304" interpolation="0" value="-0.4"/>
+		</track>
 		<track name="EndZoomer:Image3A">
+			<key row="1272" interpolation="1" value="0"/>
+			<key row="1288" interpolation="0" value="1"/>
+			<key row="1304" interpolation="0" value="1"/>
+		</track>
+		<track name="EndZoomer:Image4Scale">
+			<key row="1288" interpolation="1" value="1.5"/>
+			<key row="1320" interpolation="0" value="6"/>
+			<key row="1352" interpolation="0" value="16"/>
+		</track>
+		<track name="EndZoomer:Image4X"/>
+		<track name="EndZoomer:Image4Y"/>
+		<track name="EndZoomer:Image4A">
 			<key row="1288" interpolation="1" value="0"/>
+			<key row="1304" interpolation="0" value="1"/>
+		</track>
+		<track name="EndZoomer:Image5Scale">
+			<key row="1304" interpolation="3" value="1.5"/>
+			<key row="1352" interpolation="0" value="6"/>
+		</track>
+		<track name="EndZoomer:Image5X"/>
+		<track name="EndZoomer:Image5Y"/>
+		<track name="EndZoomer:Image5A">
+			<key row="1304" interpolation="1" value="0"/>
 			<key row="1320" interpolation="0" value="1"/>
+		</track>
+		<track name="EndZoomer:Image6Scale">
+			<key row="1320" interpolation="3" value="1.5"/>
+			<key row="1368" interpolation="0" value="6"/>
+		</track>
+		<track name="EndZoomer:Image6X"/>
+		<track name="EndZoomer:Image6Y"/>
+		<track name="EndZoomer:Image6A">
+			<key row="1320" interpolation="1" value="0"/>
+			<key row="1336" interpolation="0" value="1"/>
+		</track>
+		<track name="Misc:AsmAGlitch">
+			<key row="497" interpolation="0" value="0"/>
+			<key row="498" interpolation="0" value="1"/>
+			<key row="499" interpolation="0" value="0"/>
+			<key row="500" interpolation="0" value="1"/>
+			<key row="503" interpolation="0" value="0"/>
+			<key row="504" interpolation="0" value="1"/>
+		</track>
+		<track name="Anagram:FirstPercentage">
+			<key row="600" interpolation="0" value="0"/>
+			<key row="604" interpolation="1" value="0"/>
+			<key row="616" interpolation="0" value="1"/>
 		</track>
 	</tracks>
 	<bookmarks>

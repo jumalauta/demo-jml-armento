@@ -68,7 +68,7 @@ includeFile('sceneInvestigationBoard/introPolaroid.js');
 includeFile('sceneInvestigationBoard/endZoomer.js');
 includeFile('sceneInvestigationBoard/AsmA.js');
 includeFile('sceneInvestigationBoard/chess.js');
-
+includeFile('sceneInvestigationBoard/anagram.js');
 
 Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
@@ -189,6 +189,7 @@ Demo.prototype.init = function () {
   this.sceneEndZoomer ();
   this.sceneAsmA ();
   this.sceneChess ();
+  this.sceneAnagram();
 
   this.loader.setScene('main');
 
@@ -205,6 +206,7 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'endZoomer', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'AsmA', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'chess', dof:false, polaroid:true},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'anagram', dof:false, polaroid:true}
   ];
 
   scenes.forEach((scene) => {

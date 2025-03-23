@@ -67,7 +67,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   // cam 2
   // cam 2
-  this.polaroid(0.0 ,-.8, .95 , 5,.23,'introPolaroid.color.fbo',{visible:false});
+  this.polaroid(0.0 ,-.8, .95 , 5,.23,'anagram.color.fbo',{visible:false});
   this.polaroid(0.0 ,-.65, .375 , 5,.23,'introPolaroid.color.fbo',{visible:false});
   this.polaroid(0.0 ,-.65 , -.375 , 5,.23,'introPolaroid.color.fbo',{visible:false});
   this.polaroid(0.0 ,-1.5, -.375 , 5,.23,'introPolaroid.color.fbo',{visible:false});
