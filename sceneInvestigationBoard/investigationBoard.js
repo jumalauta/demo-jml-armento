@@ -33,7 +33,8 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.polaroid(0.0 ,-.60, -.97, 15,.37,'chemTrail.color.fbo');
   
   // left center
-  this.polaroid(0.0 ,-1.15, 0, -2,.55,'chemTrail.color.fbo',{visible:false});
+  // Cam 1 photo 3
+  this.polaroid(0.0 ,-1.15, 0, -2,.55,'AsmA.color.fbo',{visible:false});
  
   // left top corner
   this.polaroid(0.0 ,-1.65, 1.0, -10,.33,'chemTrail.color.fbo',{visible:false});
@@ -64,6 +65,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
     // linedraw 1, photo 3
   this.polaroid(0.0 ,.2, -.9, -85,.45,'chemTrail.color.fbo',{visible:false});
 
+  // cam 2
   // cam 2
   this.polaroid(0.0 ,-.8, .95 , 5,.23,'introPolaroid.color.fbo',{visible:false});
   this.polaroid(0.0 ,-.65, .375 , 5,.23,'introPolaroid.color.fbo',{visible:false});

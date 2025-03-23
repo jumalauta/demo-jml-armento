@@ -66,6 +66,8 @@ includeFile('sceneInvestigationBoard/greetings.js');
 includeFile('sceneInvestigationBoard/aliens.js');
 includeFile('sceneInvestigationBoard/introPolaroid.js');
 includeFile('sceneInvestigationBoard/endZoomer.js');
+includeFile('sceneInvestigationBoard/AsmA.js');
+
 
 Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
@@ -184,6 +186,7 @@ Demo.prototype.init = function () {
   this.sceneAliens();
   this.sceneIntroPolaroid();
   this.sceneEndZoomer ();
+  this.sceneAsmA ();
 
   this.loader.setScene('main');
 
@@ -196,8 +199,9 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'flatTorus', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'greetings', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'aliens', dof:false, polaroid:true},
-    {start: 9 *window.pattern, duration: 48*window.pattern, name: 'introPolaroid', dof:false, polaroid:true},
-    {start: 9 *window.pattern, duration: 48*window.pattern, name: 'endZoomer', dof:false, polaroid:true},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'introPolaroid', dof:false, polaroid:true},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'endZoomer', dof:false, polaroid:true},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'AsmA', dof:false, polaroid:true},
   ];
 
   scenes.forEach((scene) => {
