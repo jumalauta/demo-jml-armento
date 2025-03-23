@@ -3,6 +3,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.setScene('investigationBoard');
 
   this.loader.addAnimation({image: '_embedded/defaultWhite.png', color: [{r:.6,g:.3,b:.1}]});
+
   //this.loader.addAnimation({image: 'chemTrail.color.fbo'});
 
   this.loader.addAnimation([
@@ -32,17 +33,15 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.polaroid(0.0 ,-.60, -.97, 15,.37,'chemTrail.color.fbo');
   
   // left center
-  this.polaroid(0.0 ,-1.15, 0, -2,.55,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,-1.15, 0, -2,.55,'chemTrail.color.fbo',{visible:false});
  
   // left top corner
-  this.polaroid(0.0 ,-1.65, 1.0, -10,.33,'chemTrail.color.fbo');
-  this.photo15x10(0.0 ,-1.25, .9, 5,.33,'farjan.color.fbo');
-  this.textPaper(0,-1.25, 1.05, 15, .25, .88,.12,'BIG FÄRJAN IS HIDING THE TRUTH');
-
-
+  this.polaroid(0.0 ,-1.65, 1.0, -10,.33,'chemTrail.color.fbo',{visible:false});
+  this.photo15x10(0.0 ,-1.25, .9, 5,.33,'farjan.color.fbo',{visible:false});
+  this.textPaper(0,-1.25, 1.05, 15, .25, .88,.12,'BIG FÄRJAN IS HIDING THE TRUTH',{visible:false});
   
   // top center
-  this.polaroid(0.0 ,-.22, .95, -1,.25,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,-.22, .95, -1,.25,'chemTrail.color.fbo',{visible:false});
   this.polaroid(0.0 ,-.25, .7, 2,.25,'chemTrail.color.fbo');
   this.polaroid(0.0 ,.0, .95 , -4,.25,'chemTrail.color.fbo');
   this.polaroid(0.0 ,.0, .7, 1,.25,'chemTrail.color.fbo');
@@ -52,9 +51,9 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.animatedPolaroid(91.0 ,1.0, .65, 5,.28,'aliens.color.fbo', 5.0, 4.5 , 3.55, 5);
 
   // right center
-  this.polaroid(0.0 ,1.5, -.2, 90,.28,'introPolaroid.color.fbo');
+  this.polaroid(0.0 ,1.5, -.2, 90,.28,'introPolaroid.color.fbo',{visible:false});
     // linedraw 1, photo 2
-  this.polaroid(0.0 ,0.9, -.15, 2,.28,'introPolaroid.color.fbo');
+  this.polaroid(0.0 ,0.9, -.15, 2,.28,'introPolaroid.color.fbo',{visible:false});
 
   // right bottom corner
   this.polaroid(0.0 ,1.55, -.7, -3,.25,'chemTrail.color.fbo');
@@ -63,16 +62,53 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   // bottom center
     // linedraw 1, photo 3
-  this.polaroid(0.0 ,.2, -.9, -85,.45,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,.2, -.9, -85,.45,'chemTrail.color.fbo',{visible:false});
 
   // cam 2
-  this.polaroid(0.0 ,-.8, .95 , 5,.23,'introPolaroid.color.fbo');
-  this.polaroid(0.0 ,-.65, .375 , 5,.23,'introPolaroid.color.fbo');
-  this.polaroid(0.0 ,-.65 , -.375 , 5,.23,'introPolaroid.color.fbo');
-  this.polaroid(0.0 ,-1.5, -.375 , 5,.23,'introPolaroid.color.fbo');
+  this.polaroid(0.0 ,-.8, .95 , 5,.23,'introPolaroid.color.fbo',{visible:false});
+  this.polaroid(0.0 ,-.65, .375 , 5,.23,'introPolaroid.color.fbo',{visible:false});
+  this.polaroid(0.0 ,-.65 , -.375 , 5,.23,'introPolaroid.color.fbo',{visible:false});
+  this.polaroid(0.0 ,-1.5, -.375 , 5,.23,'introPolaroid.color.fbo',{visible:false});
+  
+  // upper left corner thread
+  this.addRedThread({
+    shapePoints: [
+      [-1.69, 1.17],
+      [-1.27, 1.07],
+      [-0.8, 1.07],
+      [-0.65, 0.49],
+      [0.015, 0.03], // Finland
+      [1.5, -0.09],
+    ]
+  });
+
+  // upper-central starting cam path thread
+  this.addRedThread({
+    shapePoints: [
+      [-.25, 1.08],
+      [0.9, -0.005],
+      [0.2, -0.71],
+      [-0.64, -0.253],
+      [-1.17, 0.28],
+    ]
+  });
+
+  // upper central-left starting cam path thread
+  this.addRedThread({
+    shapePoints: [
+      [-0.83, 1.05],
+      [-0.67, 0.49],
+      [-0.69, -0.253],
+      [-1.5, -0.258],
+    ]
+  });
+
 }
-Demo.prototype.textPaper = function (startTime, x, y, zAngle, scale, paperScaleX, paperScaleY, textString)
+
+Demo.prototype.textPaper = function (startTime, x, y, zAngle, scale, paperScaleX, paperScaleY, textString, pinConfig)
 {
+  this.addPin(x, y, pinConfig);
+
   this.loader.addAnimation([{
     text:{string:textString,name:"multiSceneEffects/handWriting.ttf"
     },
@@ -108,8 +144,12 @@ Demo.prototype.textPaper = function (startTime, x, y, zAngle, scale, paperScaleX
   ]);
 }
 
-Demo.prototype.polaroid = function (startTime, x, y, zAngle, scale, imageName)
+Demo.prototype.polaroid = function (startTime, x, y, zAngle, scale, imageName, pinConfig)
 {
+  let pinX = x;
+  let pinY = y+scale/2.0;
+  this.addPin(pinX, pinY, pinConfig);
+  
   this.loader.addAnimation([
     {
       start: startTime,
@@ -138,8 +178,12 @@ Demo.prototype.polaroid = function (startTime, x, y, zAngle, scale, imageName)
   ]);
 }
 
-Demo.prototype.animatedPolaroid = function (startTime, x, y, zAngle, scale, imageName, animDuration, xStart,yStart, zStart)
+Demo.prototype.animatedPolaroid = function (startTime, x, y, zAngle, scale, imageName, animDuration, xStart,yStart, zStart, pinConfig)
 {
+  let pinX = x;
+  let pinY = y+scale/2.0;
+  this.addPin(pinX, pinY, {x:0, y:0, startTime:startTime+0.2, animDuration:animDuration, zStart:zStart, ...pinConfig});
+
   this.loader.addAnimation([
     {
       start: startTime,
@@ -168,9 +212,11 @@ Demo.prototype.animatedPolaroid = function (startTime, x, y, zAngle, scale, imag
   ]);
 }
 
-Demo.prototype.photo15x10 = function (startTime, x, y, zAngle, scale, imageName)
+Demo.prototype.photo15x10 = function (startTime, x, y, zAngle, scale, imageName, pinConfig)
 {
-
+  let pinX = x;
+  let pinY = y+scale/2.0;
+  this.addPin(pinX, pinY, pinConfig);
 
   this.loader.addAnimation([
     {

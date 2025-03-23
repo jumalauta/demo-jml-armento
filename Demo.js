@@ -58,6 +58,7 @@ includeFile('multiSceneEffects/particleStream.js');
 includeFile('multiSceneEffects/EffectStarfield.js');
 includeFile('sceneIntro/intro.js');
 includeFile('sceneInvestigationBoard/investigationBoard.js');
+includeFile('sceneInvestigationBoard/redThread.js');
 includeFile('sceneInvestigationBoard/chemTrail.js');
 includeFile('sceneInvestigationBoard/farjan.js');
 includeFile('sceneInvestigationBoard/flatTorus.js');
