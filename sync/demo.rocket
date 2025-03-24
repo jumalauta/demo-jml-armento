@@ -183,11 +183,11 @@
 			<key row="456" interpolation="0" value="-1.15"/>
 			<key row="504" interpolation="0" value="0"/>
 			<key row="600" interpolation="0" value="-0.8"/>
-			<key row="616" interpolation="2" value="-0.8"/>
+			<key row="636" interpolation="2" value="-0.8"/>
 			<key row="648" interpolation="0" value="-0.65"/>
-			<key row="664" interpolation="2" value="-0.65"/>
+			<key row="683" interpolation="2" value="-0.65"/>
 			<key row="696" interpolation="0" value="-0.65"/>
-			<key row="712" interpolation="2" value="-0.65"/>
+			<key row="732" interpolation="2" value="-0.65"/>
 			<key row="744" interpolation="0" value="-1.5"/>
 			<key row="792" interpolation="0" value="0"/>
 			<key row="888" interpolation="0" value="1.4"/>
@@ -207,11 +207,11 @@
 			<key row="456" interpolation="0" value="0"/>
 			<key row="504" interpolation="0" value="0"/>
 			<key row="600" interpolation="0" value="0.95"/>
-			<key row="616" interpolation="2" value="0.95"/>
+			<key row="636" interpolation="2" value="0.95"/>
 			<key row="648" interpolation="0" value="0.375"/>
-			<key row="664" interpolation="2" value="0.38"/>
+			<key row="683" interpolation="2" value="0.375"/>
 			<key row="696" interpolation="0" value="-0.375"/>
-			<key row="712" interpolation="2" value="-0.375"/>
+			<key row="732" interpolation="2" value="-0.375"/>
 			<key row="744" interpolation="0" value="-0.375"/>
 			<key row="792" interpolation="0" value="0"/>
 			<key row="888" interpolation="0" value="0.7"/>
@@ -347,9 +347,8 @@
 			<key row="504" interpolation="0" value="1"/>
 		</track>
 		<track name="Anagram:FirstPercentage">
-			<key row="600" interpolation="0" value="0"/>
-			<key row="604" interpolation="1" value="0"/>
-			<key row="616" interpolation="0" value="1"/>
+			<key row="600" interpolation="1" value="0"/>
+			<key row="632" interpolation="0" value="1"/>
 		</track>
 	</tracks>
 	<bookmarks>

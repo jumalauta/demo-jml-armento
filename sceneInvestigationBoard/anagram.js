@@ -2,62 +2,87 @@
 Demo.prototype.sceneAnagram = function () 
 {
   this.loader.setScene('anagram');
-  this.loader.addAnimation({fbo:{name:'anagram',action:'begin',storeDepth:false}});
+  
+  const anagramStartTimes=
+  [
+    196.0*window.tick,
+    220.0*window.tick,
+    244.0*window.tick,
+    268.0*window.tick
+  ];
+  const scrambleOrder=
+  [
+    [7,8,1,9,4,11,18,10,13,14,18,18,2,5,12,15,16,17,3],
+    [9,15,3,12,11,14,6,17,5,4,7,1,16,13,2,8,10],
+    [4,2,11,13,5,14,17,16,7,9,3,1,20,19,8,15,18,10,6,21,12],
+    [16,10,9,4,13,12,6,5,1,7,15,3,17,11,14,8,2,17]
+  ];
+  const inStrings=
+  [
+    `COMMIE_PIT_SUCTIONS`,
+    'POLITICS_DOWNTIME',     
+    'PROPHETIC_AGNOSTICISM',
+    `NEPOTIC_DOOM_TIMES`
+  ];
 
-    this.loader.addAnimation({
-      "light": {
-          "type": "Directional",
-          "properties": { "intensity": 5.85 },
-          "castShadow": false
-      }
-      ,position:[{x:0,y:0,z:5}]
-    });    
+  
+  for(let k=0;k<4;k++)
+  {
+    let inString = inStrings[k];
+    this.loader.addAnimation({fbo:{name:'anagram'+k,action:'begin',storeDepth:false}});
 
-    const scrambleOrder = [8,1,11,3,7,6,9,15,2,16,13,14,4,5,10,0,17];
-    
-    this.loader.addAnimation([{
-        "text":{"string":(()=>stringScrambler(`NEPOTIC DOOM TIMES`,`DEMO COMPETITIONS`,scrambleOrder,Sync.get('Anagram:FirstPercentage'))),
-        "name":"multiSceneEffects/monoSpace.ttf",
-        "parameters": {depth:0.2,bevelEnabled:true,bevelThickness:0.02,bevelSize:0.02,bevelSegments:0}
-        },
-        angle: [
-            {
-              degreesZ: 0
-            } 
-          ],
-        "perspective":"3d",
-        "color":[{"r":()=>Math.random()*4,"g":()=>Math.random()*4,"b":()=>Math.random()*4}],
-
-        position: [
-            {
-              x: 0,
-              y: 0.2,
-              z: 0
-            }
-          ],
-        "scale":[{"uniform3d":1.3}]
-      }]);
-  this.loader.addAnimation({fbo:{name:'anagram',action:'unbind'}});
-}
-
-function stringScrambler(firstString, secondString, scrambleOrder, percentage)
-{
-    let step = 1.0/firstString.length;
-    let stepsChanged = percentage/step;
-    let outputString = "";
-    if(percentage>0)
-    {
-        let charArray1 = firstString.split("");
-        let charArray2 = secondString.split("", stepsChanged);
-
-        for(let i=0;i<stepsChanged;i++)
-        {
-            charArray1[scrambleOrder[i]] = " ";
+        this.loader.addAnimation({
+        "light": {
+            "type": "Directional",
+            "properties": { "intensity": 5.85 },
+            "castShadow": false
         }
-        outputString = charArray1.join("") + '\n' + charArray2.join("");
-    }
-    else outputString = firstString;
-    
-    return outputString;
-}
+        ,position:[{x:0,y:0,z:5}]
+        });    
 
+
+        const charWidth = 0.1;
+        for(let i=0;i<inString.length;i++)
+        {
+            let outString = inString.charAt(i);
+
+            let animPosition = scrambleOrder[k][i];
+            this.loader.addAnimation([{
+                "text":{"string":(outString),
+                "name":"multiSceneEffects/monoSpace.ttf",
+                "parameters": {depth:0.2,bevelEnabled:false,bevelThickness:0.02,bevelSize:0.00,bevelSegments:0}
+                },
+                angle: [
+                    {
+                    degreesZ: 0
+                    } 
+                ],
+                "perspective":"3d",
+                "color":[{"r":1.0,"g":1.0,"b":1.0}],
+
+                position: [
+                    {
+                    x: -1+charWidth*i,
+                    y: 0.2,
+                    z: 0
+                    }
+                    ,{duration:anagramStartTimes[k]+i*.05},
+                    {
+                        x: -1+charWidth*i,
+                        y: 0.2,
+                        z: 0
+                    }
+                    ,{duration:.05},
+                        {
+                            x: -1+charWidth*animPosition,
+                            y: 0.0,
+                            z: 0
+                        }
+                ],
+                "scale":[{"uniform3d":1.3}]
+            }]);
+        }
+    this.loader.addAnimation({fbo:{name:'anagram'+k,action:'unbind'}});
+    }
+
+}
