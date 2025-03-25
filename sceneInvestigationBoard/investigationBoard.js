@@ -20,17 +20,17 @@ Demo.prototype.sceneInvestigationBoard = function () {
       scale: [{ uniform3d: 1.1 }]
     }
   ]);
-
-  // center
+  
+  // center 
   this.photo15x10(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo');
 
   // left bottom corner
-  this.polaroid(0.0 ,-1.65, -.88, -1.5,.43,'chemTrail.color.fbo');
+ // this.polaroid(0.0 ,-1.65, -.88, -1.5,.43,'chemTrail.color.fbo');
   this.polaroid(0.0 ,-1.3, -.9, 2,.38,'flatTorus.color.fbo');
   this.textPaper(0, -1.35, -1.05, 3, .25, .5,.12,'TORUS IS FLAT!');
   this.textPaper(0, -1.21, -1.085, -2, .25, .4,.12,'RESEARCH IT!');
-  this.polaroid(0.0 ,-.95, -.91, -1,.35,'chemTrail.color.fbo');
-  this.polaroid(0.0 ,-.60, -.97, 15,.37,'chemTrail.color.fbo');
+//  this.polaroid(0.0 ,-.95, -.91, -1,.35,'chemTrail.color.fbo');
+//  this.polaroid(0.0 ,-.60, -.97, 15,.37,'chemTrail.color.fbo');
   
   // left center
   // Cam 1 photo 3
@@ -57,10 +57,14 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.polaroid(0.0 ,0.9, -.15, 2,.28,'chess.color.fbo',{visible:false});
 
   // right bottom corner
-  this.polaroid(0.0 ,1.55, -.7, -3,.25,'chemTrail.color.fbo');
-  this.polaroid(0.0 ,1.56, -1., 1,.28,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,1.55, -.7, 90,.25,'chemTrail.color.fbo');
   this.polaroid(0.0 ,1.25, -.9, -2,.45,'chemTrail.color.fbo');
-
+  
+  this.textPaper(0, 1.6, -.97, 20, 1., .16,.16,'');
+  this.text(0, 1.55, -.89, 17, .4,'CHEMTRAILS=');
+  this.text(0, 1.6, -.96, 17, .35,'CLAnDESTINE');
+  this.text(0, 1.63, -1.01, 17, .35,'PARTICLE ENGINE');
+  this.text(0, 1.66, -1.055, 17, .35,'TESTS!?');
   // bottom center
     // linedraw 1, photo 3
   this.polaroid(0.0 ,.2, -.9, -85,.45,'chemTrail.color.fbo',{visible:false});
@@ -140,10 +144,24 @@ Demo.prototype.textPaper = function (startTime, x, y, zAngle, scale, paperScaleX
           degreesY: zAngle,
         }
       ],
-      color: [{r:.45,g:.45,b:.45}],
+      color: [{r:.3 ,g:.3,b:.3}],
       scale: [{ x: scale*paperScaleX, z: scale*paperScaleY }]
     }
   ]);
+}
+
+Demo.prototype.text = function (startTime, x, y, zAngle, scale, textString)
+{
+
+  this.loader.addAnimation([{
+    text:{string:textString,name:"multiSceneEffects/handWriting.ttf"
+    },
+    perspective:"3d", 
+    color:[{"r":0.0,"g":0.0,"b":0.0}],
+    position:[{x:x, y:y}],
+    scale: [{ uniform3d: scale }],
+    angle:[{degreesZ:zAngle+Math.random()}]
+    }]);
 }
 
 Demo.prototype.polaroid = function (startTime, x, y, zAngle, scale, imageName, pinConfig)
