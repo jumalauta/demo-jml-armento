@@ -37,7 +37,8 @@ Demo.prototype.sceneMrna = function ()
       image: ['_embedded/defaultWhite.png'],
       perspective: '3d',
       position:[{"x":0.0,"y":0.0,"z":0.0}],
-      scale: [{ uniform2d: 1.0}],        
+      scale: [{ uniform2d: 1.0}],
+
       "material":{
         depthTest: true,
         depthWrite: true,
@@ -57,6 +58,45 @@ Demo.prototype.sceneMrna = function ()
         ]
       }
   });
+  this.loader.addAnimation([
+    {
+      image: {
+        name: 'images/syringe.png'
+      },
+      perspective: '2d',
+      angle: [
+        {
+
+          degreesZ: ()=>-15+ Math.sin(5.0*getSceneTimeFromStart())
+        }
+      ], 
+      position: [
+        {
+          x: 0,
+          y: 0.05,
+          z: 0
+        }
+      ],  
+      scale: [{ uniform2d: .960 }],
+    }
+  ]);
+
+  this.loader.addAnimation([
+    {
+      image: {
+        name: 'sceneInvestigationBoard/tex_polaroid.png'
+      },
+      perspective: '2d',
+      position: [
+        {
+          x: 0,
+          y: 0,
+          z: 0
+        }
+      ],  
+      scale: [{ uniform2d: 0.9 }],
+    }
+  ]);
 
   this.loader.addAnimation({fbo:{name:'mrna',action:'unbind'}});
 }

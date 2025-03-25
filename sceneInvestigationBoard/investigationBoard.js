@@ -25,10 +25,19 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.photo15x10(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo');
 
   // left bottom corner
-  this.polaroid(0.0 ,-1.65, -.88, -1.5,.43,'mrna.color.fbo');
-  this.polaroid(0.0 ,-1.3, -.9, 2,.38,'flatTorus.color.fbo');
-  this.textPaper(0, -1.35, -1.05, 3, .25, .5,.12,'TORUS IS FLAT!');
-  this.textPaper(0, -1.21, -1.085, -2, .25, .4,.12,'RESEARCH IT!');
+  this.textPaper(0, -1.15, -.71, 6, .35, .5,.5,'',{visible:false});
+  this.polaroid(0.0 ,-1.5, -.78, -15.5,.43,'mrna.color.fbo');
+  
+  this.textPaper(0, -1.65, -0.55, 3, .35, .2,.12,'mRNA',{visible:false});
+  
+  this.text(0, -1.21, -.6, 10, .41,'mETABALL');
+  this.text(0, -1.15, -.675, 5, .36,'RAYMARCHING');
+  this.text(0, -1.1, -.75, 8, .39,'NEARFIELD');
+  this.text(0, -1.15, -.825, 9, .35,'ACTION');
+
+  this.polaroid(0.0 ,-.7, -.9, 2,.38,'flatTorus.color.fbo');
+  this.textPaper(0, -.75, -1.05, 3, .25, .5,.12,'TORUS IS FLAT!');
+  this.textPaper(0, -.61, -1.085, -2, .25, .4,.12,'RESEARCH IT!');
 //  this.polaroid(0.0 ,-.95, -.91, -1,.35,'chemTrail.color.fbo');
 //  this.polaroid(0.0 ,-.60, -.97, 15,.37,'chemTrail.color.fbo');
   

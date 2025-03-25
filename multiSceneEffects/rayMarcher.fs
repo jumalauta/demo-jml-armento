@@ -39,10 +39,7 @@ mat2 Rot(float angle)
 	return mat2(c, -s, s, c);
 }
 
-float smin(float a, float b, float k) {
-    float h = clamp(0.5 + 0.5*(a-b)/k, 0.0, 1.0);
-    return mix(a, b, h) - k*h*(1.0-h);
-}
+
 
 float Cone( vec3 pos, vec3 rot, vec2 c, float h )
 {
@@ -108,26 +105,47 @@ float Carrot( vec3 pos, vec3 rot, float r1, float r2, float h )
   return dot(q, vec2(a,b) ) - r1;
 }
 
-float Sphere(vec3 point, vec3 pos, float scale)
+vec4 Sphere(vec3 point, vec3 pos, float scale, vec3 sphereColor)
 { 
-	return length(point - pos)-scale;
+	return vec4(length(point - pos)-scale, sphereColor);
 }
 
 vec4 Union(vec4 a, vec4 b)
 {
     return a.x < b.x ? a : b; 
 }
+/*
+float smin(float a, float b, float k) {
+    float h = clamp(0.5 + 0.5*(a-b)/k, 0.0, 1.0);
+    return mix(a, b, h) - k*h*(1.0-h);
+}
+*/
+vec4 smin(vec4 a, vec4 b, float k) {
+    float h = clamp(0.5 + 0.5*(a.x-b.x)/k, 0.0, 1.0);
+    float blend = k*h*(1.0-h);
+ 
+    return mix(a, b, h) - vec4(blend, -blend*1.0,-blend*1.0,-blend*1.0);
+}
+
 vec4 GetDist(vec3 point)
 {
     vec4 distObjects;
 
-    vec3 objPos = point-vec3(0.0,-5.0,0.0); //0.,0.0,0.5
+    vec3 objPos1 = vec3((sin(time*3.))*1.5,sin(cos(time*1.5))*5.0,-15.0+sin(sin(time*3.))*1.0);
+    vec3 objPos2 = vec3((-sin(time*1.5))*1.5,sin(cos(-time*3.))*5.0,-15.0+sin(sin(time*3.))*1.0);
+    vec3 objPos3 = vec3(sin(cos(-time*3.))*2.0,sin(cos(-time*2.))*2.0,-15.0+sin(sin(time*1.5))*3.0);
+    vec3 objPos4 = vec3(0.0,(-sin(time*2.5435))*5.0,-15.0+sin(sin(time*1.5))*3.0);
     surfacePos = vec3(0.0,18.0,0.0);
-    //distObjects = Sphere(point, objPos, .725);
+    vec4 sphereObj1 = Sphere(point, objPos1, 1.925, vec3(0.0,0.0,0.0));
+    vec4 sphereObj2 = Sphere(point, objPos2, 1.925, vec3(0.2,.2,.2));
+    vec4 sphereObj3 = Sphere(point, objPos3, 1.925, vec3(1.0,0.6,1.2));
+    vec4 sphereObj4 = Sphere(point, objPos4, 1.925, vec3(0.6,1.1,0.4));
     //distObjects = Carrot(objPos, objRot, 0.1, .3, 1.5);
     //distObjects = min(sand(objPos),surface(surfacePos));
 
-    distObjects = Union(sand(objPos),surface(point-surfacePos));
+    distObjects = smin(sphereObj1, sphereObj2, 1.45);
+    vec4 distObjects2 = smin(sphereObj3, sphereObj4, 1.45);
+    distObjects = smin(distObjects,distObjects2, 1.475);
     //distObjects = sand(surfacePos);
     //distObjects = min(sphere1,distPlane);
 	//distObjects = min (distObjects, sphere2);
@@ -141,7 +159,7 @@ vec4 RayMarch(vec3 rayOrigin, vec3 rayDir)
     float distOrigin = camNear;
     vec3 distColor = vec3(.0,.0,.0);
 	float SURFACE_DIST = .05; // this should be uniform calculated using camera fov
-    vec3 bgColor = vec3(1.0,.0,.0);
+    vec3 bgColor = vec3(0.0,0.0,0.0);
 
     for(float i=0.; i<MAX_STEPS;i++)
     {
@@ -174,7 +192,7 @@ vec3 GetNormal(vec3 point)
 float GetLight(vec3 point)
 {
     
-    vec3 lightPos = camPos+vec3(0.0,15.0,.0);
+    vec3 lightPos = camPos+vec3(0.0,0.,.0);
     //lightPos.xz-=vec2(sin(time),cos(time))*11.;
     vec3 light = normalize(lightPos-point);
 
@@ -192,7 +210,7 @@ float GetLight(vec3 point)
  
 void main()
 {
-    camPos = inCamPos + vec3(time*15.0,.0,.0);
+    camPos = inCamPos;
 
     vec4 dist = RayMarch(camPos, rayDirection); 
     vec3 point = camPos + rayDirection * dist.r;
@@ -204,15 +222,9 @@ void main()
     float ndcDepth = -((camFar + camNear) / (camNear - camFar)) + ((2.0 * (camFar) * camNear) / (camNear - camFar)) / z;
     gl_FragDepth = ((gl_DepthRange.diff * ndcDepth) + gl_DepthRange.near + gl_DepthRange.far) / 2.;
     
-    vec3 bgCol = vec3(0.12,0.22,0.62);
-    if(outro > 0.5)
-    {
-        bgCol = vec3(1.5,0.9,0.0);
-        col = mix(col, bgCol, (dist.x*dist.x)/(MAX_DIST*MAX_DIST));
-    }
-    else
-    {
-        col = mix(col, bgCol, (dist.x)/(MAX_DIST));
-    }
+    vec3 bgCol = vec3(0.0,0.0,0.0);
+
+      //  col = mix(col, bgCol, (dist.x)/(MAX_DIST));
+
     fragColor = vec4(col,1.0);
-}
+} 
