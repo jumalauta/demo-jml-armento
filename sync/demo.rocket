@@ -116,16 +116,17 @@
 		<track name="Cam:Instability">
 			<key row="0" interpolation="0" value="0.15"/>
 			<key row="216" interpolation="0" value="0.01"/>
-			<key row="240" interpolation="0" value="0.15"/>
+			<key row="240" interpolation="0" value="0.05"/>
 			<key row="600" interpolation="0" value="0.05"/>
 		</track>
 		<track name="Cam:Distance">
 			<key row="0" interpolation="0" value="3"/>
 			<key row="216" interpolation="1" value="0.1"/>
 			<key row="239" interpolation="0" value="0.35"/>
-			<key row="240" interpolation="0" value="0.5"/>
-			<key row="264" interpolation="1" value="1"/>
-			<key row="280" interpolation="0" value="3"/>
+			<key row="240" interpolation="0" value="0.45"/>
+			<key row="264" interpolation="1" value="0.35"/>
+			<key row="287" interpolation="0" value="0.4"/>
+			<key row="288" interpolation="0" value="0.5"/>
 			<key row="312" interpolation="0" value="0.4"/>
 			<key row="503" interpolation="0" value="0.5"/>
 			<key row="504" interpolation="0" value="3"/>
@@ -156,8 +157,9 @@
 			<key row="0" interpolation="0" value="0"/>
 			<key row="216" interpolation="1" value="0"/>
 			<key row="239" interpolation="0" value="5"/>
-			<key row="240" interpolation="0" value="-25"/>
-			<key row="264" interpolation="0" value="0"/>
+			<key row="240" interpolation="0" value="-15"/>
+			<key row="264" interpolation="2" value="5"/>
+			<key row="287" interpolation="0" value="-5"/>
 			<key row="312" interpolation="0" value="0"/>
 		</track>
 		<track name="Cam:Pitch">
@@ -171,15 +173,16 @@
 		<track name="Cam:TargetX">
 			<key row="0" interpolation="0" value="0"/>
 			<key row="216" interpolation="0" value="1.53"/>
-			<key row="240" interpolation="1" value="-1.6"/>
+			<key row="240" interpolation="1" value="-1.5"/>
 			<key row="263" interpolation="0" value="-1.4"/>
-			<key row="264" interpolation="0" value="0"/>
+			<key row="264" interpolation="0" value="-1.3"/>
+			<key row="288" interpolation="0" value="1.35"/>
 			<key row="312" interpolation="0" value="-0.1"/>
-			<key row="324" interpolation="2" value="-0.1"/>
+			<key row="340" interpolation="2" value="-0.1"/>
 			<key row="360" interpolation="0" value="0.9"/>
-			<key row="376" interpolation="2" value="0.9"/>
+			<key row="392" interpolation="2" value="0.9"/>
 			<key row="408" interpolation="0" value="0"/>
-			<key row="424" interpolation="2" value="0"/>
+			<key row="440" interpolation="2" value="0"/>
 			<key row="456" interpolation="0" value="-1.15"/>
 			<key row="504" interpolation="0" value="0"/>
 			<key row="600" interpolation="0" value="-0.8"/>
@@ -196,14 +199,16 @@
 		<track name="Cam:TargetY">
 			<key row="0" interpolation="0" value="0"/>
 			<key row="216" interpolation="0" value="-0.2"/>
-			<key row="240" interpolation="0" value="1"/>
-			<key row="264" interpolation="0" value="0"/>
+			<key row="240" interpolation="0" value="0.95"/>
+			<key row="264" interpolation="0" value="-0.89"/>
+			<key row="287" interpolation="0" value="-0.92"/>
+			<key row="288" interpolation="0" value="-0.86"/>
 			<key row="312" interpolation="0" value="1"/>
-			<key row="328" interpolation="2" value="1"/>
+			<key row="340" interpolation="2" value="1"/>
 			<key row="360" interpolation="0" value="-0.1"/>
-			<key row="376" interpolation="2" value="-0.1"/>
+			<key row="392" interpolation="2" value="-0.1"/>
 			<key row="408" interpolation="0" value="-0.9"/>
-			<key row="424" interpolation="2" value="-0.9"/>
+			<key row="440" interpolation="2" value="-0.9"/>
 			<key row="456" interpolation="0" value="0"/>
 			<key row="504" interpolation="0" value="0"/>
 			<key row="600" interpolation="0" value="0.95"/>
