@@ -1,0 +1,218 @@
+in vec2 texCoord;
+in vec3 rayDirection;
+
+out vec4 fragColor;
+
+uniform sampler2D texture0;
+uniform sampler2D texture2;
+uniform float time;
+
+uniform float timeMultiplier;
+uniform float invert;
+uniform float rotation;
+uniform float rotation2;
+uniform float rotation3;
+uniform float speed;
+uniform float MAX_STEPS;
+uniform float mengerdivisor;
+
+uniform vec3 inCamPos;
+uniform float camFov;
+uniform vec3 camDirection;
+uniform float camNear;
+uniform float camFar;
+uniform float outro;
+uniform float carrotPosZ;
+
+vec3 camPos;
+vec3 surfacePos;
+
+#define MAX_DIST 150.0
+
+#define PI 3.14159265359
+#define BOTTOMSCALE 0.25
+#define SURFACESCALE 0.15
+mat2 Rot(float angle) 
+{
+	float s = sin(angle);
+	float c = cos(angle);
+	return mat2(c, -s, s, c);
+}
+
+float smin(float a, float b, float k) {
+    float h = clamp(0.5 + 0.5*(a-b)/k, 0.0, 1.0);
+    return mix(a, b, h) - k*h*(1.0-h);
+}
+
+float Cone( vec3 pos, vec3 rot, vec2 c, float h )
+{
+  vec3 p = pos;
+  float q = length(p.xz);
+  return max(dot(c.xy,vec2(q,p.y)),-h-p.y);
+}
+
+float Capsule( vec3 pos, vec3 rot, float h, float r )
+{
+  pos.y -= clamp( pos.y, 0.0, h );
+  return length( pos ) - r;
+}
+
+
+float rand(vec2 p) {
+	return fract(sin(dot(p, vec2(12.9898, 4.1414))) * 43758.5453);
+}
+
+float noiseTex(vec2 p, float scale) {
+
+	vec2 n = floor(p*(scale));
+	vec2 f = fract(p*(scale));
+    f = vec2(smoothstep(0.,1.,f.x),smoothstep(0.,1.,f.y));
+	float c1 = rand(n), c2 = rand(n+vec2(1.,0.)), c3 = rand(n+vec2(0.,1.)), c4 = rand(n+vec2(1.,1.));
+    return mix(mix(c1,c2,f.x), mix(c3,c4,f.x), f.y);
+}
+
+vec4 sand(vec3 p) {
+    vec3 sandColor = vec3(1.0,.45,.1);
+	float sandPos = p.y - 1.6*noiseTex(p.zx, BOTTOMSCALE) + noiseTex(p.xz*vec2(2.5,1.),BOTTOMSCALE)/(100.+25.0*sin(time)) - noiseTex(p.xz*150.,BOTTOMSCALE)/350.;
+
+    return vec4(sandPos, sandColor);
+}
+
+vec4 surface(vec3 p) {
+    vec3 surfaceColor = vec3(0.0,.0,0.0)*1.7;
+
+    if(camPos.y<surfacePos.y)
+    {
+        p.yz *= Rot(1.0*PI);
+        surfaceColor = vec3(0.2,.25,1.0)*5.5;
+    }
+
+	float surfacePos = p.y - 1.6*noiseTex(p.zx-time*5.,SURFACESCALE) + noiseTex((p.xz+time*4.5)*vec2(1.5,1.),SURFACESCALE) ;
+    
+    return vec4(surfacePos, surfaceColor-vec3(.01*p.z));
+}  
+
+float Carrot( vec3 pos, vec3 rot, float r1, float r2, float h )
+{
+  // sampling independent computations (only depend on shape)
+
+  pos.yz *= Rot(1.5*PI);
+  float b = (r1-r2)/h;
+  float a = sqrt(1.0-b*b);
+
+  // sampling dependant computations
+  vec2 q = vec2( length(pos.xz), pos.y );
+  float k = dot(q,vec2(-b,a));
+  if( k<0.0 ) return length(q) - r1;
+  if( k>a*h ) return length(q-vec2(0.0,h)) - r2;
+  return dot(q, vec2(a,b) ) - r1;
+}
+
+float Sphere(vec3 point, vec3 pos, float scale)
+{ 
+	return length(point - pos)-scale;
+}
+
+vec4 Union(vec4 a, vec4 b)
+{
+    return a.x < b.x ? a : b; 
+}
+vec4 GetDist(vec3 point)
+{
+    vec4 distObjects;
+
+    vec3 objPos = point-vec3(0.0,-5.0,0.0); //0.,0.0,0.5
+    surfacePos = vec3(0.0,18.0,0.0);
+    //distObjects = Sphere(point, objPos, .725);
+    //distObjects = Carrot(objPos, objRot, 0.1, .3, 1.5);
+    //distObjects = min(sand(objPos),surface(surfacePos));
+
+    distObjects = Union(sand(objPos),surface(point-surfacePos));
+    //distObjects = sand(surfacePos);
+    //distObjects = min(sphere1,distPlane);
+	//distObjects = min (distObjects, sphere2);
+
+    return distObjects;
+}
+
+
+vec4 RayMarch(vec3 rayOrigin, vec3 rayDir)
+{
+    float distOrigin = camNear;
+    vec3 distColor = vec3(.0,.0,.0);
+	float SURFACE_DIST = .05; // this should be uniform calculated using camera fov
+    vec3 bgColor = vec3(1.0,.0,.0);
+
+    for(float i=0.; i<MAX_STEPS;i++)
+    {
+        vec3 pointOnRay = rayOrigin+rayDir*distOrigin;        
+        vec4 distScene = GetDist(pointOnRay);
+        distOrigin += distScene.x;
+        if(distOrigin>=MAX_DIST) discard;
+        if(distScene.x<SURFACE_DIST) break;
+
+        distColor = mix (distScene.yzw, bgColor, distOrigin/MAX_DIST );
+
+    }
+    
+    return vec4(distOrigin, distColor);
+}
+
+vec3 GetNormal(vec3 point)
+{
+    vec4 distColor = GetDist(point);
+    float dist = distColor.x;
+    vec2 e = vec2(.05,0.);
+    vec3 normal = dist - vec3(
+        GetDist(point-e.xyy).x, //e.xyy = 0.1,0,0
+        GetDist(point-e.yxy).x,
+        GetDist(point-e.yyx).x); 
+        
+    return normalize(normal);
+}
+
+float GetLight(vec3 point)
+{
+    
+    vec3 lightPos = camPos+vec3(0.0,15.0,.0);
+    //lightPos.xz-=vec2(sin(time),cos(time))*11.;
+    vec3 light = normalize(lightPos-point);
+
+    vec3 normal = GetNormal(point);
+    float diffuse = clamp(dot(normal, light),0.0,1.0);
+    diffuse +=0.5;
+    
+
+    return diffuse;
+}
+
+
+
+
+ 
+void main()
+{
+    camPos = inCamPos + vec3(time*15.0,.0,.0);
+
+    vec4 dist = RayMarch(camPos, rayDirection); 
+    vec3 point = camPos + rayDirection * dist.r;
+    
+    float diffuse = GetLight(point);
+    vec3 col = vec3(dist.y*diffuse, dist.z*diffuse, dist.w*diffuse);
+
+    float z =  (dist.x * dot(camDirection, rayDirection));
+    float ndcDepth = -((camFar + camNear) / (camNear - camFar)) + ((2.0 * (camFar) * camNear) / (camNear - camFar)) / z;
+    gl_FragDepth = ((gl_DepthRange.diff * ndcDepth) + gl_DepthRange.near + gl_DepthRange.far) / 2.;
+    
+    vec3 bgCol = vec3(0.12,0.22,0.62);
+    if(outro > 0.5)
+    {
+        bgCol = vec3(1.5,0.9,0.0);
+        col = mix(col, bgCol, (dist.x*dist.x)/(MAX_DIST*MAX_DIST));
+    }
+    else
+    {
+        col = mix(col, bgCol, (dist.x)/(MAX_DIST));
+    }
+    fragColor = vec4(col,1.0);
+}

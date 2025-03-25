@@ -8,6 +8,5 @@ Demo.prototype.sceneIntro = function () {
   {
     this.addEffectStarfield(0,240, 100, "images/bitfont_"+i+".png", 450,450,500, 5.5, null, 0,0,0);
   }
+
 }
-
-

@@ -40,9 +40,12 @@ Demo.prototype.sceneGreetings = function ()
       }
     ]);
 
+    const greets = `MFX - WIDE LOAD - GORBAT SOFT - UNIQUE - MATT CURRENT - GRAYMARCHERS - BYTERAPERS - FUTURE CREW - CR!SP`;
+    const greetsLen = greets.length*(350./97.);
+
     this.loader.addAnimation([{
-        "text":{"string":`MFX - WIDE LOAD - GORBAT SOFT - UNIQUE - MATT CURRENT - GRAYMARCHERS - BYTERAPERS - FUTURE CREW`,
-        "name":"multiSceneEffects/handWriting.ttf",
+        "text":{"string":greets,
+        "name":"multiSceneEffects/monoSpace.ttf",
         "parameters": {depth:0.2,bevelEnabled:true,bevelThickness:0.02,bevelSize:0.02,bevelSegments:6}
         },
         angle: [
@@ -62,13 +65,12 @@ Demo.prototype.sceneGreetings = function ()
           ],
         "scale":[{"uniform3d":2.0}]
           ,shader:{
-            // heart beat
             vertexShaderPrefix:`
               uniform float time;
               uniform float beater;
+              uniform float lenght;
             `,
             vertexShaderSuffix:`
-              float lenght = 250.;
               float amp = 4.;
               float t = clamp(sin(time * 3.28 + 0.5) * amp, -amp/2., 0.);
               vec3 pos = position;
@@ -76,10 +78,11 @@ Demo.prototype.sceneGreetings = function ()
               pos.y = pos.y + .25*sin(time+pos.x);
               pos.x = mod(pos.x-time*20., lenght);
               pos.z = pos.z;
-
-
               gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-            `
+            `,
+            variable: [
+              { name: 'lenght', value: [greetsLen] }
+            ]
           } 
       }]);
 

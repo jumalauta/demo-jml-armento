@@ -25,7 +25,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.photo15x10(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo');
 
   // left bottom corner
- // this.polaroid(0.0 ,-1.65, -.88, -1.5,.43,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,-1.65, -.88, -1.5,.43,'mrna.color.fbo');
   this.polaroid(0.0 ,-1.3, -.9, 2,.38,'flatTorus.color.fbo');
   this.textPaper(0, -1.35, -1.05, 3, .25, .5,.12,'TORUS IS FLAT!');
   this.textPaper(0, -1.21, -1.085, -2, .25, .4,.12,'RESEARCH IT!');
@@ -48,7 +48,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.polaroid(0.0 ,.0, .7, 1,.25,'chemTrail.color.fbo');
 
   // right top corner
-  this.polaroid(0.0 ,1.37, .7, 5,.75,'greetings.color.fbo');
+  this.polaroid(0.0 ,1.37, .7, -7.5,.75,'greetings.color.fbo');
   this.animatedPolaroid(91.0 ,1.0, .65, 5,.28,'aliens.color.fbo', 5.0, 4.5 , 3.55, 5);
 
   // right center

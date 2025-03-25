@@ -57,6 +57,7 @@ includeFile('multiSceneEffects/EffectExplosion.js');
 includeFile('multiSceneEffects/particleStream.js');
 includeFile('multiSceneEffects/EffectStarfield.js');
 includeFile('sceneIntro/intro.js');
+includeFile('sceneIntro/introTexts.js');
 includeFile('sceneInvestigationBoard/investigationBoard.js');
 includeFile('sceneInvestigationBoard/redThread.js');
 includeFile('sceneInvestigationBoard/chemTrail.js');
@@ -69,6 +70,7 @@ includeFile('sceneInvestigationBoard/endZoomer.js');
 includeFile('sceneInvestigationBoard/AsmA.js');
 includeFile('sceneInvestigationBoard/chess.js');
 includeFile('sceneInvestigationBoard/anagram.js');
+includeFile('sceneInvestigationBoard/mrna.js');
 
 Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
@@ -179,6 +181,7 @@ Demo.prototype.init = function () {
   const pattern = beat*6;
 
   this.sceneIntro();
+  this.sceneIntroTexts();
   this.sceneInvestigationBoard();
   this.sceneChemTrail();
   this.sceneFarjan();
@@ -190,11 +193,13 @@ Demo.prototype.init = function () {
   this.sceneAsmA ();
   this.sceneChess ();
   this.sceneAnagram();
+  this.sceneMrna();
 
   this.loader.setScene('main');
 
   const scenes = [ 
     {start: 0*window.pattern, duration: 9*window.pattern, name: 'intro', dof:true, polaroid:false},
+    {start: 0*window.pattern, duration: 9*window.pattern, name: 'introTexts', dof:false, polaroid:false},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'investigationBoard', dof:true, polaroid:false},
     //polaroid scenes
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'chemTrail', dof:false, polaroid:true},
@@ -206,7 +211,8 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'endZoomer', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'AsmA', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'chess', dof:false, polaroid:true},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'anagram', dof:false, polaroid:true}
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'anagram', dof:false, polaroid:true},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'mrna', dof:false, polaroid:true}
   ];
 
   scenes.forEach((scene) => {
