@@ -44,8 +44,12 @@ Demo.prototype.sceneInvestigationBoard = function () {
   // left center
   // Cam 1 photo 3
   this.polaroid(0.0 ,-1.15, 0, -2,.55,'AsmA.color.fbo',{visible:false});
- 
+  this.polaroid(0.0 ,-1.35, .5, 5,.4,'deepState.color.fbo',{visible:false});
+  this.textPaper(0, -1.65, .6, 3, .35, .36,.12,'DEEP STATE',{visible:false});
+  this.textPaper(0, -1.7, .54, -3, .35, .36,.12,'HoW DEEP',{visible:false});
+  this.textPaper(0, -1.65, .48, 4, .35, .36,.12,'DOES IT GO?!',{visible:false});
   // left top corner
+
   this.polaroid(0.0 ,-1.65, 1.0, -10,.33,'chemTrail.color.fbo',{visible:false});
   this.photo15x10(0.0 ,-1.25, .9, 5,.33,'farjan.color.fbo',{visible:false});
   this.textPaper(0,-1.25, 1.05, 15, .25, .88,.12,'BIG FÄRJAN IS HIDING THE TRUTH',{visible:false});

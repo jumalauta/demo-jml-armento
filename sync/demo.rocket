@@ -59,14 +59,12 @@
 			<key row="215" interpolation="0" value="0"/>
 			<key row="216" interpolation="1" value="0"/>
 			<key row="220" interpolation="0" value="4"/>
-			<key row="239" interpolation="0" value="0"/>
 			<key row="240" interpolation="0" value="4"/>
-			<key row="263" interpolation="0" value="0"/>
 			<key row="264" interpolation="0" value="4"/>
-			<key row="287" interpolation="0" value="0"/>
 			<key row="288" interpolation="0" value="4"/>
-			<key row="311" interpolation="0" value="0"/>
-			<key row="312" interpolation="0" value="4"/>
+			<key row="310" interpolation="2" value="4"/>
+			<key row="312" interpolation="2" value="0"/>
+			<key row="314" interpolation="0" value="4"/>
 		</track>
 		<track name="PostProc:ExposureBoom"/>
 		<track name="PostProc:Contrast">
@@ -133,6 +131,7 @@
 			<key row="504" interpolation="0" value="0.8"/>
 			<key row="510" interpolation="0" value="0.65"/>
 			<key row="516" interpolation="0" value="0.45"/>
+			<key row="592" interpolation="2" value="0.45"/>
 			<key row="600" interpolation="0" value="0.2"/>
 			<key row="792" interpolation="0" value="3"/>
 			<key row="888" interpolation="2" value="0.65"/>
@@ -196,6 +195,9 @@
 			<key row="504" interpolation="0" value="-1.5"/>
 			<key row="510" interpolation="0" value="-1.4"/>
 			<key row="516" interpolation="0" value="-1.35"/>
+			<key row="540" interpolation="2" value="-1.35"/>
+			<key row="552" interpolation="0" value="-1.5"/>
+			<key row="592" interpolation="2" value="-1.5"/>
 			<key row="600" interpolation="0" value="-0.8"/>
 			<key row="636" interpolation="2" value="-0.8"/>
 			<key row="648" interpolation="0" value="-0.65"/>
@@ -223,6 +225,9 @@
 			<key row="456" interpolation="0" value="0"/>
 			<key row="504" interpolation="0" value="-0.8"/>
 			<key row="516" interpolation="0" value="-0.75"/>
+			<key row="540" interpolation="2" value="-0.75"/>
+			<key row="552" interpolation="0" value="0.5"/>
+			<key row="592" interpolation="2" value="0.5"/>
 			<key row="600" interpolation="0" value="0.95"/>
 			<key row="636" interpolation="2" value="0.95"/>
 			<key row="648" interpolation="0" value="0.375"/>

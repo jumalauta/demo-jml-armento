@@ -71,6 +71,7 @@ includeFile('sceneInvestigationBoard/AsmA.js');
 includeFile('sceneInvestigationBoard/chess.js');
 includeFile('sceneInvestigationBoard/anagram.js');
 includeFile('sceneInvestigationBoard/mrna.js');
+includeFile('sceneInvestigationBoard/deepState.js');
 
 Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
@@ -194,6 +195,7 @@ Demo.prototype.init = function () {
   this.sceneChess ();
   this.sceneAnagram();
   this.sceneMrna();
+  this.sceneDeepState();
 
   this.loader.setScene('main');
 
@@ -212,7 +214,8 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'AsmA', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'chess', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'anagram', dof:false, polaroid:true},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'mrna', dof:false, polaroid:true}
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'mrna', dof:false, polaroid:true},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'deepState', dof:false, polaroid:true}
   ];
 
   scenes.forEach((scene) => {

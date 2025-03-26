@@ -14,7 +14,7 @@ uniform float rotation2;
 uniform float rotation3;
 uniform float speed;
 uniform float MAX_STEPS;
-uniform float mengerdivisor;
+
 
 uniform vec3 inCamPos;
 uniform float camFov;
@@ -24,9 +24,11 @@ uniform float camFar;
 uniform float outro;
 uniform float carrotPosZ;
 
+uniform int effectType; // 0 = metaballs, 1 = mengerish tunnel
 vec3 camPos;
 vec3 surfacePos;
 
+float mengerdivisor = 2.0;
 #define MAX_DIST 150.0
 
 #define PI 3.14159265359
@@ -39,8 +41,24 @@ mat2 Rot(float angle)
 	return mat2(c, -s, s, c);
 }
 
+float Cross(vec3 point)
+{
+	point = abs(point);
+	vec3 d = vec3(max(point.x, point.y),
+				  max(point.y, point.z),
+				  max(point.z, point.x));
+	return min(d.x, min(d.y, d.z)) - (1.0/mengerdivisor);
+}
 
-
+float CrossRep(vec3 point)
+{
+	vec3 q = mod(point + 1.0, 2.3) - 1.0;
+	return Cross(q);
+}
+float CrossRepScale(vec3 point, float scale)
+{    
+	return CrossRep(point * scale) / scale;
+}
 float Cone( vec3 pos, vec3 rot, vec2 c, float h )
 {
   vec3 p = pos;
@@ -75,35 +93,8 @@ vec4 sand(vec3 p) {
     return vec4(sandPos, sandColor);
 }
 
-vec4 surface(vec3 p) {
-    vec3 surfaceColor = vec3(0.0,.0,0.0)*1.7;
 
-    if(camPos.y<surfacePos.y)
-    {
-        p.yz *= Rot(1.0*PI);
-        surfaceColor = vec3(0.2,.25,1.0)*5.5;
-    }
 
-	float surfacePos = p.y - 1.6*noiseTex(p.zx-time*5.,SURFACESCALE) + noiseTex((p.xz+time*4.5)*vec2(1.5,1.),SURFACESCALE) ;
-    
-    return vec4(surfacePos, surfaceColor-vec3(.01*p.z));
-}  
-
-float Carrot( vec3 pos, vec3 rot, float r1, float r2, float h )
-{
-  // sampling independent computations (only depend on shape)
-
-  pos.yz *= Rot(1.5*PI);
-  float b = (r1-r2)/h;
-  float a = sqrt(1.0-b*b);
-
-  // sampling dependant computations
-  vec2 q = vec2( length(pos.xz), pos.y );
-  float k = dot(q,vec2(-b,a));
-  if( k<0.0 ) return length(q) - r1;
-  if( k>a*h ) return length(q-vec2(0.0,h)) - r2;
-  return dot(q, vec2(a,b) ) - r1;
-}
 
 vec4 Sphere(vec3 point, vec3 pos, float scale, vec3 sphereColor)
 { 
@@ -131,24 +122,37 @@ vec4 GetDist(vec3 point)
 {
     vec4 distObjects;
 
-    vec3 objPos1 = vec3((sin(time*3.))*1.5,sin(cos(time*1.5))*5.0,-15.0+sin(sin(time*3.))*1.0);
-    vec3 objPos2 = vec3((-sin(time*1.5))*1.5,sin(cos(-time*3.))*5.0,-15.0+sin(sin(time*3.))*1.0);
-    vec3 objPos3 = vec3(sin(cos(-time*3.))*2.0,sin(cos(-time*2.))*2.0,-15.0+sin(sin(time*1.5))*3.0);
-    vec3 objPos4 = vec3(0.0,(-sin(time*2.5435))*5.0,-15.0+sin(sin(time*1.5))*3.0);
-    surfacePos = vec3(0.0,18.0,0.0);
-    vec4 sphereObj1 = Sphere(point, objPos1, 1.925, vec3(0.0,0.0,0.0));
-    vec4 sphereObj2 = Sphere(point, objPos2, 1.925, vec3(0.2,.2,.2));
-    vec4 sphereObj3 = Sphere(point, objPos3, 1.925, vec3(1.0,0.6,1.2));
-    vec4 sphereObj4 = Sphere(point, objPos4, 1.925, vec3(0.6,1.1,0.4));
-    //distObjects = Carrot(objPos, objRot, 0.1, .3, 1.5);
-    //distObjects = min(sand(objPos),surface(surfacePos));
+    if(effectType == 0)
+    {
+        vec3 objPos1 = vec3((sin(time*3.))*1.5,sin(cos(time*1.5))*5.0,-15.0+sin(sin(time*3.))*1.0);
+        vec3 objPos2 = vec3((-sin(time*1.5))*1.5,sin(cos(-time*3.))*5.0,-15.0+sin(sin(time*3.))*1.0);
+        vec3 objPos3 = vec3(sin(cos(-time*3.))*2.0,sin(cos(-time*2.))*2.0,-15.0+sin(sin(time*1.5))*3.0);
+        vec3 objPos4 = vec3(0.0,(-sin(time*2.5435))*5.0,-15.0+sin(sin(time*1.5))*3.0);
+        surfacePos = vec3(0.0,18.0,0.0);
+        vec4 sphereObj1 = Sphere(point, objPos1, 1.925, vec3(0.0,0.0,0.0));
+        vec4 sphereObj2 = Sphere(point, objPos2, 1.925, vec3(0.2,.2,.2));
+        vec4 sphereObj3 = Sphere(point, objPos3, 1.925, vec3(1.0,0.6,1.2));
+        vec4 sphereObj4 = Sphere(point, objPos4, 1.925, vec3(0.6,1.1,0.4));
+        distObjects = smin(sphereObj1, sphereObj2, 1.45);
+        vec4 distObjects2 = smin(sphereObj3, sphereObj4, 1.45);
+        distObjects = smin(distObjects,distObjects2, 1.475);
+    }
+    if(effectType == 1)
+    {
+        float objects;
+        float scale = 1.0;
+        for(int i=0;i<4;i++)
+        {
+            objects = max(objects, -CrossRepScale(point+vec3(.0,.0-.2,-2.*time), scale));
+            scale *=1.55;
+        }
+        vec3 color = vec3(0.0,1.0-(objects*objects)* 5.,0.5);
+        if(objects<.026)
+             color = vec3(0);
 
-    distObjects = smin(sphereObj1, sphereObj2, 1.45);
-    vec4 distObjects2 = smin(sphereObj3, sphereObj4, 1.45);
-    distObjects = smin(distObjects,distObjects2, 1.475);
-    //distObjects = sand(surfacePos);
-    //distObjects = min(sphere1,distPlane);
-	//distObjects = min (distObjects, sphere2);
+        distObjects = vec4(objects, color);
+    }
+    
 
     return distObjects;
 }
@@ -158,7 +162,7 @@ vec4 RayMarch(vec3 rayOrigin, vec3 rayDir)
 {
     float distOrigin = camNear;
     vec3 distColor = vec3(.0,.0,.0);
-	float SURFACE_DIST = .05; // this should be uniform calculated using camera fov
+	float SURFACE_DIST = .025; // this should be uniform calculated using camera fov
     vec3 bgColor = vec3(0.0,0.0,0.0);
 
     for(float i=0.; i<MAX_STEPS;i++)

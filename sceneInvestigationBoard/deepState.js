@@ -1,7 +1,7 @@
-Demo.prototype.sceneMrna = function () 
+Demo.prototype.sceneDeepState = function () 
 {
-  this.loader.setScene('mrna');
-  this.loader.addAnimation({fbo:{name:'mrna',action:'begin',storeDepth:false}});
+  this.loader.setScene('deepState');
+  this.loader.addAnimation({fbo:{name:'deepState',action:'begin',storeDepth:false}});
 
     this.loader.addAnimation({
       "light": {
@@ -12,22 +12,7 @@ Demo.prototype.sceneMrna = function ()
       ,position:[{x:0,y:0,z:5}]
     });    
 
-    this.loader.addAnimation([
-      {
-        image: {
-          name: 'images/sky.png'
-        },
-        perspective: '2d',
-        position: [
-          {
-            x: 0,
-            y: 0,
-            z: 0
-          }
-        ],  
-        scale: [{ uniform2d: 1.9 }],
-      }
-    ]);
+
 
     const deg2rad = 0.01745329251;
     const localCamPos = [0.0, 0.0, 0.0];
@@ -54,32 +39,10 @@ Demo.prototype.sceneMrna = function ()
           {"name":"camNear","type":"mat4","value":[.05]},
           {"name":"camFar","type":"mat4","value":[1000]},
           {"name":"camFov","type":"mat4","value":[camFov]},
-          {"name":"effectType","type":"int","value":[0]}
+          {"name":"effectType","type":"int","value":[1]}
         ]
       }
   });
-  this.loader.addAnimation([
-    {
-      image: {
-        name: 'images/syringe.png'
-      },
-      perspective: '2d',
-      angle: [
-        {
-
-          degreesZ: ()=>-15+ Math.sin(5.0*getSceneTimeFromStart())
-        }
-      ], 
-      position: [
-        {
-          x: 0,
-          y: 0.05,
-          z: 0
-        }
-      ],  
-      scale: [{ uniform2d: .960 }],
-    }
-  ]);
 
   this.loader.addAnimation([
     {
@@ -98,5 +61,5 @@ Demo.prototype.sceneMrna = function ()
     }
   ]);
 
-  this.loader.addAnimation({fbo:{name:'mrna',action:'unbind'}});
+  this.loader.addAnimation({fbo:{name:'deepState',action:'unbind'}});
 }
