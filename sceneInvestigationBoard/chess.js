@@ -92,6 +92,7 @@ Demo.prototype.sceneChess = function ()
           ],
           scale: [{ uniform3d: 0.3 }],
           //color: [{r:.45,g:.0,b:.0}],
+          angle:[{degreesY:()=>getSceneTimeFromStart()*100}]
         }
       );
 

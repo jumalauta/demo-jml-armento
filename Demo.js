@@ -212,14 +212,14 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'introPolaroid', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'endZoomer', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'AsmA', dof:false, polaroid:true},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'chess', dof:false, polaroid:true},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'chess', dof:false, polaroid:true, parameters:{time:()=>Math.sin(getSceneTimeFromStart()*10)*100, pause:()=>Math.sin(getSceneTimeFromStart()*4)<0.0}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'anagram', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'mrna', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'deepState', dof:false, polaroid:true}
   ];
 
   scenes.forEach((scene) => {
-    this.loader.addAnimation({start: scene.start, duration: scene.duration, scene:{name:scene.name, fbo:{name:scene.name + 'Fbo'}}});
+    this.loader.addAnimation({start: scene.start, duration: scene.duration, scene:{name:scene.name, fbo:{name:scene.name + 'Fbo'}}, ...(scene.parameters||{})});
   });
 
   this.loader.addAnimation({fbo:{name:'screenDof',action:'begin',storeDepth:false}});
