@@ -12,20 +12,35 @@ Demo.prototype.sceneAnagram = function ()
   ];
   const scrambleOrder=
   [
-    [7,8,1,9,4,11,18,10,13,14,18,18,2,5,12,15,16,17,3],
-    [9,15,3,12,11,14,6,17,5,4,7,1,16,13,2,8,10],
-    [4,2,11,13,5,14,17,16,7,9,3,1,20,19,8,15,18,10,6,21,12],
-    [16,10,9,4,13,12,6,5,1,7,15,3,17,11,14,8,2,17]
+    [1,2,0,3,7,5,12,1,4,6,9,10,11,4,3,8,2],
+    [4,10,2,9,6,1,1,12,3,2,0,11,8,7,3,5],
+    [3,1,10,4,4,5,6,5,6,2,0,11,2,12,8,7,1,9,7,3],
+    [11,1,4,10,8,7,1,0,2,3,3,6,9,2,5,12]
+  ];
+  const anagramHeights =
+  [
+    [0,0,0,0,0,0,1,1,1,1,1,1,1,2,2,2,2],
+    [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1],
+    [0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1],
+    [0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,2],
+  ];
+  const scrambleHeights =
+  [
+    [1,1,0,1,1,1,1,0,0,1,1,1,1,1,0,1,0],
+    [1,1,0,1,1,0,1,1,0,1,0,1,1,1,1,1],
+    [0,0,1,1,0,1,1,0,0,0,0,1,1,1,1,1,1,1,0,1],
+    [1,0,1,1,1,1,1,0,1,0,1,1,1,0,1,1]
   ];
   const inStrings=
   [
-    `COMMIE_PIT_SUCTIONS`,
-    'POLITICS_DOWNTIME',     
-    'PROPHETIC_AGNOSTICISM',
-    `NEPOTIC_DOOM_TIMES`
+    `COMMIESUCTIONPITS`,     
+    'POLITICSDOWNTIME',     
+    'PROPHETICAGNOSTICISM',
+    `NEPOTICDOOMTIMES`
   ];
-
   
+  
+      
   for(let k=0;k<4;k++)
   {
     let inString = inStrings[k];
@@ -63,19 +78,19 @@ Demo.prototype.sceneAnagram = function ()
                 position: [
                     {
                     x: -1+charWidth*i,
-                    y: 0.2,
+                    y: .4-anagramHeights[k][i]*0.2,
                     z: 0
                     }
                     ,{duration:anagramStartTimes[k]+i*.05},
                     {
                         x: -1+charWidth*i,
-                        y: 0.2,
+                        y: .6-anagramHeights[k][i]*0.2,
                         z: 0
                     }
                     ,{duration:.05},
                         {
-                            x: -1+charWidth*animPosition,
-                            y: 0.0,
+                            x: -.5+charWidth*animPosition,
+                            y: .2-scrambleHeights[k][i]*0.2,
                             z: 0
                         }
                 ],

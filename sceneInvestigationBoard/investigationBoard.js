@@ -23,8 +23,22 @@ Demo.prototype.sceneInvestigationBoard = function () {
   
   // center 
   this.photo15x10(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo');
+  this.textPaperAnimated(124,.1, -.2, 0.3, 5, 0, 2, .35, .2,.12,'???',{visible:false});
+  this.textPaperAnimated(134 ,.1, -.2, 0.3, 5, 0.01, 2, .35, .6 ,.12,'Assembly Summer 2025',{visible:false});
+  this.textPaperAnimated(129,.1, .45, 0.05, 5, 0, 2, .35, .25 ,.12,'290825?',{visible:false});
+  this.textPaperAnimated(133,.1, .51, 0.05, 5, 0.01, 2, .35, .42 ,.12,'31.07.-03.08.2025',{visible:false});
 
-  // left bottom corner
+  this.textPaperAnimated(137,.1, .51, -0.04, 5, 0.0, 2, .35, .42 ,.12,'MESSUKESKUS',{visible:false});
+  
+  //this.textPaperAnimated(125.5,.1, .51, -0.04, 5, 0.0, 2, .35, .42 ,.12,'NIBIRU',{visible:false});
+  this.textPaperAnimated(130,.1, .51, -0.11, 5, 0.01, 2, .35, .40 ,.11,'HÄMEENLINNA',{visible:false});
+  this.textPaperAnimated(132,.1, .505, -0.11, 5, 0.02, -1, .35, .32 ,.11,'HELSINKI',{visible:false});
+
+  this.textPaperAnimated(120.5,.1, .51, -0.19, 5, 0.00, 2, .35, .42 ,.12,'NIBIRU',{visible:false});
+  this.textPaperAnimated(122,.1, .51, -0.19, 5, 0.01, 2, .35, .42 ,.12,'EARTH',{visible:false});
+  this.textPaperAnimated(125,.1, .51, -0.19, 5, 0.02, 2, .35, .42 ,.12,'EUROPE',{visible:false});
+  this.textPaperAnimated(127,.1, .51, -0.19, 5, 0.03, 2, .35, .42 ,.12,'FINLAND',{visible:false});
+  // left bottom corner 
   this.textPaper(0, -1.15, -.71, 6, .35, .5,.5,'',{visible:false});
   this.polaroid(0.0 ,-1.5, -.78, -15.5,.43,'mrna.color.fbo');
   
@@ -82,13 +96,19 @@ Demo.prototype.sceneInvestigationBoard = function () {
     // linedraw 1, photo 3
   this.polaroid(0.0 ,.2, -.9, -85,.45,'chemTrail.color.fbo',{visible:false});
 
-  // cam 2
-  // cam 2
+    // cam 2
   this.polaroid(0.0 ,-.8, .95 , 5,.23,'anagram0.color.fbo',{visible:false});
   this.polaroid(0.0 ,-.65, .375 , 5,.23,'anagram1.color.fbo',{visible:false});
   this.polaroid(0.0 ,-.65 , -.375 , 5,.23,'anagram2.color.fbo',{visible:false});
   this.polaroid(0.0 ,-1.5, -.375 , 5,.23,'anagram3.color.fbo',{visible:false});
   
+  // pre-aliens
+
+  this.polaroid(0.0 ,.67, 1.07, -7.5,.25,'images/invitation_qr.png');
+  this.polaroid(0.0 ,.67, .77, 5.5,.24,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,.67, .47, -9.5,.26,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,.47, .22 , 4.5,.23,'images/invitation_qr.png');
+
   // upper left corner thread
   this.addRedThread({
     shapePoints: [
@@ -129,6 +149,7 @@ Demo.prototype.textPaper = function (startTime, x, y, zAngle, scale, paperScaleX
   this.addPin(x, y, pinConfig);
 
   this.loader.addAnimation([{
+    start:startTime,
     text:{string:textString,name:"multiSceneEffects/handWriting.ttf"
     },
     perspective:"3d", 
@@ -140,7 +161,7 @@ Demo.prototype.textPaper = function (startTime, x, y, zAngle, scale, paperScaleX
 
   this.loader.addAnimation([
     {
-
+      start:startTime,
       object: {
         name: 'sceneInvestigationBoard/paper.obj'
       },
@@ -163,10 +184,51 @@ Demo.prototype.textPaper = function (startTime, x, y, zAngle, scale, paperScaleX
   ]);
 }
 
+Demo.prototype.textPaperAnimated = function (startTime, animDur, x, y, zStart, z, zAngle, scale, paperScaleX, paperScaleY, textString, pinConfig)
+{
+  this.addPin(x, y, pinConfig);
+
+  this.loader.addAnimation([{
+    start:startTime,
+    text:{string:textString,name:"multiSceneEffects/handWriting.ttf"
+    },
+    perspective:"3d", 
+    color:[{"r":0.0,"g":0.0,"b":0.0}],
+    position:[{x:x, y:y, z:z}],
+    scale: [{ uniform3d: scale }],
+    angle:[{degreesZ:zAngle+Math.random()}]
+    }]);
+
+  this.loader.addAnimation([
+    {
+      start:startTime,
+      object: {
+        name: 'sceneInvestigationBoard/paper.obj'
+      },
+      position: [
+        {
+          x: x,
+          y: y,
+          z: z
+        }
+      ],
+      angle: [
+        {
+          degreesX: 90,
+          degreesY: zAngle,
+        }
+      ],
+      color: [{r:.3 ,g:.3,b:.3}],
+      scale: [{ x: scale*paperScaleX, z: scale*paperScaleY }]
+    }
+  ]);
+}
+
 Demo.prototype.text = function (startTime, x, y, zAngle, scale, textString)
 {
 
   this.loader.addAnimation([{
+    start:startTime,
     text:{string:textString,name:"multiSceneEffects/handWriting.ttf"
     },
     perspective:"3d", 
