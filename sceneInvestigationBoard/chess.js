@@ -13,6 +13,14 @@ Demo.prototype.sceneChess = function ()
       ,position:[{x:0,y:0,z:5}]
     });    
 
+    this.loader.addAnimation({
+      image: '_embedded/defaultWhite.png',
+      color: [{r:1.0,g:0.0,b:0.0}],
+      shader: {
+        name: 'sceneInvestigationBoard/chessBoard.fs'
+    }
+    });
+
     this.loader.addAnimation(
       {
         object: {
