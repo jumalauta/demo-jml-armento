@@ -111,7 +111,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0, .48, 1.02, -2, .25, .32,.1,'VISUAL LSD',{visible:false});
   this.textPaper(0, .48, .97, 3, .25, .37,.1,'MIND CONTROL',{visible:false});
 
-  this.polaroid(0.0 ,.67, .77, 5.5,.24,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,.67, .77, 5.5,.24,'culturalMatrix.color.fbo');
   this.textPaper(0, .49, .8, 5, .25, .27,.1,'CULTURAL',{visible:false});
   this.textPaper(0, .50, .76, -2, .25, .26,.1,'MATRIXM',{visible:false});
  
