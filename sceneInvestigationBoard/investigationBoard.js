@@ -69,10 +69,8 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0,-1.25, 1.05, 15, .25, .88,.12,'BIG FÄRJAN IS HIDING THE TRUTH',{visible:false});
   
   // top center
-  this.polaroid(0.0 ,-.22, .95, -1,.25,'chemTrail.color.fbo',{visible:false});
-  this.polaroid(0.0 ,-.25, .7, 2,.25,'chemTrail.color.fbo');
-  this.polaroid(0.0 ,.0, .95 , -4,.25,'chemTrail.color.fbo');
-  this.polaroid(0.0 ,.0, .7, 1,.25,'chemTrail.color.fbo');
+  this.photo15x10(0.0 ,-.22, .95, 90,.25,'images/word_cloud.png',{visible:false});
+
 
   // right top corner
   this.polaroid(0.0 ,1.37, .7, -7.5,.75,'greetings.color.fbo');
