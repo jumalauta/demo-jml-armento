@@ -43,8 +43,8 @@ Demo.prototype.sceneWordCloud = function ()
         additive: true,
         position: [
           {
-            y: 0,
-            x: ()=>-Sync.get('Misc:WordCloudY')*2.0,
+            y: ()=>Sync.get('Misc:WordCloudY')*.5,
+            x: ()=>-Sync.get('Misc:WordCloudY')*.5,
             z: 0
           }
         ],  

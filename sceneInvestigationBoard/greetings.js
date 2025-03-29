@@ -86,23 +86,22 @@ Demo.prototype.sceneGreetings = function ()
           } 
       }]);
 
-/*
-    this.loader.addAnimation([
-      {
-        image: {
-          name: 'sceneInvestigationBoard/tex_polaroid.png'
-        },
-        perspective: '2d',
-        position: [
-          {
-            x: 0,
-            y: 0,
-            z: 0
-          }
-        ],  
-        scale: [{ uniform2d: .9 }],
-      }
-    ]);
-*/
+      this.loader.addAnimation([
+        {
+          image: {
+            name: 'sceneInvestigationBoard/tex_antipolaroid.png'
+          },
+          perspective: '2d',
+          position: [
+            {
+              x: 0,
+              y: 0,
+              z: 0
+            }
+          ],  
+          scale: [{ x: .93, y: .922 }],
+        }
+      ]);        
+
   this.loader.addAnimation({fbo:{name:'greetings',action:'unbind'}});
 }

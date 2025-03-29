@@ -71,36 +71,67 @@ Demo.prototype.sceneAnagram = function ()
           perspective: '2d',
           position: [
             {
-              x: 0,
-              y: 0,
+              x: ()=>.01*Math.cos(2*getSceneTimeFromStart()),
+              y: ()=>.01*Math.sin(getSceneTimeFromStart()),
               z: 0
             }
-          ],  
+          ],
+          color:[{r:0.7,g:0.7,b:0.7}],
           scale: [{ uniform2d: 1.9 }],
         }
       ]);
 
-      this.loader.addAnimation([
+      if(k==1)
+      {
+        this.loader.addAnimation([
+          {
+            object: {
+              name: '3d_models/vhs.obj'
+            },
+            position: [
+              {
+                x: 0, 
+                y: 0,
+                z: -3
+              }
+            ],
+            angle: [
+              {
+                degreesZ: () => 54+78*getSceneTimeFromStart(),
+                degreesY: () => 155*getSceneTimeFromStart(),
+              }
+            ],
+            scale: [{ uniform3d: .07  }]
+          }
+        ]);
+      }
+
+      if(k==3)
         {
-          object: {
-            name: '3d_models/duck.obj'
-          },
-          position: [
+          this.loader.addAnimation([
             {
-              x: 0, 
-              y: 0,
-              z: -3
+              object: {
+                name: '3d_models/duck.obj'
+              },
+              position: [
+                {
+                  x: 0, 
+                  y: 0,
+                  z: -3
+                }
+              ],
+              angle: [
+                {
+
+                  degreesY: () => 155*getSceneTimeFromStart(),
+                }
+              ],
+              scale: [{ uniform3d: .05  }]
             }
-          ],
-          angle: [
-            {
-              degreesY: () => 225*getSceneTimeFromStart(),
-            }
-          ],
-          scale: [{ uniform3d: .05  }]
+          ]);
         }
-      ]);
       
+      const shadeDiff = 0.02;
       const charWidth = 0.155;
       for(let i=0;i<inString.length;i++)
       {
@@ -135,13 +166,67 @@ Demo.prototype.sceneAnagram = function ()
                   ,{duration:.05},
                       {
                           x: -1+charWidth*animPosition,
-                          y: .2-scrambleHeights[k][i]*0.2,
+                          y: -.3-scrambleHeights[k][i]*0.2,
                           z: 0
                       }
               ],
               "scale":[{"uniform3d":2.1}]
           }]);
+
+          this.loader.addAnimation([{
+            "text":{"string":(outString),
+            "name":"multiSceneEffects/monoSpace.ttf",
+            "parameters": {depth:0.2,bevelEnabled:false,bevelThickness:0.02,bevelSize:0.00,bevelSegments:0}
+            },
+            angle: [
+                {
+                degreesZ: 0
+                } 
+            ],
+            "perspective":"3d",
+            "color":[{"r":1.0,"g":1.0,"b":1.0}],
+
+            position: [
+                {
+                x: shadeDiff+-1+charWidth*i + anagramLineOffsets[k]*charWidth*anagramHeights[k][i] + anagramOffsets[k]*charWidth,
+                y: shadeDiff+.4-anagramHeights[k][i]*0.2,
+                z: shadeDiff
+                }
+                ,{duration:anagramStartTimes[k]+i*.05},
+                {
+                    x: shadeDiff+-1+charWidth*i + anagramLineOffsets[k]*charWidth*anagramHeights[k][i]+ anagramOffsets[k]*charWidth,
+                    y: shadeDiff+.6-anagramHeights[k][i]*0.2,
+                    z: shadeDiff
+                }
+                ,{duration:.05},
+                    {
+                        x: shadeDiff-1+charWidth*animPosition,
+                        y: shadeDiff-.3-scrambleHeights[k][i]*0.2,
+                        z: shadeDiff
+                    }
+            ],
+            "scale":[{"uniform3d":2.1}]
+        }]);
+
         }
+
+
+      this.loader.addAnimation([
+        {
+          image: {
+            name: 'sceneInvestigationBoard/tex_antipolaroid.png'
+          },
+          perspective: '2d',
+          position: [
+            {
+              x: 0,
+              y: 0,
+              z: 0
+            }
+          ],  
+          scale: [{ x: .93, y: .922 }],
+        }
+      ]);        
     this.loader.addAnimation({fbo:{name:'anagram'+k,action:'unbind'}});
     }
 
