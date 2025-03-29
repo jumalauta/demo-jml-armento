@@ -1,6 +1,7 @@
 <sync rows="1440">
 	<tracks>
 		<track name="undefined"/>
+		<track name="NaN"/>
 		<track name="General:CamRot">
 			<key value="0" row="0" interpolation="0"/>
 			<key value="2" row="216" interpolation="1"/>
@@ -160,8 +161,10 @@
 			<key value="3" row="1080" interpolation="0"/>
 			<key value="3" row="1120" interpolation="1"/>
 			<key value="2.5" row="1128" interpolation="0"/>
-			<key value="2.5" row="1164" interpolation="1"/>
-			<key value="0.58" row="1176" interpolation="0"/>
+			<key value="2.5" row="1163" interpolation="2"/>
+			<key value="0.5" row="1176" interpolation="2"/>
+			<key value="0.58" row="1180" interpolation="0"/>
+			<key value="3" row="1368" interpolation="0"/>
 		</track>
 		<track name="Cam:Yaw">
 			<key value="0" row="0" interpolation="0"/>
@@ -177,10 +180,12 @@
 			<key value="15" row="792" interpolation="0"/>
 			<key value="-5" row="798" interpolation="0"/>
 			<key value="2" row="804" interpolation="0"/>
+			<key value="0" row="1080" interpolation="0"/>
 			<key value="2" row="1120" interpolation="1"/>
 			<key value="25" row="1128" interpolation="0"/>
-			<key value="25" row="1164" interpolation="1"/>
+			<key value="25" row="1163" interpolation="2"/>
 			<key value="0" row="1176" interpolation="0"/>
+			<key value="0" row="1368" interpolation="0"/>
 		</track>
 		<track name="Cam:Pitch">
 			<key value="0" row="0" interpolation="0"/>
@@ -192,6 +197,8 @@
 			<key value="-15" row="504" interpolation="0"/>
 			<key value="15" row="510" interpolation="0"/>
 			<key value="0" row="516" interpolation="0"/>
+			<key value="0" row="1080" interpolation="0"/>
+			<key value="0" row="1368" interpolation="0"/>
 		</track>
 		<track name="Cam:TargetX">
 			<key value="0" row="0" interpolation="0"/>
@@ -228,8 +235,9 @@
 			<key value="0" row="1080" interpolation="0"/>
 			<key value="0" row="1120" interpolation="1"/>
 			<key value="0.3" row="1128" interpolation="0"/>
-			<key value="0.3" row="1164" interpolation="1"/>
+			<key value="0.3" row="1163" interpolation="2"/>
 			<key value="0.12" row="1176" interpolation="0"/>
+			<key value="0" row="1368" interpolation="0"/>
 		</track>
 		<track name="Cam:TargetY">
 			<key value="0" row="0" interpolation="0"/>
@@ -238,8 +246,8 @@
 			<key value="-0.89" row="264" interpolation="1"/>
 			<key value="-0.92" row="287" interpolation="0"/>
 			<key value="-0.86" row="288" interpolation="0"/>
-			<key value="1" row="312" interpolation="0"/>
-			<key value="1" row="340" interpolation="2"/>
+			<key value="0.95" row="312" interpolation="0"/>
+			<key value="0.95" row="340" interpolation="2"/>
 			<key value="-0.1" row="360" interpolation="0"/>
 			<key value="-0.1" row="392" interpolation="2"/>
 			<key value="-0.9" row="408" interpolation="0"/>
@@ -263,20 +271,24 @@
 			<key value="0.25" row="876" interpolation="0"/>
 			<key value="0.7" row="888" interpolation="0"/>
 			<key value="0" row="1080" interpolation="0"/>
-			<key value="0" row="1164" interpolation="1"/>
+			<key value="0" row="1163" interpolation="2"/>
 			<key value="0.02" row="1176" interpolation="0"/>
+			<key value="0" row="1368" interpolation="0"/>
 		</track>
 		<track name="Cam:TargetZ">
 			<key value="0" row="0" interpolation="0"/>
 			<key value="0" row="264" interpolation="0"/>
 			<key value="0" row="1080" interpolation="0"/>
+			<key value="0" row="1368" interpolation="0"/>
 		</track>
 		<track name="Cam:FOV">
 			<key value="60" row="0" interpolation="0"/>
+			<key value="60" row="1080" interpolation="0"/>
 			<key value="60" row="1120" interpolation="1"/>
 			<key value="50" row="1128" interpolation="0"/>
-			<key value="50" row="1164" interpolation="1"/>
+			<key value="50" row="1160" interpolation="2"/>
 			<key value="60" row="1176" interpolation="0"/>
+			<key value="60" row="1368" interpolation="0"/>
 		</track>
 		<track name="Sub:X"/>
 		<track name="Sub:Rot"/>
@@ -399,6 +411,10 @@
 			<key value="0" row="503" interpolation="0"/>
 			<key value="1" row="504" interpolation="0"/>
 		</track>
+		<track name="Misc:WordCloudY">
+			<key value="0.86" row="312" interpolation="1"/>
+			<key value="-0.86" row="349" interpolation="0"/>
+		</track>
 		<track name="Anagram:FirstPercentage">
 			<key value="0" row="600" interpolation="1"/>
 			<key value="1" row="632" interpolation="0"/>
@@ -410,5 +426,6 @@
 		<bookmark row="552"/>
 		<bookmark row="600"/>
 		<bookmark row="1128"/>
+		<bookmark row="1368"/>
 	</bookmarks>
 </sync>

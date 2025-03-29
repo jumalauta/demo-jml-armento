@@ -74,6 +74,7 @@ includeFile('sceneInvestigationBoard/anagram.js');
 includeFile('sceneInvestigationBoard/mrna.js');
 includeFile('sceneInvestigationBoard/deepState.js');
 includeFile('sceneInvestigationBoard/plasma.js');
+includeFile('sceneInvestigationBoard/wordCloud.js');
 
 Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
@@ -200,6 +201,7 @@ Demo.prototype.init = function () {
   this.sceneMrna();
   this.sceneDeepState();
   this.scenePlasma();
+  this.sceneWordCloud();
 
 
   this.loader.setScene('main');
@@ -222,7 +224,8 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'anagram', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'mrna', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'deepState', dof:false, polaroid:true},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'plasma', dof:false, polaroid:true}
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'plasma', dof:false, polaroid:true},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'wordCloud', dof:false, polaroid:true}
   ];
 
   scenes.forEach((scene) => {

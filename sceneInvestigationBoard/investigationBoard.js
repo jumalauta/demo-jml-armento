@@ -69,8 +69,13 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0,-1.25, 1.05, 15, .25, .88,.12,'BIG FÄRJAN IS HIDING THE TRUTH',{visible:false});
   
   // top center
-  this.photo15x10(0.0 ,-.22, .95, 90,.25,'images/word_cloud.png',{visible:false});
-
+  this.photo15x10(0.0 ,-.22, .95, 90,.25,'wordCloud.color.fbo',{visible:false});
+  this.textPaper(0,.026, 1.1, 5, .35, .28,.1,'DEMOPARTY',{visible:false});
+  this.textPaper(0,.042, 1.05, -2, .35, .34,.1,'ORGANIZATION',{visible:false});
+  this.textPaper(0,.03, .98, 3, .32, .24,.1,'IS HIDING',{visible:false});
+  this.textPaper(0,.03, .9, -3, .45, .265,.09,'THE TRUTH',{visible:false});
+  this.textPaper(0,.0, .83, 1, .35, .21,.1,'BEHIND',{visible:false});
+  this.textPaper(0,.06, .77, -2, .32, .17,.08,'FACTS',{visible:false});
 
   // right top corner
   this.polaroid(0.0 ,1.37, .7, -7.5,.75,'greetings.color.fbo');
