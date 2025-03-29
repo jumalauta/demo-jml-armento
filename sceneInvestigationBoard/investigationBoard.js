@@ -104,10 +104,27 @@ Demo.prototype.sceneInvestigationBoard = function () {
   
   // pre-aliens
 
-  this.polaroid(0.0 ,.67, 1.07, -7.5,.25,'images/invitation_qr.png');
+  
+  this.polaroid(0.0 ,.67, 1.07, -7.5,.25,'plasma.color.fbo');
+  this.textPaper(0, .4, 1.17, 5, .35, .4 ,.1,'MOTIVATIONS?!',{visible:false});
+  this.textPaper(0, .46, 1.07, 5, .25, .45,.1,'OLDSCHOOL EFFECT',{visible:false});
+  this.textPaper(0, .48, 1.02, -2, .25, .32,.1,'VISUAL LSD',{visible:false});
+  this.textPaper(0, .48, .97, 3, .25, .37,.1,'MIND CONTROL',{visible:false});
+
   this.polaroid(0.0 ,.67, .77, 5.5,.24,'chemTrail.color.fbo');
+  this.textPaper(0, .49, .8, 5, .25, .27,.1,'CULTURAL',{visible:false});
+  this.textPaper(0, .50, .76, -2, .25, .26,.1,'MATRIXM',{visible:false});
+ 
+  this.textPaper(0, .65, .67, -2, .2, .57,.1,'the numbers dont match!',{visible:false});
+  
   this.polaroid(0.0 ,.67, .47, -9.5,.26,'chemTrail.color.fbo');
+  this.textPaper(0, .44, .5, 5, .25, .47,.1,'GAME COMPETITION',{visible:false});
+  this.textPaper(0, .44, .45, 5, .25, .50,.1,'MILITARY INDUSTRIAL',{visible:false});
+  this.textPaper(0, .45, .4, -1, .25, .52,.1,'COMPLEX PROPAGANDA',{visible:false});
+  
+
   this.polaroid(0.0 ,.47, .22 , 4.5,.23,'images/invitation_qr.png');
+  
 
   // upper left corner thread
   this.addRedThread({

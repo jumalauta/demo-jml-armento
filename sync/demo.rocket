@@ -214,7 +214,8 @@
 			<key row="732" interpolation="2" value="-0.65"/>
 			<key row="744" interpolation="0" value="-1.5"/>
 			<key row="792" interpolation="0" value="0.65"/>
-			<key row="822" interpolation="1" value="0.65"/>
+			<key row="804" interpolation="1" value="0.65"/>
+			<key row="822" interpolation="1" value="0.55"/>
 			<key row="876" interpolation="0" value="0.47"/>
 			<key row="888" interpolation="0" value="1.4"/>
 			<key row="1080" interpolation="0" value="0"/>
