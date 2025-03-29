@@ -59,6 +59,7 @@ includeFile('multiSceneEffects/EffectStarfield.js');
 includeFile('sceneIntro/intro.js');
 includeFile('sceneIntro/introTexts.js');
 includeFile('sceneInvestigationBoard/investigationBoard.js');
+includeFile('sceneInvestigationBoard/shadow.js');
 includeFile('sceneInvestigationBoard/redThread.js');
 includeFile('sceneInvestigationBoard/chemTrail.js');
 includeFile('sceneInvestigationBoard/farjan.js');
@@ -185,6 +186,7 @@ Demo.prototype.init = function () {
   this.sceneIntro();
   this.sceneIntroTexts();
   this.sceneInvestigationBoard();
+  this.sceneShadow();
   this.sceneChemTrail();
   this.sceneFarjan();
   this.sceneFlatTorus();
@@ -206,6 +208,7 @@ Demo.prototype.init = function () {
     {start: 0*window.pattern, duration: 9*window.pattern, name: 'intro', dof:true, polaroid:false},
     {start: 0*window.pattern, duration: 9*window.pattern, name: 'introTexts', dof:false, polaroid:false},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'investigationBoard', dof:true, polaroid:false},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'shadow', dof:false, polaroid:false},
     //polaroid scenes
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'chemTrail', dof:false, polaroid:true},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'farjan', dof:false, polaroid:true},

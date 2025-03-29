@@ -1,10 +1,10 @@
-
 Demo.prototype.sceneInvestigationBoard = function () {
   this.setScene('investigationBoard');
 
   this.loader.addAnimation({image: '_embedded/defaultWhite.png', color: [{r:.6,g:.3,b:.1}]});
 
   //this.loader.addAnimation({image: 'chemTrail.color.fbo'});
+  this.addShadowFigure();
 
   this.loader.addAnimation([
     {
@@ -20,7 +20,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
       scale: [{ uniform3d: 1.1 }]
     }
   ]);
-  
+
   // center 
   this.photo15x10(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo');
   this.textPaperAnimated(124,.1, -.2, 0.3, 5, 0, 2, .35, .2,.12,'???',{visible:false});
