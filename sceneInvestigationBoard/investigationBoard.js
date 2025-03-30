@@ -44,10 +44,10 @@ Demo.prototype.sceneInvestigationBoard = function () {
   
   this.textPaper(0, -1.65, -0.55, 3, .35, .2,.12,'mRNA',{visible:false});
   
-  this.text(0, -1.21, -.6, 10, .41,'mETABALL');
-  this.text(0, -1.15, -.675, 5, .36,'RAYMARCHING');
-  this.text(0, -1.1, -.75, 8, .39,'NEARFIELD');
-  this.text(0, -1.15, -.825, 9, .35,'ACTION');
+  this.text(0, -1.21, -.6, 10, .41,'mETABALL','handWriting');
+  this.text(0, -1.15, -.675, 5, .36,'RAYMARCHING','handWriting');
+  this.text(0, -1.1, -.75, 8, .39,'NEARFIELD','handWriting');
+  this.text(0, -1.15, -.825, 9, .35,'ACTION','handWriting');
 
   this.polaroid(0.0 ,-.7, -.9, 2,.38,'flatTorus.color.fbo');
   this.textPaper(0, -.75, -1.05, 3, .25, .5,.12,'TORUS IS FLAT!');
@@ -84,17 +84,27 @@ Demo.prototype.sceneInvestigationBoard = function () {
   // right center
   this.polaroid(0.0 ,1.5, -.2, 90,.28,'introPolaroid.color.fbo',{visible:false});
     // linedraw 1, photo 2
-  this.polaroid(0.0 ,0.9, -.15, 2,.28,'chess.color.fbo',{visible:false});
-
+  this.polaroid(0.0 ,0.84, -.14, -3,.28,'chess.color.fbo',{visible:false});
+  this.polaroid(0.0 ,1.07, -.04, 2,.25,'chess.color.fbo',{visible:false});
+  this.textPaper(0,.82, .1, 6, .25, .46,.12,'DARK ASSEMBLY',{visible:false});
+  this.textPaper(0,.76, .04, -3, .25, .23,.12,'OF THE',{visible:false});
+  this.textPaper(0,.89, .04, 4, .4, .162,.09,'ELITE',{visible:false});
+  this.textPaper(0,1.12, -.22, 5, .25, .56,.32,'',{visible:false});
+  this.text(0, 1.08, -.16, 4, .14,'Insider claim:','monoSpace');
+  this.text(0, 1.1, -.194, 4, .14,'"Beginner friendly','monoSpace');
+  this.text(0, 1.093, -.219, 4, .14,'competitions are','monoSpace');
+  this.text(0, 1.114, -.244, 4, .14,'used to recruit new','monoSpace');
+  this.text(0, 1.11, -.274, 4, .14,'cultist acolytes."','monoSpace');
+  this.polaroid(0.0 ,0.8, -.75, -5,.32,'chess.color.fbo',{visible:false});
   // right bottom corner
   this.polaroid(0.0 ,1.55, -.7, 90,.25,'chemTrail.color.fbo');
   this.polaroid(0.0 ,1.25, -.9, -2,.45,'chemTrail.color.fbo');
   
   this.textPaper(0, 1.6, -.97, 20, 1., .16,.16,'');
-  this.text(0, 1.55, -.89, 17, .4,'CHEMTRAILS=');
-  this.text(0, 1.6, -.96, 17, .35,'CLAnDESTINE');
-  this.text(0, 1.63, -1.01, 17, .35,'PARTICLE ENGINE');
-  this.text(0, 1.66, -1.055, 17, .35,'TESTS!?');
+  this.text(0, 1.55, -.89, 17, .4,'CHEMTRAILS=','handWriting');
+  this.text(0, 1.6, -.96, 17, .35,'CLAnDESTINE','handWriting');
+  this.text(0, 1.63, -1.01, 17, .35,'PARTICLE ENGINE','handWriting');
+  this.text(0, 1.66, -1.055, 17, .35,'TESTS!?','handWriting');
   // bottom center
     // linedraw 1, photo 3
   this.polaroid(0.0 ,.2, -.9, -85,.45,'chemTrail.color.fbo',{visible:false});
@@ -244,12 +254,12 @@ Demo.prototype.textPaperAnimated = function (startTime, animDur, x, y, zStart, z
   ]);
 }
 
-Demo.prototype.text = function (startTime, x, y, zAngle, scale, textString)
+Demo.prototype.text = function (startTime, x, y, zAngle, scale, textString, font)
 {
-
+//"multiSceneEffects/handWriting.ttf"
   this.loader.addAnimation([{
     start:startTime,
-    text:{string:textString,name:"multiSceneEffects/handWriting.ttf"
+    text:{string:textString,name:"multiSceneEffects/" + font + ".ttf"
     },
     perspective:"3d", 
     color:[{"r":0.0,"g":0.0,"b":0.0}],
@@ -258,6 +268,7 @@ Demo.prototype.text = function (startTime, x, y, zAngle, scale, textString)
     angle:[{degreesZ:zAngle+Math.random()}]
     }]);
 }
+
 
 Demo.prototype.polaroid = function (startTime, x, y, zAngle, scale, imageName, pinConfig)
 {

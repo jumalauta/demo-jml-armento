@@ -106,6 +106,31 @@ Demo.prototype.sceneAnagram = function ()
         ]);
       }
 
+      if(k==2)
+        {
+          this.loader.addAnimation([
+            {
+              object: {
+                name: '3d_models/squareCompass.obj'
+              },
+              position: [
+                {
+                  x: 0, 
+                  y: 0,
+                  z: -3
+                }
+              ],
+              angle: [
+                {
+                  degreesX: 90,
+                  degreesZ: () => -145*getSceneTimeFromStart(),
+                }
+              ],
+              scale: [{ uniform3d: 1.1  }]
+            }
+          ]);
+        }
+
       if(k==3)
         {
           this.loader.addAnimation([
@@ -154,19 +179,19 @@ Demo.prototype.sceneAnagram = function ()
               position: [
                   {
                   x: -1+charWidth*i + anagramLineOffsets[k]*charWidth*anagramHeights[k][i] + anagramOffsets[k]*charWidth,
-                  y: .4-anagramHeights[k][i]*0.2,
+                  y: .6-anagramHeights[k][i]*0.2,
                   z: 0
                   }
                   ,{duration:anagramStartTimes[k]+i*.05},
                   {
                       x: -1+charWidth*i + anagramLineOffsets[k]*charWidth*anagramHeights[k][i]+ anagramOffsets[k]*charWidth,
-                      y: .6-anagramHeights[k][i]*0.2,
+                      y: .8-anagramHeights[k][i]*0.2,
                       z: 0
                   }
                   ,{duration:.05},
                       {
                           x: -1+charWidth*animPosition,
-                          y: -.3-scrambleHeights[k][i]*0.2,
+                          y: -.5-scrambleHeights[k][i]*0.2,
                           z: 0
                       }
               ],
@@ -189,19 +214,19 @@ Demo.prototype.sceneAnagram = function ()
             position: [
                 {
                 x: shadeDiff+-1+charWidth*i + anagramLineOffsets[k]*charWidth*anagramHeights[k][i] + anagramOffsets[k]*charWidth,
-                y: shadeDiff+.4-anagramHeights[k][i]*0.2,
+                y: shadeDiff+.6-anagramHeights[k][i]*0.2,
                 z: shadeDiff
                 }
                 ,{duration:anagramStartTimes[k]+i*.05},
                 {
                     x: shadeDiff+-1+charWidth*i + anagramLineOffsets[k]*charWidth*anagramHeights[k][i]+ anagramOffsets[k]*charWidth,
-                    y: shadeDiff+.6-anagramHeights[k][i]*0.2,
+                    y: shadeDiff+.8-anagramHeights[k][i]*0.2,
                     z: shadeDiff
                 }
                 ,{duration:.05},
                     {
                         x: shadeDiff-1+charWidth*animPosition,
-                        y: shadeDiff-.3-scrambleHeights[k][i]*0.2,
+                        y: shadeDiff-.5-scrambleHeights[k][i]*0.2,
                         z: shadeDiff
                     }
             ],

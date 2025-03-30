@@ -50,6 +50,8 @@
 			<key value="1" row="539" interpolation="0"/>
 			<key value="0.85" row="546" interpolation="1"/>
 			<key value="1" row="551" interpolation="0"/>
+			<key value="0" row="1076" interpolation="1"/>
+			<key value="1" row="1080" interpolation="0"/>
 			<key value="0" row="1362" interpolation="0"/>
 			<key value="1" row="1368" interpolation="0"/>
 		</track>
@@ -108,6 +110,9 @@
 			<key value="0" row="538" interpolation="0"/>
 			<key value="0.005" row="546" interpolation="1"/>
 			<key value="0" row="550" interpolation="0"/>
+			<key value="0" row="1076" interpolation="1"/>
+			<key value="0.1" row="1078" interpolation="1"/>
+			<key value="0" row="1080" interpolation="0"/>
 		</track>
 		<track name="Light:R">
 			<key value="1" row="0" interpolation="0"/>
@@ -162,10 +167,10 @@
 			<key value="0.65" row="1048" interpolation="2"/>
 			<key value="0.5" row="1051" interpolation="2"/>
 			<key value="0.75" row="1064" interpolation="2"/>
-			<key value="0.65" row="1079" interpolation="0"/>
-			<key value="3" row="1080" interpolation="0"/>
-			<key value="3" row="1120" interpolation="2"/>
-			<key value="2.5" row="1128" interpolation="0"/>
+			<key value="0.65" row="1076" interpolation="1"/>
+			<key value="0.29" row="1080" interpolation="0"/>
+			<key value="0.29" row="1120" interpolation="2"/>
+			<key value="2.5" row="1136" interpolation="0"/>
 			<key value="2.5" row="1163" interpolation="2"/>
 			<key value="0.5" row="1176" interpolation="2"/>
 			<key value="0.58" row="1180" interpolation="0"/>
@@ -188,9 +193,10 @@
 			<key value="15" row="792" interpolation="0"/>
 			<key value="-5" row="798" interpolation="0"/>
 			<key value="2" row="804" interpolation="0"/>
+			<key value="2" row="1076" interpolation="1"/>
 			<key value="0" row="1080" interpolation="0"/>
 			<key value="0" row="1120" interpolation="2"/>
-			<key value="25" row="1128" interpolation="0"/>
+			<key value="25" row="1136" interpolation="0"/>
 			<key value="25" row="1163" interpolation="2"/>
 			<key value="0" row="1176" interpolation="0"/>
 			<key value="0" row="1368" interpolation="0"/>
@@ -206,6 +212,7 @@
 			<key value="15" row="510" interpolation="0"/>
 			<key value="0" row="516" interpolation="0"/>
 			<key value="0" row="1080" interpolation="0"/>
+			<key value="0" row="1120" interpolation="0"/>
 			<key value="0" row="1368" interpolation="0"/>
 		</track>
 		<track name="Cam:TargetX">
@@ -217,8 +224,8 @@
 			<key value="1.35" row="288" interpolation="0"/>
 			<key value="-0.1" row="312" interpolation="0"/>
 			<key value="-0.1" row="340" interpolation="2"/>
-			<key value="0.9" row="360" interpolation="0"/>
-			<key value="0.9" row="392" interpolation="2"/>
+			<key value="0.92" row="360" interpolation="0"/>
+			<key value="0.92" row="392" interpolation="2"/>
 			<key value="0" row="408" interpolation="0"/>
 			<key value="0" row="440" interpolation="2"/>
 			<key value="-1.15" row="456" interpolation="0"/>
@@ -240,9 +247,10 @@
 			<key value="0.55" row="822" interpolation="1"/>
 			<key value="0.47" row="876" interpolation="0"/>
 			<key value="1.4" row="888" interpolation="0"/>
-			<key value="0" row="1080" interpolation="0"/>
-			<key value="0" row="1120" interpolation="2"/>
-			<key value="0.3" row="1128" interpolation="0"/>
+			<key value="1.4" row="1076" interpolation="1"/>
+			<key value="0.7" row="1080" interpolation="0"/>
+			<key value="0.7" row="1120" interpolation="2"/>
+			<key value="0.3" row="1136" interpolation="0"/>
 			<key value="0.3" row="1163" interpolation="2"/>
 			<key value="0.14" row="1176" interpolation="0"/>
 			<key value="0" row="1368" interpolation="0"/>
@@ -256,8 +264,8 @@
 			<key value="-0.86" row="288" interpolation="0"/>
 			<key value="0.95" row="312" interpolation="0"/>
 			<key value="0.95" row="340" interpolation="2"/>
-			<key value="-0.1" row="360" interpolation="0"/>
-			<key value="-0.1" row="392" interpolation="2"/>
+			<key value="-0.091" row="360" interpolation="0"/>
+			<key value="-0.091" row="392" interpolation="2"/>
 			<key value="-0.9" row="408" interpolation="0"/>
 			<key value="-0.9" row="440" interpolation="2"/>
 			<key value="0" row="456" interpolation="0"/>
@@ -278,7 +286,10 @@
 			<key value="1.05" row="822" interpolation="1"/>
 			<key value="0.25" row="876" interpolation="0"/>
 			<key value="0.7" row="888" interpolation="0"/>
-			<key value="0" row="1080" interpolation="0"/>
+			<key value="0.7" row="1076" interpolation="1"/>
+			<key value="-0.73" row="1080" interpolation="0"/>
+			<key value="-0.73" row="1120" interpolation="2"/>
+			<key value="0" row="1136" interpolation="0"/>
 			<key value="0" row="1163" interpolation="2"/>
 			<key value="0.02" row="1176" interpolation="0"/>
 			<key value="0" row="1368" interpolation="0"/>
@@ -293,7 +304,7 @@
 			<key value="60" row="0" interpolation="0"/>
 			<key value="60" row="1080" interpolation="0"/>
 			<key value="60" row="1120" interpolation="2"/>
-			<key value="50" row="1128" interpolation="0"/>
+			<key value="50" row="1136" interpolation="0"/>
 			<key value="50" row="1160" interpolation="2"/>
 			<key value="60" row="1176" interpolation="0"/>
 			<key value="60" row="1368" interpolation="0"/>
