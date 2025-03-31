@@ -51,6 +51,7 @@ window.tick = window.beat/6;
 window.pattern = window.beat*4;
 window.camNear = 0.0;
 window.camFar = 0.0;
+window.globalTime = 0.0;
 includeFile('multiSceneEffects/PostProcess.js');
 includeFile('multiSceneEffects/dof.js')
 includeFile('multiSceneEffects/EffectExplosion.js');
@@ -218,10 +219,10 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'greetings', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:greetings')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'aliens', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:aliens')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'introPolaroid', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:introPolaroid')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'endZoomer', dof:false, polaroid:true, parameters:{time:()=>getSceneTimeFromStart(), pause:()=>Sync.get('Pause:endZoomer')}},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'endZoomer', dof:false, polaroid:true, parameters:{time:()=>getGlobalTimeFromStart(), pause:()=>Sync.get('Pause:endZoomer')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'AsmA', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:AsmA')}}, 
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'chess', dof:false, polaroid:true, parameters:{time:()=>Math.sin(getSceneTimeFromStart()*10)*100, pause:()=>Math.sin(getSceneTimeFromStart()*4)<0.0}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'anagram', dof:false, polaroid:true, parameters:{time:()=>getSceneTimeFromStart(),pause:()=>Sync.get('Pause:anagram')}},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'anagram', dof:false, polaroid:true, parameters:{time:()=>getGlobalTimeFromStart(),pause:()=>Sync.get('Pause:anagram')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'mrna', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:mrna')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'deepState', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:deepstate')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'plasma', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:plasma')}},

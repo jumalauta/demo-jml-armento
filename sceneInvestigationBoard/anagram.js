@@ -5,10 +5,10 @@ Demo.prototype.sceneAnagram = function ()
   
   const anagramStartTimes=
   [
-    196.0*window.tick,
-    220.0*window.tick,
-    244.0*window.tick,
-    268.0*window.tick
+    196.0*window.tick+4.5*window.pattern,
+    220.0*window.tick+4.5*window.pattern,
+    244.0*window.tick+4.5*window.pattern,
+    268.0*window.tick+4.5*window.pattern
   ];
   const scrambleOrder=
   [
