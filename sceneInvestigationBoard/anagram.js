@@ -4,46 +4,46 @@ Demo.prototype.sceneAnagram = function ()
   this.loader.setScene('anagram');
   
   const anagramStartTimes=
-  [
-    196.0*window.tick+4.5*window.pattern,
-    220.0*window.tick+4.5*window.pattern,
+  [ 
+    196.0*window.tick+4.5*window.pattern,   
+    220.0*window.tick+4.5*window.pattern,    
     244.0*window.tick+4.5*window.pattern,
     268.0*window.tick+4.5*window.pattern
   ];
   const scrambleOrder=
-  [
+  [ 
+    [3+3,1+3,10,4,4+3,5,6,5+3,6+3,2+3,0+3,11,2,12,8,7,1,9,7+3,3],       
     [1,2,0+4.5,3,7,5,12,1+4.5,4+4.5,6,9,10,11,4,3+4.5,8,2+4.5],
     [4,10,2+5,9,6,1+5,1,12,3+5,2,0+5,11,8,7,3,5],
-    [3+3,1+3,10,4,4+3,5,6,5+3,6+3,2+3,0+3,11,2,12,8,7,1,9,7+3,3],
     [11,1+5,4,10,8,7,1,0+5,2,3+5,3,6,9,2+5,5,12]    
   ];
   const scrambleHeights =
-  [
-    [1,1,0,1,1,1,1,0,0,1,1,1,1,1,0,1,0],
-    [1,1,0,1,1,0,1,1,0,1,0,1,1,1,1,1],
+  [   
     [0,0,1,1,0,1,1,0,0,0,0,1,1,1,1,1,1,1,0,1],
+    [1,1,0,1,1,1,1,0,0,1,1,1,1,1,0,1,0],
+    [1,1,0,1,1,0,1,1,0,1,0,1,1,1,1,1],    
     [1,0,1,1,1,1,1,0,1,0,1,1,1,0,1,1]
   ];
 
   const anagramHeights =
-  [
+  [ 
+    [0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1],      
     [-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,1,1,1,1],
-    [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1],
-    [0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1],
+    [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1],    
     [-1,-1,-1,-1,-1,-1,-1,0,0,0,0,1,1,1,1,1],
   ];
 
   const anagramOffsets =
-  [-1,3,3,-1];
+  [3,-1,3,-1];
 
   const anagramLineOffsets =
-  [-4,-8,-10,-5];
+  [-10,-4,-8,-5];
   
   const inStrings=
   [
-    `COMMIESUCTIONPITS`,     
-    'POLITICSDOWNTIME',     
     'PROPHETICAGNOSTICISM',
+    `COMMIESUCTIONPITS`,         
+    'POLITICSDOWNTIME',         
     `NEPOTICDOOMTIMES`
   ];
   
@@ -82,6 +82,31 @@ Demo.prototype.sceneAnagram = function ()
       ]);
 
       if(k==1)
+        {
+          this.loader.addAnimation([
+            {
+              object: {
+                name: '3d_models/airhorn.obj'
+              },
+              position: [
+                {
+                  x: 0, 
+                  y: -.1,
+                  z: -3
+                }
+              ],
+              angle: [
+                {
+                  degreesX: () => 3*Math.sin(3*getSceneTimeFromStart()),
+                  degreesY: () => -155*getSceneTimeFromStart(),
+                }
+              ],
+              scale: [{ uniform3d: ()=>Sync.get('Misc:Airhorn') }]
+            }
+          ]);
+        }
+
+      if(k==2)
       {
         this.loader.addAnimation([
           {
@@ -106,7 +131,7 @@ Demo.prototype.sceneAnagram = function ()
         ]);
       }
 
-      if(k==2)
+      if(k==0)
         {
           this.loader.addAnimation([
             {
@@ -147,8 +172,8 @@ Demo.prototype.sceneAnagram = function ()
               ],
               angle: [
                 {
-
-                  degreesY: () => 155*getSceneTimeFromStart(),
+                  degreesX: () => 15*Math.sin(3*getSceneTimeFromStart()),
+                  degreesY: () => -155*getSceneTimeFromStart(),
                 }
               ],
               scale: [{ uniform3d: .05  }]

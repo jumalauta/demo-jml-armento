@@ -219,7 +219,7 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'greetings', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:greetings')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'aliens', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:aliens')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'introPolaroid', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:introPolaroid')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'endZoomer', dof:false, polaroid:true, parameters:{time:()=>getGlobalTimeFromStart(), pause:()=>Sync.get('Pause:endZoomer')}},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'endZoomer', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:endZoomer')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'AsmA', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:AsmA')}}, 
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'chess', dof:false, polaroid:true, parameters:{time:()=>Math.sin(getSceneTimeFromStart()*10)*100, pause:()=>Math.sin(getSceneTimeFromStart()*4)<0.0}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'anagram', dof:false, polaroid:true, parameters:{time:()=>getGlobalTimeFromStart(),pause:()=>Sync.get('Pause:anagram')}},
