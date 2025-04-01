@@ -222,9 +222,9 @@ void main()
     float diffuse = GetLight(point);
     vec3 col = vec3(dist.y*diffuse, dist.z*diffuse, dist.w*diffuse);
 
-    float z =  (dist.x * dot(camDirection, rayDirection));
-    float ndcDepth = -((camFar + camNear) / (camNear - camFar)) + ((2.0 * (camFar) * camNear) / (camNear - camFar)) / z;
-    gl_FragDepth = ((gl_DepthRange.diff * ndcDepth) + gl_DepthRange.near + gl_DepthRange.far) / 2.;
+  //  float z =  (dist.x * dot(camDirection, rayDirection));
+   // float ndcDepth = -((camFar + camNear) / (camNear - camFar)) + ((2.0 * (camFar) * camNear) / (camNear - camFar)) / z;
+    //gl_FragDepth = ((gl_DepthRange.diff * ndcDepth) + gl_DepthRange.near + gl_DepthRange.far) / 2.;
     
     vec3 bgCol = vec3(0.0,0.0,0.0);
 
