@@ -14,7 +14,81 @@ Demo.prototype.sceneGreetings = function ()
     });    
 
 
-    this.addEffectStarfield(0,240, 100, "multiSceneEffects/tex_basicParticle.png", 450,450,500, 5.5, null, 0,0,0);
+  this.loader.addAnimation([
+    {
+      image: {
+        name: 'images/sky.png'
+      },
+      perspective: '3d',
+      position: [
+        {
+          x: ()=>.01*Math.cos(2*getSceneTimeFromStart()),
+          y: .5,
+          z: -1
+        }
+      ],
+      color:[{r:0.7,g:0.7,b:0.7}],
+      scale: [{ uniform2d: 2.5 }],
+    }
+  ]);
+
+  
+  this.loader.addAnimation({
+    image: ['images/greets_layer_2.png'],
+    perspective: '2d',
+
+    scale: [{ uniform2d: 2.3}],
+    textureProperties: [{ wrapS: 'RepeatWrapping', wrapT: 'RepeatWrapping'}],
+    position: [{y:-.08}],
+
+    color:[{r:0.1,g:0.1,b:0.1}],
+    shader:{
+      name:["multiSceneEffects/uvscroll.fs"],
+      variable:
+      [          
+        {name:"fakeTime","type":"float","value":[()=>getSceneTimeFromStart()*.05]}        
+      ]
+    }
+  });
+
+  this.loader.addAnimation({
+    image: ['images/greets_layer_2.png'],
+    perspective: '2d',
+
+    scale: [{ uniform2d: 2.3}],
+    textureProperties: [{ wrapS: 'RepeatWrapping', wrapT: 'RepeatWrapping'}],
+    position: [{z:-0.2, y:-.17}],
+
+    color:[{r:0.2,g:0.2,b:0.2}],
+    shader:{
+      name:["multiSceneEffects/uvscroll.fs"],
+      variable:
+      [          
+        {name:"fakeTime","type":"float","value":[()=>getSceneTimeFromStart()*.15]}        
+      ]
+    }
+  });
+
+  this.loader.addAnimation({
+    image: ['images/greets_layer_2.png'],
+    perspective: '2d',
+
+    scale: [{ uniform2d: 2.3}],
+    textureProperties: [{ wrapS: 'RepeatWrapping', wrapT: 'RepeatWrapping'}],
+    position: [{z:-0.3, y:-.4}],
+
+    color:[{r:0.35,g:0.35,b:0.35}],
+    shader:{
+      name:["multiSceneEffects/uvscroll.fs"],
+      variable:
+      [          
+        {name:"fakeTime","type":"float","value":[()=>getSceneTimeFromStart()*.2]}        
+      ]
+    }
+  });
+
+
+
 
     this.loader.addAnimation([
       {
@@ -85,13 +159,36 @@ Demo.prototype.sceneGreetings = function ()
             ]
           } 
       }]);
+      
+      this.loader.addAnimation({
+        image: ['images/greets_layer_2.png'],
+        perspective: '3d',
+        scale: [{ uniform2d: 2.3}],
+        textureProperties: [{ wrapS: 'RepeatWrapping', wrapT: 'RepeatWrapping'}],
+        position: [{z:0.1, y:-1.7}],
+        color:[{r:0.5,g:0.5,b:0.5}],
+        material:{
+          transparent:true,
+        },
 
+        shader:{
+          name:["multiSceneEffects/uvscroll.fs"],
+          variable:
+          [          
+            {name:"fakeTime","type":"float","value":[()=>getSceneTimeFromStart()*.25]}        
+          ]
+        }
+      });
+      
       this.loader.addAnimation([
         {
           image: {
             name: 'sceneInvestigationBoard/tex_antipolaroid.png'
           },
           perspective: '2d',
+          material:{
+            transparent:true,
+          },
           position: [
             {
               x: 0,
@@ -102,6 +199,8 @@ Demo.prototype.sceneGreetings = function ()
           scale: [{ x: .93, y: .922 }],
         }
       ]);        
+
+
 
   this.loader.addAnimation({fbo:{name:'greetings',action:'unbind'}});
 }
