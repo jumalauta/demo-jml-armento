@@ -33,7 +33,8 @@ Demo.prototype.sceneDeepState = function ()
         "name":["multiSceneEffects/rayMarcher.vs","multiSceneEffects/rayMarcher.fs"],
         "variable":
         [          
-          {"name":"MAX_STEPS","type":"float","value":[200.0]},
+          {"name":"MAX_STEPS","type":"float","value":[150.0]},
+          {"name":"MAX_DIST","type":"float","value":[40.0]},
           {"name":"inCamPos","type":"vec3","value":[localCamPos]},
           {"name":"camDirection","type":"vec3","value":[localCamDir]},
           {"name":"camNear","type":"mat4","value":[.05]},

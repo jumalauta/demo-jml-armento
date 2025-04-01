@@ -29,7 +29,7 @@ vec3 camPos;
 vec3 surfacePos;
 
 float mengerdivisor = 2.0;
-#define MAX_DIST 150.0
+uniform float MAX_DIST;
 
 #define PI 3.14159265359
 #define BOTTOMSCALE 0.25
