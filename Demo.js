@@ -76,6 +76,7 @@ includeFile('sceneInvestigationBoard/mrna.js');
 includeFile('sceneInvestigationBoard/deepState.js');
 includeFile('sceneInvestigationBoard/plasma.js');
 includeFile('sceneInvestigationBoard/wordCloud.js');
+includeFile('sceneInvestigationBoard/bzm.js');
 
 Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
@@ -203,7 +204,7 @@ Demo.prototype.init = function () {
   this.sceneDeepState();
   this.scenePlasma();
   this.sceneWordCloud();
-
+  this.sceneBzm();
 
   this.loader.setScene('main');
 
@@ -227,6 +228,7 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'deepState', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:deepstate')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'plasma', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:plasma')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'wordCloud', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:wordCloud')}},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'bzm', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:bzm')}},
   ];
 
   scenes.forEach((scene) => {

@@ -88,7 +88,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.polaroid(0.0 ,1.07, -.04, 2,.25,'chess.color.fbo',{visible:false});
   this.textPaper(0,.82, .1, 6, .25, .46,.12,'DARK ASSEMBLY',{visible:false});
   this.textPaper(0,.76, .04, -3, .25, .23,.12,'OF THE',{visible:false});
-  this.textPaper(0,.89, .04, 4, .4, .162,.09,'ELITE',{visible:false});
+  this.textPaper(0,.89, .04, 4 , .4, .162,.09,'ELITE',{visible:false});
   this.textPaper(0,1.12, -.22, 5, .25, .56,.32,'',{visible:false});
   this.text(0, 1.08, -.16, 4, .14,'Insider claim:','monoSpace');
   this.text(0, 1.1, -.194, 4, .14,'"Beginner friendly','monoSpace');
@@ -107,7 +107,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.text(0, 1.66, -1.055, 17, .35,'TESTS!?','handWriting');
   // bottom center
     // linedraw 1, photo 3
-  this.polaroid(0.0 ,.2, -.9, -85,.45,'chemTrail.color.fbo',{visible:false});
+  this.photo15x10(0.0 ,.04, -.88, -5,.35,'bzm.color.fbo',{visible:false});
 
     // cam 2
   this.polaroid(0.0 ,-.8, .95 , 5,.23,'anagram0.color.fbo',{visible:false});
