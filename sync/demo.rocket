@@ -54,6 +54,64 @@
 			<key row="539" interpolation="0" value="1"/>
 			<key row="546" interpolation="1" value="0.85"/>
 			<key row="551" interpolation="0" value="1"/>
+			<key row="558" interpolation="1" value="0.85"/>
+			<key row="563" interpolation="0" value="1"/>
+			<key row="570" interpolation="1" value="0.85"/>
+			<key row="575" interpolation="0" value="1"/>
+			<key row="582" interpolation="1" value="0.85"/>
+			<key row="587" interpolation="0" value="1"/>
+			<key row="594" interpolation="1" value="0.85"/>
+			<key row="599" interpolation="0" value="1"/>
+			<key row="606" interpolation="1" value="0.95"/>
+			<key row="611" interpolation="0" value="1"/>
+			<key row="618" interpolation="1" value="0.95"/>
+			<key row="623" interpolation="0" value="1"/>
+			<key row="630" interpolation="1" value="0.95"/>
+			<key row="635" interpolation="0" value="1"/>
+			<key row="642" interpolation="1" value="0.95"/>
+			<key row="647" interpolation="0" value="1"/>
+			<key row="652" interpolation="1" value="0.95"/>
+			<key row="657" interpolation="0" value="1"/>
+			<key row="660" interpolation="1" value="0.95"/>
+			<key row="665" interpolation="0" value="1"/>
+			<key row="666" interpolation="1" value="0.95"/>
+			<key row="671" interpolation="0" value="1"/>
+			<key row="678" interpolation="1" value="0.95"/>
+			<key row="683" interpolation="0" value="1"/>
+			<key row="690" interpolation="1" value="0.95"/>
+			<key row="695" interpolation="0" value="1"/>
+			<key row="702" interpolation="1" value="0.95"/>
+			<key row="707" interpolation="0" value="1"/>
+			<key row="714" interpolation="1" value="0.95"/>
+			<key row="719" interpolation="0" value="1"/>
+			<key row="726" interpolation="1" value="0.95"/>
+			<key row="731" interpolation="0" value="1"/>
+			<key row="738" interpolation="1" value="0.95"/>
+			<key row="743" interpolation="0" value="1"/>
+			<key row="750" interpolation="1" value="0.95"/>
+			<key row="755" interpolation="0" value="1"/>
+			<key row="762" interpolation="1" value="0.95"/>
+			<key row="767" interpolation="0" value="1"/>
+			<key row="774" interpolation="1" value="0.95"/>
+			<key row="779" interpolation="0" value="1"/>
+			<key row="786" interpolation="1" value="0.95"/>
+			<key row="791" interpolation="0" value="1"/>
+			<key row="900" interpolation="1" value="0.8"/>
+			<key row="907" interpolation="0" value="1"/>
+			<key row="924" interpolation="1" value="0.8"/>
+			<key row="931" interpolation="0" value="1"/>
+			<key row="948" interpolation="1" value="0.8"/>
+			<key row="955" interpolation="0" value="1"/>
+			<key row="972" interpolation="1" value="0.8"/>
+			<key row="979" interpolation="0" value="1"/>
+			<key row="996" interpolation="1" value="0.8"/>
+			<key row="1003" interpolation="0" value="1"/>
+			<key row="1020" interpolation="1" value="0.8"/>
+			<key row="1027" interpolation="0" value="1"/>
+			<key row="1044" interpolation="1" value="0.8"/>
+			<key row="1051" interpolation="0" value="1"/>
+			<key row="1068" interpolation="1" value="0.8"/>
+			<key row="1075" interpolation="0" value="1"/>
 			<key row="1076" interpolation="0" value="0"/>
 			<key row="1079" interpolation="1" value="0"/>
 			<key row="1080" interpolation="0" value="1"/>
@@ -91,6 +149,44 @@
 		</track>
 		<track name="PostProc:LensEffect">
 			<key row="0" interpolation="0" value="0"/>
+			<key row="888" interpolation="1" value="1"/>
+			<key row="893" interpolation="0" value="0"/>
+			<key row="894" interpolation="1" value="1"/>
+			<key row="899" interpolation="0" value="0"/>
+			<key row="912" interpolation="1" value="1"/>
+			<key row="917" interpolation="0" value="0"/>
+			<key row="918" interpolation="1" value="1"/>
+			<key row="923" interpolation="0" value="0"/>
+			<key row="936" interpolation="1" value="1"/>
+			<key row="941" interpolation="0" value="0"/>
+			<key row="942" interpolation="1" value="1"/>
+			<key row="947" interpolation="0" value="0"/>
+			<key row="960" interpolation="1" value="1"/>
+			<key row="965" interpolation="0" value="0"/>
+			<key row="966" interpolation="1" value="1"/>
+			<key row="971" interpolation="0" value="0"/>
+			<key row="984" interpolation="1" value="1"/>
+			<key row="989" interpolation="0" value="0"/>
+			<key row="990" interpolation="1" value="1"/>
+			<key row="995" interpolation="0" value="0"/>
+			<key row="1008" interpolation="1" value="1"/>
+			<key row="1013" interpolation="0" value="0"/>
+			<key row="1014" interpolation="1" value="1"/>
+			<key row="1019" interpolation="0" value="0"/>
+			<key row="1032" interpolation="1" value="1"/>
+			<key row="1037" interpolation="0" value="0"/>
+			<key row="1038" interpolation="1" value="1"/>
+			<key row="1043" interpolation="0" value="0"/>
+			<key row="1056" interpolation="1" value="1"/>
+			<key row="1061" interpolation="0" value="0"/>
+			<key row="1062" interpolation="1" value="1"/>
+			<key row="1067" interpolation="0" value="0"/>
+			<key row="1120" interpolation="1" value="0"/>
+			<key row="1125" interpolation="1" value="5"/>
+			<key row="1130" interpolation="0" value="0"/>
+			<key row="1164" interpolation="1" value="0"/>
+			<key row="1171" interpolation="1" value="2"/>
+			<key row="1179" interpolation="0" value="0"/>
 		</track>
 		<track name="PostProc:Shake">
 			<key row="0" interpolation="0" value="0"/>
@@ -149,6 +245,7 @@
 			<key row="516" interpolation="0" value="0.45"/>
 			<key row="592" interpolation="2" value="0.45"/>
 			<key row="600" interpolation="0" value="0.2"/>
+			<key row="786" interpolation="0" value="0.22"/>
 			<key row="792" interpolation="0" value="0.6"/>
 			<key row="798" interpolation="0" value="0.45"/>
 			<key row="804" interpolation="0" value="0.3"/>
@@ -195,6 +292,16 @@
 			<key row="504" interpolation="0" value="0"/>
 			<key row="510" interpolation="0" value="-15"/>
 			<key row="516" interpolation="0" value="5"/>
+			<key row="552" interpolation="2" value="5"/>
+			<key row="553" interpolation="2" value="2"/>
+			<key row="568" interpolation="0" value="6"/>
+			<key row="592" interpolation="1" value="6"/>
+			<key row="600" interpolation="0" value="0"/>
+			<key row="720" interpolation="2" value="0"/>
+			<key row="721" interpolation="2" value="5"/>
+			<key row="734" interpolation="0" value="0"/>
+			<key row="768" interpolation="2" value="0"/>
+			<key row="784" interpolation="0" value="0"/>
 			<key row="792" interpolation="0" value="15"/>
 			<key row="798" interpolation="0" value="-5"/>
 			<key row="804" interpolation="0" value="2"/>
@@ -216,6 +323,14 @@
 			<key row="504" interpolation="0" value="-15"/>
 			<key row="510" interpolation="0" value="15"/>
 			<key row="516" interpolation="0" value="0"/>
+			<key row="552" interpolation="2" value="0"/>
+			<key row="553" interpolation="2" value="-4"/>
+			<key row="568" interpolation="0" value="0"/>
+			<key row="592" interpolation="1" value="0"/>
+			<key row="600" interpolation="0" value="0"/>
+			<key row="768" interpolation="2" value="0"/>
+			<key row="769" interpolation="2" value="-6"/>
+			<key row="784" interpolation="0" value="0"/>
 			<key row="1080" interpolation="0" value="0"/>
 			<key row="1120" interpolation="0" value="0"/>
 			<key row="1368" interpolation="0" value="0"/>
