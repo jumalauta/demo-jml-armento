@@ -1,4 +1,101 @@
 
+Demo.prototype.meshAsParticles = function ()
+{
+  let startTime = 0;
+  let durationTime = 40;
+  let texture = 'multiSceneEffects/tex_basicParticle.png';
+  let particleSize = 0.02;
+  let parentId = null;
+
+  const meshVertexCount = 782;
+  let particles = new Array(meshVertexCount);
+
+  this.loader.addAnimation(
+    {
+      end:-1,
+      object: {
+        name: '3d_models/chess_tower.obj'
+      },
+      position: [
+        {
+          x: 0.8,
+          y: 0.45,
+          z: 0
+        }
+      ],
+      scale: [{ uniform3d: 0.3 }],
+      objectOnLoadFunction:(meshData) => {
+        if (!meshData.mesh[0].position) {
+          throw new Error("Mesh position not found");
+        }
+        if (meshVertexCount != meshData.mesh[0].position.count/3) {
+          throw new Error("Mesh vertex count mismatch");
+        }
+
+        for (let i = 0; i < particles.length; i++) {
+          const x = meshData.mesh[0].position.array[i*3+0];
+          const y = meshData.mesh[0].position.array[i*3+1];
+          const z = meshData.mesh[0].position.array[i*3+2];
+          particles[i] = {
+            "x": x,
+            "y": y,
+            "z": z,
+          };
+        }
+      }
+      //color: [{r:.45,g:.0,b:.0}],
+    }
+  );
+
+  this.loader.addAnimation({
+    "start":startTime, "duration":durationTime,
+    "image": texture,
+    textureProperties: [{},{minFilter: 'NearestMipmapNearestFilter', magFilter: 'LinearFilter'}],
+    "parent":parentId,
+    position: [
+      {
+        x: 0.8,
+        y: 0.45,
+        z: 0
+      }
+    ],
+    scale: [{ uniform3d: 0.3 }],
+    "perspective": "3d",
+    "billboard": true,
+    "additive": true,
+    "material":{
+      "blending": 'AdditiveBlending',
+      "transparent":true,
+      "depthWrite":false,
+
+    },
+    //"scale":[{"uniform3d":.1}],
+    "instancer": {
+      "count": particles.length,
+      "runInstanceFunction": (properties) => {
+
+        const i = properties.index;
+        const count = properties.count;
+        const time = properties.time;
+        let object = properties.object;
+        let color = properties.color;
+
+        const scale = particleSize;
+        object.scale.x = scale;
+        object.scale.y = scale;
+        object.scale.z = scale;   
+
+        const particle = particles[i];
+
+        object.position.x = particle.x;
+        object.position.y = particle.y;
+        object.position.z = particle.z;
+      }
+    }
+    
+  });
+}
+
 Demo.prototype.sceneChess = function () 
 {
   this.loader.setScene('chess'); 
@@ -21,7 +118,9 @@ Demo.prototype.sceneChess = function ()
     }
     });
 
-    this.loader.addAnimation(
+    this.meshAsParticles();
+
+    /*this.loader.addAnimation(
       {
         object: {
           name: '3d_models/chess_tower.obj'
@@ -36,7 +135,7 @@ Demo.prototype.sceneChess = function ()
         scale: [{ uniform3d: 0.3 }],
         //color: [{r:.45,g:.0,b:.0}],
       }
-    );
+    );*/
     this.loader.addAnimation(
         {
           object: {
