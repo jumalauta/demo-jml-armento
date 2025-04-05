@@ -50,15 +50,31 @@ float Cross(vec3 point)
 	return min(d.x, min(d.y, d.z)) - (1.0/mengerdivisor);
 }
 
+float Sphere ( vec3 point, float size)
+{
+    return length(point)-size;
+}
+
 float CrossRep(vec3 point)
 {
-	vec3 q = mod(point + 1.0, 2.3) - 1.0;
-	return Cross(q);
+	vec3 p = mod(point + 1.0, 2.3) - 1.0;
+	return Cross(p);
 }
 float CrossRepScale(vec3 point, float scale)
 {    
 	return CrossRep(point * scale) / scale;
 }
+
+float SphereRep(vec3 point)
+{
+	vec3 p = mod(point + 1.0, 2.3) - 1.0;
+    return Sphere(p, 1.5);
+}
+float SphereRepScale(vec3 point, float scale)
+{    
+	return SphereRep(point * scale) / scale;
+}
+
 float Cone( vec3 pos, vec3 rot, vec2 c, float h )
 {
   vec3 p = pos;
@@ -143,7 +159,7 @@ vec4 GetDist(vec3 point)
         float scale = 1.0;
         for(int i=0;i<4;i++)
         {
-            objects = max(objects, -CrossRepScale(point+vec3(.0,.0-.2,-2.*time), scale));
+            objects = max(objects, -CrossRepScale(point+vec3(.0,.0,-2.*time), scale));
             scale *=1.55;
         }
         vec3 color = vec3(0.0,1.0-(objects*objects)* 5.,0.5);
@@ -153,7 +169,19 @@ vec4 GetDist(vec3 point)
         distObjects = vec4(objects, color);
     }
     
+    if(effectType == 2)
+    {
+        float objects;
+        float scale = 1.6;
+        for(int i=0;i<2;i++)
+        {
+            objects = max(objects, -SphereRepScale(point+vec3(.0,-.1,-2.), scale));
+            scale *=1.55;
+        }
 
+        vec3 color = vec3(0.0,.65,.75);
+        distObjects = vec4(objects, color);
+    }
     return distObjects;
 }
 
@@ -215,9 +243,21 @@ float GetLight(vec3 point)
 void main()
 {
     camPos = inCamPos;
+    vec3 rayDir = rayDirection;
+    
+    if(effectType==2)
+    {
+        rayDir.xy *= Rot(time*.4);  
+        camPos.z = time;
+    }
+     if(effectType==1)
+    {
+        rayDir.xy *= Rot(-time*.6);  
+    }       
 
-    vec4 dist = RayMarch(camPos, rayDirection); 
-    vec3 point = camPos + rayDirection * dist.r;
+
+    vec4 dist = RayMarch(camPos, rayDir); 
+    vec3 point = camPos + rayDir * dist.r;
     
     float diffuse = GetLight(point);
     vec3 col = vec3(dist.y*diffuse, dist.z*diffuse, dist.w*diffuse);

@@ -84,7 +84,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   // right center
   this.polaroid(0.0 ,1.5, -.2, 90,.28,'introPolaroid.color.fbo',{visible:false});
     // linedraw 1, photo 2
-  this.polaroid(0.0 ,0.84, -.14, -3,.28,'chess.color.fbo',{visible:false});
+  this.polaroid(0.0 ,0.84, -.14, -3,.28,'elite.color.fbo',{visible:false});
   this.polaroid(0.0 ,1.07, -.04, 2,.25,'chess.color.fbo',{visible:false});
   this.textPaper(0,.82, .1, 6, .25, .46,.12,'DARK ASSEMBLY',{visible:false});
   this.textPaper(0,.76, .04, -3, .25, .23,.12,'OF THE',{visible:false});
@@ -190,7 +190,7 @@ Demo.prototype.textPaper = function (startTime, x, y, zAngle, scale, paperScaleX
     position:[{x:x, y:y}],
     scale: [{ uniform3d: scale }],
     angle:[{degreesZ:zAngle+Math.random()}]
-    }]);
+  }]);
 
   this.loader.addAnimation([
     {

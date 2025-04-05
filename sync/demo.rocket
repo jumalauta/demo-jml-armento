@@ -655,6 +655,7 @@
 		<track name="Pause:plasma">
 			<key row="218" interpolation="0" value="1"/>
 			<key row="791" interpolation="0" value="0"/>
+			<key row="871" interpolation="0" value="1"/>
 			<key row="889" interpolation="0" value="1"/>
 		</track>
 		<track name="Pause:wordCloud">
@@ -662,7 +663,21 @@
 			<key row="311" interpolation="0" value="0"/>
 			<key row="350" interpolation="0" value="1"/>
 		</track>
-		<track name="Pause:bzm"/>
+		<track name="Pause:bzm">
+			<key row="218" interpolation="0" value="1"/>
+			<key row="400" interpolation="0" value="0"/>
+			<key row="448" interpolation="0" value="1"/>
+		</track>
+		<track name="Pause:culturalMatrix">
+			<key row="218" interpolation="0" value="1"/>
+			<key row="791" interpolation="0" value="0"/>
+			<key row="872" interpolation="0" value="1"/>
+		</track>
+		<track name="Pause:elite">
+			<key row="218" interpolation="0" value="1"/>
+			<key row="350" interpolation="0" value="0"/>
+			<key row="400" interpolation="0" value="1"/>
+		</track>
 	</tracks>
 	<bookmarks>
 		<bookmark row="312"/>

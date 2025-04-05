@@ -78,6 +78,7 @@ includeFile('sceneInvestigationBoard/plasma.js');
 includeFile('sceneInvestigationBoard/wordCloud.js');
 includeFile('sceneInvestigationBoard/bzm.js');
 includeFile('sceneInvestigationBoard/culturalMatrix.js');
+includeFile('sceneInvestigationBoard/elite.js');
 includeFile('sceneInvestigationBoard/films.js');
 
 Demo.prototype.cameraSetup = function(stopCamAt) {
@@ -208,7 +209,7 @@ Demo.prototype.init = function () {
   this.sceneWordCloud();
   this.sceneBzm();
   this.sceneCulturalMatrix();
-  this.sceneFilms();
+  this.sceneElite();  this.sceneFilms();
 
 
   this.loader.setScene('main');
@@ -235,7 +236,7 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'wordCloud', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:wordCloud')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'bzm', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:bzm')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'culturalMatrix', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:culturalMatrix')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'films', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:films')}},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'elite', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:elite')}}
   ];
 
   scenes.forEach((scene) => {

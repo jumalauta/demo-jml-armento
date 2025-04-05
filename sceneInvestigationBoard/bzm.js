@@ -20,12 +20,12 @@ Demo.prototype.sceneBzm = function ()
         perspective: '2d',
         position: [
           {
-            x: 0,
+            x: ()=>Sync.get('Misc:BZM')*.01*Math.sin(5*getSceneTimeFromStart()),
             y: 0,
             z: 0
           }
         ],  
-        scale: [{ uniform2d: 1.1 }],
+        scale: [{ uniform2d: 1.15 }],
       }
     ]);
 
@@ -37,12 +37,12 @@ Demo.prototype.sceneBzm = function ()
         perspective: '2d',
         position: [
           {
-            x: 0,
+            x: ()=>Sync.get('Misc:BZM')*.01*Math.sin(5*getSceneTimeFromStart()),
             y: 0,
             z: 0
           }
         ],  
-        scale: [{ uniform2d: 1.1 }],
+        scale: [{ uniform2d: 1.15 }],
         color: [{ a: ()=>Sync.get('Misc:BZM') }]
       }
     ]);

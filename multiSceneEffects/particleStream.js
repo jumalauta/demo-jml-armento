@@ -13,7 +13,7 @@ Demo.prototype.addEffectParticleStream = function (startTime, durationTime, amou
       "enabled": false
     };
   }
-
+  let prevTime = 10000;
   let prevIntervalTime = 0;
   let particleIndex = 0;
   this.loader.addAnimation({
@@ -33,6 +33,11 @@ Demo.prototype.addEffectParticleStream = function (startTime, durationTime, amou
     "scale":[{"uniform3d":.1}],
     "angle":[{degreesZ:angle}],
     "runPreFunction": (animation)=>{
+
+      if(prevTime>getSceneTimeFromStart())
+      {
+        prevIntervalTime=getSceneTimeFromStart();
+      }
       if(getSceneTimeFromStart() > prevIntervalTime + interval)
       {
         prevIntervalTime = getSceneTimeFromStart();
@@ -42,6 +47,7 @@ Demo.prototype.addEffectParticleStream = function (startTime, durationTime, amou
 
         particles[particleIndex].enabled = true;
       }
+      prevTime=getSceneTimeFromStart();
     },
     "instancer": {
       "count": particles.length,
