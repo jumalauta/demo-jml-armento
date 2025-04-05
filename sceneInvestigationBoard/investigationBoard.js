@@ -64,7 +64,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0, -1.65, .48, 4, .35, .36,.12,'DOES IT GO?!',{visible:false});
   // left top corner
 
-  this.polaroid(0.0 ,-1.65, 1.0, -10,.33,'chemTrail.color.fbo',{visible:false});
+  this.polaroid(0.0 ,-1.65, 1.0, -10,.33,'film1.color.fbo',{visible:false});
   this.photo15x10(0.0 ,-1.25, .9, 5,.33,'farjan.color.fbo',{visible:false});
   this.textPaper(0,-1.25, 1.05, 15, .25, .88,.12,'BIG FÄRJAN IS HIDING THE TRUTH',{visible:false});
   
@@ -139,6 +139,8 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   this.polaroid(0.0 ,.47, .22 , 4.5,.23,'images/invitation_qr.png');
   
+  this.polaroid(0.0 ,-.41, -.40 , -10,.23,'film2.color.fbo');
+
 
   // upper left corner thread
   this.addRedThread({
