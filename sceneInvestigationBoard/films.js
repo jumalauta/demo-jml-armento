@@ -6,7 +6,7 @@ Demo.prototype.sceneFilms = function ()
 
   this.loader.addAnimation({
     duration: 6*window.pattern,
-    image: {name:"images/film1.mp4", video:{speed:1.0,loop:true} }
+    image: {name:"images/film1.mp4", video:{speed:1.5,loop:true} }
     ,scale:[{x:2.0,y:2.0}]
   });
 
@@ -45,6 +45,12 @@ Demo.prototype.sceneFilms = function ()
   this.loader.addAnimation({
     image: {name:"images/film1.mp4", video:{speed:1.0,loop:true} }
     ,scale:[{x:2.0,y:2.0}]
+  });
+
+  this.loader.addAnimation({
+    image: {name:"images/film2.mp4", video:{speed:4.0,loop:true} }
+    ,scale:[{x:2.0,y:2.0}]
+    ,color:[{a:0.5}]
   });
 
   this.loader.addAnimation(
