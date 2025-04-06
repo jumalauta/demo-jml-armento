@@ -6,8 +6,8 @@ Demo.prototype.sceneIntroTexts = function () {
     this.introText(0, 13, 0, 4, 3, "TRUTH DIVISION");
     this.introText(0, 13, 0, 0, 3, "PRESENTS");
     
-    this.introText(9, 14, 0, 2, 3, "ASSEMBLY SUMMER 2025");
-    this.introText(9, 14, 0, -2, 3, "INVITATION?");
+    this.introText(9, 14, 0, 2, 3, "Summis vita");
+    this.introText(9, 14, 0, -2, 3, "In Armento");
 
 }
 
