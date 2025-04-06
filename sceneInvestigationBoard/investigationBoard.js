@@ -50,8 +50,8 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.text(0, -1.15, -.825, 9, .35,'ACTION','handWriting');
 
   this.polaroid(0.0 ,-.7, -.9, 2,.38,'flatTorus.color.fbo');
-  this.textPaper(0, -.75, -1.05, 3, .25, .5,.12,'TORUS IS FLAT!');
-  this.textPaper(0, -.61, -1.085, -2, .25, .4,.12,'RESEARCH IT!');
+  this.textPaper(0, -.75, -1.05, 3, .25, .5,.12,'TORUS IS FLAT!',{visible:false});
+  this.textPaper(0, -.61, -1.085, -2, .25, .4,.12,'RESEARCH IT!',{visible:false});
 //  this.polaroid(0.0 ,-.95, -.91, -1,.35,'chemTrail.color.fbo');
 //  this.polaroid(0.0 ,-.60, -.97, 15,.37,'chemTrail.color.fbo');
   
@@ -85,7 +85,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.polaroid(0.0 ,1.5, -.2, 90,.28,'introPolaroid.color.fbo',{visible:false});
     // linedraw 1, photo 2
   this.polaroid(0.0 ,0.84, -.14, -3,.28,'elite.color.fbo',{visible:false});
-  this.polaroid(0.0 ,1.07, -.04, 2,.25,'chess.color.fbo',{visible:false});
+  this.polaroid(0.0 ,1.07, -.04, 2,.25,'lamer.color.fbo',{visible:false});
   this.textPaper(0,.82, .1, 6, .25, .46,.12,'DARK ASSEMBLY',{visible:false});
   this.textPaper(0,.76, .04, -3, .25, .23,.12,'OF THE',{visible:false});
   this.textPaper(0,.89, .04, 4 , .4, .162,.09,'ELITE',{visible:false});

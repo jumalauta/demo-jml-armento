@@ -80,6 +80,7 @@ includeFile('sceneInvestigationBoard/bzm.js');
 includeFile('sceneInvestigationBoard/culturalMatrix.js');
 includeFile('sceneInvestigationBoard/elite.js');
 includeFile('sceneInvestigationBoard/films.js');
+includeFile('sceneInvestigationBoard/lamer.js');
 
 Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
@@ -210,7 +211,9 @@ Demo.prototype.init = function () {
   this.sceneBzm();
   this.sceneCulturalMatrix();
   this.sceneElite();
+
   this.sceneFilms();
+  this.sceneLamer();
 
   this.loader.setScene('main');
 
@@ -238,6 +241,7 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'culturalMatrix', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:culturalMatrix')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'elite', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:elite')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'films', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:films')}},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'lamer', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:lamer')}}
   ];
 
   scenes.forEach((scene) => {
