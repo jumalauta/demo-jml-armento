@@ -129,11 +129,11 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0, .48, 1.02, -2, .25, .32,.1,'VISUAL LSD',{visible:false});
   this.textPaper(0, .48, .97, 3, .25, .37,.1,'MIND CONTROL',{visible:false});
 
-  this.polaroid(0.0 ,.67, .77, 5.5,.24,'culturalMatrix.color.fbo');
-  this.textPaper(0, .49, .8, 5, .25, .27,.1,'CULTURAL',{visible:false});
-  this.textPaper(0, .50, .76, -2, .25, .26,.1,'MATRIXM',{visible:false});
+  this.polaroid(0.0 ,.33, .82, 5.5,.19,'culturalMatrix.color.fbo');
+  this.textPaper(0, .46, .87, 5, .25, .27,.1,'CULTURAL',{visible:false});
+  this.textPaper(0, .47 , .83, -2, .25, .26,.1,'MATRIX',{visible:false});
  
-  this.textPaper(0, .65, .67, -2, .2, .57,.1,'the numbers dont match!',{visible:false});
+  this.textPaper(0, .36, .73, -2, .2, .57,.1,'the numbers dont match!',{visible:false});
   
   this.polaroid(0.0 ,.67, .47, -9.5,.26,'military.color.fbo');
   this.textPaper(0, .44, .5, 5, .25, .47,.1,'GAME COMPETITION',{visible:false});
