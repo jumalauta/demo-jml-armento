@@ -46,7 +46,7 @@ const deg2rad = 0.01745329251;
 window.camPos = [0.0,0.0,0.0];
 window.camPosLength = 1.0;
 window.camFov = 0.0;
-window.beat = 60/80;
+window.beat = 60/76;
 window.tick = window.beat/6;
 window.pattern = window.beat*4;
 window.camNear = 0.0;
@@ -81,6 +81,7 @@ includeFile('sceneInvestigationBoard/culturalMatrix.js');
 includeFile('sceneInvestigationBoard/elite.js');
 includeFile('sceneInvestigationBoard/films.js');
 includeFile('sceneInvestigationBoard/lamer.js');
+includeFile('sceneInvestigationBoard/military.js');
 
 Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
@@ -166,11 +167,12 @@ Demo.prototype.setScene = function (sceneName) {
 };
 
 const settings = new Settings();
+
 settings.engine.preload = false;
 settings.demo.renderer.sortObjects = false;
 settings.demo.renderer.logarithmicDepthBuffer = false;
 settings.demo.sync.rocketFile = 'sync/demo.rocket';
-settings.demo.sync.beatsPerMinute = 80;
+settings.demo.sync.beatsPerMinute = 76;
 settings.demo.sync.rowsPerBeat = 6;
 settings.demo.camera.near = 0.1;
 settings.demo.camera.far = 1000.0;
@@ -182,6 +184,8 @@ settings.demo.fbo.color.texture.minFilter = 'NearestFilter';
 settings.demo.fbo.color.texture.magFilter = 'NearestFilter';
 //settings.demo.fbo.color.texture.wrapS = 'RepeatWrapping';
 //settings.demo.fbo.color.texture.wrapT = 'RepeatWrapping';
+
+
 
 Demo.prototype.init = function () {
   const start = 0;
@@ -211,9 +215,9 @@ Demo.prototype.init = function () {
   this.sceneBzm();
   this.sceneCulturalMatrix();
   this.sceneElite();
-
   this.sceneFilms();
   this.sceneLamer();
+  this.sceneMilitary();
 
   this.loader.setScene('main');
 
@@ -241,7 +245,8 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'culturalMatrix', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:culturalMatrix')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'elite', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:elite')}},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'films', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:films')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'lamer', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:lamer')}}
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'lamer', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:lamer')}},
+    {start: 9*window.pattern, duration: 48*window.pattern, name: 'military', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:military')}}
   ];
 
   scenes.forEach((scene) => {

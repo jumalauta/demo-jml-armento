@@ -20,24 +20,24 @@ Demo.prototype.sceneInvestigationBoard = function () {
       scale: [{ uniform3d: 1.1 }]
     }
   ]);
-
+  const endZoomerMultiplier = 100/95;
   // center 
   this.photo15x10(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo');
-  this.textPaperAnimated(124,.5, -.2, 0.3, .5, 0, 2, .35, .2,.12,'???',{visible:false});
-  this.textPaperAnimated(134 ,.5, -.2, 0.3, .5, 0.01, 2, .35, .6 ,.12,'Assembly Summer 2025',{visible:false});
-  this.textPaperAnimated(129,.5, .45, 0.05, .5, 0, 2, .35, .25 ,.12,'290825?',{visible:false});
-  this.textPaperAnimated(133,.5, .51, 0.05, .5, 0.01, 2, .35, .42 ,.12,'31.07.-03.08.2025',{visible:false});
+  this.textPaperAnimated(124*endZoomerMultiplier,.5, -.2, 0.3, .5, 0, 2, .35, .2,.12,'???',{visible:false});
+  this.textPaperAnimated(135*endZoomerMultiplier,.5, -.2, 0.3, .5, 0.01, 2, .35, .6 ,.12,'Assembly Summer 2025',{visible:false});
+  this.textPaperAnimated(129*endZoomerMultiplier,.5, .45, 0.05, .5, 0, 2, .35, .25 ,.12,'290825?',{visible:false});
+  this.textPaperAnimated(133.5*endZoomerMultiplier,.5, .51, 0.05, .5, 0.01, 2, .35, .42 ,.12,'31.07.-03.08.2025',{visible:false});
 
-  this.textPaperAnimated(137,.5, .51, -0.04, .5, 0.0, 2, .35, .42 ,.12,'MESSUKESKUS',{visible:false});
+  this.textPaperAnimated(138*endZoomerMultiplier,.5, .51, -0.04, .5, 0.0, 2, .35, .42 ,.12,'MESSUKESKUS',{visible:false});
   
 
-  this.textPaperAnimated(130,.5, .51, -0.11, .5, 0.01, 2, .35, .40 ,.11,'HÄMEENLINNA',{visible:false});
-  this.textPaperAnimated(132,.5, .505, -0.11, .5, 0.02, -1, .35, .32 ,.11,'HELSINKI',{visible:false});
+  this.textPaperAnimated(130*endZoomerMultiplier,.5, .51, -0.11, .5, 0.01, 2, .35, .40 ,.11,'HÄMEENLINNA',{visible:false});
+  this.textPaperAnimated(132.5*endZoomerMultiplier,.5, .505, -0.11, .5, 0.02, -1, .35, .32 ,.11,'HELSINKI',{visible:false});
 
-  this.textPaperAnimated(120.5,.5, .51, -0.19, .5, 0.00, 6, .35, .26 ,.12,'NIBIRU',{visible:false});
-  this.textPaperAnimated(122,.5, .51, -0.19, .5, 0.01, -2, .35, .27 ,.12,'EARTH',{visible:false});
-  this.textPaperAnimated(125,.5, .51, -0.19, .5, 0.02, 3, .35, .27 ,.12,'EUROPE',{visible:false});
-  this.textPaperAnimated(127,.5, .51, -0.19, .5, 0.03, 1, .35, .3 ,.12,'FINLAND',{visible:false});
+  this.textPaperAnimated(120.5*endZoomerMultiplier,.5, .51, -0.19, .5, 0.00, 6, .35, .26 ,.12,'NIBIRU',{visible:false});
+  this.textPaperAnimated(122*endZoomerMultiplier,.5, .51, -0.19, .5, 0.01, -2, .35, .27 ,.12,'EARTH',{visible:false});
+  this.textPaperAnimated(125*endZoomerMultiplier,.5, .51, -0.19, .5, 0.02, 3, .35, .27 ,.12,'EUROPE',{visible:false});
+  this.textPaperAnimated(127.5*endZoomerMultiplier,.5, .51, -0.19, .5, 0.03, 1, .35, .3 ,.12,'FINLAND',{visible:false});
   // left bottom corner 
   this.textPaper(0, -1.15, -.71, 6, .35, .5,.5,'',{visible:false});
   this.polaroid(0.0 ,-1.5, -.78, -15.5,.43,'mrna.color.fbo');
@@ -131,7 +131,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
  
   this.textPaper(0, .65, .67, -2, .2, .57,.1,'the numbers dont match!',{visible:false});
   
-  this.polaroid(0.0 ,.67, .47, -9.5,.26,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,.67, .47, -9.5,.26,'military.color.fbo');
   this.textPaper(0, .44, .5, 5, .25, .47,.1,'GAME COMPETITION',{visible:false});
   this.textPaper(0, .44, .45, 5, .25, .50,.1,'MILITARY INDUSTRIAL',{visible:false});
   this.textPaper(0, .45, .4, -1, .25, .52,.1,'COMPLEX PROPAGANDA',{visible:false});
