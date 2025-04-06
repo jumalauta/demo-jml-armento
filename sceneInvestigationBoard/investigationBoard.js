@@ -64,8 +64,9 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0, -1.65, .48, 4, .35, .36,.12,'DOES IT GO?!',{visible:false});
   // left top corner
 
-  this.photo15x10(0.0 ,-1.65, 1.0, -10,.33,'film1.color.fbo',{visible:false});
+
   this.photo15x10(0.0 ,-1.25, .9, 5,.33,'farjan.color.fbo',{visible:false});
+  this.photo15x10(0.0 ,-1.65, 1.0, -10,.22,'film1.color.fbo',{visible:false});
   this.textPaper(0,-1.25, 1.05, 15, .25, .88,.12,'BIG FÄRJAN IS HIDING THE TRUTH',{visible:false});
   
   // top center
@@ -113,7 +114,10 @@ Demo.prototype.sceneInvestigationBoard = function () {
     // cam 2
   this.polaroid(0.0 ,-.8, .95 , 5,.23,'anagram0.color.fbo',{visible:false});
   this.polaroid(0.0 ,-.65, .375 , 5,.23,'anagram1.color.fbo',{visible:false});
-  this.polaroid(0.0 ,-.65 , -.375 , 5,.23,'anagram2.color.fbo',{visible:false});
+  
+  this.polaroid(0.0 ,-.7 , -.375 , 5,.23,'anagram2.color.fbo',{visible:false});
+  this.photo15x10(0.0 ,-.5, -.35 , -10,.13,'film2.color.fbo');
+
   this.polaroid(0.0 ,-1.5, -.375 , 5,.23,'anagram3.color.fbo',{visible:false});
   
   // pre-aliens
@@ -139,7 +143,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   this.polaroid(0.0 ,.47, .22 , 4.5,.23,'images/invitation_qr.png');
   
-  this.photo15x10(0.0 ,-.41, -.40 , -10,.23,'film2.color.fbo');
+   
 
 
   // upper left corner thread
