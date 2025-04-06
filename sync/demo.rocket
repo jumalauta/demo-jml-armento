@@ -604,9 +604,7 @@
 			<key row="265" interpolation="0" value="1"/>
 		</track>
 		<track name="Pause:films">
-			<key row="218" interpolation="0" value="1"/>
-			<key row="239" interpolation="0" value="0"/>
-			<key row="265" interpolation="0" value="1"/>
+			<key row="0" interpolation="0" value="0"/>
 		</track>
 		<track name="Pause:flatTorus">
 			<key row="218" interpolation="0" value="1"/>
