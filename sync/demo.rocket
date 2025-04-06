@@ -133,6 +133,9 @@
 			<key row="310" interpolation="2" value="4"/>
 			<key row="312" interpolation="2" value="0"/>
 			<key row="314" interpolation="0" value="4"/>
+			<key row="887" interpolation="1" value="4"/>
+			<key row="888" interpolation="1" value="0"/>
+			<key row="890" interpolation="0" value="4"/>
 			<key row="1362" interpolation="2" value="4"/>
 			<key row="1363" interpolation="0" value="0"/>
 			<key row="1368" interpolation="0" value="4"/>
@@ -149,7 +152,7 @@
 		</track>
 		<track name="PostProc:LensEffect">
 			<key row="0" interpolation="0" value="0"/>
-			<key row="888" interpolation="1" value="1"/>
+			<key row="888" interpolation="1" value="2"/>
 			<key row="893" interpolation="0" value="0"/>
 			<key row="894" interpolation="1" value="1"/>
 			<key row="899" interpolation="0" value="0"/>
@@ -255,7 +258,7 @@
 			<key row="876" interpolation="0" value="0.2"/>
 			<key row="880" interpolation="0" value="0.25"/>
 			<key row="884" interpolation="0" value="0.2"/>
-			<key row="888" interpolation="2" value="0.65"/>
+			<key row="888" interpolation="2" value="0.1"/>
 			<key row="904" interpolation="2" value="0.75"/>
 			<key row="920" interpolation="2" value="0.65"/>
 			<key row="936" interpolation="2" value="0.75"/>
@@ -368,10 +371,12 @@
 			<key row="732" interpolation="2" value="-0.6"/>
 			<key row="744" interpolation="0" value="-1.5"/>
 			<key row="792" interpolation="0" value="0.65"/>
-			<key row="804" interpolation="1" value="0.65"/>
+			<key row="804" interpolation="1" value="0.6"/>
 			<key row="822" interpolation="1" value="0.55"/>
-			<key row="876" interpolation="0" value="0.47"/>
-			<key row="888" interpolation="0" value="1.4"/>
+			<key row="860" interpolation="2" value="0.494"/>
+			<key row="876" interpolation="0" value="0.7"/>
+			<key row="888" interpolation="2" value="1.35"/>
+			<key row="904" interpolation="0" value="1.4"/>
 			<key row="1076" interpolation="1" value="1.4"/>
 			<key row="1080" interpolation="0" value="0.7"/>
 			<key row="1120" interpolation="2" value="0.7"/>
@@ -410,7 +415,8 @@
 			<key row="804" interpolation="0" value="1.05"/>
 			<key row="822" interpolation="1" value="1.05"/>
 			<key row="876" interpolation="0" value="0.25"/>
-			<key row="888" interpolation="0" value="0.7"/>
+			<key row="888" interpolation="2" value="0.9"/>
+			<key row="904" interpolation="0" value="0.7"/>
 			<key row="1076" interpolation="1" value="0.7"/>
 			<key row="1080" interpolation="0" value="-0.73"/>
 			<key row="1120" interpolation="2" value="-0.73"/>
@@ -487,7 +493,7 @@
 		</track>
 		<track name="EndZoomer:Image2Scale">
 			<key row="1240" interpolation="3" value="1.5"/>
-			<key row="1304" interpolation="0" value="16"/>
+			<key row="1304" interpolation="0" value="32"/>
 		</track>
 		<track name="EndZoomer:Image2X">
 			<key row="1240" interpolation="0" value="0"/>
@@ -501,7 +507,7 @@
 			<key row="1272" interpolation="0" value="1"/>
 		</track>
 		<track name="EndZoomer:Image3Scale">
-			<key row="1272" interpolation="3" value="1.5"/>
+			<key row="1272" interpolation="3" value="1"/>
 			<key row="1304" interpolation="0" value="12"/>
 			<key row="1336" interpolation="0" value="16"/>
 		</track>
@@ -519,6 +525,7 @@
 			<key row="1304" interpolation="0" value="1"/>
 		</track>
 		<track name="EndZoomer:Image4Scale">
+			<key row="1272" interpolation="0" value="1"/>
 			<key row="1288" interpolation="1" value="1.5"/>
 			<key row="1320" interpolation="0" value="6"/>
 			<key row="1352" interpolation="0" value="16"/>
