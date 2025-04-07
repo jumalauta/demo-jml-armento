@@ -132,9 +132,14 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.polaroid(0.0 ,.33, .82, 5.5,.19,'culturalMatrix.color.fbo');
   this.textPaper(0, .46, .87, 5, .25, .27,.1,'CULTURAL',{visible:false});
   this.textPaper(0, .47 , .83, -2, .25, .26,.1,'MATRIX',{visible:false});
- 
-  this.textPaper(0, .36, .73, -2, .2, .57,.1,'the numbers dont match!',{visible:false});
+  this.textPaper(0, .35, .74, 3, .18, .57,.1,'the numbers dont match!',{visible:false});
   
+  this.polaroid(0.0 ,.72, .78, -3.5,.22,'culturalMatrix.color.fbo');
+  this.textPaper(0, .67, .7, -2, .2, .54,.1,'DEMOSCENE DISCOUNT',{visible:false});
+  this.textPaper(0, .67, .66, 3, .2, .46,.1,'PYRAMID SCHEME',{visible:false});
+  
+
+
   this.polaroid(0.0 ,.67, .47, -9.5,.26,'military.color.fbo');
   this.textPaper(0, .44, .5, 5, .25, .47,.1,'GAME COMPETITION',{visible:false});
   this.textPaper(0, .44, .45, 5, .25, .50,.1,'MILITARY INDUSTRIAL',{visible:false});
