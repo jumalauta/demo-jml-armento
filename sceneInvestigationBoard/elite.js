@@ -62,8 +62,7 @@ Demo.prototype.sceneElite = function ()
           throw new Error("Mesh position not found");
         }
         if (meshVertexCount != meshData.mesh[0].position.count/3) {
-            console.log("vertexcount " + meshData.mesh[0].position.count/3);
-         //  throw new Error("Mesh vertex count mismatch");
+         // throw new Error("Mesh vertex count mismatch");
         }
 
         for (let i = 0; i < particles.length; i++) {

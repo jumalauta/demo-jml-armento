@@ -47,5 +47,15 @@ Demo.prototype.sceneAliens = function ()
       }
     ]);
 
+    this.loader.addAnimation([{
+      text:{string:'ALIENS',name:"multiSceneEffects/monoSpace.ttf"
+      },
+      perspective:"2d", 
+      color:[{"r":0.0,"g":0.0,"b":0.0}],
+      position:[{x:0, y:-.37}],
+      scale: [{ uniform3d: 4.0 }],
+      angle:[{degreesZ:()=>3*Math.sin(5*getSceneTimeFromStart())}]
+    }]);
+
   this.loader.addAnimation({fbo:{name:'aliens',action:'unbind'}});
 }

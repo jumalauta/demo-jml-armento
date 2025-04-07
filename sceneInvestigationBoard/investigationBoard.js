@@ -142,8 +142,23 @@ Demo.prototype.sceneInvestigationBoard = function () {
   
 
   this.polaroid(0.0 ,.47, .22 , 4.5,.23,'images/invitation_qr.png');
-  
-   
+  this.textPaper(0, .7, .22, 6, .2, .5,.5,'',{visible:false});
+
+  this.loader.addAnimation([{
+    start:850*window.tick-9*window.pattern,
+    end: 876*window.tick-9*window.pattern,
+    text:{string:'?',name:"multiSceneEffects/monoSpace.ttf"
+    },
+    perspective:"3d", 
+    color:[{"r":0.0,"g":0.0,"b":0.0,"a":()=>Sync.get('Misc:QuestionMark')}],
+    position:[{x:.7, y:.23}],
+    scale: [{ uniform3d: 1.5 }],
+    angle:[{degreesZ:()=>10*Math.sin(5*getSceneTimeFromStart())}]
+  }]);
+
+  this.text(876*window.tick-9*window.pattern, .69, .27, 7, .22,'OR MAYBE','monoSpace',0);
+  this.text(880*window.tick-9*window.pattern, .69, .22, 5, .25,'IT WAS','monoSpace',0);
+  this.text(884*window.tick-9*window.pattern, .69, .17, 4, .25,'THE...','monoSpace',0);
 
 
   // upper left corner thread

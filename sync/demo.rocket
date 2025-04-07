@@ -418,6 +418,8 @@
 			<key value="1.05" row="804" interpolation="0"/>
 			<key value="1.05" row="822" interpolation="1"/>
 			<key value="0.25" row="876" interpolation="0"/>
+			<key value="0.22" row="880" interpolation="0"/>
+			<key value="0.2" row="884" interpolation="0"/>
 			<key value="0.9" row="888" interpolation="2"/>
 			<key value="0.7" row="904" interpolation="0"/>
 			<key value="0.7" row="1076" interpolation="1"/>
@@ -603,6 +605,14 @@
 			<key value="1" row="432" interpolation="1"/>
 			<key value="0" row="448" interpolation="0"/>
 			<key value="1" row="460" interpolation="0"/>
+		</track>
+		<track name="Misc:QuestionMark">
+			<key value="1" row="861" interpolation="1"/>
+			<key value="0.5" row="864" interpolation="1"/>
+			<key value="1" row="867" interpolation="1"/>
+			<key value="0.5" row="870" interpolation="1"/>
+			<key value="1" row="873" interpolation="1"/>
+			<key value="0" row="876" interpolation="0"/>
 		</track>
 		<track name="Anagram:FirstPercentage">
 			<key value="0" row="600" interpolation="1"/>
