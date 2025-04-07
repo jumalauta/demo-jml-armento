@@ -616,6 +616,10 @@
 			<key interpolation="1" value="1" row="873"/>
 			<key interpolation="0" value="0" row="876"/>
 		</track>
+		<track name="Misc:PicDrop">
+			<key interpolation="3" value="-16" row="1368"/>
+			<key interpolation="0" value="-110" row="1416"/>
+		</track>
 		<track name="Anagram:FirstPercentage">
 			<key interpolation="1" value="0" row="600"/>
 			<key interpolation="0" value="1" row="632"/>

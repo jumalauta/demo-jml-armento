@@ -82,6 +82,7 @@ includeFile('sceneInvestigationBoard/elite.js');
 includeFile('sceneInvestigationBoard/films.js');
 includeFile('sceneInvestigationBoard/lamer.js');
 includeFile('sceneInvestigationBoard/military.js');
+includeFile('sceneOutro/outro.js');
 
 Demo.prototype.cameraSetup = function(stopCamAt) {
   this.loader.addAnimation({
@@ -218,6 +219,7 @@ Demo.prototype.init = function () {
   this.sceneFilms();
   this.sceneLamer();
   this.sceneMilitary();
+  this.sceneOutro();
 
   this.loader.setScene('main');
 
@@ -227,27 +229,29 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'investigationBoard', dof:true, polaroid:false},
     {start: 9*window.pattern, duration: 48*window.pattern, name: 'shadow', dof:false, polaroid:false},
     //polaroid scenes
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'chemTrail', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:chemTrail')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'farjan', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:farjan')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'flatTorus', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:flatTorus')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'greetings', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:greetings')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'aliens', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:aliens')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'introPolaroid', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:introPolaroid')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'endZoomer', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:endZoomer')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'AsmA', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:AsmA')}}, 
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'chess', dof:false, polaroid:true, parameters:{time:()=>Math.sin(getSceneTimeFromStart()*10)*100, pause:()=>Math.sin(getSceneTimeFromStart()*4)<0.0}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'anagram', dof:false, polaroid:true, parameters:{time:()=>getGlobalTimeFromStart(),pause:()=>Sync.get('Pause:anagram')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'mrna', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:mrna')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'deepState', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:deepstate')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'plasma', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:plasma')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'wordCloud', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:wordCloud')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'bzm', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:bzm')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'culturalMatrix', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:culturalMatrix')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'elite', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:elite')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'films', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:films')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'lamer', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:lamer')}},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'military', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:military')}}
-  ];
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'chemTrail', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:chemTrail')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'farjan', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:farjan')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'flatTorus', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:flatTorus')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'greetings', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:greetings')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'aliens', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:aliens')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'introPolaroid', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:introPolaroid')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'endZoomer', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:endZoomer')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'AsmA', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:AsmA')}}, 
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'chess', dof:false, polaroid:true, parameters:{time:()=>Math.sin(getSceneTimeFromStart()*10)*100, pause:()=>Math.sin(getSceneTimeFromStart()*4)<0.0}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'anagram', dof:false, polaroid:true, parameters:{time:()=>getGlobalTimeFromStart(),pause:()=>Sync.get('Pause:anagram')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'mrna', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:mrna')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'deepState', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:deepstate')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'plasma', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:plasma')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'wordCloud', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:wordCloud')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'bzm', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:bzm')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'culturalMatrix', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:culturalMatrix')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'elite', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:elite')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'films', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:films')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'lamer', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:lamer')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'military', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:military')}},
+    {start: 57*window.pattern, duration: 48*window.pattern, name: 'outro', dof:true, polaroid:false, parameters:{}}
+
+];
 
   scenes.forEach((scene) => {
     this.loader.addAnimation({start: scene.start, duration: scene.duration, scene:{name:scene.name, fbo:{name:scene.name + 'Fbo'}}, ...(scene.parameters||{})});
