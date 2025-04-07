@@ -147,8 +147,11 @@ Demo.prototype.sceneInvestigationBoard = function () {
   
 
   this.polaroid(0.0 ,.47, .22 , 4.5,.23,'images/invitation_qr.png');
-  this.textPaper(0, .7, .22, 6, .2, .5,.5,'',{visible:false});
 
+  const omiwthX = .78;
+  const omiwthY = .26;
+
+  this.textPaper(0, omiwthX, omiwthY, 6, .2, .5,.5,'',{visible:false});
   this.loader.addAnimation([{
     start:850*window.tick-9*window.pattern,
     end: 876*window.tick-9*window.pattern,
@@ -156,14 +159,14 @@ Demo.prototype.sceneInvestigationBoard = function () {
     },
     perspective:"3d", 
     color:[{"r":0.0,"g":0.0,"b":0.0,"a":()=>Sync.get('Misc:QuestionMark')}],
-    position:[{x:.7, y:.23}],
+    position:[{x:omiwthX, y:omiwthY}],
     scale: [{ uniform3d: 1.5 }],
     angle:[{degreesZ:()=>10*Math.sin(5*getSceneTimeFromStart())}]
   }]);
 
-  this.text(876*window.tick-9*window.pattern, .69, .27, 7, .22,'OR MAYBE','monoSpace',0);
-  this.text(880*window.tick-9*window.pattern, .69, .22, 5, .25,'IT WAS','monoSpace',0);
-  this.text(884*window.tick-9*window.pattern, .69, .17, 4, .25,'THE...','monoSpace',0);
+  this.text(876*window.tick-9*window.pattern, omiwthX-.01, omiwthY+.05, 7, .22,'OR MAYBE','monoSpace',0);
+  this.text(880*window.tick-9*window.pattern, omiwthX-.01, omiwthY, 5, .25,'IT WAS','monoSpace',0);
+  this.text(884*window.tick-9*window.pattern, omiwthX-.01, omiwthY-.05, 4, .25,'THE...','monoSpace',0);
 
 
   // upper left corner thread
@@ -197,6 +200,20 @@ Demo.prototype.sceneInvestigationBoard = function () {
       [-0.69, -0.253],
       [-1.5, -0.258],
     ]
+  });
+
+
+  this.loader.addAnimation({
+    image: 'images/charlie.png',
+    scale: [{ uniform2d: ()=>Sync.get('Charlie:scale') }],
+    position:[{x:()=>Sync.get('Charlie:x'), y:()=>Sync.get('Charlie:y')}],
+    color: [{r:.6,g:.6,b:.6,a:()=>Sync.get('Charlie:alpha')}],
+    material:{
+      blending: 'NormalBlending',
+      transparent:true,
+      depthWrite:true
+     // depthTest:true,
+    },
   });
 
 }
