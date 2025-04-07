@@ -251,6 +251,8 @@
 			<key value="0.2" row="683" interpolation="0"/>
 			<key value="0.2" row="696" interpolation="2"/>
 			<key value="0.22" row="697" interpolation="0"/>
+			<key value="0.22" row="734" interpolation="1"/>
+			<key value="0.2" row="744" interpolation="0"/>
 			<key value="0.22" row="786" interpolation="0"/>
 			<key value="0.6" row="792" interpolation="0"/>
 			<key value="0.45" row="798" interpolation="0"/>
@@ -301,12 +303,12 @@
 			<key value="5" row="552" interpolation="2"/>
 			<key value="2" row="553" interpolation="2"/>
 			<key value="6" row="568" interpolation="0"/>
-			<key value="6" row="592" interpolation="1"/>
+			<key value="-15" row="582" interpolation="0"/>
+			<key value="-15" row="592" interpolation="1"/>
 			<key value="0" row="600" interpolation="0"/>
 			<key value="0" row="696" interpolation="2"/>
 			<key value="5" row="697" interpolation="0"/>
-			<key value="5" row="720" interpolation="2"/>
-			<key value="-5" row="721" interpolation="2"/>
+			<key value="-5" row="720" interpolation="2"/>
 			<key value="0" row="734" interpolation="0"/>
 			<key value="0" row="768" interpolation="2"/>
 			<key value="0" row="784" interpolation="0"/>
@@ -334,10 +336,11 @@
 			<key value="0" row="552" interpolation="2"/>
 			<key value="-4" row="553" interpolation="2"/>
 			<key value="0" row="568" interpolation="0"/>
-			<key value="0" row="592" interpolation="1"/>
+			<key value="-10" row="576" interpolation="0"/>
+			<key value="12" row="588" interpolation="0"/>
+			<key value="12" row="592" interpolation="1"/>
 			<key value="0" row="600" interpolation="0"/>
-			<key value="0" row="768" interpolation="2"/>
-			<key value="-6" row="769" interpolation="2"/>
+			<key value="-6" row="768" interpolation="2"/>
 			<key value="0" row="784" interpolation="0"/>
 			<key value="0" row="1080" interpolation="0"/>
 			<key value="0" row="1120" interpolation="0"/>
