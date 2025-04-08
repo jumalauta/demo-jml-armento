@@ -293,7 +293,7 @@ Demo.prototype.init = function () {
         shader: { name: 'multiSceneEffects/dof.fs',
             variable: [
                 {"name":"dofCenter", "value":[()=>Sync.get('General:dofCenter')]},
-                {"name":"dofWidth", "value":[0.1]}
+                {"name":"dofWidth", "value":[()=>Sync.get('General:dofWidth')]}
                 ]}
     });
   this.loader.addAnimation({fbo:{name:'postProcessableFbo',action:'unbind'}});

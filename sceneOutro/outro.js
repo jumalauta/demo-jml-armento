@@ -39,6 +39,30 @@ Demo.prototype.sceneOutro = function () {
         }
       ]);
 
+      this.loader.addAnimation([
+        {
+          object: {
+            name: 'sceneInvestigationBoard/paper.obj'
+          },
+          position: [
+            {
+              x: 2.2,
+              y: -1.2,
+              z: -.085
+            }
+          ],
+          angle: [
+            {
+              degreesX: 90,
+              degreesY: 15,
+            }
+          ],
+          color: [{r:.3 ,g:.3,b:.3}],
+          scale: [{ x: .2, z: .2 }]
+        }
+      ]);
+  
+
     for(let i = 0; i< polaroids.length; i++)
     {
         let random = Utils.random();
@@ -55,7 +79,7 @@ Demo.prototype.sceneOutro = function () {
                 {
                 x: Utils.random()*3-1.5,
                 y: ()=>8+(random*.2+.1)*Sync.get('Misc:PicDrop'),
-                z: Utils.random()*2-1
+                z: Utils.random()*3-1
                 }
             ],
             angle: [

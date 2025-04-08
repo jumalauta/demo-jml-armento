@@ -217,7 +217,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
     ]
   });
 
-
+/*
   this.loader.addAnimation({
     image: 'images/charlie.png',
     scale: [{ uniform2d: ()=>Sync.get('Charlie:scale') }],
@@ -226,11 +226,11 @@ Demo.prototype.sceneInvestigationBoard = function () {
     material:{
       blending: 'NormalBlending',
       transparent:true,
-      depthWrite:true
-     // depthTest:true,
+      depthWrite:true,
+      depthTest:true,
     },
   });
-
+*/
 }
 
 Demo.prototype.textPaper = function (startTime, x, y, zAngle, scale, paperScaleX, paperScaleY, textString, pinConfig)

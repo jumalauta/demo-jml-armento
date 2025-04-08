@@ -15,10 +15,15 @@
 			<key interpolation="0" value="0" row="0"/>
 			<key interpolation="0" value="5" row="216"/>
 		</track>
+		<track name="General:dofWidth">
+			<key interpolation="0" value="0.1" row="0"/>
+			<key interpolation="0" value="0.03" row="1368"/>
+		</track>
 		<track name="General:dofCenter">
 			<key interpolation="0" value="0.93" row="0"/>
 			<key interpolation="1" value="0.1" row="216"/>
 			<key interpolation="0" value="0.05" row="224"/>
+			<key interpolation="0" value="0.013" row="1368"/>
 		</track>
 		<track name="General:CamY">
 			<key interpolation="0" value="0" row="1264"/>
@@ -232,8 +237,9 @@
 			<key interpolation="0" value="0.01" row="216"/>
 			<key interpolation="0" value="0.05" row="240"/>
 			<key interpolation="0" value="0.05" row="600"/>
-			<key interpolation="1" value="0.05" row="1440"/>
-			<key interpolation="0" value="0.001" row="1464"/>
+			<key interpolation="0" value="0.5" row="1368"/>
+			<key interpolation="2" value="0.5" row="1448"/>
+			<key interpolation="0" value="0.01" row="1459"/>
 		</track>
 		<track name="Cam:Distance">
 			<key interpolation="0" value="3" row="0"/>
@@ -289,9 +295,10 @@
 			<key interpolation="0" value="0.57" row="1344"/>
 			<key interpolation="0" value="0.56" row="1350"/>
 			<key interpolation="0" value="0.55" row="1356"/>
-			<key interpolation="0" value="2.5" row="1368"/>
-			<key interpolation="1" value="2.5" row="1440"/>
-			<key interpolation="0" value="0.2" row="1464"/>
+			<key interpolation="0" value="3" row="1368"/>
+			<key interpolation="2" value="3" row="1448"/>
+			<key interpolation="2" value="0.2" row="1459"/>
+			<key interpolation="0" value="0.3" row="1464"/>
 		</track>
 		<track name="Cam:Yaw">
 			<key interpolation="0" value="0" row="0"/>
@@ -327,7 +334,6 @@
 			<key interpolation="2" value="25" row="1163"/>
 			<key interpolation="0" value="0" row="1176"/>
 			<key interpolation="0" value="0" row="1368"/>
-			<key interpolation="0" value="0" row="1440"/>
 		</track>
 		<track name="Cam:Pitch">
 			<key interpolation="0" value="0" row="0"/>
@@ -351,8 +357,6 @@
 			<key interpolation="0" value="0" row="1080"/>
 			<key interpolation="0" value="0" row="1120"/>
 			<key interpolation="0" value="0" row="1368"/>
-			<key interpolation="1" value="0" row="1440"/>
-			<key interpolation="0" value="-80" row="1464"/>
 		</track>
 		<track name="Cam:TargetX">
 			<key interpolation="0" value="0" row="0"/>
@@ -395,6 +399,8 @@
 			<key interpolation="2" value="0.3" row="1163"/>
 			<key interpolation="0" value="0.14" row="1176"/>
 			<key interpolation="0" value="0" row="1368"/>
+			<key interpolation="2" value="0" row="1448"/>
+			<key interpolation="0" value="2.2" row="1459"/>
 		</track>
 		<track name="Cam:TargetY">
 			<key interpolation="0" value="0" row="0"/>
@@ -438,14 +444,15 @@
 			<key interpolation="2" value="0" row="1163"/>
 			<key interpolation="0" value="0.02" row="1176"/>
 			<key interpolation="0" value="0" row="1368"/>
+			<key interpolation="2" value="0" row="1448"/>
+			<key interpolation="0" value="-1.2" row="1459"/>
 		</track>
 		<track name="Cam:TargetZ">
 			<key interpolation="0" value="0" row="0"/>
 			<key interpolation="0" value="0" row="264"/>
 			<key interpolation="0" value="0" row="1080"/>
 			<key interpolation="0" value="0" row="1368"/>
-			<key interpolation="1" value="0" row="1440"/>
-			<key interpolation="0" value="2" row="1464"/>
+			<key interpolation="0" value="0" row="1448"/>
 		</track>
 		<track name="Cam:FOV">
 			<key interpolation="0" value="60" row="0"/>
