@@ -1,0 +1,13 @@
+# Blender 4.1.1 MTL File: 'None'
+# www.blender.org
+
+newmtl Material
+Ns 15.914732
+Ka 0.800000 0.800000 0.800000
+Kd 1.500000 1.40000 1.300000
+Ks 0.050459 0.050459 0.050459
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd wall.png

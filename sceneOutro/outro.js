@@ -1,6 +1,8 @@
 Demo.prototype.sceneOutro = function () {
     this.setScene('outro');
-  
+    
+    Utils.setSeed(290825);
+
     this.loader.addAnimation({image: '_embedded/defaultWhite.png', color: [{r:0,g:0,b:0}]});
   
     const polaroids = [
@@ -22,9 +24,24 @@ Demo.prototype.sceneOutro = function () {
         'culturalMatrix.color.fbo'
     ]
     
+    this.loader.addAnimation([
+        {
+          object: {
+            name: '3d_models/temp_room.obj'
+          },
+          position: [{
+              x: 0,
+              y: 0,
+              z: 0
+            }],
+          angle: [{ degreesY: -90,}],
+          scale: [{ uniform3d: 1.1 }]
+        }
+      ]);
+
     for(let i = 0; i< polaroids.length; i++)
     {
-        let random = Math.random();
+        let random = Utils.random();
         this.loader.addAnimation([
             {
             material: {
@@ -36,9 +53,9 @@ Demo.prototype.sceneOutro = function () {
             color: [{r:.25,g:.25,b:.25}],
             position: [
                 {
-                x: Math.random()*3-1.5,
+                x: Utils.random()*3-1.5,
                 y: ()=>8+(random*.2+.1)*Sync.get('Misc:PicDrop'),
-                z: Math.random()*2-1
+                z: Utils.random()*2-1
                 }
             ],
             angle: [

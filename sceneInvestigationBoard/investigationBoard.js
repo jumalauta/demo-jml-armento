@@ -9,6 +9,21 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.loader.addAnimation([
     {
       object: {
+        name: '3d_models/temp_room.obj'
+      },
+      position: [{
+          x: 0,
+          y: 0,
+          z: 0
+        }],
+      angle: [{ degreesY: -90,}],
+      scale: [{ uniform3d: 1.1 }]
+    }
+  ]);
+
+  this.loader.addAnimation([
+    {
+      object: {
         name: 'sceneInvestigationBoard/investigationboard.obj'
       },
       position: [{
