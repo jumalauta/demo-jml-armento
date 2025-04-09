@@ -121,21 +121,48 @@ Demo.prototype.sceneOutro = function () {
 
     }
   
+  this.loader.addAnimation({
+    image: 'images/end_bg.png',
+    color: [{r:1,g:1,b:1,"a":()=>Sync.get('Misc:TheEnd')}],
+    perspective:"2d",
+    position:[{z:2}],
+    scale: [{ x: 31, y:1 }]
+    });
   }
 
 Demo.prototype.creditsText = function (cText)
 {
   this.loader.addAnimation([{
     parent:'creditsPaper',
-    text:{string:cText.text,name:"multiSceneEffects/monoSpace.ttf"
-    },
+    text:{string:cText.text,name:"multiSceneEffects/monoSpace.ttf"},
     perspective:"3d", 
     color:[{"r":0.0,"g":0.0,"b":0.0}],
     position:[{x:cText.x, z:cText.y}],
     scale: [{ uniform3d: cText.scale }],
     angle: [
       {
-        degreesX: -90,
+        degreesX: -90
       }]
     }]);
+  
+  let redactedString = 'REDACTED:'+cText.text;
+  this.loader.addAnimation([{
+    parent:'creditsPaper',
+    text:{string:`-REDACTED-`,name:"multiSceneEffects/monoSpace.ttf"},
+    perspective:"3d", 
+    color:[{"r":1.0,"g":1.0,"b":1.0,"a":()=>Sync.get(redactedString)}],
+    position:[{x:cText.x, z:cText.y}],
+    scale: [{ uniform3d: .9 }],
+    angle: [{degreesX: -90}]
+    }]);
+
+  this.loader.addAnimation({
+    parent:'creditsPaper',
+    image: '_embedded/defaultWhite.png',
+    color: [{r:0,g:0,b:0,"a":()=>Sync.get(redactedString)}],
+    perspective:"3d",
+    position:[{x:cText.x, z:cText.y }],
+    scale: [{ x: .0175*Math.max(cText.scale*cText.text.length, 9.0), y:.05 }],
+    angle: [{degreesX: -90}]
+    });
 }

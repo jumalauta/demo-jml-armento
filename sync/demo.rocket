@@ -643,6 +643,22 @@
 			<key row="1460" value="0.125" interpolation="3"/>
 			<key row="1476" value="0.37" interpolation="0"/>
 		</track>
+		<track name="Misc:TheEnd">
+			<key row="0" value="0" interpolation="0"/>
+			<key row="1562" value="1" interpolation="0"/>
+		</track>
+		<track name="Misc:TheEndAlt">
+			<key row="0" value="0" interpolation="0"/>
+			<key row="1562" value="0" interpolation="0"/>
+			<key row="1571" value="1" interpolation="1"/>
+			<key row="1572" value="0" interpolation="0"/>
+			<key row="1584" value="1" interpolation="1"/>
+			<key row="1585" value="0" interpolation="0"/>
+			<key row="1592" value="0" interpolation="1"/>
+			<key row="1600" value="1" interpolation="0"/>
+			<key row="1618" value="1" interpolation="0"/>
+			<key row="1619" value="0.5" interpolation="0"/>
+		</track>
 		<track name="Anagram:FirstPercentage">
 			<key row="600" value="0" interpolation="1"/>
 			<key row="632" value="1" interpolation="0"/>
@@ -768,6 +784,42 @@
 			<key row="1144" value="-0.11" interpolation="0"/>
 			<key row="1176" value="-0.11" interpolation="2"/>
 			<key row="1184" value="-0.5" interpolation="0"/>
+		</track>
+		<track name="REDACTED:Investigators">
+			<key row="1520" value="0" interpolation="0"/>
+			<key row="1528" value="1" interpolation="0"/>
+		</track>
+		<track name="REDACTED:Anteeksi Henkilö">
+			<key row="1520" value="0" interpolation="0"/>
+			<key row="1534" value="1" interpolation="0"/>
+		</track>
+		<track name="REDACTED:Haluttu Maksullinen Engine">
+			<key row="1520" value="0" interpolation="0"/>
+			<key row="1536" value="1" interpolation="0"/>
+		</track>
+		<track name="REDACTED:Informants">
+			<key row="1520" value="0" interpolation="0"/>
+			<key row="1540" value="1" interpolation="0"/>
+		</track>
+		<track name="REDACTED:Astu / Jumalauta">
+			<key row="1520" value="0" interpolation="0"/>
+			<key row="1542" value="1" interpolation="0"/>
+		</track>
+		<track name="REDACTED:Kaunis Espanjalainen Tyttö">
+			<key row="1520" value="0" interpolation="0"/>
+			<key row="1546" value="1" interpolation="0"/>
+		</track>
+		<track name="REDACTED:Data Leaks">
+			<key row="1520" value="0" interpolation="0"/>
+			<key row="1548" value="1" interpolation="0"/>
+		</track>
+		<track name="REDACTED:Assembly Organizing">
+			<key row="1520" value="0" interpolation="0"/>
+			<key row="1550" value="1" interpolation="0"/>
+		</track>
+		<track name="REDACTED:Bzm DisOrg">
+			<key row="1520" value="0" interpolation="0"/>
+			<key row="1554" value="1" interpolation="0"/>
 		</track>
 	</tracks>
 	<bookmarks>

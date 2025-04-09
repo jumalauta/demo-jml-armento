@@ -299,4 +299,74 @@ Demo.prototype.init = function () {
   this.loader.addAnimation({fbo:{name:'postProcessableFbo',action:'unbind'}});
 
   this.addPostProcess('postProcessableFbo.color.fbo');
+  this.loader.addAnimation({
+    image: 'images/end_bg.png',
+    color: [{r:1,g:1,b:1,"a":()=>Sync.get('Misc:TheEnd')}],
+    perspective:"2d",
+    position:[{z:2}],
+    scale: [{ x: 31, y:1 }]
+    });
+
+  this.loader.addAnimation([{
+      text:{string:`ERROR 290825:`,name:"multiSceneEffects/monoSpace.ttf"},
+      perspective:"2d", 
+      color:[{"r":1.0,"g":0.1,"b":0.1,"a":()=>Sync.get('Misc:TheEnd')}],
+      position:[{x:-.189, y:.1}],
+      scale: [{ uniform3d: 1.1 }],
+  }]);
+
+  this.loader.addAnimation([{
+      text:{string:`This content is no longer available due to`,name:"multiSceneEffects/monoSpace.ttf"},
+        perspective:"2d", 
+        color:[{"r":1.0,"g":1.0,"b":1.0,"a":()=>Sync.get('Misc:TheEnd')}],
+        position:[{x:0, y:0.05}],
+        scale: [{ uniform3d: 1.1 }],
+  }]);
+
+  this.loader.addAnimation([{
+      text:{string:`-REDACTED-`,name:"multiSceneEffects/monoSpace.ttf"},
+      perspective:"2d", 
+      color:[{"r":1.0,"g":1.0,"b":1.0,"a":()=>Sync.get('Misc:TheEnd')}],
+      position:[{x:-.205, y:0.0}],
+      scale: [{ uniform3d: 1.1 }],
+    }]);    
+
+  this.loader.addAnimation([{
+      text:{string:`For -REDACTED-, please visit:`,name:"multiSceneEffects/monoSpace.ttf"},
+      perspective:"2d", 
+      color:[{"r":0.8,"g":0.8,"b":0.8,"a":()=>Sync.get('Misc:TheEnd')}],
+      position:[{x:-.0865, y:-0.1}],
+      scale: [{ uniform3d: 1.1 }],
+    }]);
+  
+  const d = new Date();
+  
+  if(d.getFullYear() > 2025 || (d.getMonth()>7 && d.getDay()> 3))
+  {
+    this.loader.addAnimation([{
+        text:{string:`www.assembly.org`,name:"multiSceneEffects/monoSpace.ttf"},
+        perspective:"2d", 
+        color:[{"r":0.8,"g":0.8,"b":0.8,"a":()=>Sync.get('Misc:TheEnd') - Sync.get('Misc:TheEndAlt')}],
+        position:[{x:-.167, y:-0.15}],
+        scale: [{ uniform3d: 1.1 }],
+    }]);
+    this.loader.addAnimation([{
+        text:{string:`www.jml.party`,name:"multiSceneEffects/monoSpace.ttf"},
+        perspective:"2d", 
+        color:[{"r":0.8,"g":0.8,"b":0.8,"a":()=>Sync.get('Misc:TheEndAlt')}],
+        position:[{x:-.187, y:-0.15}],
+        scale: [{ uniform3d: 1.1 }],
+    }]);
+  }
+  else
+  {
+    this.loader.addAnimation([{
+        text:{string:`www.assembly.org`,name:"multiSceneEffects/monoSpace.ttf"},
+        perspective:"2d", 
+        color:[{"r":0.8,"g":0.8,"b":0.8,"a":()=>Sync.get('Misc:TheEnd')}],
+        position:[{x:-.167, y:-0.15}],
+        scale: [{ uniform3d: 1.1 }],
+    }]);
+  }
+
 };
