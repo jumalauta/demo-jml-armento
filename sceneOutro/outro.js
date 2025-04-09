@@ -117,17 +117,7 @@ Demo.prototype.sceneOutro = function () {
             scale: [{ uniform3d: 1.0 }]
             }
         ]);
-        
-
     }
-  
-  this.loader.addAnimation({
-    image: 'images/end_bg.png',
-    color: [{r:1,g:1,b:1,"a":()=>Sync.get('Misc:TheEnd')}],
-    perspective:"2d",
-    position:[{z:2}],
-    scale: [{ x: 31, y:1 }]
-    });
   }
 
 Demo.prototype.creditsText = function (cText)
