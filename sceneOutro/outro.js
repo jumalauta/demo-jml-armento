@@ -24,6 +24,7 @@ Demo.prototype.sceneOutro = function () {
         'culturalMatrix.color.fbo'
     ]
     
+
     this.loader.addAnimation([
         {
           object: {
@@ -41,6 +42,7 @@ Demo.prototype.sceneOutro = function () {
 
       this.loader.addAnimation([
         {
+          id:'creditsPaper',
           object: {
             name: 'sceneInvestigationBoard/paper.obj'
           },
@@ -57,11 +59,35 @@ Demo.prototype.sceneOutro = function () {
               degreesY: 15,
             }
           ],
-          color: [{r:.3 ,g:.3,b:.3}],
-          scale: [{ x: .2, z: .2 }]
+          color: [{r:()=>Sync.get('Misc:EndpaperColor') ,g:()=>Sync.get('Misc:EndpaperColor'),b:()=>Sync.get('Misc:EndpaperColor')}],
+          scale: [{ x: .2, z: .23 }]
         }
       ]);
-  
+
+    // Investigators
+    // Anteeksi Henkilö
+    // Haluttu Maksullinen Engine
+
+    // Informants
+    // Astu / Jumalauta
+    // Kaunis Espanjalainen tyttö
+
+    // Data leaks
+    // Assembly organizing
+    // Bzm Org
+    
+    this.creditsText({text:'Investigators',x:-.25,y:-.8, scale:.9});
+    this.creditsText({text:'Anteeksi Henkilö',x:.3,y:-.6, scale:.77});
+    this.creditsText({text:'Haluttu Maksullinen Engine',x:0,y:-.45, scale:.77});
+
+    this.creditsText({text:'Informants',x:-.35,y:-.2, scale:.9});
+    this.creditsText({text:'Astu / Jumalauta',x:.29,y:0, scale:.77});
+    this.creditsText({text:'Kaunis Espanjalainen Tyttö',x:0,y:.15, scale:.77});
+
+    this.creditsText({text:'Data Leaks',x:-.35,y:.4, scale:.9});
+    this.creditsText({text:'Assembly Organizing',x:.2,y:.6, scale:.77});
+    this.creditsText({text:'Bzm DisOrg',x:.49,y:.75, scale:.77});
+
 
     for(let i = 0; i< polaroids.length; i++)
     {
@@ -96,3 +122,20 @@ Demo.prototype.sceneOutro = function () {
     }
   
   }
+
+Demo.prototype.creditsText = function (cText)
+{
+  this.loader.addAnimation([{
+    parent:'creditsPaper',
+    text:{string:cText.text,name:"multiSceneEffects/monoSpace.ttf"
+    },
+    perspective:"3d", 
+    color:[{"r":0.0,"g":0.0,"b":0.0}],
+    position:[{x:cText.x, z:cText.y}],
+    scale: [{ uniform3d: cText.scale }],
+    angle: [
+      {
+        degreesX: -90,
+      }]
+    }]);
+}
