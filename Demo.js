@@ -226,8 +226,8 @@ Demo.prototype.init = function () {
   const scenes = [ 
     {start: 0*window.pattern, duration: 9*window.pattern, name: 'intro', dof:true, polaroid:false},
     {start: 0*window.pattern, duration: 9*window.pattern, name: 'introTexts', dof:false, polaroid:false},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'investigationBoard', dof:true, polaroid:false},
-    {start: 9*window.pattern, duration: 48*window.pattern, name: 'shadow', dof:false, polaroid:false},
+    {start: 9*window.pattern, duration: 48*window.pattern+12*window.tick, name: 'investigationBoard', dof:true, polaroid:false},
+    {start: 9*window.pattern, duration: 48*window.pattern+12*window.tick, name: 'shadow', dof:false, polaroid:false},
     //polaroid scenes
     {start: 9*window.pattern, duration: 58*window.pattern, name: 'chemTrail', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:chemTrail')}},
     {start: 9*window.pattern, duration: 58*window.pattern, name: 'farjan', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:farjan')}},
@@ -249,7 +249,7 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 58*window.pattern, name: 'films', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:films')}},
     {start: 9*window.pattern, duration: 58*window.pattern, name: 'lamer', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:lamer')}},
     {start: 9*window.pattern, duration: 58*window.pattern, name: 'military', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:military')}},
-    {start: 57*window.pattern, duration: 48*window.pattern, name: 'outro', dof:true, polaroid:false, parameters:{}}
+    {start: 57*window.pattern+12*window.tick, duration: 48*window.pattern, name: 'outro', dof:true, polaroid:false, parameters:{}}
 
 ];
 

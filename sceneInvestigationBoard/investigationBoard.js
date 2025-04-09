@@ -38,21 +38,21 @@ Demo.prototype.sceneInvestigationBoard = function () {
   const endZoomerMultiplier = 100/95;
   // center 
   this.photo15x10(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo');
-  this.textPaperAnimated(124*endZoomerMultiplier,.5, -.2, 0.3, .5, 0, 2, .35, .2,.12,'???',{visible:false});
-  this.textPaperAnimated(135*endZoomerMultiplier,.5, -.2, 0.3, .5, 0.01, 2, .35, .6 ,.12,'Assembly Summer 2025',{visible:false});
-  this.textPaperAnimated(129*endZoomerMultiplier,.5, .45, 0.05, .5, 0, 2, .35, .25 ,.12,'290825?',{visible:false});
-  this.textPaperAnimated(133.5*endZoomerMultiplier,.5, .51, 0.05, .5, 0.01, 2, .35, .42 ,.12,'31.07.-03.08.2025',{visible:false});
+  this.textPaperAnimated(124*endZoomerMultiplier+12*window.tick,.5, -.2, 0.3, .5, 0, 2, .35, .2,.12,'???',{visible:false});
+  this.textPaperAnimated(135*endZoomerMultiplier+12*window.tick,.5, -.2, 0.3, .5, 0.01, 2, .35, .6 ,.12,'Assembly Summer 2025',{visible:false});
+  this.textPaperAnimated(129*endZoomerMultiplier+12*window.tick,.5, .45, 0.05, .5, 0, 2, .35, .25 ,.12,'290825?',{visible:false});
+  this.textPaperAnimated(133.5*endZoomerMultiplier+12*window.tick,.5, .51, 0.05, .5, 0.01, 2, .35, .42 ,.12,'31.07.-03.08.2025',{visible:false});
 
-  this.textPaperAnimated(138*endZoomerMultiplier,.5, .51, -0.04, .5, 0.0, 2, .35, .42 ,.12,'MESSUKESKUS',{visible:false});
+  this.textPaperAnimated(138*endZoomerMultiplier+12*window.tick,.5, .51, -0.04, .5, 0.0, 2, .35, .42 ,.12,'MESSUKESKUS',{visible:false});
   
 
-  this.textPaperAnimated(130*endZoomerMultiplier,.5, .51, -0.11, .5, 0.01, 2, .35, .40 ,.11,'HÄMEENLINNA',{visible:false});
-  this.textPaperAnimated(132.5*endZoomerMultiplier,.5, .505, -0.11, .5, 0.02, -1, .35, .32 ,.11,'HELSINKI',{visible:false});
+  this.textPaperAnimated(130*endZoomerMultiplier+12*window.tick,.5, .51, -0.11, .5, 0.01, 2, .35, .40 ,.11,'HÄMEENLINNA',{visible:false});
+  this.textPaperAnimated(132.5*endZoomerMultiplier+12*window.tick,.5, .505, -0.11, .5, 0.02, -1, .35, .32 ,.11,'HELSINKI',{visible:false});
 
-  this.textPaperAnimated(120.5*endZoomerMultiplier,.5, .51, -0.19, .5, 0.00, 6, .35, .26 ,.12,'NIBIRU',{visible:false});
-  this.textPaperAnimated(122*endZoomerMultiplier,.5, .51, -0.19, .5, 0.01, -2, .35, .27 ,.12,'EARTH',{visible:false});
-  this.textPaperAnimated(125*endZoomerMultiplier,.5, .51, -0.19, .5, 0.02, 3, .35, .27 ,.12,'EUROPE',{visible:false});
-  this.textPaperAnimated(127.5*endZoomerMultiplier,.5, .51, -0.19, .5, 0.03, 1, .35, .3 ,.12,'FINLAND',{visible:false});
+  this.textPaperAnimated(120.5*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.00, 6, .35, .26 ,.12,'NIBIRU',{visible:false});
+  this.textPaperAnimated(122*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.01, -2, .35, .27 ,.12,'EARTH',{visible:false});
+  this.textPaperAnimated(125*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.02, 3, .35, .27 ,.12,'EUROPE',{visible:false});
+  this.textPaperAnimated(127.5*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.03, 1, .35, .3 ,.12,'FINLAND',{visible:false});
   // left bottom corner 
   this.textPaper(0, -1.15, -.71, 6, .35, .5,.5,'',{visible:false});
   this.polaroid(0.0 ,-1.5, -.78, -15.5,.43,'mrna.color.fbo');
@@ -95,7 +95,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   // right top corner
   this.polaroid(0.0 ,1.37, .7, -7.5,.75,'greetings.color.fbo');
-  this.animatedPolaroid(91.0 ,1.0, .65, 5,.28,'aliens.color.fbo', 5.0, 4.5 , 3.55, 5);
+  this.animatedPolaroid(92.5 ,1.0, .65, 5,.28,'aliens.color.fbo', 5.0, 4.5 , 3.55, 5);
 
   // right center
   this.polaroid(0.0 ,1.5, -.2, 90,.28,'introPolaroid.color.fbo',{visible:false});
@@ -179,9 +179,10 @@ Demo.prototype.sceneInvestigationBoard = function () {
     angle:[{degreesZ:()=>10*Math.sin(5*getSceneTimeFromStart())}]
   }]);
 
-  this.text(876*window.tick-9*window.pattern, omiwthX-.01, omiwthY+.05, 7, .22,'OR MAYBE','monoSpace',0);
-  this.text(880*window.tick-9*window.pattern, omiwthX-.01, omiwthY, 5, .25,'IT WAS','monoSpace',0);
-  this.text(884*window.tick-9*window.pattern, omiwthX-.01, omiwthY-.05, 4, .25,'THE...','monoSpace',0);
+  // +12*window.tick tullut lisää
+  this.text(888*window.tick-9*window.pattern, omiwthX-.01, omiwthY+.05, 7, .22,'OR MAYBE','monoSpace',0);
+  this.text(892*window.tick-9*window.pattern, omiwthX-.01, omiwthY, 5, .25,'IT WAS','monoSpace',0);
+  this.text(896*window.tick-9*window.pattern, omiwthX-.01, omiwthY-.05, 4, .25,'THE...','monoSpace',0);
 
 
   // upper left corner thread
