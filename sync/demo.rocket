@@ -327,8 +327,10 @@
 			<key value="0" interpolation="0" row="784"/>
 			<key value="15" interpolation="0" row="792"/>
 			<key value="-5" interpolation="0" row="798"/>
-			<key value="3" interpolation="1" row="804"/>
-			<key value="-1" interpolation="0" row="832"/>
+			<key value="3" interpolation="2" row="804"/>
+			<key value="6" interpolation="2" row="816"/>
+			<key value="-3" interpolation="2" row="840"/>
+			<key value="1" interpolation="0" row="856"/>
 			<key value="2" interpolation="1" row="1088"/>
 			<key value="0" interpolation="0" row="1092"/>
 			<key value="0" interpolation="2" row="1132"/>
@@ -389,8 +391,8 @@
 			<key value="-1.5" interpolation="0" row="744"/>
 			<key value="0.65" interpolation="0" row="792"/>
 			<key value="0.58" interpolation="2" row="804"/>
-			<key value="0.5" interpolation="2" row="832"/>
-			<key value="0.6" interpolation="2" row="877"/>
+			<key value="0.6" interpolation="2" row="840"/>
+			<key value="0.56" interpolation="3" row="864"/>
 			<key value="0.78" interpolation="0" row="887"/>
 			<key value="0.78" interpolation="0" row="888"/>
 			<key value="1.35" interpolation="2" row="900"/>
@@ -434,7 +436,7 @@
 			<key value="1" interpolation="0" row="792"/>
 			<key value="1.05" interpolation="0" row="804"/>
 			<key value="1.05" interpolation="1" row="822"/>
-			<key value="0.36" interpolation="1" row="880"/>
+			<key value="0.5" interpolation="1" row="872"/>
 			<key value="0.29" interpolation="0" row="887"/>
 			<key value="0.27" interpolation="0" row="888"/>
 			<key value="0.25" interpolation="0" row="892"/>
@@ -634,6 +636,7 @@
 			<key value="1" interpolation="1" row="867"/>
 			<key value="0.5" interpolation="1" row="870"/>
 			<key value="1" interpolation="1" row="873"/>
+			<key value="0" interpolation="0" row="886"/>
 			<key value="0" interpolation="0" row="888"/>
 		</track>
 		<track name="Misc:PicDrop">
@@ -662,6 +665,13 @@
 			<key value="0.5" interpolation="0" row="1653"/>
 		</track>
 		<track name="Misc:zTest"/>
+		<track name="Misc:BZMScale">
+			<key value="0" interpolation="2" row="396"/>
+			<key value="0.1" interpolation="2" row="412"/>
+			<key value="0" interpolation="2" row="428"/>
+			<key value="0.1" interpolation="2" row="444"/>
+			<key value="0" interpolation="0" row="459"/>
+		</track>
 		<track name="Anagram:FirstPercentage">
 			<key value="0" interpolation="1" row="600"/>
 			<key value="1" interpolation="0" row="632"/>

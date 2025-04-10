@@ -106,7 +106,7 @@ Demo.prototype.sceneEndZoomer = function ()
       }
     ],
     scale: [{ uniform2d: ()=>Sync.get('EndZoomer:Image4Scale') }],
-    color: [{ r: 2.0, g: 2.0, b: 2.0, a: ()=>Sync.get('EndZoomer:Image4A')}]
+    color: [{ r: 1.5, g: 1.5, b: 1.5, a: ()=>Sync.get('EndZoomer:Image4A')}]
   }]);  
 
   this.loader.addAnimation([
@@ -123,7 +123,7 @@ Demo.prototype.sceneEndZoomer = function ()
       }
     ],
     scale: [{ uniform2d: ()=>Sync.get('EndZoomer:Image5Scale') }],
-    color: [{ r: 2.0, g: 2.0, b: 2.0, a: ()=>Sync.get('EndZoomer:Image5A')}]
+    color: [{ r: 1.5, g: 1.5, b: 1.5, a: ()=>Sync.get('EndZoomer:Image5A')}]
   }]);  
 
   this.loader.addAnimation([
@@ -140,7 +140,7 @@ Demo.prototype.sceneEndZoomer = function ()
       }
     ],
     scale: [{ uniform2d: ()=>Sync.get('EndZoomer:Image6Scale') }],
-    color: [{ r: 2.0, g: 2.0, b: 2.0, a: ()=>Sync.get('EndZoomer:Image6A')}]
+    color: [{ r: 1.4, g: 1.4, b: 1.4, a: ()=>Sync.get('EndZoomer:Image6A')}]
   }]);  
 
     this.loader.addAnimation([
@@ -157,7 +157,7 @@ Demo.prototype.sceneEndZoomer = function ()
           }
         ],  
         scale: [{ uniform2d: .855 }],
-        color: [{ r: 1.0, g: 1.0, "b": 1.0 }]
+        color: [{ r: 1.3, g: 1.3, "b": 1.3 }]
       }]);
 
   this.loader.addAnimation({fbo:{name:'endZoomer',action:'unbind'}});

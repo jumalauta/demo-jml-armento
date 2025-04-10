@@ -40,6 +40,27 @@ Demo.prototype.sceneOutro = function () {
         }
       ]);
 
+
+      this.loader.addAnimation([
+        {
+          image: 'images/end_graffiti.png',
+          perspective: "3d",
+          position: [{
+              x: 0,
+              y: 0,
+              z: -.15
+            }],
+          scale: [{ uniform3d: 3.5 }],
+          color: [{a:.1}],
+          material:{
+            transparent:true,
+            //depthTest: true,
+           // depthWrite: true,
+            blending: 'NormalBlending'
+          },
+        }
+      ]);
+
       this.loader.addAnimation([
         {
           id:'creditsPaper',

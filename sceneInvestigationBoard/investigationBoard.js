@@ -124,8 +124,9 @@ Demo.prototype.sceneInvestigationBoard = function () {
   // bottom center
     // linedraw 1, photo 3
   this.photo15x10(0.0 ,.04, -.88, -5,.35,'bzm.color.fbo',{visible:false});
-  this.text(0, .04, -.73, 5, .25,'THE PARTY IS OUT THERE','monoSpace',0);
-  this.textPaper(0,.14, -1.05, 11 , .3, .71,.1,'SUB ROSA SHADOW EVENT',{visible:false});
+  
+
+  this.textPaper(0,.14, -1.05, 11 , .3, .71,.1,'THE PARTY IS OUT THERE',{visible:false});
     // cam 2
   this.polaroid(0.0 ,-.8, .95 , 5,.23,'anagram0.color.fbo',{visible:false});
   this.polaroid(0.0 ,-.65, .375 , 5,.23,'anagram1.color.fbo',{visible:false});
@@ -138,20 +139,22 @@ Demo.prototype.sceneInvestigationBoard = function () {
   // pre-aliens
 
   
-  this.polaroid(0.0 ,.67, 1.07, -7.5,.25,'plasma.color.fbo');
-  this.textPaper(0, .4, 1.17, 5, .35, .4 ,.1,'MOTIVATIONS?!',{visible:false});
-  this.textPaper(0, .46, 1.07, 5, .25, .45,.1,'OLDSCHOOL EFFECT',{visible:false});
-  this.textPaper(0, .48, 1.02, -2, .25, .32,.1,'VISUAL LSD',{visible:false});
-  this.textPaper(0, .48, .97, 3, .25, .37,.1,'MIND CONTROL',{visible:false});
+  this.polaroid(0.0 ,.42, 1.05, -7.5,.25,'plasma.color.fbo');
+  this.textPaper(0, .67, 1.17, -5, .35, .4 ,.1,'MOTIVATIONS?!',{visible:false});
+  this.textPaper(0, .62, 1.07, 5, .25, .45,.1,'OLDSCHOOL EFFECT',{visible:false});
+  this.textPaper(0, .62, 1.02, -2, .25, .32,.1,'VISUAL LSD',{visible:false});
+  this.textPaper(0, .62, .97, 3, .25, .37,.1,'MIND CONTROL',{visible:false});
 
-  this.polaroid(0.0 ,.33, .82, 5.5,.19,'culturalMatrix.color.fbo');
-  this.textPaper(0, .46, .87, 5, .25, .27,.1,'CULTURAL',{visible:false});
-  this.textPaper(0, .47 , .83, -2, .25, .26,.1,'MATRIX',{visible:false});
-  this.textPaper(0, .35, .74, 3, .18, .57,.1,'the numbers dont match!',{visible:false});
+  this.polaroid(0.0 ,.72, .81, -3.5,.22,'pyramid.color.fbo');
+  this.textPaper(0, .50, .88, -2, .24, .54,.1,'DEMOSCENE DISCOUNT',{visible:false});
+  this.textPaper(0, .50, .83 , 3, .24, .46,.1,'PYRAMID SCHEME',{visible:false});
+
+  this.polaroid(0.0 ,.41, .68, 5.5,.19,'culturalMatrix.color.fbo');
+  this.textPaper(0, .55, .68, 5, .25, .27,.1,'CULTURAL',{visible:false});
+  this.textPaper(0, .56 , .64, -2, .25, .25 ,.1,'MATRIX',{visible:false});
+  this.textPaper(0, .42, .60, 3, .16, .57,.1,'the numbers dont match!',{visible:false});
   
-  this.polaroid(0.0 ,.72, .78, -3.5,.22,'pyramid.color.fbo');
-  this.textPaper(0, .67, .7, -2, .2, .54,.1,'DEMOSCENE DISCOUNT',{visible:false});
-  this.textPaper(0, .67, .66, 3, .2, .46,.1,'PYRAMID SCHEME',{visible:false});
+ 
   
 
 
@@ -169,7 +172,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0, omiwthX, omiwthY, 6, .2, .5,.5,'',{visible:false});
   this.loader.addAnimation([{
     start:850*window.tick-9*window.pattern,
-    end: 876*window.tick-9*window.pattern,
+    end: 888*window.tick-9*window.pattern,
     text:{string:'?',name:"multiSceneEffects/monoSpace.ttf"
     },
     perspective:"3d", 

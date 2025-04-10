@@ -88,25 +88,39 @@ Demo.prototype.sceneGreetings = function ()
   });
 
 
+  this.loader.addAnimation([
+    {
+      id:'ufo',
+      object: null,
+      position: [
+        {
+          x: 0,
+          y: () => .8+0.1*Math.sin(1.75*getSceneTimeFromStart()),
+          z: 0
+        }
+      ],
+      angle: [
+        {
+         // degreesY: () => 100*getSceneTimeFromStart(),
+          degreesZ: () => 7*Math.sin(2*getSceneTimeFromStart()),
+         // degreesZ: () => 180 -2*Math.sin(1.5*getSceneTimeFromStart()),
 
+        }
+      ]      
+    }
+  ]);
 
     this.loader.addAnimation([
       {
+        parent: 'ufo',
         object: {
           name: '3d_models/ufo.obj'
         },
-        position: [
-          {
-            x: 0,
-            y: () => .8+0.1*Math.sin(1.75*getSceneTimeFromStart()),
-            z: 0
-          }
-        ],
         angle: [
           {
             degreesY:  () => 100*getSceneTimeFromStart(),
-            degreesX: () => 5*Math.sin(2*getSceneTimeFromStart()),
-            degreesZ: () => 180 -2*Math.sin(1.5*getSceneTimeFromStart()),
+          //  degreesX: () => 5*Math.sin(2*getSceneTimeFromStart()),
+            degreesX: () => 185 -8*Math.sin(3*getSceneTimeFromStart()),
  
           }
         ],
@@ -118,6 +132,7 @@ Demo.prototype.sceneGreetings = function ()
     const greetsLen = greets.length*(350./97.);
 
     this.loader.addAnimation([{
+        parent:'ufo',
         "text":{"string":greets,
         "name":"multiSceneEffects/monoSpace.ttf",
         "parameters": {depth:0.2,bevelEnabled:true,bevelThickness:0.02,bevelSize:0.02,bevelSegments:6}
@@ -133,7 +148,7 @@ Demo.prototype.sceneGreetings = function ()
         position: [
             {
               x: 0,
-              y: 0.75,
+              y: -0.05,
               z: 0
             }
           ],

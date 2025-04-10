@@ -25,7 +25,7 @@ Demo.prototype.sceneBzm = function ()
             z: 0
           }
         ],  
-        scale: [{ uniform2d: 1.15 }],
+        scale: [{ uniform2d: ()=>Sync.get('Misc:BZMScale')+1.15 }],
       }
     ]);
 
