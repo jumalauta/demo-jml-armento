@@ -158,6 +158,51 @@ Demo.prototype.sceneAnagram = function ()
 
       if(k==3)
         {
+          this.loader.addAnimation([{
+            "text":{"string":'N',
+            "name":"multiSceneEffects/monoSpace.ttf",
+            "parameters": {depth:0.2,bevelEnabled:false,bevelThickness:0.02,bevelSize:0.00,bevelSegments:0}
+            },
+            angle: [
+                {
+                degreesZ: 0
+                } 
+            ],
+            "perspective":"3d",
+            "color":[{"r":0.0,"g":0.0,"b":0.0,"a":()=>Sync.get('Misc:DuckEvil')}],
+
+            position: [
+                {
+                x: .41-0.02,
+                y: -.49-0.02,
+                z: -0.02
+                }
+            ],
+            "scale":[{"uniform3d":2.1}]
+        }]);
+        this.loader.addAnimation([{
+          "text":{"string":'N',
+          "name":"multiSceneEffects/monoSpace.ttf",
+          "parameters": {depth:0.2,bevelEnabled:false,bevelThickness:0.02,bevelSize:0.00,bevelSegments:0}
+          },
+          angle: [
+              {
+              degreesZ: 0
+              } 
+          ],
+          "perspective":"3d",
+          "color":[{"r":1.0,"g":0.0,"b":0.0,"a":()=>Sync.get('Misc:DuckEvil')}],
+
+          position: [
+              {
+              x: .41,
+              y: -.49,
+              z: 0
+              }
+          ],
+          "scale":[{"uniform3d":2.1}]
+      }]);
+
           this.loader.addAnimation([
             {
               object: {
@@ -172,13 +217,36 @@ Demo.prototype.sceneAnagram = function ()
               ],
               angle: [
                 {
-                  degreesX: () => 15*Math.sin(3*getSceneTimeFromStart()),
-                  degreesY: () => -155*getSceneTimeFromStart(),
+                  degreesX: () => 15*Math.sin(15+3*getSceneTimeFromStart()),
+                  degreesY: () => 95-155*getSceneTimeFromStart(),
                 }
               ],
-              scale: [{ uniform3d: .05  }]
+              scale: [{ uniform3d: .05}]
             }
           ]);
+
+          this.loader.addAnimation([
+            {
+              object: {
+                name: '3d_models/duckEvil.obj'
+              },
+              position: [
+                {
+                  x: 0, 
+                  y: 0,
+                  z: -3
+                }
+              ],
+              angle: [
+                {
+                  degreesX: () => 15*Math.sin(15+3*getSceneTimeFromStart()),
+                  degreesY: () => 95-155*getSceneTimeFromStart(),
+                }
+              ],
+              scale: [{ uniform3d: ()=>.05*Sync.get('Misc:DuckEvil')}]
+            }
+          ]);
+
         }
       
       const shadeDiff = 0.02;
@@ -222,7 +290,15 @@ Demo.prototype.sceneAnagram = function ()
               ],
               "scale":[{"uniform3d":2.1}]
           }]);
-
+          
+          let r = 1.0;
+          let g = 1.0;
+          let b = 1.0;
+          if(k==3 && (i == 1 || i == 7 || i == 9 || i == 13))
+          {
+            g = ()=>1.0-Sync.get('Misc:DuckEvil');
+            b = ()=>1.0-Sync.get('Misc:DuckEvil');
+          }
           this.loader.addAnimation([{
             "text":{"string":(outString),
             "name":"multiSceneEffects/monoSpace.ttf",
@@ -234,7 +310,7 @@ Demo.prototype.sceneAnagram = function ()
                 } 
             ],
             "perspective":"3d",
-            "color":[{"r":1.0,"g":1.0,"b":1.0}],
+            "color":[{"r":r,"g":g,"b":b}],
 
             position: [
                 {
