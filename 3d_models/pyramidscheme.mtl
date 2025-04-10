@@ -1,0 +1,12 @@
+# Blender 4.3.0 MTL File: 'pyramidscheme.blend'
+# www.blender.org
+
+newmtl Material
+Ns 250.000000
+Ka 0.645614 0.645614 0.645614
+Kd 0.800149 0.674800 0.007462
+Ks 0.594737 0.594737 0.594737
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3

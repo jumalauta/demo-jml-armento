@@ -82,6 +82,7 @@ includeFile('sceneInvestigationBoard/elite.js');
 includeFile('sceneInvestigationBoard/films.js');
 includeFile('sceneInvestigationBoard/lamer.js');
 includeFile('sceneInvestigationBoard/military.js');
+includeFile('sceneInvestigationBoard/pyramid.js');
 includeFile('sceneOutro/outro.js');
 
 Demo.prototype.cameraSetup = function(stopCamAt) {
@@ -220,7 +221,8 @@ Demo.prototype.init = function () {
   this.sceneLamer();
   this.sceneMilitary();
   this.sceneOutro();
-
+  this.scenePyramid();
+  
   this.loader.setScene('main');
 
   const scenes = [ 
@@ -249,6 +251,7 @@ Demo.prototype.init = function () {
     {start: 9*window.pattern, duration: 58*window.pattern, name: 'films', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:films')}},
     {start: 9*window.pattern, duration: 58*window.pattern, name: 'lamer', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:lamer')}},
     {start: 9*window.pattern, duration: 58*window.pattern, name: 'military', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:military')}},
+    {start: 9*window.pattern, duration: 58*window.pattern, name: 'pyramid', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:pyramid')}},
     {start: 57*window.pattern+12*window.tick, duration: 48*window.pattern, name: 'outro', dof:true, polaroid:false, parameters:{}}
 
 ];

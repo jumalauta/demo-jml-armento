@@ -36,7 +36,7 @@ Demo.prototype.sceneOutro = function () {
               z: 0
             }],
           angle: [{ degreesY: -90,}],
-          scale: [{ uniform3d: 1.1 }]
+          scale: [{ uniform3d: 2.0 }]
         }
       ]);
 
@@ -50,7 +50,7 @@ Demo.prototype.sceneOutro = function () {
             {
               x: 2.2,
               y: -1.2,
-              z: -.085
+              z: -.15
             }
           ],
           angle: [
@@ -92,29 +92,32 @@ Demo.prototype.sceneOutro = function () {
     for(let i = 0; i< polaroids.length; i++)
     {
         let random = Utils.random();
+        let random2 = Utils.random();
         this.loader.addAnimation([
             {
             material: {
                 map: polaroids[i]
             },
             object: {
-                name: 'sceneInvestigationBoard/polaroid.obj'
+                name: 'sceneInvestigationBoard/polaroid.obj',
+                side: 'DoubleSide'
             },
             color: [{r:.25,g:.25,b:.25}],
             position: [
                 {
-                x: Utils.random()*3-1.5,
+                x: Utils.random()*5-2.5,
                 y: ()=>8+(random*.2+.1)*Sync.get('Misc:PicDrop'),
-                z: Utils.random()*3-1
+                z: Utils.random()*3+1
                 }
             ],
             angle: [
                 {
-                degreesZ: ()=>getSceneTimeFromStart()*35.0,
-                degreesY: ()=>180
+                degreesZ: ()=>random*180+getSceneTimeFromStart()*35.0,
+                degreesY: ()=>180+ Math.sin(random+getSceneTimeFromStart()*50-25), // Utils.random()*50-25,
+                degreesX: ()=>Math.sin(random2+getSceneTimeFromStart())*30-15 // Utils.random()*30-15 
                 }
             ],
-            scale: [{ uniform3d: 1.0 }]
+            scale: [{ uniform3d: 0.75 }]
             }
         ]);
     }

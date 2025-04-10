@@ -149,7 +149,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0, .47 , .83, -2, .25, .26,.1,'MATRIX',{visible:false});
   this.textPaper(0, .35, .74, 3, .18, .57,.1,'the numbers dont match!',{visible:false});
   
-  this.polaroid(0.0 ,.72, .78, -3.5,.22,'culturalMatrix.color.fbo');
+  this.polaroid(0.0 ,.72, .78, -3.5,.22,'pyramid.color.fbo');
   this.textPaper(0, .67, .7, -2, .2, .54,.1,'DEMOSCENE DISCOUNT',{visible:false});
   this.textPaper(0, .67, .66, 3, .2, .46,.1,'PYRAMID SCHEME',{visible:false});
   
