@@ -123,9 +123,15 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.text(0, 1.66, -1.055, 17, .35,'TESTS!?','handWriting');
   // bottom center
     // linedraw 1, photo 3
+ 
+  this.textPaper(0,0.34, -.44, -2 , .3, .73,.33,'',{visible:false});
+  this.text(0, 0.34, -.4, 5, .4,'Proof-Of-Ink','handWriting');
+  this.text(0, 0.34, -.44, 1, .4,'=','handWriting');
+  this.text(0, 0.34, -.48, -1, .4,'Number of the BEAST','handWriting');
+
+ 
   this.photo15x10(0.0 ,.04, -.88, -5,.35,'bzm.color.fbo',{visible:false});
   
-
   this.textPaper(0,.14, -1.05, 11 , .3, .71,.1,'THE PARTY IS OUT THERE',{visible:false});
   this.textPaper(0,-.3, -.94, -2 , .3, .24,.41,'',{visible:false});
   this.text(0, -.33, -.84, 2, .2,'Shadows','handWriting');
