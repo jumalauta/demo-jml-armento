@@ -188,6 +188,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.text(896*window.tick-9*window.pattern, omiwthX-.01, omiwthY-.05, 4, .25,'THE...','monoSpace',0);
 
 
+
   // upper left corner thread
   this.addRedThread({
     shapePoints: [
@@ -230,11 +231,20 @@ Demo.prototype.sceneInvestigationBoard = function () {
     material:{
       blending: 'NormalBlending',
       transparent:true,
-      depthWrite:true,
-      depthTest:true,
+      alphaTest:0.01
+    }
+  });
+
+  this.loader.addAnimation({image: 'images/grunge_1.png', color: [{a:.5}],
+    scale: [{ uniform2d: 1.5 }],
+    material:{
+      blending: 'SubtractiveBlending',
+      transparent:true,
+      depthWrite:false,
     },
   });
 
+  
 }
 
 Demo.prototype.textPaper = function (startTime, x, y, zAngle, scale, paperScaleX, paperScaleY, textString, pinConfig)
