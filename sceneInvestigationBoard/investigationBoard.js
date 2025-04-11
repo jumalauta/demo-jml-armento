@@ -39,7 +39,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   // center 
   this.photo15x10(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo');
   this.textPaperAnimated(124*endZoomerMultiplier+12*window.tick,.5, -.2, 0.3, .5, 0, 2, .35, .2,.12,'???',{visible:false});
-  this.textPaperAnimated(135*endZoomerMultiplier+12*window.tick,.5, -.2, 0.3, .5, 0.01, 2, .35, .6 ,.12,'Assembly Summer 2025',{visible:false});
+  this.imagePaperAnimated(135*endZoomerMultiplier+12*window.tick,.5, -.05, 0.24, .5, 0.01, 2, .15, 2 ,.47,'asmlogo.png',{visible:false}, -.02,.02);
   this.textPaperAnimated(129*endZoomerMultiplier+12*window.tick,.5, .45, 0.05, .5, 0, 2, .35, .25 ,.12,'290825?',{visible:false});
   this.textPaperAnimated(133.5*endZoomerMultiplier+12*window.tick,.5, .51, 0.05, .5, 0.01, 2, .35, .42 ,.12,'31.07.-03.08.2025',{visible:false});
 
@@ -127,7 +127,24 @@ Demo.prototype.sceneInvestigationBoard = function () {
   
 
   this.textPaper(0,.14, -1.05, 11 , .3, .71,.1,'THE PARTY IS OUT THERE',{visible:false});
-    // cam 2
+  this.textPaper(0,-.3, -.94, -2 , .3, .24,.41,'',{visible:false});
+  this.text(0, -.33, -.84, 2, .2,'Shadows','handWriting');
+  this.text(0, -.26, -.84, -1, .2,'within','handWriting');
+  this.text(0, -.331, -.87, 3, .2,'SHADOWs','handWriting');
+  this.text(0, -.255, -.87, 2, .2,'Within','handWriting');
+  this.text(0, -.331, -.9, 4, .2,'Shadows','handWriting');
+  this.text(0, -.255, -.9, -3, .2,'withIN','handWriting');
+  this.text(0, -.33, -.93, 3, .2,'sHADoWS','handWriting');
+  this.text(0, -.265, -.93, -2, .2,'wIthIn','handWriting');
+  this.text(0, -.333, -.96, 6, .2,'shAdows','handWriting');
+  this.text(0, -.26, -.96, -4, .2,'WITHin','handWriting');
+  this.text(0, -.33, -.99, 3, .2,'shadowS','handWriting');
+  this.text(0, -.26, -.99, -2, .2,'WiThiN','handWriting');
+  this.text(0, -.337, -1.02, 5, .2,'ShaDoWs','handWriting');
+  this.text(0, -.267, -1.02, -3, .2,'WithiN','handWriting');
+  this.text(0, -.3, -1.04, 3, .2,'SHADOWS','handWriting');
+ 
+  // cam 2
   this.polaroid(0.0 ,-.8, .95 , 5,.23,'anagram0.color.fbo',{visible:false});
   this.polaroid(0.0 ,-.65, .375 , 5,.23,'anagram1.color.fbo',{visible:false});
   
@@ -313,6 +330,52 @@ Demo.prototype.textPaperAnimated = function (startTime, animDur, x, y, zStart, z
         {
           x: x,
           y: y,
+          z: zStart
+        },
+        {duration:animDur, z:z}],
+      angle: [
+        {
+          degreesX: 90,
+          degreesY: zAngle,
+        }
+      ],
+      color: [{r:.3 ,g:.3,b:.3}],
+      scale: [{ x: scale*paperScaleX, z: scale*paperScaleY }]
+    }
+  ]);
+}
+
+Demo.prototype.imagePaperAnimated = function (startTime, animDur, x, y, zStart, z, zAngle, scale, paperScaleX, paperScaleY, imageName, pinConfig, paperX, paperY)
+{
+  this.addPin(x, y, pinConfig);
+
+  
+  this.loader.addAnimation([{
+    start:startTime,
+    image:'images/'+imageName,
+    perspective:"3d", 
+    color:[{"r":0.0,"g":0.0,"b":0.0}],
+    position:[{x:x, y:y, z:zStart+.05},
+    {duration:animDur, z:z+.05}],
+    scale: [{ uniform3d: scale }],
+    angle:[{degreesZ:zAngle+Math.random()}],
+    material:{
+      blending: 'NormalBlending',
+      transparent:true,
+      alphaTest:0.01
+    }
+    }]);
+
+  this.loader.addAnimation([
+    {
+      start:startTime,
+      object: {
+        name: 'sceneInvestigationBoard/paper.obj'
+      },
+      position: [
+        {
+          x: x+paperX,
+          y: y+paperY,
           z: zStart
         },
         {duration:animDur, z:z}],
