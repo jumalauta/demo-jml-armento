@@ -38,21 +38,21 @@ Demo.prototype.sceneInvestigationBoard = function () {
   const endZoomerMultiplier = 100/95;
   // center 
   this.photo15x10(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo');
-  this.textPaperAnimated(124*endZoomerMultiplier+12*window.tick,.5, -.2, 0.3, .5, 0, 2, .35, .2,.12,'???',{visible:false});
+  this.textPaperAnimated(124*endZoomerMultiplier+12*window.tick,.5, -.2, 0.28, .5, 0, -6, .35, .18,.11,'???',{visible:false});
   this.imagePaperAnimated(135*endZoomerMultiplier+12*window.tick,.5, -.05, 0.24, .5, 0.01, 2, .15, 2 ,.47,'asmlogo.png',{visible:false}, -.02,.02);
-  this.textPaperAnimated(129*endZoomerMultiplier+12*window.tick,.5, .45, 0.05, .5, 0, 2, .35, .25 ,.12,'290825?',{visible:false});
-  this.textPaperAnimated(133.5*endZoomerMultiplier+12*window.tick,.5, .51, 0.05, .5, 0.01, 2, .35, .42 ,.12,'31.07.-03.08.2025',{visible:false});
+  this.textPaperAnimated(129*endZoomerMultiplier+12*window.tick,.5, .45, 0.05, .5, 0, 6, .35, .23 ,.12,'290825?',{visible:false});
+  this.textPaperAnimated(134*endZoomerMultiplier+12*window.tick,.5, .51, 0.05, .5, 0.01, -5, .35, .42 ,.12,'31.07.-03.08.2025',{visible:false});
 
-  this.textPaperAnimated(138*endZoomerMultiplier+12*window.tick,.5, .51, -0.04, .5, 0.0, 2, .35, .42 ,.12,'MESSUKESKUS',{visible:false});
+  this.textPaperAnimated(138*endZoomerMultiplier+12*window.tick,.5, .51, -0.035, .5, 0.0, 6, .35, .37 ,.12,'MESSUKESKUS',{visible:false});
   
 
-  this.textPaperAnimated(130*endZoomerMultiplier+12*window.tick,.5, .51, -0.11, .5, 0.01, 2, .35, .40 ,.11,'HÄMEENLINNA',{visible:false});
-  this.textPaperAnimated(132.5*endZoomerMultiplier+12*window.tick,.5, .505, -0.11, .5, 0.02, -1, .35, .32 ,.11,'HELSINKI',{visible:false});
+  this.textPaperAnimated(131*endZoomerMultiplier+12*window.tick,.5, .51, -0.11, .5, 0.01, 3, .31, .38 ,.125,'HÄMEENLINNA',{visible:false});
+  this.textPaperAnimated(133*endZoomerMultiplier+12*window.tick,.5, .504, -0.11, .5, 0.02, -1, .35, .28 ,.11,'HELSINKI',{visible:false});
 
-  this.textPaperAnimated(120.5*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.00, 6, .35, .26 ,.12,'NIBIRU',{visible:false});
-  this.textPaperAnimated(122*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.01, -2, .35, .27 ,.12,'EARTH',{visible:false});
-  this.textPaperAnimated(125*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.02, 3, .35, .27 ,.12,'EUROPE',{visible:false});
-  this.textPaperAnimated(127.5*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.03, 1, .35, .3 ,.12,'FINLAND',{visible:false});
+  this.textPaperAnimated(120.5*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.00, 6, .35, .24 ,.12,'NIBIRU',{visible:false});
+  this.textPaperAnimated(122*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.01, -2, .35, .25 ,.12,'EARTH',{visible:false});
+  this.textPaperAnimated(126*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.02, 3, .35, .26 ,.12,'EUROPE',{visible:false});
+  this.textPaperAnimated(128.5*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.03, -4, .35, .3 ,.12,'FINLAND',{visible:false});
   // left bottom corner 
   this.textPaper(0, -1.15, -.71, 6, .35, .5,.5,'',{visible:false});
   this.polaroid(0.0 ,-1.5, -.78, -15.5,.43,'mrna.color.fbo');
