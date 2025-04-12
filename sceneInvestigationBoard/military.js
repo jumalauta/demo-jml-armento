@@ -15,7 +15,7 @@ Demo.prototype.sceneMilitary = function ()
     this.loader.addAnimation([
       {
         image: {
-          name: 'images/sky.png'
+          name: 'images/nukebg.png'
         },
         perspective: '2d',
         position: [
@@ -25,7 +25,7 @@ Demo.prototype.sceneMilitary = function ()
             z: 0
           }
         ],  
-        scale: [{ uniform2d: 1.9 }],
+        scale: [{ uniform2d: ()=>Math.sin(1.5*getSceneTimeFromStart())*.1+1.95 }],
       }
     ]);
 
