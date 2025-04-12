@@ -128,7 +128,7 @@ Demo.prototype.sceneGreetings = function ()
       }
     ]);
 
-    const greets = `MFX - WIDE LOAD - GORBAT SOFT - UNIQUE - MATT CURRENT - GRAYMARCHERS - BYTERAPERS - FUTURE CREW - CR!SP`;
+    const greets = `MFX - WIDE LOAD - GORBAT SOFT - UNIQUE - MATT CURRENT - GRAYMARCHERS - BYTERAPERS - FUTURE CREW - CR!SP - `;
     const greetsLen = greets.length*(350./97.);
 
     this.loader.addAnimation([{

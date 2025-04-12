@@ -186,9 +186,15 @@
 			<key value="0" interpolation="0" row="215"/>
 			<key value="0" interpolation="1" row="216"/>
 			<key value="4" interpolation="0" row="220"/>
-			<key value="4" interpolation="0" row="240"/>
-			<key value="4" interpolation="0" row="264"/>
-			<key value="4" interpolation="0" row="288"/>
+			<key value="4" interpolation="3" row="239"/>
+			<key value="0" interpolation="1" row="240"/>
+			<key value="4" interpolation="0" row="241"/>
+			<key value="4" interpolation="3" row="263"/>
+			<key value="0" interpolation="1" row="264"/>
+			<key value="4" interpolation="0" row="265"/>
+			<key value="4" interpolation="3" row="287"/>
+			<key value="0" interpolation="1" row="288"/>
+			<key value="4" interpolation="0" row="289"/>
 			<key value="4" interpolation="2" row="310"/>
 			<key value="0" interpolation="2" row="312"/>
 			<key value="4" interpolation="0" row="314"/>
