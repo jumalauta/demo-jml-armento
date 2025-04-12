@@ -1,29 +1,38 @@
 Demo.prototype.sceneOutro = function () {
     this.setScene('outro');
     
-    Utils.setSeed(290825);
+    Utils.setSeed(6666);
 
     this.loader.addAnimation({image: '_embedded/defaultWhite.png', color: [{r:0,g:0,b:0}]});
   
     const polaroids = [
         'mrna.color.fbo',
-        'elite.color.fbo',
+        'images/falseflag.png',
         'flatTorus.color.fbo',
-        'AsmA.color.fbo',
+        'elite.color.fbo',     
         'deepState.color.fbo',
         'greetings.color.fbo',
         'introPolaroid.color.fbo',
-        'lamer.color.fbo',
+        'anagram3.color.fbo',
         'chemTrail.color.fbo',
-        'bzm.color.fbo',
         'anagram0.color.fbo',
         'anagram1.color.fbo',
         'anagram2.color.fbo',
-        'anagram3.color.fbo',
+        'lamer.color.fbo',
         'plasma.color.fbo',
-        'culturalMatrix.color.fbo'
+        'culturalMatrix.color.fbo',
+        'pyramid.color.fbo',
+        'AsmA.color.fbo',
+        'images/invitation_qr.png'
     ]
     
+    const nonPolaroids = [
+      'bzm.color.fbo',
+      'farjan.color.fbo',
+      'wordCloud.color.fbo',
+      'film2.color.fbo',
+      'film1.color.fbo'
+    ]
 
     this.loader.addAnimation([
         {
@@ -112,6 +121,7 @@ Demo.prototype.sceneOutro = function () {
 
     for(let i = 0; i< polaroids.length; i++)
     {
+        let random3 = Utils.random()*2-1;
         let random = Utils.random();
         let random2 = Utils.random();
         this.loader.addAnimation([
@@ -126,22 +136,56 @@ Demo.prototype.sceneOutro = function () {
             color: [{r:.25,g:.25,b:.25}],
             position: [
                 {
-                x: Utils.random()*5-2.5,
+                x: Utils.random()*4-2,
                 y: ()=>8+(random*.2+.1)*Sync.get('Misc:PicDrop'),
                 z: Utils.random()*3+1
                 }
             ],
             angle: [
                 {
-                degreesZ: ()=>random*180+getSceneTimeFromStart()*35.0,
-                degreesY: ()=>180+ Math.sin(random+getSceneTimeFromStart()*50-25), // Utils.random()*50-25,
-                degreesX: ()=>Math.sin(random2+getSceneTimeFromStart())*30-15 // Utils.random()*30-15 
+                  degreesZ: ()=>random*360+getSceneTimeFromStart()*35.0*random3,
+                  degreesY: ()=>180+ Math.sin(random*360+getSceneTimeFromStart())*30-15, // Utils.random()*50-25,
+                  degreesX: ()=>Math.sin(random2*360+getSceneTimeFromStart())*20-10 // Utils.random()*30-15 
                 }
             ],
             scale: [{ uniform3d: 0.75 }]
             }
         ]);
     }
+
+    for(let i = 0; i< nonPolaroids.length; i++)
+      {
+          let random3 = Utils.random()*2-1;
+          let random = Utils.random();
+          let random2 = Utils.random();
+          this.loader.addAnimation([
+              {
+              material: {
+                  map: nonPolaroids[i]
+              },
+              object: {
+                  name: 'sceneInvestigationBoard/15x10.obj',
+                  side: 'DoubleSide'
+              },
+              color: [{r:.25,g:.25,b:.25}],
+              position: [
+                  {
+                  x: Utils.random()*4-2,
+                  y: ()=>8+(random*.2+.1)*Sync.get('Misc:PicDrop'),
+                  z: Utils.random()*3+1
+                  }
+              ],
+              angle: [
+                  {
+                  degreesZ: ()=>random*180+getSceneTimeFromStart()*35.0*random3,
+                  degreesY: ()=>180+ Math.sin(random*360+random3*getSceneTimeFromStart())*30-15, // Utils.random()*50-25,
+                  degreesX: ()=>Math.sin(random2*360+getSceneTimeFromStart())*20-10 // Utils.random()*30-15 
+                  }
+              ],
+              scale: [{ uniform3d: 0.75 }]
+              }
+          ]);
+      }
   }
 
 Demo.prototype.creditsText = function (cText)

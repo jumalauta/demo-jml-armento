@@ -18,13 +18,36 @@
 		</track>
 		<track name="General:dofWidth">
 			<key value="0.1" interpolation="0" row="0"/>
+			<key value="0.1" interpolation="1" row="1132"/>
+			<key value="0.05" interpolation="0" row="1141"/>
+			<key value="0.05" interpolation="3" row="1176"/>
+			<key value="0.1" interpolation="0" row="1189"/>
 			<key value="0.03" interpolation="0" row="1380"/>
 		</track>
 		<track name="General:dofCenter">
 			<key value="0.93" interpolation="0" row="0"/>
 			<key value="0.1" interpolation="1" row="216"/>
 			<key value="0.05" interpolation="0" row="224"/>
+			<key value="0.05" interpolation="2" row="356"/>
+			<key value="0.1" interpolation="2" row="360"/>
+			<key value="0.05" interpolation="0" row="364"/>
+			<key value="0.2" interpolation="2" row="900"/>
+			<key value="0.05" interpolation="0" row="912"/>
+			<key value="0.1" interpolation="1" row="1080"/>
+			<key value="0.05" interpolation="0" row="1082"/>
+			<key value="0.05" interpolation="0" row="1098"/>
+			<key value="0.05" interpolation="1" row="1132"/>
+			<key value="0.015" interpolation="0" row="1141"/>
+			<key value="0.015" interpolation="3" row="1176"/>
+			<key value="0.05" interpolation="0" row="1189"/>
+			<key value="0.05" interpolation="3" row="1284"/>
+			<key value="0.08" interpolation="2" row="1292"/>
+			<key value="0.05" interpolation="0" row="1299"/>
 			<key value="0.013" interpolation="0" row="1380"/>
+			<key value="0.013" interpolation="3" row="1392"/>
+			<key value="0.05" interpolation="0" row="1408"/>
+			<key value="0.05" interpolation="2" row="1456"/>
+			<key value="0.013" interpolation="0" row="1472"/>
 		</track>
 		<track name="General:CamY">
 			<key value="0" interpolation="0" row="1276"/>
@@ -1040,5 +1063,8 @@
 		<bookmark row="600"/>
 		<bookmark row="876"/>
 		<bookmark row="888"/>
+		<bookmark row="900"/>
+		<bookmark row="1132"/>
+		<bookmark row="1284"/>
 	</bookmarks>
 </sync>
