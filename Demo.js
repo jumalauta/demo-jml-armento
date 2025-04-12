@@ -224,7 +224,7 @@ Demo.prototype.init = function () {
   this.sceneMilitary();
   this.sceneOutro();
   this.scenePyramid();
-  
+
   this.loader.setScene('main');
 
   const scenes = [ 

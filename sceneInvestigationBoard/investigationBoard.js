@@ -77,6 +77,8 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0, -1.65, .6, 3, .35, .36,.12,'DEEP STATE',{visible:false});
   this.textPaper(0, -1.7, .54, -3, .35, .36,.12,'HoW DEEP',{visible:false});
   this.textPaper(0, -1.65, .48, 4, .35, .36,.12,'DOES IT GO?!',{visible:false});
+
+  this.polaroid(0.0 ,-1.64 , .1 , 5,.26,'images/falseflag.png');
   // left top corner
 
 
@@ -99,6 +101,10 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   // right center
   this.polaroid(0.0 ,1.5, -.2, 90,.28,'introPolaroid.color.fbo',{visible:false});
+  this.image(1.65,.02,.09,-7,'290825paper.png', .5);
+  this.image(1.72,-.17,.06,-110,'290825paper.png', .5);
+  this.image(1.41,-.44,.1,5,'290825paper.png', .5);
+  this.image(1.61,-.43,.07,185,'290825paper.png', .5);
     // linedraw 1, photo 2
   this.polaroid(0.0 ,0.84, -.14, -3,.28,'elite.color.fbo',{visible:false});
   this.polaroid(0.0 ,1.07, -.04, 2,.25,'lamer.color.fbo',{visible:false});
@@ -177,10 +183,8 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0, .56 , .64, -2, .25, .25 ,.1,'MATRIX',{visible:false});
   this.textPaper(0, .42, .60, 3, .16, .57,.1,'the numbers dont match!',{visible:false});
   
-  this.image(0,.5,.15,-7,'demopartyDenies.png');
+  this.image(0,.5,.15,-7,'demopartyDenies.png',1.0);
   
-
-
   this.polaroid(0.0 ,.67, .47, -9.5,.26,'military.color.fbo');
   this.textPaper(0, .44, .5, 5, .25, .47,.1,'GAME COMPETITION',{visible:false});
   this.textPaper(0, .44, .45, 5, .25, .50,.1,'MILITARY INDUSTRIAL',{visible:false});
@@ -397,13 +401,13 @@ Demo.prototype.imagePaperAnimated = function (startTime, animDur, x, y, zStart, 
   ]);
 }
 
-Demo.prototype.image = function (x,y,scale,angle, imageName)
+Demo.prototype.image = function (x,y,scale,angle, imageName, luminance)
 {
-  
   this.loader.addAnimation([{
     image:'images/'+imageName,
     perspective:"3d", 
     position:[{x:x, y:y}],
+    color:[{"r":luminance,"g":luminance,"b":luminance}],
     scale: [{ uniform3d: scale }],
     angle:[{degreesZ:angle+Math.random()}],
     material:{

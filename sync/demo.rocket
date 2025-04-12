@@ -724,104 +724,147 @@
 			<key value="1" interpolation="0" row="632"/>
 		</track>
 		<track name="Pause:chemTrail">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="216"/>
+			<key value="1" interpolation="0" row="217"/>
 			<key value="0" interpolation="0" row="287"/>
 			<key value="1" interpolation="0" row="313"/>
 		</track>
 		<track name="Pause:farjan">
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="217"/>
 			<key value="1" interpolation="0" row="218"/>
 			<key value="0" interpolation="0" row="239"/>
 			<key value="1" interpolation="0" row="265"/>
 		</track>
 		<track name="Pause:flatTorus">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="219"/>
 			<key value="0" interpolation="0" row="263"/>
 			<key value="1" interpolation="0" row="289"/>
 		</track>
 		<track name="Pause:greetings">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="219"/>
+			<key value="1" interpolation="0" row="220"/>
 			<key value="0" interpolation="0" row="899"/>
 			<key value="1" interpolation="0" row="1080"/>
 			<key value="1" interpolation="0" row="1092"/>
 		</track>
 		<track name="Pause:aliens">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="220"/>
+			<key value="1" interpolation="0" row="221"/>
 			<key value="0" interpolation="0" row="899"/>
 			<key value="1" interpolation="0" row="1092"/>
 		</track>
 		<track name="Pause:introPolaroid">
-			<key value="0" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="216"/>
 			<key value="1" interpolation="0" row="241"/>
 		</track>
 		<track name="Pause:endZoomer">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="222"/>
+			<key value="1" interpolation="0" row="223"/>
 			<key value="0" interpolation="0" row="1136"/>
 			<key value="0" interpolation="0" row="1174"/>
 		</track>
 		<track name="Pause:AsmA">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="223"/>
+			<key value="1" interpolation="0" row="224"/>
 			<key value="0" interpolation="0" row="447"/>
 			<key value="1" interpolation="0" row="505"/>
 		</track>
 		<track name="Pause:anagram">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="224"/>
+			<key value="1" interpolation="0" row="225"/>
 			<key value="0" interpolation="0" row="595"/>
 			<key value="1" interpolation="0" row="793"/>
 		</track>
 		<track name="Pause:mrna">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="225"/>
+			<key value="1" interpolation="0" row="226"/>
 			<key value="0" interpolation="0" row="503"/>
 			<key value="1" interpolation="0" row="550"/>
 		</track>
 		<track name="Pause:deepstate">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="226"/>
+			<key value="1" interpolation="0" row="227"/>
 			<key value="0" interpolation="0" row="546"/>
 			<key value="1" interpolation="0" row="599"/>
 		</track>
 		<track name="Pause:plasma">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="227"/>
+			<key value="1" interpolation="0" row="228"/>
 			<key value="0" interpolation="0" row="791"/>
 			<key value="1" interpolation="0" row="871"/>
 			<key value="1" interpolation="0" row="901"/>
 		</track>
 		<track name="Pause:wordCloud">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="228"/>
+			<key value="1" interpolation="0" row="229"/>
 			<key value="0" interpolation="0" row="311"/>
 			<key value="1" interpolation="0" row="350"/>
 		</track>
 		<track name="Pause:bzm">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="229"/>
+			<key value="1" interpolation="0" row="230"/>
 			<key value="0" interpolation="0" row="400"/>
 			<key value="1" interpolation="0" row="448"/>
 		</track>
 		<track name="Pause:culturalMatrix">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="230"/>
+			<key value="1" interpolation="0" row="231"/>
 			<key value="0" interpolation="0" row="791"/>
 			<key value="1" interpolation="0" row="872"/>
 		</track>
 		<track name="Pause:elite">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="231"/>
+			<key value="1" interpolation="0" row="232"/>
 			<key value="0" interpolation="0" row="350"/>
 			<key value="1" interpolation="0" row="400"/>
 		</track>
 		<track name="Pause:lamer">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="232"/>
+			<key value="1" interpolation="0" row="233"/>
 			<key value="0" interpolation="0" row="350"/>
 			<key value="1" interpolation="0" row="400"/>
 		</track>
 		<track name="Pause:military">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="233"/>
+			<key value="1" interpolation="0" row="234"/>
 			<key value="0" interpolation="0" row="839"/>
 			<key value="1" interpolation="0" row="900"/>
 		</track>
 		<track name="Pause:films">
-			<key value="1" interpolation="0" row="218"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="234"/>
+			<key value="1" interpolation="0" row="235"/>
 			<key value="0" interpolation="0" row="239"/>
 			<key value="1" interpolation="0" row="265"/>
 			<key value="0" interpolation="0" row="690"/>
 			<key value="1" interpolation="0" row="736"/>
 		</track>
-		<track name="Pause:pyramid"/>
+		<track name="Pause:pyramid">
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="235"/>
+			<key value="1" interpolation="0" row="236"/>
+			<key value="0" interpolation="0" row="791"/>
+			<key value="1" interpolation="0" row="872"/>
+		</track>
 		<track name="Charlie:x">
 			<key value="-0.6" interpolation="1" row="1136"/>
 			<key value="-0.2" interpolation="0" row="1144"/>
