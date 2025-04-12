@@ -117,7 +117,14 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.text(0, 1.093, -.219, 4, .14,'competitions are','monoSpace');
   this.text(0, 1.114, -.244, 4, .14,'used to recruit new','monoSpace');
   this.text(0, 1.11, -.274, 4, .14,'cultist acolytes."','monoSpace');
-  this.polaroid(0.0 ,0.8, -.75, -5,.32,'chess.color.fbo',{visible:false});
+
+  this.photo15x10(0.0 ,0.7, -.75, -5,.28,'chess.color.fbo',{visible:false});
+  // 'Just another pawn on the board'
+  // 'Moved according to someone else's strategy'
+  // 'Sacrificed for the bigger game'
+  // 'Just a pawn in the grand scheme'
+  this.textPaper(0,0.8, -.62, 12, .25, .7,.12,'pawn in the grand scheme?',{visible:false});
+
   // right bottom corner
   this.polaroid(0.0 ,1.55, -.7, 90,.25,'chemTrail.color.fbo');
   this.polaroid(0.0 ,1.25, -.9, -2,.45,'chemTrail.color.fbo');
