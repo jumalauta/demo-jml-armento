@@ -177,7 +177,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0, .56 , .64, -2, .25, .25 ,.1,'MATRIX',{visible:false});
   this.textPaper(0, .42, .60, 3, .16, .57,.1,'the numbers dont match!',{visible:false});
   
- 
+  this.image(0,.5,.15,-7,'demopartyDenies.png');
   
 
 
@@ -370,7 +370,7 @@ Demo.prototype.imagePaperAnimated = function (startTime, animDur, x, y, zStart, 
       transparent:true,
       alphaTest:0.01
     }
-    }]);
+ }]);
 
   this.loader.addAnimation([
     {
@@ -395,6 +395,23 @@ Demo.prototype.imagePaperAnimated = function (startTime, animDur, x, y, zStart, 
       scale: [{ x: scale*paperScaleX, z: scale*paperScaleY }]
     }
   ]);
+}
+
+Demo.prototype.image = function (x,y,scale,angle, imageName)
+{
+  
+  this.loader.addAnimation([{
+    image:'images/'+imageName,
+    perspective:"3d", 
+    position:[{x:x, y:y}],
+    scale: [{ uniform3d: scale }],
+    angle:[{degreesZ:angle+Math.random()}],
+    material:{
+      blending: 'NormalBlending',
+      transparent:true,
+      alphaTest:0.01
+    }
+ }]);
 }
 
 Demo.prototype.text = function (startTime, x, y, zAngle, scale, textString, font, color = 0.0)
