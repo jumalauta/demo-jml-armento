@@ -1,4 +1,4 @@
-Demo.prototype.addEffectStarfield = function (startTime, durationTime, amountOfParticles, texture, areaSizeX,areaSizeY,areaSizeZ, particleSize, parentId,x,y,z, speed = 1.0, directionFlip = 0.0)
+Demo.prototype.addEffectStarfield = function (startTime, durationTime, amountOfParticles, texture, areaSizeX,areaSizeY,areaSizeZ, particleSize, parentId,x,y,z, speed = 1.0, directionFlip = 0.0, highlight = false)
 {
   const recalcThreshold = 0.1;
 
@@ -50,10 +50,18 @@ Demo.prototype.addEffectStarfield = function (startTime, durationTime, amountOfP
         let object = properties.object;
         let color = properties.color;
 
-        const scale = particleSize;
+        let scale = particleSize;
+
+        if (highlight) {
+          color.r = 1.0;
+          color.g = 0.0;
+          color.b = 0.0;
+          scale *= 1.3;
+        }
+
         object.scale.x = scale;
         object.scale.y = scale;
-        object.scale.z = scale;   
+        object.scale.z = scale;
 
         const percent = -(.15*getSceneTimeFromStart())%1.0;
         stars[i].z2 = (percent*sizeZ*2+stars[i].z1);
@@ -63,6 +71,10 @@ Demo.prototype.addEffectStarfield = function (startTime, durationTime, amountOfP
         object.position.z = stars[i].z2;
         object.position.x = stars[i].x1;
         object.position.y = stars[i].y1;
+        if (highlight) {
+          object.position.x += Math.sin(time*speed*1000.0)*1.0;
+          object.position.y += Math.cos(time*speed*1000.0)*1.0;
+        }
 
         }
       }
