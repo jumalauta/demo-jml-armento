@@ -118,6 +118,8 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.text(0, 1.114, -.244, 4, .14,'used to recruit new','monoSpace');
   this.text(0, 1.11, -.274, 4, .14,'cultist acolytes."','monoSpace');
 
+  this.polaroid(0.0 ,1.1, -.5 , 5,.2,'images/bzdrm.png');
+
   this.photo15x10(0.0 ,0.7, -.75, -5,.28,'chess.color.fbo',{visible:false});
   // 'Just another pawn on the board'
   // 'Moved according to someone else's strategy'
