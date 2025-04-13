@@ -15,7 +15,7 @@ Demo.prototype.scenePyramid = function ()
     this.loader.addAnimation([
       {
         image: {
-          name: 'images/sky.png'
+          name: 'images/dollarbg.png'
         },
         perspective: '2d',
         position: [
@@ -24,8 +24,14 @@ Demo.prototype.scenePyramid = function ()
             y: 0,
             z: 0
           }
-        ],  
+        ],
+        angle:[{                      
+          degreesZ:()=>getSceneTimeFromStart()*4,      
+        }],
         scale: [{ uniform2d: 1.9 }],
+        color: [{
+          r: .5, g: .5, b: .5
+      }]
       }
     ]);
 

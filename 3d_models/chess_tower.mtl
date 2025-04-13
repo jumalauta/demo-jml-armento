@@ -1,8 +1,8 @@
-# Blender MTL File: 'conspiracy_chess.blend'
-# Material Count: 1
+# Blender 4.3.0 MTL File: 'None'
+# www.blender.org
 
-newmtl Material
-Ns 323.999994
+newmtl Material.007
+Ns 324.000031
 Ka 0.948630 0.948630 0.948630
 Kd 0.800000 0.800000 0.800000
 Ks 0.380137 0.380137 0.380137
