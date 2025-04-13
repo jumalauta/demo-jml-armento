@@ -265,7 +265,8 @@ Demo.prototype.sceneInvestigationBoard = function () {
     material:{
       blending: 'NormalBlending',
       transparent:true,
-      alphaTest:0.01
+      alphaTest:0.01,
+      depthWrite:true,
     }
   });
 

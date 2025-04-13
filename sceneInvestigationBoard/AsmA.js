@@ -15,7 +15,7 @@ Demo.prototype.sceneAsmA = function ()
     this.loader.addAnimation([
       {
         image: {
-          name: 'images/sky.png'
+          name: 'images/twirlbg.png'
         },
         perspective: '2d',
         position: [
@@ -25,7 +25,13 @@ Demo.prototype.sceneAsmA = function ()
             z: 0
           }
         ],  
+        angle:[{                      
+          degreesZ:()=>getSceneTimeFromStart()*116,      
+        }],
         scale: [{ uniform2d: 1.9 }],
+        color: [{
+          r: .9, g: .9, b: .9
+      }]
       }
     ]);
 
