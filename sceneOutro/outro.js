@@ -23,7 +23,7 @@ Demo.prototype.sceneOutro = function () {
         'culturalMatrix.color.fbo',
         'pyramid.color.fbo',
         'AsmA.color.fbo',
-        'images/invitation_qr.png'
+        'images/invitation_qr.png',
     ]
     
     const nonPolaroids = [
@@ -31,8 +31,12 @@ Demo.prototype.sceneOutro = function () {
       'farjan.color.fbo',
       'wordCloud.color.fbo',
       'film2.color.fbo',
-      'film1.color.fbo'
+      'film1.color.fbo',
     ]
+    const pictures = [
+      'images/believe_aulanko.png',
+      'images/believe_aulanko.png',
+    ];
 
     this.loader.addAnimation([
         {
@@ -101,6 +105,7 @@ Demo.prototype.sceneOutro = function () {
     // Informants
     // Astu / Jumalauta
     // Kaunis Espanjalainen tyttö
+    // Ylvaes
 
     // Data leaks
     // Assembly organizing
@@ -112,7 +117,7 @@ Demo.prototype.sceneOutro = function () {
 
     this.creditsText({text:'Informants',x:-.35,y:-.2, scale:.9});
     this.creditsText({text:'Astu / Jumalauta',x:.29,y:0, scale:.77});
-    this.creditsText({text:'Kaunis Espanjalainen Tyttö',x:0,y:.15, scale:.77});
+    this.creditsText({id:'Kaunis Espanjalainen Tyttö', text:'Kaunis Espanjalainen Tyttö, Ylvaes',x:0,y:.15, scale:.55});
 
     this.creditsText({text:'Data Leaks',x:-.35,y:.4, scale:.9});
     this.creditsText({text:'Assembly Organizing',x:.2,y:.6, scale:.77});
@@ -127,11 +132,10 @@ Demo.prototype.sceneOutro = function () {
         this.loader.addAnimation([
             {
             material: {
-                map: polaroids[i]
+                map: polaroids[i],
             },
             object: {
                 name: 'sceneInvestigationBoard/polaroid.obj',
-                side: 'DoubleSide'
             },
             color: [{r:.25,g:.25,b:.25}],
             position: [
@@ -161,11 +165,10 @@ Demo.prototype.sceneOutro = function () {
           this.loader.addAnimation([
               {
               material: {
-                  map: nonPolaroids[i]
+                  map: nonPolaroids[i],
               },
               object: {
                   name: 'sceneInvestigationBoard/15x10.obj',
-                  side: 'DoubleSide'
               },
               color: [{r:.25,g:.25,b:.25}],
               position: [
@@ -186,7 +189,41 @@ Demo.prototype.sceneOutro = function () {
               }
           ]);
       }
-  }
+
+      for(let i = 0; i< pictures.length; i++)
+        {
+            let random3 = Utils.random()*2-1;
+            let random = Utils.random();
+            let random2 = Utils.random();
+            this.loader.addAnimation([
+                {
+                image: {
+                    name: pictures[i],
+                },
+                material: {
+                  side: 'DoubleSide'
+                },
+                perspective: "3d",
+                color: [{r:.35,g:.35,b:.35}],
+                position: [
+                    {
+                    x: Utils.random()*4-2,
+                    y: ()=>8+(random*.2+.1)*Sync.get('Misc:PicDrop'),
+                    z: Utils.random()*3+1
+                    }
+                ],
+                angle: [
+                    {
+                    degreesZ: ()=>random*180+getSceneTimeFromStart()*35.0*random3,
+                    degreesY: ()=>180+ Math.sin(random*360+random3*getSceneTimeFromStart())*30-15, // Utils.random()*50-25,
+                    degreesX: ()=>Math.sin(random2*360+getSceneTimeFromStart())*20-10 // Utils.random()*30-15 
+                    }
+                ],
+                scale: [{ uniform3d: 0.2 }]
+                }
+            ]);
+        }
+    }
 
 Demo.prototype.creditsText = function (cText)
 {
@@ -203,7 +240,7 @@ Demo.prototype.creditsText = function (cText)
       }]
     }]);
   
-  let redactedString = 'REDACTED:'+cText.text;
+  let redactedString = 'REDACTED:'+(cText.id||cText.text);
   this.loader.addAnimation([{
     parent:'creditsPaper',
     text:{string:`-REDACTED-`,name:"multiSceneEffects/monoSpace.ttf"},
