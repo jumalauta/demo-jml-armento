@@ -1,108 +1,11 @@
-Demo.prototype.meshAsParticles = function ()
-{
-  let startTime = 0;
-  let durationTime = 40;
-  let texture = 'multiSceneEffects/tex_basicParticle.png';
-  let particleSize = 0.02;
-  let parentId = null;
-
-  const meshVertexCount = 782;
-  let particles = new Array(meshVertexCount);
-
-  this.loader.addAnimation(
-    {
-      end:-1,
-      object: {
-        name: '3d_models/chess_tower.obj'
-      },
-      position: [
-        {
-          x: 0.8,
-          y: 0.45,
-          z: 0
-        }
-      ],
-      scale: [{ uniform3d: 0.3 }],
-      objectOnLoadFunction:(meshData) => {
-        if (!meshData.mesh[0].position) {
-          throw new Error("Mesh position not found");
-        }
-        if (meshVertexCount != meshData.mesh[0].position.count/3) {
-          throw new Error("Mesh vertex count mismatch");
-        }
-
-        for (let i = 0; i < particles.length; i++) {
-          const x = meshData.mesh[0].position.array[i*3+0];
-          const y = meshData.mesh[0].position.array[i*3+1];
-          const z = meshData.mesh[0].position.array[i*3+2];
-          particles[i] = {
-            "x": x,
-            "y": y,
-            "z": z,
-          };
-        }
-      }
-      //color: [{r:.45,g:.0,b:.0}],
-    }
-  );
-
-  this.loader.addAnimation({
-    "start":startTime, "duration":durationTime,
-    "image": texture,
-    textureProperties: [{},{minFilter: 'NearestMipmapNearestFilter', magFilter: 'LinearFilter'}],
-    "parent":parentId,
-    position: [
-      {
-        x: 0.8,
-        y: 0.45,
-        z: 0
-      }
-    ],
-    scale: [{ uniform3d: 0.3 }],
-    "perspective": "3d",
-    "billboard": true,
-    "additive": true,
-    "material":{
-      "blending": 'AdditiveBlending',
-      "transparent":true,
-      "depthWrite":false,
-
-    },
-    //"scale":[{"uniform3d":.1}],
-    "instancer": {
-      "count": particles.length,
-      "runInstanceFunction": (properties) => {
-
-        const i = properties.index;
-        const count = properties.count;
-        const time = properties.time;
-        let object = properties.object;
-        let color = properties.color;
-
-        const scale = particleSize;
-        object.scale.x = scale;
-        object.scale.y = scale;
-        object.scale.z = scale;   
-
-        const particle = particles[i];
-
-        object.position.x = particle.x;
-        object.position.y = particle.y;
-        object.position.z = particle.z;
-      }
-    }
-    
-  });
-}
-
 Demo.prototype.sceneChess = function () 
 {
   this.loader.setScene('chess'); 
   this.loader.addAnimation({fbo:{name:'chess',action:'begin',storeDepth:false}});
   this.loader.addAnimation({
     "camera": "cam2"
-    ,"position":[{"x":4,"y":3,"z":5.5}]
-    ,"lookAt":[{"x":2.0,"y":0.0,"z":0.0}]
+    ,"position":[{"x":() => Sync.get(`Chess:camPosX`)||4,"y":() => Sync.get(`Chess:camPosY`)||1,"z":() => Sync.get(`Chess:camPosZ`)||1.5}]
+    ,"lookAt":[{"x":() => Sync.get(`Chess:camLookX`)||2,"y":() => Sync.get(`Chess:camLookY`),"z":() => Sync.get(`Chess:camLookZ`)}]
     ,"up":[{"x":0,"y":1,"z":0}]
     ,"perspective":[{"fov":75,"aspect":16/9,"near":.05,"far":1000}]
     ,"distYawPitch":[0,0,0]
@@ -112,7 +15,7 @@ Demo.prototype.sceneChess = function ()
     this.loader.addAnimation({
       "light": {
           "type": "Directional",
-          "properties": { "intensity": 5.85 },
+          "properties": { "intensity": 4.0 },
           "castShadow": true
       }
       ,position:[{x:0.5,y:3,z:2}]
@@ -125,7 +28,39 @@ Demo.prototype.sceneChess = function ()
     const boardShader = {
       // extend generated material shader
       fragmentShaderPrefix:`
-uniform float time;
+uniform float bloodTime;
+uniform float bloodRadius;
+//uniform vec4 color;// = vec4(1);
+
+float drawBlood()
+{
+  
+
+  vec2 uv = vMapUv.xy;
+  vec2 position = vec2(0.5,-0.5);
+  float radius = bloodRadius;
+
+	if (radius <= 0.)
+	{
+		return 0.;
+	}
+
+  float t = (sin(bloodTime*0.3)+1.)/2.*10.+35.;
+
+  vec2 circleDeform = vec2(0.005,0.005);
+	vec2 deformUv = uv;
+	deformUv.x += sin(uv.y*t+t*4.)*circleDeform.x+sin(uv.x*t+t*3.)*circleDeform.x;
+	deformUv.y += cos(uv.x*t+t*4.)*circleDeform.y;
+
+	float distance = length(position - deformUv);
+	float circleDistance = distance - radius;
+	if (circleDistance < radius)
+	{
+    return 1.0-min(distance/1.0,1.0);
+	}
+
+	return 0.;
+}
 
 void drawBoard()
 {
@@ -133,6 +68,12 @@ void drawBoard()
     //fragColor = texture(map, vMapUv);
     //coord = mod(coord + vec2(time), vec2(1.0));
 
+    float blood = drawBlood();
+    if (blood > 0.0) {
+        gl_FragColor.rgb *= vec3(0.3, 0.1, 0.1);
+    } else {
+      gl_FragColor.rgba *= vec4(0.9);
+    }
     vec2 gridCoord = floor(coord * 80.0 / 10.0);
     if (mod(gridCoord.x + gridCoord.y, 2.0) == 0.0) {
         gl_FragColor.rgb *= 0.0;
@@ -148,7 +89,13 @@ void drawBoard()
     this.loader.addAnimation({
       object: '_embedded/defaultWhite.png',
       shape: { type: 'PLANE', width: s*8, height: s*8 },
-      shader:{...boardShader},
+      shader:{...boardShader,
+        variable:
+        [
+          {name:"bloodRadius","value":[()=>Sync.get('Chess:BloodRadius')]},
+          {name:"bloodTime","value":[()=>Sync.get('Chess:BloodTime')]},
+        ]
+      },
       position: [
         {
           x: s*8/2.-s/2,
@@ -281,6 +228,7 @@ void drawBoard()
     for(let i = 0; i < pieces.length; i++){
       const piece = pieces[i];
       const pieceId = `${piece.player}_${piece.name}_${piece.x}`;
+      let angle = [{degreesY:piece.player*(176 + Utils.random() * 8)+(piece.name=='knight'?90:0)}];
       let position = [
         {
           x: s*piece.x,
@@ -288,25 +236,34 @@ void drawBoard()
           z: s*piece.z
         }
       ];
-      if (pieceId == '0_pawn_4') {
-        position.push({
-          //e2 -> e4
-          duration: 1,
-          x: s*piece.x,
-          y: 0.0,
-          z: s*(piece.z + 2)
-        });
+      if (pieceId == '0_pawn_4' || pieceId == '1_pawn_4') {
+        position = [
+          {
+            x: () => s*(piece.x + Sync.get(`Chess:${pieceId}_x`)),
+            y: () => s*Sync.get(`Chess:${pieceId}_y`),
+            z: () => s*(piece.z + Sync.get(`Chess:${pieceId}_z`))
+          }
+        ];
+        angle[0].degreesX = () => Sync.get(`Chess:${pieceId}_degreesX`);
       }
 
-      if (pieceId == '1_pawn_4') {
-        position.push({
-          //e7 -> e5
-          start: 1.5,
-          duration: 1,
-          x: s*piece.x,
-          y: 0.0,
-          z: s*(piece.z - 2)
-        });
+      if (pieceId.startsWith('0_pawn')) {
+        const degY = angle[0].degreesY;
+        const sinCosFunc = Utils.random() < 0.2 ? Math.sin : Math.cos;
+        const shootAngle = Utils.random() * 3;
+        const shootPos = Utils.random() * Math.PI * 2;
+        angle[0].degreesY = () => Sync.get(`Chess:Shoot`)*sinCosFunc((shootPos + getSceneTimeFromStart()*0.5)*(10.0-degY))*(4+shootAngle) + degY;
+      }
+
+      if (pieceId.startsWith('1_') && pieceId != '1_pawn_4') {
+        const degY = angle[0].degreesY;
+        const sinCosFunc = Utils.random() < 0.5 ? Math.sin : Math.cos;
+        const deadX = 90;
+        const deadY = -10 + Utils.random() * 20;
+        const deadZ = -50 + Utils.random() * 100;
+        angle[0].degreesX = () => Sync.get(`Chess:Shoot`)*sinCosFunc((piece.x + piece.z + getSceneTimeFromStart()*40.0))*(1-Sync.get(`Chess:DeathFall`)) + Sync.get(`Chess:DeathFall`)*deadX;
+        angle[0].degreesZ = () => Sync.get(`Chess:DeathFall`)*deadZ;
+        angle[0].degreesY = () => Sync.get(`Chess:Shoot`)*sinCosFunc((piece.x + piece.z + getSceneTimeFromStart()*40.0))*(1-Sync.get(`Chess:DeathFall`)) + degY  + Sync.get(`Chess:DeathFall`)*deadY;
       }
 
       this.loader.addAnimation(
@@ -318,32 +275,121 @@ void drawBoard()
           position: position,
           scale: [{ uniform3d: 0.25 }],
           color: [colors[piece.player]],
-          angle:[{degreesY:piece.player*180+(piece.name=='knight'?90:0)}],
+          angle: angle,
         }
       );
 
-      if (pieceId.startsWith('0_pawn')) {
+      if (pieceId.startsWith('0_pawn') && pieceId != '0_pawn_4') {
+        const akId = `${pieceId}_ak`;
+        const posZ = -0.03 + Utils.random() * 0.06;
+        const posY = 0.67 + Utils.random() * 0.06;
+        const degreesY = 86 + Utils.random() * 8;
+        const degreesX = -5 + Utils.random() * 10;
         this.loader.addAnimation(
           {
             parent: pieceId,
+            id: akId,
             object: {
               name: '3d_models/obj_ak.obj'
             },
             position: [
               {
-                x: 0.31,
-                y: 0.7,
-                z: 0
+                x: (0.30 + Utils.random() * 0.01) * (Utils.random() < 0.3 ? -1 : 1),
+                y: () => (Sync.get('Chess:Shoot'))*Math.sin(posZ+getSceneTimeFromStart()*60.0)*0.01 + posY,
+                z: () => (Sync.get('Chess:Shoot'))*Math.sin(posY+getSceneTimeFromStart()*30.0)*0.015 + posZ,
               }
             ],
-            angle: [{degreesY:90}],
+            angle: [{
+              degreesY:() => Sync.get('Chess:Shoot')*Math.sin(posZ+getSceneTimeFromStart()*60.0)*2 + degreesY,
+              degreesX:() => Sync.get('Chess:Shoot')*Math.sin(posY+getSceneTimeFromStart()*30.0)*2 + degreesX
+            }],
             scale: [
-              { uniform3d: 0.0 },
-              { duration: 2.5},
-              { duration: 0.5, uniform2d: 0.4 },
+              { uniform3d: () => Sync.get(`Chess:ak47_scale`) },
             ]
           } 
         );
+
+        const muzzleAlpha = ()=>{
+          //return 1.0;
+          const ak47BurstRate = 100./60.*15.;
+          const value = Sync.get('Chess:Shoot')*((Math.sin(ak47BurstRate * (getSceneTimeFromStart() + piece.x + piece.z + 10.0))+1)/2);
+          return value<0.95?0.0:1.0;
+          //return 0.0;
+        };
+        const muzzleAdditive = true;
+
+        this.loader.addAnimation({
+          "parent":akId
+         ,"image":{
+            "name":"images/muzzle_flame.png"
+          }
+          ,"additive":muzzleAdditive
+          ,"perspective":"3d"
+          ,"position":[{
+            "x":-3.25,
+            "y":0.5,
+            "z":0
+          }]
+          ,"color":[{"a":muzzleAlpha}]
+          ,"angle":[{
+            "degreesY":-90,
+            }]
+          ,"scale":[{"uniform3d":()=>2.0+Math.sin(i*getSceneTimeFromStart()*20.0)*0.1}]
+          ,"shader":{"name":"sceneInvestigationBoard/muzzle.fs"
+            ,"variable": [
+              {"name":"strength","value":[1.0]},
+              {"name":"iteration","value":[Utils.random()*30.0]}
+            ]
+            }
+        });  
+        this.loader.addAnimation({
+          "parent":akId
+         ,"image":{
+            "name":"images/tex_muzzle.png"
+          }
+          ,"additive":muzzleAdditive
+          ,"perspective":"3d"
+          ,"position":[{
+            "x":-4.3,
+            "y":0.4,
+            "z":0
+          }]
+          ,"color":[{"a":muzzleAlpha}]
+          ,"angle":[{
+            "degreesY":0,
+            }]
+          ,"scale":[{"uniform3d":()=>1.0+Math.sin(i*getSceneTimeFromStart()*20.0)*0.1}]
+          ,"shader":{"name":"sceneInvestigationBoard/muzzle.fs"
+            ,"variable": [
+              {"name":"strength","value":[1.0]},
+              {"name":"iteration","value":[Utils.random()*30.0]}
+            ]
+            }
+        });  
+        this.loader.addAnimation({
+          "parent":akId
+         ,"image":{
+            "name":"images/tex_muzzle.png"
+          }
+          ,"additive":muzzleAdditive
+          ,"perspective":"3d"
+          ,"position":[{
+            "x":-4.3,
+            "y":0.4,
+            "z":0
+          }]
+          ,"color":[{"a":muzzleAlpha}]
+          ,"angle":[{
+            "degreesX":-90,
+            }]
+          ,"scale":[{"uniform3d":()=>1.0+Math.sin(i*getSceneTimeFromStart()*20.0)*0.1}]
+          ,"shader":{"name":"sceneInvestigationBoard/muzzle.fs"
+            ,"variable": [
+              {"name":"strength","value":[1.0]},
+              {"name":"iteration","value":[Utils.random()*30.0]}
+            ]
+            }
+        });  
       }    
   }
 
@@ -373,7 +419,7 @@ void drawBoard()
       }
     );*/
 
-    this.loader.addAnimation([
+    /*this.loader.addAnimation([
       {
         image: {
           name: 'sceneInvestigationBoard/tex_15X10.png'
@@ -388,7 +434,7 @@ void drawBoard()
         ],  
         scale: [{ uniform2d: .855 }],
         color: [{ r: 1.0, g: 1.0, "b": 1.0 }]
-      }]);
+      }]);*/
 
   this.loader.addAnimation({fbo:{name:'chess',action:'unbind'}});
 }

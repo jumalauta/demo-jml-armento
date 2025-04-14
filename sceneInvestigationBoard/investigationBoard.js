@@ -125,7 +125,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   // 'Moved according to someone else's strategy'
   // 'Sacrificed for the bigger game'
   // 'Just a pawn in the grand scheme'
-  this.textPaper(0,0.8, -.62, 12, .25, .7,.12,'pawn in the grand scheme?',{visible:false});
+  this.textPaper(0,0.8, -.60, 11, .18, .7,.12,'Are YOU being played?',{visible:false});
 
   // right bottom corner
   this.polaroid(0.0 ,1.55, -.7, 90,.25,'chemTrail.color.fbo');
