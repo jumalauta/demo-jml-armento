@@ -39,7 +39,8 @@ Demo.prototype.sceneInvestigationBoard = function () {
   // center 
   this.photo15x10(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo');
   this.textPaperAnimated(124*endZoomerMultiplier+12*window.tick,.5, -.2, 0.28, .5, 0, -6, .35, .18,.11,'???',{visible:false});
-  this.imagePaperAnimated(135*endZoomerMultiplier+12*window.tick,.5, -.05, 0.24, .5, 0.01, 2, .15, 2 ,.47,'asmlogo.png',{visible:false}, -.02,.02);
+  this.textPaperAnimated(130*endZoomerMultiplier+12*window.tick,.5, -.2, 0.28, .5, 0.01, 3, .35, .28,.11,'jmlparty???',{visible:false});
+  this.imagePaperAnimated(135*endZoomerMultiplier+12*window.tick,.5, -.05, 0.24, .5, 0.02, 2, .15, 2 ,.47,'asmlogo.png',{visible:false}, -.02,.02);
   this.textPaperAnimated(129*endZoomerMultiplier+12*window.tick,.5, .45, 0.05, .5, 0, 6, .35, .23 ,.12,'290825?',{visible:false});
   this.textPaperAnimated(134*endZoomerMultiplier+12*window.tick,.5, .51, 0.05, .5, 0.01, -5, .35, .42 ,.12,'31.07.-03.08.2025',{visible:false});
 
@@ -121,10 +122,6 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.polaroid(0.0 ,1.1, -.5 , 5,.2,'images/bzdrm.png');
 
   this.photo15x10(0.0 ,0.7, -.75, -5,.28,'chess.color.fbo',{visible:false});
-  // 'Just another pawn on the board'
-  // 'Moved according to someone else's strategy'
-  // 'Sacrificed for the bigger game'
-  // 'Just a pawn in the grand scheme'
   this.textPaper(0,0.8, -.60, 11, .18, .7,.12,'Are YOU being played?',{visible:false});
 
   // right bottom corner
@@ -148,6 +145,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.photo15x10(0.0 ,.04, -.88, -5,.35,'bzm.color.fbo',{visible:false});
   
   this.textPaper(0,.14, -1.05, 11 , .3, .71,.1,'THE PARTY IS OUT THERE',{visible:false});
+  this.textPaper(0,.14, -1.10, 9 , .3, .60,.1,'61.032140N, 24.473158E',{visible:false});
   this.textPaper(0,-.3, -.94, -2 , .3, .24,.41,'',{visible:false});
   this.text(0, -.33, -.84, 2, .2,'Shadows','handWriting');
   this.text(0, -.26, -.84, -1, .2,'within','handWriting');
