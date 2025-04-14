@@ -258,6 +258,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
 
   this.loader.addAnimation({
+    id:'charlie',
     image: 'images/charlie.png',
     scale: [{ uniform2d: ()=>Sync.get('Charlie:scale') }],
     position:[{x:()=>Sync.get('Charlie:x'), y:()=>Sync.get('Charlie:y')}],
@@ -269,6 +270,31 @@ Demo.prototype.sceneInvestigationBoard = function () {
       depthWrite:true,
     }
   });
+  this.loader.addAnimation({
+    parent:'charlie',
+   "image":{
+      "name":"images/smoke.png"
+    }
+    ,"position":[{
+      "x":-0.119,
+      "y":0.313,
+      "z":0
+    }]
+    ,"scale":[{"uniform3d":0.3}]
+    ,"shader":{"name":"sceneInvestigationBoard/smoke.fs"
+      ,"variable": [
+        {"name":"strength","value":[1.0]},
+        {"name":"iteration","value":[Utils.random()*30.0]}
+      ]
+      },
+      color: [{a:()=>Sync.get('Charlie:alpha')}],
+      material:{
+        blending: 'NormalBlending',
+        transparent:true,
+        alphaTest:0.01,
+        depthWrite:true,
+      }
+    });  
 
   this.loader.addAnimation({image: 'images/grunge_1.png', color: [{a:.5}],
     scale: [{ uniform2d: 1.5 }],
