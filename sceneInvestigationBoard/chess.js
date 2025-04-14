@@ -21,7 +21,24 @@ Demo.prototype.sceneChess = function ()
       ,position:[{x:0.5,y:3,z:2}]
     });    
 
-    this.loader.addAnimation({image: '_embedded/defaultWhite.png', color: [{r:.6,g:.3,b:.1}]});
+    this.loader.addAnimation([
+      {
+        image: {
+          name: 'images/chessbg.png'
+        },
+        perspective: '2d',
+        position: [
+          {
+            x: 0,
+            y: 0,
+            z: 0
+          }
+        ],  
+
+        scale: [{ uniform2d: ()=>Math.sin(getSceneTimeFromStart())*.1+1.7 }],
+
+      }
+    ]);
 
     const s = 0.5;
 
@@ -419,7 +436,7 @@ void drawBoard()
       }
     );*/
 
-    /*this.loader.addAnimation([
+    this.loader.addAnimation([
       {
         image: {
           name: 'sceneInvestigationBoard/tex_15X10.png'
@@ -432,9 +449,9 @@ void drawBoard()
             z: 0
           }
         ],  
-        scale: [{ uniform2d: .855 }],
-        color: [{ r: 1.0, g: 1.0, "b": 1.0 }]
-      }]);*/
+        scale: [{ uniform2d: .875 }],
+        color: [{ r: 1.0, g: 1.0, b: 1.0 }]
+      }]);
 
   this.loader.addAnimation({fbo:{name:'chess',action:'unbind'}});
 }
