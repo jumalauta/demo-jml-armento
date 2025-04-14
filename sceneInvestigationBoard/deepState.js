@@ -45,6 +45,40 @@ Demo.prototype.sceneDeepState = function ()
       }
   });
 
+  const logoAlpha = 0.45;
+  this.loader.addAnimation(
+    {
+      image: {
+        name: 'images/logo_revision_part_2.png'
+      },
+      position: [
+        {
+          x: 0,
+          y: 0,
+        }
+      ],  
+      angle:[{degreesZ:()=>-getSceneTimeFromStart()*60}],
+      scale: [{ uniform2d: 0.15 }],
+      color:[{a:logoAlpha}]
+    }
+  );
+  this.loader.addAnimation(
+    {
+      image: {
+        name: 'images/logo_revision_part_1.png'
+      },
+      position: [
+        {
+          x: 0,
+          y: 0,
+        }
+      ],  
+      angle:[{degreesZ:()=>-getSceneTimeFromStart()*40}],
+      scale: [{ uniform2d: 0.15 }],
+      color:[{a:logoAlpha}]
+    }
+  );
+
   this.loader.addAnimation([
     {
       image: {
