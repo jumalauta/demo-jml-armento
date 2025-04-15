@@ -13,7 +13,7 @@ void main()
 {
     vec2 coord=texCoord;
     
-    coord.s=coord.s+fakeTime;
+    coord.s=coord.s+fakeTime+0.2;
 
     fragColor = color*texture2D(texture0, coord);
 

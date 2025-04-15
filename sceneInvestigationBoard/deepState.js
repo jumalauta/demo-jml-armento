@@ -18,15 +18,17 @@ Demo.prototype.sceneDeepState = function ()
     const localCamPos = [0.0, 0.0, 0.0];
     const localCamDir = [0.0, 0.0, 0.1];
     const camFov = 75.0 * deg2rad;
+
+
     this.loader.addAnimation({
       image: ['_embedded/defaultWhite.png'],
       perspective: '3d',
       position:[{"x":0.0,"y":0.0,"z":0.0}],
       scale: [{ uniform2d: 1.0}],
-
+  
       "material":{
         depthTest: true,
-        depthWrite: true,
+        depthWrite: false,
         blending: 'NormalBlending'
       },
       "shader":{
@@ -62,6 +64,7 @@ Demo.prototype.sceneDeepState = function ()
       color:[{a:logoAlpha}]
     }
   );
+
   this.loader.addAnimation(
     {
       image: {
@@ -93,6 +96,34 @@ Demo.prototype.sceneDeepState = function ()
         }
       ],  
       scale: [{ uniform2d: 0.9 }],
+    }
+  ]);
+
+  this.loader.addAnimation([
+    {
+      object: {
+        name: '3d_models/meter.obj'
+      },
+      position: [
+        {
+          x: 0, 
+          y: -1.225,
+          z: 0
+        }
+      ],
+      angle: [
+        {
+          degreesX: 90,
+        }
+      ],
+      scale: [{ uniform3d: 0.2, z:0.2 }],
+      shader:{
+        name:["multiSceneEffects/uvscroll.fs"],
+        variable:
+        [          
+          {name:"fakeTime","type":"float","value":[.4]}        
+        ]
+      }
     }
   ]);
 
