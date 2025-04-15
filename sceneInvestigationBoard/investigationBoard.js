@@ -258,7 +258,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   this.loader.addAnimation({
     id:'charlie',
-    image: 'images/charlie.png',
+    image: 'images/charlie_sauli.png',
     scale: [{ uniform2d: ()=>Sync.get('Charlie:scale') }],
     position:[{x:()=>Sync.get('Charlie:x'), y:()=>Sync.get('Charlie:y')}],
     color: [{r:.6,g:.6,b:.6,a:()=>Sync.get('Charlie:alpha')}],
