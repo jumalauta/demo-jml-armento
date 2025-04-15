@@ -58,7 +58,7 @@ Demo.prototype.addRedThread = function (definition) {
   const shapePrecision = 2;
     let shapeSize = 0.001;
     this.loader.addAnimation({
-        object:{name:null,properties:{castShadow:false, receiveShadow:false}},
+        object:{name:null,properties:{castShadow:false, receiveShadow:true}},
         material:{
           transparent:true,
           frustumCulled:false,
