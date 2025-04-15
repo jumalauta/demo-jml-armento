@@ -153,7 +153,12 @@ Demo.prototype.cameraSetup = function(stopCamAt) {
       "light": {
           "type": "Directional",
           "properties": { "intensity": 6.85 },
-          "castShadow": true
+          "castShadow": true,
+          "shadowProperties": {
+            "bias": ()=>Sync.get('Cam:ShadowBias'),
+            "radius": ()=>Sync.get('Cam:ShadowRadius'),
+            "normalBias": ()=>Sync.get('Cam:ShadowNormalBias')
+          } 
       }
       ,position:[{x:()=>window.camPos[0],y:()=>window.camPos[1],z:()=>window.camPos[2]+2.0}]
       
