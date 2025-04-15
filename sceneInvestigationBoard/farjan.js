@@ -63,9 +63,26 @@ Demo.prototype.sceneFarjan = function ()
           }
         ],  
         scale: [{ uniform2d: 0.57 }],
-
       }
     ]);
+
+    this.loader.addAnimation(
+      {
+        image: {
+          name: 'images/kevin.png'
+        },
+        perspective: '2d',
+        position: [
+          {
+            x: .23,
+            y: ()=>Math.sin(getSceneTimeFromStart()*1.95)*.02+.31,
+            z: 0
+          }
+        ],  
+        scale: [{ uniform2d: 0.57 }],
+        color: [{a:0},{duration:2.5},{a:1,duration:7}]
+      }
+    );
 
     this.loader.addAnimation([
       {
