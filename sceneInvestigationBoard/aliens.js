@@ -15,7 +15,7 @@ Demo.prototype.sceneAliens = function ()
     this.loader.addAnimation([
       {
         image: {
-          name: 'images/aliens_temp.png'
+          name: 'images/aliens_mika.png'
         },
         perspective: '2d',
         position: [
