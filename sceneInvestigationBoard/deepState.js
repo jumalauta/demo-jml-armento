@@ -104,9 +104,10 @@ Demo.prototype.sceneDeepState = function ()
       object: {
         name: '3d_models/meter.obj'
       },
+      textureProperties: [{ wrapS: 'RepeatWrapping', wrapT: 'RepeatWrapping'}],
       position: [
         {
-          x: 0, 
+          x: -0.8, 
           y: -1.225,
           z: 0
         }
@@ -118,14 +119,133 @@ Demo.prototype.sceneDeepState = function ()
       ],
       scale: [{ uniform3d: 0.2, z:0.2 }],
       shader:{
-        name:["multiSceneEffects/uvscroll.fs"],
-        variable:
-        [          
-          {name:"fakeTime","type":"float","value":[.4]}        
+        fragmentShaderPrefix:`
+          uniform float fakeTime;
+        `,
+        fragmentShaderSuffix:`
+          vec2 coord=vMapUv.xy;
+          coord.t=coord.t+fakeTime;
+          gl_FragColor = texture2D(map, coord);
+        `,
+        variable: [
+          { name: 'fakeTime', value: [()=>Sync.get('Misc:Digit3')] }
         ]
-      }
+      } 
     }
   ]);
+
+  this.loader.addAnimation([
+    {
+      object: {
+        name: '3d_models/meter.obj'
+      },
+      textureProperties: [{ wrapS: 'RepeatWrapping', wrapT: 'RepeatWrapping'}],
+      position: [
+        {
+          x: -0.4, 
+          y: -1.225,
+          z: 0
+        }
+      ],
+      angle: [
+        {
+          degreesX: 90,
+        }
+      ],
+      scale: [{ uniform3d: 0.2, z:0.2 }],
+      shader:{
+        fragmentShaderPrefix:`
+          uniform float fakeTime;
+        `,
+        fragmentShaderSuffix:`
+          vec2 coord=vMapUv.xy;
+          coord.t=coord.t+fakeTime;
+          gl_FragColor = texture2D(map, coord);
+        `,
+        variable: [
+          { name: 'fakeTime', value: [()=>Sync.get('Misc:Digit2')] }
+        ]
+      } 
+    }
+  ]);
+
+  this.loader.addAnimation([
+    {
+      object: {
+        name: '3d_models/meter.obj'
+      },
+      textureProperties: [{ wrapS: 'RepeatWrapping', wrapT: 'RepeatWrapping'}],
+      position: [
+        {
+          x: 0.0, 
+          y: -1.225,
+          z: 0
+        }
+      ],
+      angle: [
+        {
+          degreesX: 90,
+        }
+      ],
+      scale: [{ uniform3d: 0.2, z:0.2 }],
+      shader:{
+        fragmentShaderPrefix:`
+          uniform float fakeTime;
+        `,
+        fragmentShaderSuffix:`
+          vec2 coord=vMapUv.xy;
+          coord.t=coord.t+fakeTime;
+          gl_FragColor = texture2D(map, coord);
+        `,
+        variable: [
+          { name: 'fakeTime', value: [()=>Sync.get('Misc:Digit1')] }
+        ]
+      } 
+    }
+  ]);
+
+  this.loader.addAnimation([
+    {
+      object: {
+        name: '3d_models/meter.obj'
+      },
+      textureProperties: [{ wrapS: 'RepeatWrapping', wrapT: 'RepeatWrapping'}],
+      position: [
+        {
+          x: 0.4, 
+          y: -1.225,
+          z: 0
+        }
+      ],
+      angle: [
+        {
+          degreesX: 90,
+        }
+      ],
+      scale: [{ uniform3d: 0.2, z:0.2 }],
+      shader:{
+        fragmentShaderPrefix:`
+          uniform float fakeTime;
+        `,
+        fragmentShaderSuffix:`
+          vec2 coord=vMapUv.xy;
+          coord.t=coord.t+fakeTime;
+          gl_FragColor = texture2D(map, coord);
+        `,
+        variable: [
+          { name: 'fakeTime', value: [()=>Sync.get('Misc:Digit0')] }
+        ]
+      } 
+    }
+  ]);
+
+  this.loader.addAnimation([{
+    text:{string:`ft`,name:"multiSceneEffects/monoSpace.ttf"},
+    perspective:"2d",
+    position:[{x:0.15, y:-.38}],
+    scale: [{ uniform3d: 4.0 }],
+    color:[{r:0,g:0,b:0}]
+}]);
 
   this.loader.addAnimation({fbo:{name:'deepState',action:'unbind'}});
 }

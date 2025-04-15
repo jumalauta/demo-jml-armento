@@ -791,6 +791,22 @@
 			<key row="784" value="0" interpolation="0"/>
 			<key row="786" value="1" interpolation="0"/>
 		</track>
+		<track name="Misc:Digit0">
+			<key row="512" value="0" interpolation="1"/>
+			<key row="632" value="-100" interpolation="0"/>
+		</track>
+		<track name="Misc:Digit1">
+			<key row="512" value="0" interpolation="1"/>
+			<key row="632" value="-10" interpolation="0"/>
+		</track>
+		<track name="Misc:Digit2">
+			<key row="512" value="0" interpolation="1"/>
+			<key row="632" value="-1" interpolation="0"/>
+		</track>
+		<track name="Misc:Digit3">
+			<key row="512" value="-0.6" interpolation="1"/>
+			<key row="632" value="-0.7" interpolation="0"/>
+		</track>
 		<track name="Anagram:FirstPercentage">
 			<key row="600" value="0" interpolation="1"/>
 			<key row="632" value="1" interpolation="0"/>
