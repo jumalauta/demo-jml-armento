@@ -174,7 +174,6 @@ Demo.prototype.sceneInvestigationBoard = function () {
   
   // pre-aliens
 
-  
   this.polaroid(0.0 ,.42, 1.05, -7.5,.25,'plasma.color.fbo');
   this.textPaper(0, .67, 1.17, -5, .35, .4 ,.1,'MOTIVATIONS?!',{visible:false});
   this.textPaper(0, .62, 1.07, 5, .25, .45,.1,'OLDSCHOOL EFFECT',{visible:false});
@@ -296,16 +295,18 @@ Demo.prototype.sceneInvestigationBoard = function () {
       }
     });  
 
-  this.loader.addAnimation({image: 'images/grunge_1.png', color: [{a:.5}],
-    scale: [{ uniform2d: 1.5 }],
-    material:{
-      blending: 'SubtractiveBlending',
-      transparent:true,
-      depthWrite:false,
-    },
-  });
-
-  
+  for(let i = 1;i<4;i++)
+  {
+    let syncValue = 'Grunge:image'+i;
+    this.loader.addAnimation({image: 'images/grunge_'+i+'.png', color: [{r:()=>Sync.get(syncValue),g:()=>Sync.get(syncValue),b:()=>Sync.get(syncValue)}],
+      scale: [{ x: ()=>Sync.get('Grunge:scale'),y: ()=>Sync.get('Grunge:scaleY') }],
+      material:{
+        blending: 'SubtractiveBlending',
+        transparent:true,
+        depthWrite:false,
+      },
+    });
+  }
 }
 
 Demo.prototype.textPaper = function (startTime, x, y, zAngle, scale, paperScaleX, paperScaleY, textString, pinConfig)
