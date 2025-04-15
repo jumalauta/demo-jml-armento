@@ -55,10 +55,39 @@ Demo.prototype.sceneMrna = function ()
           {"name":"camNear","type":"mat4","value":[.05]},
           {"name":"camFar","type":"mat4","value":[1000]},
           {"name":"camFov","type":"mat4","value":[camFov]},
-          {"name":"effectType","type":"int","value":[0]}
+          {"name":"effectType","type":"int","value":[0]},
+          {"name":"objPos1Mul","type":"vec4","value": [()=>Sync.get('mrna:objPos1X'),()=>Sync.get('mrna:objPos1Y'),()=>Sync.get('mrna:objPos1Z'),()=>Sync.get('mrna:obj1Size')]},
+          {"name":"objPos2Mul","type":"vec4","value": [()=>Sync.get('mrna:objPos2X'),()=>Sync.get('mrna:objPos2Y'),()=>Sync.get('mrna:objPos2Z'),()=>Sync.get('mrna:obj2Size')]},
+          {"name":"objPos3Mul","type":"vec4","value": [()=>Sync.get('mrna:objPos3X'),()=>Sync.get('mrna:objPos3Y'),()=>Sync.get('mrna:objPos3Z'),()=>Sync.get('mrna:obj3Size')]},
+          {"name":"objPos4Mul","type":"vec4","value": [()=>Sync.get('mrna:objPos4X'),()=>Sync.get('mrna:objPos4Y'),()=>Sync.get('mrna:objPos4Z'),()=>Sync.get('mrna:obj4Size')]},
+          {"name":"objSmooth", "type":"vec3","value": [()=>Sync.get('mrna:smooth1'),()=>Sync.get('mrna:smooth2'),()=>Sync.get('mrna:smooth3')]},
         ]
       }
   });
+  const pistonPercent = 0.1; 
+  this.loader.addAnimation([
+    {
+      image: {
+        name: 'images/syringe_piston.png'
+      },
+      perspective: '2d',
+      angle: [
+        {
+
+          degreesZ: ()=>-61.1
+        }
+      ], 
+      position: [
+        {
+          x: () => 0.74 - (0.74-0.58)*Sync.get('mrna:pistonPercent'),
+          y: () => -2.35 + (2.35-1.83)*Sync.get('mrna:pistonPercent'),
+          z: 0
+        }
+      ],  
+      scale: [{ uniform2d: 5.5 }],
+    }
+  ]);
+
   this.loader.addAnimation([
     {
       image: {
@@ -68,17 +97,17 @@ Demo.prototype.sceneMrna = function ()
       angle: [
         {
 
-          degreesZ: ()=>-15+ Math.sin(5.0*getSceneTimeFromStart())
+          degreesZ: ()=>-15
         }
       ], 
       position: [
         {
-          x: 0,
-          y: 0.05,
+          x: 0.04,
+          y: -0.03,
           z: 0
         }
       ],  
-      scale: [{ uniform2d: .960 }],
+      scale: [{ uniform2d: 1.1 }],
     }
   ]);
 

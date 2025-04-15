@@ -1213,6 +1213,126 @@
 			<key row="1132" value="1" interpolation="1"/>
 			<key row="1144" value="0" interpolation="0"/>
 		</track>
+		<track name="mrna:objPos1X">
+			<key interpolation="0" value="1.5" row="0"/>
+			<key interpolation="0" value="1.5" row="504"/>
+			<key interpolation="1" value="1.5" row="520"/>
+			<key interpolation="0" value="0" row="540"/>
+		</track>
+		<track name="mrna:objPos1Y">
+			<key interpolation="0" value="5" row="0"/>
+			<key interpolation="0" value="5" row="504"/>
+			<key interpolation="1" value="5" row="520"/>
+			<key interpolation="0" value="0" row="540"/>
+		</track>
+		<track name="mrna:objPos1Z">
+			<key interpolation="0" value="1" row="0"/>
+			<key interpolation="0" value="1" row="504"/>
+			<key interpolation="1" value="1" row="520"/>
+			<key interpolation="0" value="0" row="540"/>
+		</track>
+		<track name="mrna:obj1Size">
+			<key interpolation="0" value="1.925" row="0"/>
+			<key interpolation="0" value="1.925" row="504"/>
+			<key interpolation="1" value="1.925" row="520"/>
+			<key interpolation="0" value="4" row="540"/>
+		</track>
+		<track name="mrna:objPos2X">
+			<key interpolation="0" value="1.5" row="0"/>
+			<key interpolation="0" value="1.5" row="504"/>
+			<key interpolation="1" value="1.5" row="520"/>
+			<key interpolation="0" value="0" row="540"/>
+		</track>
+		<track name="mrna:objPos2Y">
+			<key interpolation="0" value="5" row="0"/>
+			<key interpolation="0" value="5" row="504"/>
+			<key interpolation="1" value="5" row="520"/>
+			<key interpolation="0" value="0" row="540"/>
+		</track>
+		<track name="mrna:objPos2Z">
+			<key interpolation="0" value="1" row="0"/>
+			<key interpolation="0" value="1" row="504"/>
+			<key interpolation="1" value="1" row="520"/>
+			<key interpolation="0" value="0" row="540"/>
+		</track>
+		<track name="mrna:obj2Size">
+			<key interpolation="0" value="1.925" row="0"/>
+			<key interpolation="0" value="1.925" row="504"/>
+			<key interpolation="1" value="1.925" row="520"/>
+			<key interpolation="0" value="4" row="540"/>
+		</track>
+		<track name="mrna:objPos3X">
+			<key interpolation="0" value="2" row="0"/>
+			<key interpolation="0" value="2" row="504"/>
+			<key interpolation="1" value="2" row="520"/>
+			<key interpolation="0" value="0" row="540"/>
+		</track>
+		<track name="mrna:objPos3Y">
+			<key interpolation="0" value="5" row="0"/>
+			<key interpolation="0" value="5" row="504"/>
+			<key interpolation="1" value="5" row="520"/>
+			<key interpolation="0" value="0" row="540"/>
+		</track>
+		<track name="mrna:objPos3Z">
+			<key interpolation="0" value="3" row="0"/>
+			<key interpolation="0" value="3" row="504"/>
+			<key interpolation="1" value="3" row="520"/>
+			<key interpolation="0" value="0" row="540"/>
+		</track>
+		<track name="mrna:obj3Size">
+			<key interpolation="0" value="1.925" row="0"/>
+			<key interpolation="0" value="1.925" row="504"/>
+			<key interpolation="1" value="1.925" row="520"/>
+			<key interpolation="0" value="4" row="540"/>
+		</track>
+		<track name="mrna:objPos4X">
+			<key interpolation="0" value="0" row="0"/>
+			<key interpolation="0" value="0" row="504"/>
+			<key interpolation="1" value="0" row="520"/>
+			<key interpolation="0" value="0" row="540"/>
+		</track>
+		<track name="mrna:objPos4Y">
+			<key interpolation="0" value="4" row="0"/>
+			<key interpolation="0" value="4" row="504"/>
+			<key interpolation="1" value="4" row="520"/>
+			<key interpolation="0" value="0" row="540"/>
+		</track>
+		<track name="mrna:objPos4Z">
+			<key interpolation="0" value="3" row="0"/>
+			<key interpolation="0" value="3" row="504"/>
+			<key interpolation="1" value="3" row="520"/>
+			<key interpolation="0" value="0" row="540"/>
+		</track>
+		<track name="mrna:obj4Size">
+			<key interpolation="0" value="1.925" row="0"/>
+			<key interpolation="0" value="1.925" row="504"/>
+			<key interpolation="1" value="1.925" row="520"/>
+			<key interpolation="0" value="4" row="540"/>
+		</track>
+		<track name="mrna:smooth1">
+			<key interpolation="0" value="1.05" row="0"/>
+			<key interpolation="0" value="1.05" row="504"/>
+			<key interpolation="1" value="1.05" row="520"/>
+			<key interpolation="0" value="3" row="540"/>
+		</track>
+		<track name="mrna:smooth2">
+			<key interpolation="0" value="1.45" row="0"/>
+			<key interpolation="0" value="1.45" row="504"/>
+			<key interpolation="1" value="1.45" row="520"/>
+			<key interpolation="0" value="3" row="540"/>
+		</track>
+		<track name="mrna:smooth3">
+			<key interpolation="0" value="1.475" row="0"/>
+			<key interpolation="0" value="1.475" row="504"/>
+			<key interpolation="1" value="1.475" row="520"/>
+			<key interpolation="0" value="3" row="540"/>
+		</track>
+		<track name="mrna:pistonPercent">
+			<key interpolation="0" value="0" row="0"/>
+			<key interpolation="0" value="0" row="504"/>
+			<key interpolation="2" value="0" row="515"/>
+			<key interpolation="0" value="0.8" row="540"/>
+		</track>
 	</tracks>
 	<bookmarks>
 		<bookmark row="216"/>

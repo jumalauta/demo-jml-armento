@@ -7,6 +7,12 @@ uniform sampler2D texture0;
 uniform sampler2D texture2;
 uniform float time;
 
+uniform vec4 objPos1Mul; // = vec4(1.5,5.0,1.0,1.925);
+uniform vec4 objPos2Mul; // = vec4(1.5,5.0,1.0,1.925);
+uniform vec4 objPos3Mul; // = vec4(2.0,5.0,3.0,1.925);
+uniform vec4 objPos4Mul; // = vec4(0.0,4.0,3.0,1.925);
+uniform vec3 objSmooth; // = vec3(1.05,1.45,1.475);
+
 uniform float timeMultiplier;
 uniform float invert;
 uniform float rotation;
@@ -134,24 +140,25 @@ vec4 smin(vec4 a, vec4 b, float k) {
     return mix(a, b, h) - vec4(blend, -blend*1.0,-blend*1.0,-blend*1.0);
 }
 
+
 vec4 GetDist(vec3 point)
 {
     vec4 distObjects;
 
     if(effectType == 0)
     {
-        vec3 objPos1 = vec3((sin(time*3.))*1.5,sin(cos(time*1.5))*5.0,-15.0+sin(sin(time*3.))*1.0);
-        vec3 objPos2 = vec3((-sin(time*1.5))*1.5,sin(cos(-time*3.))*5.0,-15.0+sin(sin(time*3.))*1.0);
-        vec3 objPos3 = vec3(sin(cos(-time*3.))*2.0,sin(cos(-time*2.))*2.0,-15.0+sin(sin(time*1.5))*3.0);
-        vec3 objPos4 = vec3(0.0,(-sin(time*2.5435))*5.0,-15.0+sin(sin(time*1.5))*3.0);
+        vec3 objPos1 = vec3(0.5+(sin(time*3.))*objPos1Mul.x,sin(cos(time*1.5))*objPos1Mul.y,-15.0+sin(sin(time*3.))*objPos1Mul.z);
+        vec3 objPos2 = vec3(0.5+(-sin(time*1.5))*objPos2Mul.x,sin(cos(-time*3.))*objPos2Mul.y,-15.0+sin(sin(time*3.))*objPos2Mul.z);
+        vec3 objPos3 = vec3(0.5+sin(cos(-time*3.))*objPos3Mul.x,sin(cos(-time*2.))*objPos3Mul.y,-15.0+sin(sin(time*1.5))*objPos3Mul.z);
+        vec3 objPos4 = vec3(0.5+objPos4Mul.x,(-sin(time*2.5435))*objPos4Mul.y,-15.0+sin(sin(time*1.5))*objPos4Mul.z);
         surfacePos = vec3(0.0,18.0,0.0);
-        vec4 sphereObj1 = Sphere(point, objPos1, 1.925, vec3(0.0,0.0,0.0));
-        vec4 sphereObj2 = Sphere(point, objPos2, 1.925, vec3(0.2,.2,.2));
-        vec4 sphereObj3 = Sphere(point, objPos3, 1.925, vec3(1.0,0.6,1.2));
-        vec4 sphereObj4 = Sphere(point, objPos4, 1.925, vec3(0.6,1.1,0.4));
-        distObjects = smin(sphereObj1, sphereObj2, 1.45);
-        vec4 distObjects2 = smin(sphereObj3, sphereObj4, 1.45);
-        distObjects = smin(distObjects,distObjects2, 1.475);
+        vec4 sphereObj1 = Sphere(point, objPos1, objPos1Mul.w, vec3(0.0,0.0,0.0));
+        vec4 sphereObj2 = Sphere(point, objPos2, objPos2Mul.w, vec3(0.2,.2,.2));
+        vec4 sphereObj3 = Sphere(point, objPos3, objPos3Mul.w, vec3(1.0,0.6,1.2));
+        vec4 sphereObj4 = Sphere(point, objPos4, objPos4Mul.w, vec3(0.6,1.1,0.4));
+        distObjects = smin(sphereObj1, sphereObj2, objSmooth.x);
+        vec4 distObjects2 = smin(sphereObj3, sphereObj4, objSmooth.y);
+        distObjects = smin(distObjects,distObjects2, objSmooth.z);
     }
     if(effectType == 1)
     {
