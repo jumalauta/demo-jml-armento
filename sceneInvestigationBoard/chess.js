@@ -12,10 +12,21 @@ Demo.prototype.sceneChess = function ()
     ,"instableTimer":[0.0,0.0,0.0,0.0,0.0]
   });
 
+  this.loader.addAnimation({
+    "light": {
+        "type": "Ambient",
+        "properties": { "intensity": 2.0 },
+        "castShadow": false
+    }
+    ,"color": [{
+        "r": 0.8, "g": 0.8, "b": 0.8
+    }]
+});    
+
     this.loader.addAnimation({
       "light": {
           "type": "Directional",
-          "properties": { "intensity": 4.0 },
+          "properties": { "intensity": 1.5 },
           "castShadow": true
       }
       ,position:[{x:0.5,y:3,z:2}]
@@ -93,7 +104,7 @@ void drawBoard()
     }
     vec2 gridCoord = floor(coord * 80.0 / 10.0);
     if (mod(gridCoord.x + gridCoord.y, 2.0) == 0.0) {
-        gl_FragColor.rgb *= 0.0;
+        gl_FragColor.rgb *= 0.3;
         //discard;
     }
 }
