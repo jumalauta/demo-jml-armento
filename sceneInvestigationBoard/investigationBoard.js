@@ -275,11 +275,11 @@ Demo.prototype.sceneInvestigationBoard = function () {
       "name":"images/smoke.png"
     }
     ,"position":[{
-      "x":-0.119,
-      "y":0.313,
+      "x":-0.16,
+      "y":0.36,
       "z":0
     }]
-    ,"scale":[{"uniform3d":0.3}]
+    ,"scale":[{"x":0.25,"y":0.3}]
     ,"shader":{"name":"sceneInvestigationBoard/smoke.fs"
       ,"variable": [
         {"name":"strength","value":[1.0]},
