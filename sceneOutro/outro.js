@@ -168,7 +168,7 @@ Demo.prototype.sceneOutro = function () {
                   map: nonPolaroids[i],
               },
               object: {
-                  name: 'sceneInvestigationBoard/15x10.obj',
+                  name: 'sceneInvestigationBoard/15X10.obj',
               },
               color: [{r:.25,g:.25,b:.25}],
               position: [
