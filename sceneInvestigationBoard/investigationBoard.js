@@ -269,6 +269,14 @@ Demo.prototype.sceneInvestigationBoard = function () {
       depthWrite:true,
     }
   });
+
+  for(let i=0; i<2;i++)
+  {
+    this.text(0, ()=>Sync.get('Misc:IACX')+.04+.0025*i, .2+.005*i, 10, ()=>Sync.get('Misc:ScaleIts'),`IT'S`,'monoSpace', i, "2d", true);
+    this.text(0, ()=>Sync.get('Misc:IACX')+.08+.0025*i, 0.005*i, 2, ()=>Sync.get('Misc:ScaleAll'),`ALL`,'monoSpace', i, "2d", true);
+    this.text(0, ()=>Sync.get('Misc:IACX')+.04+.0025*i, -.2+.005*i, -4, ()=>Sync.get('Misc:ScaleConnected'),`CONNECTED!`,'monoSpace', i, "2d", true);
+
+  }
   this.loader.addAnimation({
     parent:'charlie',
    "image":{
@@ -453,18 +461,22 @@ Demo.prototype.image = function (x,y,scale,angle, imageName, luminance)
  }]);
 }
 
-Demo.prototype.text = function (startTime, x, y, zAngle, scale, textString, font, color = 0.0)
+Demo.prototype.text = function (startTime, x, y, zAngle, scale, textString, font, color = 0.0, perspective = "3d", depthSort = false)
 {
 //"multiSceneEffects/handWriting.ttf"
   this.loader.addAnimation([{
     start:startTime,
     text:{string:textString,name:"multiSceneEffects/" + font + ".ttf"
     },
-    perspective:"3d", 
+    perspective:perspective, 
     color:[{"r":color,"g":color,"b":color}],
     position:[{x:x, y:y}],
     scale: [{ uniform3d: scale }],
-    angle:[{degreesZ:zAngle+Math.random()}]
+    angle:[{degreesZ:zAngle+Math.random()}],
+    material:{
+      depthTest: !depthSort,
+      transparent:depthSort,
+    }
     }]);
 }
 

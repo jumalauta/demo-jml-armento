@@ -159,11 +159,11 @@
 			<key row="1127" value="1" interpolation="0"/>
 			<key row="1134" value="0.9" interpolation="1"/>
 			<key row="1139" value="1" interpolation="0"/>
-			<key row="1144" value="0.9" interpolation="1"/>
+			<key row="1144" value="0.8" interpolation="1"/>
 			<key row="1149" value="1" interpolation="0"/>
-			<key row="1152" value="0.9" interpolation="1"/>
+			<key row="1152" value="0.8" interpolation="1"/>
 			<key row="1157" value="1" interpolation="0"/>
-			<key row="1158" value="0.9" interpolation="1"/>
+			<key row="1158" value="0.8" interpolation="1"/>
 			<key row="1163" value="1" interpolation="0"/>
 			<key row="1170" value="0.9" interpolation="1"/>
 			<key row="1175" value="1" interpolation="0"/>
@@ -325,6 +325,12 @@
 			<key row="1088" value="0" interpolation="1"/>
 			<key row="1090" value="0.1" interpolation="1"/>
 			<key row="1092" value="0" interpolation="0"/>
+			<key row="1144" value="0.01" interpolation="1"/>
+			<key row="1148" value="0" interpolation="0"/>
+			<key row="1152" value="0.01" interpolation="1"/>
+			<key row="1156" value="0" interpolation="0"/>
+			<key row="1158" value="0.01" interpolation="1"/>
+			<key row="1162" value="0" interpolation="0"/>
 			<key row="1284" value="0" interpolation="2"/>
 			<key row="1290" value="0.005" interpolation="2"/>
 			<key row="1296" value="0" interpolation="0"/>
@@ -815,6 +821,28 @@
 			<key row="512" value="-0.6" interpolation="1"/>
 			<key row="632" value="-0.7" interpolation="0"/>
 		</track>
+		<track name="Misc:ScaleIts">
+			<key row="1143" value="0" interpolation="0"/>
+			<key row="1144" value="4" interpolation="1"/>
+			<key row="1191" value="4.2" interpolation="0"/>
+			<key row="1192" value="0" interpolation="0"/>
+		</track>
+		<track name="Misc:ScaleAll">
+			<key row="1151" value="0" interpolation="0"/>
+			<key row="1152" value="4" interpolation="1"/>
+			<key row="1191" value="4.2" interpolation="0"/>
+			<key row="1192" value="0" interpolation="0"/>
+		</track>
+		<track name="Misc:ScaleConnected">
+			<key row="1143" value="0" interpolation="0"/>
+			<key row="1158" value="4" interpolation="1"/>
+			<key row="1191" value="4.2" interpolation="0"/>
+			<key row="1192" value="0" interpolation="0"/>
+		</track>
+		<track name="Misc:IACX">
+			<key row="1176" value="0" interpolation="2"/>
+			<key row="1192" value="0.7" interpolation="0"/>
+		</track>
 		<track name="Anagram:FirstPercentage">
 			<key row="600" value="0" interpolation="1"/>
 			<key row="632" value="1" interpolation="0"/>
@@ -971,7 +999,7 @@
 			<key row="1136" value="-0.6" interpolation="1"/>
 			<key row="1144" value="-0.2" interpolation="0"/>
 			<key row="1176" value="-0.2" interpolation="2"/>
-			<key row="1184" value="-0.55" interpolation="0"/>
+			<key row="1184" value="-1" interpolation="0"/>
 		</track>
 		<track name="Charlie:alpha">
 			<key row="1136" value="0" interpolation="2"/>
