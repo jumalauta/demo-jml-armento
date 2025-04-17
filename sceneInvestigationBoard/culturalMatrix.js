@@ -22,7 +22,35 @@ Demo.prototype.sceneCulturalMatrix = function ()
 
   this.loader.addAnimation({fbo:{name:'culturalMatrix',action:'begin',storeDepth:false}});
 
+  this.loader.addAnimation([
+    {
+      id:'matrixParent',
+      object: null,
+      position: [
+        {
+          x: 0,
+          y: 0,
+          z: 0
+        }
+      ],
+      scale: [{ uniform2d: ()=>1.0+.05*Math.sin(2.4*getSceneTimeFromStart()) }],
+    }
+  ]);
 
+  this.loader.addAnimation([
+    {
+      id:'matrixParent2',
+      object: null,
+      position: [
+        {
+          x: 0,
+          y: 0,
+          z: 0
+        }
+      ],
+      scale: [{ uniform2d: ()=>1.1-.05*Math.sin(2.4*getSceneTimeFromStart()) }],
+    }
+  ]);
 
     this.loader.addAnimation({
         "light": {
@@ -68,8 +96,8 @@ Demo.prototype.sceneCulturalMatrix = function ()
         }
         for(let k=0; k<2;k++)
         {
-            this.loader.addAnimation([
-                {
+            this.loader.addAnimation([{
+                parent: 'matrixParent',
                 image: {
                     name: 'images/bitfont_'+matrixNumbers[i][k]+'.png'
                 },
@@ -91,6 +119,7 @@ Demo.prototype.sceneCulturalMatrix = function ()
     this.loader.addAnimation([{
         text:{string:'\[',name:"multiSceneEffects/monoSpace.ttf"
         },
+        parent: 'matrixParent2',
         perspective:"3d", 
         color:[{"r":1.0,"g":1.0,"b":1.0}],
         position:[{x:-.85, y:.25}],
@@ -101,6 +130,7 @@ Demo.prototype.sceneCulturalMatrix = function ()
       this.loader.addAnimation([{
         text:{string:'\]',name:"multiSceneEffects/monoSpace.ttf"
         },
+        parent: 'matrixParent2',
         perspective:"3d", 
         color:[{"r":1.0,"g":1.0,"b":1.0}],
         position:[{x:.85, y:.25}],
