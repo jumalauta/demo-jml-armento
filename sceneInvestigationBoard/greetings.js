@@ -128,7 +128,7 @@ Demo.prototype.sceneGreetings = function ()
       }
     ]);
 
-    const greets = `BRAINSTORM - COMPUTER CLUB MAGNETISM - DARKLITE - DEKADENCE - MFX - WIDE LOAD - GORBAT SOFT - POO-BRAIN - RBBS - UNIQUE - MATT CURRENT - GRAYMARCHERS - BYTERAPERS - FUTURE CREW - CR!SP - `;
+    const greets = `BRAINSTORM - COMPUTER CLUB MAGNETISM - DARKLITE - DEKADENCE - MFX - WIDE LOAD - GORBAT SOFT - POO-BRAIN - RBBS - SPACEPIGS - UNIQUE - U+1F35E - MATT CURRENT - GRAYMARCHERS - BYTERAPERS - FUTURE CREW - CR!SP - `;
     const greetsLen = greets.length*(350./97.);
 
     this.loader.addAnimation([{
