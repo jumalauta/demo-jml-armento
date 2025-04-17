@@ -43,13 +43,9 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.imagePaperAnimated(135*endZoomerMultiplier+12*window.tick,.5, -.05, 0.24, .5, 0.02, 2, .15, 2 ,.47,'asmlogo.png',{visible:false}, -.02,.02);
   this.textPaperAnimated(129*endZoomerMultiplier+12*window.tick,.5, .45, 0.05, .5, 0, 6, .35, .23 ,.12,'290825?',{visible:false});
   this.textPaperAnimated(134*endZoomerMultiplier+12*window.tick,.5, .51, 0.05, .5, 0.01, -5, .35, .42 ,.12,'31.07.-03.08.2025',{visible:false});
-
   this.textPaperAnimated(138*endZoomerMultiplier+12*window.tick,.5, .51, -0.035, .5, 0.0, 6, .35, .37 ,.12,'MESSUKESKUS',{visible:false});
-  
-
   this.textPaperAnimated(131*endZoomerMultiplier+12*window.tick,.5, .51, -0.11, .5, 0.01, 3, .31, .38 ,.125,'HÄMEENLINNA',{visible:false});
   this.textPaperAnimated(133*endZoomerMultiplier+12*window.tick,.5, .504, -0.11, .5, 0.02, -1, .35, .28 ,.11,'HELSINKI',{visible:false});
-
   this.textPaperAnimated(120.5*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.00, 6, .35, .24 ,.12,'NIBIRU',{visible:false});
   this.textPaperAnimated(122*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.01, -2, .35, .25 ,.12,'EARTH',{visible:false});
   this.textPaperAnimated(126*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.02, 3, .35, .26 ,.12,'EUROPE',{visible:false});
@@ -166,7 +162,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   // cam 2
   this.polaroid(0.0 ,-.8, .95 , 5,.23,'anagram0.color.fbo',{visible:false});
   this.polaroid(0.0 ,-.65, .375 , 5,.23,'anagram1.color.fbo',{visible:false});
-  
+  this.farjanNotes();
   this.polaroid(0.0 ,-.7 , -.375 , 5,.23,'anagram2.color.fbo',{visible:false});
   this.photo15x10(0.0 ,-.5, -.35 , -10,.13,'film2.color.fbo');
 
@@ -581,4 +577,50 @@ Demo.prototype.photo15x10 = function (startTime, x, y, zAngle, scale, imageName,
       scale: [{ uniform3d: scale }]
     }
   ]);
+
+  Demo.prototype.farjanNotes = function()
+  {
+    this.loader.addAnimation([
+      {
+        object: {
+          name: '3d_models/farjanNotes.obj'
+        },
+        textureProperties: [{ wrapS: 'RepeatWrapping', wrapT: 'RepeatWrapping'}],
+        position: [
+          {
+            x: -0.6575,
+            y: .35,
+            z: 0
+          }
+        ],
+        angle: [
+          {
+            degreesX: -90,
+            degreesY:10
+          }
+        ],
+        scale: [{ y: .075*1.19, x: .05*1.19, z:0.05*1.19 }],
+        shader:{
+          fragmentShaderPrefix:`
+            uniform float fakeTime;
+          `,
+          fragmentShaderSuffix:`
+            vec2 coord=vMapUv.xy;
+            coord.s=coord.s+fakeTime;
+            coord.t=-coord.t;
+            gl_FragColor = texture2D(map, coord);
+          `,
+          variable: [
+            { name: 'fakeTime', value: [()=>.1*getSceneTimeFromStart()] }
+          ]
+        },
+        material:{
+          blending: 'AdditiveBlending',
+          transparent:true,
+          depthWrite:false,
+        }
+      }
+      
+    ]);
+  }
 }
