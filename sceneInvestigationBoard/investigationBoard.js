@@ -163,6 +163,9 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.polaroid(0.0 ,-.8, .95 , 5,.23,'anagram0.color.fbo',{visible:false});
   this.polaroid(0.0 ,-.65, .375 , 5,.23,'anagram1.color.fbo',{visible:false});
   this.farjanNotes();
+
+  this.image(-.675,0,.05,-7,'teffectLeadsToHell.png',1.0);
+  
   this.polaroid(0.0 ,-.7 , -.375 , 5,.23,'anagram2.color.fbo',{visible:false});
   this.photo15x10(0.0 ,-.5, -.35 , -10,.13,'film2.color.fbo');
 
