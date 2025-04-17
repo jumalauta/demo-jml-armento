@@ -858,6 +858,14 @@
 			<key row="900" interpolation="1" value="2"/>
 			<key row="1080" interpolation="0" value="41.15"/>
 		</track>
+		<track name="Misc:Logo">
+			<key row="536" interpolation="2" value="0"/>
+			<key row="548" interpolation="2" value="1"/>
+			<key row="560" interpolation="2" value="0"/>
+			<key row="572" interpolation="2" value="1"/>
+			<key row="584" interpolation="2" value="0"/>
+			<key row="596" interpolation="0" value="1"/>
+		</track>
 		<track name="Anagram:FirstPercentage">
 			<key row="600" interpolation="1" value="0"/>
 			<key row="632" interpolation="0" value="1"/>

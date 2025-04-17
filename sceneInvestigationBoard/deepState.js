@@ -51,7 +51,7 @@ Demo.prototype.sceneDeepState = function ()
   this.loader.addAnimation(
     {
       image: {
-        name: 'images/logo_revision_part_2.png'
+        name: 'images/logo_assembly.png'
       },
       position: [
         {
@@ -59,16 +59,16 @@ Demo.prototype.sceneDeepState = function ()
           y: 0,
         }
       ],  
-      angle:[{degreesZ:()=>-getSceneTimeFromStart()*60}],
+
       scale: [{ uniform2d: 0.15 }],
-      color:[{a:logoAlpha}]
+      color:[{a:()=>Sync.get('Misc:Logo')}]
     }
   );
 
   this.loader.addAnimation(
     {
       image: {
-        name: 'images/logo_revision_part_1.png'
+        name: 'images/logo_fist.png'
       },
       position: [
         {
@@ -76,9 +76,9 @@ Demo.prototype.sceneDeepState = function ()
           y: 0,
         }
       ],  
-      angle:[{degreesZ:()=>-getSceneTimeFromStart()*40}],
+
       scale: [{ uniform2d: 0.15 }],
-      color:[{a:logoAlpha}]
+      color:[{a:()=>1-Sync.get('Misc:Logo')}]
     }
   );
 
