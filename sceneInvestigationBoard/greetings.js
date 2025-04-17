@@ -106,12 +106,15 @@ Demo.prototype.sceneGreetings = function ()
          // degreesZ: () => 180 -2*Math.sin(1.5*getSceneTimeFromStart()),
 
         }
-      ]      
+      ]     
     }
   ]);
 
+
+
     this.loader.addAnimation([
       {
+        id: 'actualufo',
         parent: 'ufo',
         object: {
           name: '3d_models/ufo.obj'
@@ -128,8 +131,10 @@ Demo.prototype.sceneGreetings = function ()
       }
     ]);
 
-    const greets = `BRAINSTORM - COMPUTER CLUB MAGNETISM - DARKLITE - DEKADENCE - MFX - WIDE LOAD - GORBAT SOFT - POO-BRAIN - RBBS - SPACEPIGS - UNIQUE - U+1F35E - MATT CURRENT - GRAYMARCHERS - BYTERAPERS - FUTURE CREW - CR!SP - `;
-    const greetsLen = greets.length*(350./97.);
+
+
+    const greets = `BRAINSTORM - COMPUTER CLUB MAGNETISM - DARKLITE - DEKADENCE - MFX - WIDE LOAD - GORBAT SOFT - SPACEPIGS - POO-BRAIN - RBBS - U+1F35E - UNIQUE - MATT CURRENT - GRAYMARCHERS - BYTERAPERS - FUTURE CREW - CR!SP - `;
+    const greetsLen = (greets.length-1)*(350./97.);
 
     this.loader.addAnimation([{
         parent:'ufo',
@@ -148,16 +153,17 @@ Demo.prototype.sceneGreetings = function ()
         position: [
             {
               x: 0,
-              y: -0.05,
-              z: 0
+              y: .1,
+              z: -1
             }
           ],
-        "scale":[{"uniform3d":2.0}]
+        "scale":[{"uniform3d":3.0}]
           ,shader:{
             vertexShaderPrefix:`
               uniform float time;
               uniform float beater;
               uniform float lenght;
+              uniform float ypos;
             `,
             vertexShaderSuffix:`
               float amp = 4.;
@@ -165,13 +171,21 @@ Demo.prototype.sceneGreetings = function ()
               vec3 pos = position;
               float size = 0.2;
               pos.y = pos.y + .25*sin(time+pos.x);
-              pos.x = mod(pos.x-time*20., lenght);
+              pos.x = mod(pos.x-ypos*20., lenght);
               pos.z = pos.z;
               gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
             `,
             variable: [
-              { name: 'lenght', value: [greetsLen] }
-            ]
+              { name: 'lenght', value: [greetsLen] },
+              { name: 'ypos', value: [()=>Sync.get('Misc:greetsPos')] }
+            ],
+            additive: true,
+            material:{
+              blending: 'AdditiveBlending',
+               transparent:true,
+               // depthWrite:false,
+                //depthTest:true
+              } 
           } 
       }]);
       
@@ -194,6 +208,35 @@ Demo.prototype.sceneGreetings = function ()
           ]
         }
       });
+   
+      this.loader.addAnimation([
+        {
+          parent: 'actualufo',
+          object: '3d_models/ufobeam.obj',
+          position: [
+            {
+              x: 0,
+              y: 0,
+              z: 0.05
+            }
+          ],
+          angle: [
+            {
+             // degreesY: () => 100*getSceneTimeFromStart(),
+             // degreesZ: () => -7*Math.sin(2*getSceneTimeFromStart()),
+             // degreesZ: () => 180 -2*Math.sin(1.5*getSceneTimeFromStart()),
+    
+            }
+          ],
+          additive: true,
+          material:{
+          blending: 'AdditiveBlending',
+           transparent:true,
+           // depthWrite:false,
+            //depthTest:true
+          }       
+        }
+      ]);
       
       this.loader.addAnimation([
         {

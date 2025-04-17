@@ -52,9 +52,9 @@ Demo.prototype.sceneAliens = function ()
       },
       perspective:"2d", 
       color:[{"r":0.0,"g":0.0,"b":0.0}],
-      position:[{x:0, y:-.37}],
+      position:[{x:0, y:()=>.012*Math.sin(6*getSceneTimeFromStart())-.37}],
       scale: [{ uniform3d: 4.0 }],
-      angle:[{degreesZ:()=>3*Math.sin(5*getSceneTimeFromStart())}]
+      angle:[{degreesZ:()=>1*Math.sin(3*getSceneTimeFromStart())}]
     }]);
 
   this.loader.addAnimation({fbo:{name:'aliens',action:'unbind'}});
