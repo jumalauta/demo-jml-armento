@@ -844,8 +844,8 @@
 			<key row="1192" interpolation="0" value="0.7"/>
 		</track>
 		<track name="Misc:greetsPos">
-			<key row="900" interpolation="1" value="3"/>
-			<key row="1080" interpolation="0" value="37"/>
+			<key row="900" interpolation="1" value="2"/>
+			<key row="1080" interpolation="0" value="41.15"/>
 		</track>
 		<track name="Anagram:FirstPercentage">
 			<key row="600" interpolation="1" value="0"/>
