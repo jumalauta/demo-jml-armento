@@ -9,12 +9,12 @@ Demo.prototype.addEffectStarfield = function (startTime, durationTime, amountOfP
   for (let i = 0; i < stars.length; i++) {
     let z1 = Utils.random()
     stars[i] = {
-      "x0": Utils.random()*sizeX*2-sizeX,
-      "y0": Utils.random()*sizeY*2-sizeY,
-      "x1": Utils.random()*sizeX*2-sizeX,
-      "y1": Utils.random()*sizeY*2-sizeY,
-      "z1": Utils.random()*sizeZ*2-sizeZ,
-      "z2": 0
+      "x0": Utils.random()*sizeX*2-sizeX+x,
+      "y0": Utils.random()*sizeY*2-sizeY+y,
+      "x1": Utils.random()*sizeX*2-sizeX+x,
+      "y1": Utils.random()*sizeY*2-sizeY+y,
+      "z1": Utils.random()*sizeZ*2-sizeZ+z,
+      "z2": z
     };
   }
 
@@ -25,9 +25,9 @@ Demo.prototype.addEffectStarfield = function (startTime, durationTime, amountOfP
     textureProperties: [{},{minFilter: 'NearestMipmapNearestFilter', magFilter: 'LinearFilter'}],
     "parent":parentId,
     "position":[{
-      "x":x,
-      "y":y,
-      "z":z,
+      "x":0,
+      "y":0,
+      "z":-50,
     }],
     "angle":[{"degreesY":180}],
     "perspective": "3d",
@@ -63,10 +63,11 @@ Demo.prototype.addEffectStarfield = function (startTime, durationTime, amountOfP
         object.scale.y = scale;
         object.scale.z = scale;
 
+        const realSizeZ = 500;
         const percent = -(.15*getSceneTimeFromStart())%1.0;
-        stars[i].z2 = (percent*sizeZ*2+stars[i].z1);
-        if(stars[i].z2<-sizeZ)
-          stars[i].z2+=sizeZ*2;
+        stars[i].z2 = (percent*realSizeZ*2+stars[i].z1);
+        if(stars[i].z2<-realSizeZ)
+          stars[i].z2+=realSizeZ*2;
 
         object.position.z = stars[i].z2;
         object.position.x = stars[i].x1;
