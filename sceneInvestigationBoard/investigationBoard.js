@@ -37,10 +37,10 @@ Demo.prototype.sceneInvestigationBoard = function () {
   ]);
   const endZoomerMultiplier = 100/95;
   // center 
-  this.photo15x10(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo');
+  this.photo15x10(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo',{visible:false});
   this.textPaperAnimated(124*endZoomerMultiplier+12*window.tick,.5, -.2, 0.28, .5, 0, -6, .35, .18,.11,'???',{visible:false});
   this.textPaperAnimated(130*endZoomerMultiplier+12*window.tick,.5, -.2, 0.28, .5, 0.01, 3, .35, .28,.11,'jmlparty???',{visible:false});
-  this.imagePaperAnimated(135*endZoomerMultiplier+12*window.tick,.5, -.05, 0.24, .5, 0.02, 2, .15, 2 ,.47,'asmlogo.png',{visible:false}, -.02,.02);
+  this.imagePaperAnimated(135*endZoomerMultiplier+12*window.tick,.5, .03, 0.24, .5, 0.02, -2, .15, 2 ,.47,'asmlogo.png',{visible:false}, -.02,.02);
   this.textPaperAnimated(129*endZoomerMultiplier+12*window.tick,.5, .45, 0.05, .5, 0, 6, .35, .23 ,.12,'290825?',{visible:false});
   this.textPaperAnimated(134*endZoomerMultiplier+12*window.tick,.5, .51, 0.05, .5, 0.01, -5, .35, .42 ,.12,'31.07.-03.08.2025',{visible:false});
   this.textPaperAnimated(138*endZoomerMultiplier+12*window.tick,.5, .51, -0.035, .5, 0.0, 6, .35, .37 ,.12,'MESSUKESKUS',{visible:false});
@@ -70,7 +70,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   // left center
   // Cam 1 photo 3
   this.polaroid(0.0 ,-1.15, 0, -2,.55,'AsmA.color.fbo',{visible:false});
-  this.polaroid(0.0 ,-1.35, .5, 5,.4,'deepState.color.fbo',{visible:false});
+  this.polaroid(0.0 ,-1.35, .5, 5,.4,'deepState.color.fbo');
   this.textPaper(0, -1.65, .6, 3, .35, .36,.12,'DEEP STATE',{visible:false});
   this.textPaper(0, -1.7, .54, -3, .35, .36,.12,'HoW DEEP',{visible:false});
   this.textPaper(0, -1.65, .48, 4, .35, .36,.12,'DOES IT GO?!',{visible:false});
@@ -80,7 +80,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
 
   this.photo15x10(0.0 ,-1.25, .9, 5,.33,'farjan.color.fbo',{visible:false});
-  this.photo15x10(0.0 ,-1.65, 1.0, -10,.22,'film1.color.fbo',{visible:false});
+  this.photo15x10(0.0 ,-1.65, 1.0, -10,.22,'film1.color.fbo');
   this.textPaper(0,-1.25, 1.05, 15, .25, .88,.12,'BIG FÄRJAN IS HIDING THE TRUTH',{visible:false});
   
   // top center
@@ -104,7 +104,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.image(1.61,-.43,.07,185,'290825paper.png', .5);
     // linedraw 1, photo 2
   this.polaroid(0.0 ,0.84, -.14, -3,.28,'elite.color.fbo',{visible:false});
-  this.polaroid(0.0 ,1.07, -.04, 2,.25,'lamer.color.fbo',{visible:false});
+  this.polaroid(0.0 ,1.07, -.04, 2,.25,'lamer.color.fbo');
   this.textPaper(0,.82, .1, 6, .25, .46,.12,'DARK ASSEMBLY',{visible:false});
   this.textPaper(0,.76, .04, -3, .25, .23,.12,'OF THE',{visible:false});
   this.textPaper(0,.89, .04, 4 , .4, .162,.09,'ELITE',{visible:false});
@@ -117,14 +117,14 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   this.polaroid(0.0 ,1.1, -.5 , 5,.2,'images/bzdrm.png');
 
-  this.photo15x10(0.0 ,0.7, -.75, -5,.28,'chess.color.fbo',{visible:false});
+  this.photo15x10(0.0 ,0.7, -.75, -5,.28,'chess.color.fbo');
   this.textPaper(0,0.8, -.60, 11, .18, .7,.12,'Are YOU being played?',{visible:false});
 
   // right bottom corner
-  this.polaroid(0.0 ,1.55, -.7, 90,.25,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,1.55, -.7, 90,.25,'chemTrail.color.fbo',{x:0.08,y:-0.03});
   this.polaroid(0.0 ,1.25, -.9, -2,.45,'chemTrail.color.fbo');
   
-  this.textPaper(0, 1.6, -.97, 20, 1., .16,.16,'');
+  this.textPaper(0, 1.6, -.97, 20, 1., .16,.16,'',{visible:false});
   this.text(0, 1.55, -.89, 17, .4,'CHEMTRAILS=','handWriting');
   this.text(0, 1.6, -.96, 17, .35,'CLAnDESTINE','handWriting');
   this.text(0, 1.63, -1.01, 17, .35,'PARTICLE ENGINE','handWriting');
@@ -443,8 +443,10 @@ Demo.prototype.imagePaperAnimated = function (startTime, animDur, x, y, zStart, 
   ]);
 }
 
-Demo.prototype.image = function (x,y,scale,angle, imageName, luminance)
+Demo.prototype.image = function (x,y,scale,angle, imageName, luminance, pinConfig)
 {
+  this.addPin(x, y, pinConfig);
+
   this.loader.addAnimation([{
     image:'images/'+imageName,
     perspective:"3d", 
@@ -455,7 +457,8 @@ Demo.prototype.image = function (x,y,scale,angle, imageName, luminance)
     material:{
       blending: 'NormalBlending',
       transparent:true,
-      alphaTest:0.01
+      alphaTest:0.01,
+      receiveShadow:true,
     }
  }]);
 }
