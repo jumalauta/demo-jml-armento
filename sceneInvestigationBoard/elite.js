@@ -1,3 +1,16 @@
+function rotateY(point, angle) {
+  const radians = angle * (Math.PI / 180);
+  const cos = Math.cos(radians);
+  const sin = Math.sin(radians);
+
+  const x = point.x * cos - point.z * sin;
+  const y = point.y;
+  const z = point.x * sin + point.z * cos;
+
+  return { x, y, z };
+}
+
+
 Demo.prototype.sceneElite = function ()
 {
   this.loader.setScene('elite'); 
@@ -69,10 +82,12 @@ Demo.prototype.sceneElite = function ()
           const x = meshData.mesh[0].position.array[i*3+0];
           const y = meshData.mesh[0].position.array[i*3+1];
           const z = meshData.mesh[0].position.array[i*3+2];
+          const scatter = 0.04;
           particles[i] = {
-            "x": x,
-            "y": y,
-            "z": z,
+            "x": x+Utils.random()*scatter-scatter/2.0,
+            "y": y+Utils.random()*scatter-scatter/2.0,
+            "z": z+Utils.random()*scatter-scatter/2.0,
+            "scale": Utils.random()*0.7+0.3,
           };
         }
       }
@@ -93,8 +108,8 @@ Demo.prototype.sceneElite = function ()
       }
     ],
     angle:[{             
-        degreesY:()=>getSceneTimeFromStart()*60,              
-        degreesZ:()=>Math.sin(getSceneTimeFromStart()*2)*15,      
+        //degreesY:()=>getSceneTimeFromStart()*60,              
+        degreesZ:()=>Math.sin(getSceneTimeFromStart()*1.5)*15,      
       }],
     scale: [{ uniform3d: 0.7 }],
     "perspective": "3d",
@@ -118,16 +133,32 @@ Demo.prototype.sceneElite = function ()
         let object = properties.object;
         let color = properties.color;
 
-        const scale = particleSize;
-        object.scale.x = scale;
-        object.scale.y = scale;
-        object.scale.z = scale;   
-
         const particle = particles[i];
 
-        object.position.x = particle.x;
-        object.position.y = particle.y;
-        object.position.z = particle.z;
+        let scale = particleSize*particle.scale*((Math.sin(getSceneTimeFromStart()*4.0+particle.x+particle.y+particle.z)*0.5+0.5)*0.5+0.5);
+
+        const rotatedPosition = rotateY(particle, -getSceneTimeFromStart()*40);
+        object.position.x = rotatedPosition.x;
+        object.position.y = rotatedPosition.y;
+        object.position.z = rotatedPosition.z;
+
+        if (object.position.x > -0.6 && object.position.x < -0.0 && object.position.z > 0.0) {
+          let xAsPercent = Math.abs(object.position.x+0.0)/0.6;
+          xAsPercent = xAsPercent < 0.5 ? xAsPercent * 2.0 : xAsPercent * 2.0 - 1.0;
+
+          scale *= 2.5*(xAsPercent);
+          color.r = 1.0;
+          color.g = 1.0;
+          color.b = xAsPercent;
+        } else {
+          color.r = 1.0;
+          color.g = 1.0;
+          color.b = 0.0;
+        }
+
+        object.scale.x = scale;
+        object.scale.y = scale;
+        object.scale.z = scale;
       }
     }
     
