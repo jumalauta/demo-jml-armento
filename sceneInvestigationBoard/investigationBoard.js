@@ -173,6 +173,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.photo15x10(0.0 ,-.5, -.35 , -10,.13,'film2.color.fbo');
 
   this.polaroid(0.0 ,-1.5, -.375 , 5,.23,'anagram3.color.fbo',{visible:false});
+  this.image(-1.14,-.385,.05,-7,'glenz.png',.5);
   
   // pre-aliens
 
