@@ -99,6 +99,17 @@ Demo.prototype.sceneDeepState = function ()
     }
   ]);
 
+  const fragShaderSuffix = `
+  vec2 coord=vMapUv.xy;
+  coord.t=coord.t+fakeTime;
+  gl_FragColor = texture2D(map, coord);
+  float x = mod((vMapUv.y)*1.0,0.1);
+  if (x>0.05){
+   x = 0.1-x;
+  }
+  gl_FragColor.rgb*=min(0.7+x/0.05*0.3*1.0, 1.0);
+`;
+
   this.loader.addAnimation([
     {
       object: {
@@ -122,11 +133,7 @@ Demo.prototype.sceneDeepState = function ()
         fragmentShaderPrefix:`
           uniform float fakeTime;
         `,
-        fragmentShaderSuffix:`
-          vec2 coord=vMapUv.xy;
-          coord.t=coord.t+fakeTime;
-          gl_FragColor = texture2D(map, coord);
-        `,
+        fragmentShaderSuffix: fragShaderSuffix,
         variable: [
           { name: 'fakeTime', value: [()=>Sync.get('Misc:Digit3')] }
         ]
@@ -157,11 +164,7 @@ Demo.prototype.sceneDeepState = function ()
         fragmentShaderPrefix:`
           uniform float fakeTime;
         `,
-        fragmentShaderSuffix:`
-          vec2 coord=vMapUv.xy;
-          coord.t=coord.t+fakeTime;
-          gl_FragColor = texture2D(map, coord);
-        `,
+        fragmentShaderSuffix: fragShaderSuffix,
         variable: [
           { name: 'fakeTime', value: [()=>Sync.get('Misc:Digit2')] }
         ]
@@ -192,11 +195,7 @@ Demo.prototype.sceneDeepState = function ()
         fragmentShaderPrefix:`
           uniform float fakeTime;
         `,
-        fragmentShaderSuffix:`
-          vec2 coord=vMapUv.xy;
-          coord.t=coord.t+fakeTime;
-          gl_FragColor = texture2D(map, coord);
-        `,
+        fragmentShaderSuffix:fragShaderSuffix,
         variable: [
           { name: 'fakeTime', value: [()=>Sync.get('Misc:Digit1')] }
         ]
@@ -227,11 +226,7 @@ Demo.prototype.sceneDeepState = function ()
         fragmentShaderPrefix:`
           uniform float fakeTime;
         `,
-        fragmentShaderSuffix:`
-          vec2 coord=vMapUv.xy;
-          coord.t=coord.t+fakeTime;
-          gl_FragColor = texture2D(map, coord);
-        `,
+        fragmentShaderSuffix:fragShaderSuffix,
         variable: [
           { name: 'fakeTime', value: [()=>Sync.get('Misc:Digit0')] }
         ]
