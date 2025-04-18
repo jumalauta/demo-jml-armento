@@ -1,4 +1,4 @@
-# Blender 4.3.0 MTL File: 'vhs.blend'
+# Blender 4.1.1 MTL File: 'None'
 # www.blender.org
 
 newmtl cassette
@@ -30,3 +30,13 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 3
+
+newmtl vhstext
+Ns 15.339618
+Ka 1.000000 1.000000 1.000000
+Ks 0.233945 0.233945 0.233945
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd vhs_text.png

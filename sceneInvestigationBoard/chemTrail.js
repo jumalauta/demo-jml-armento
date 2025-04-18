@@ -20,12 +20,12 @@ Demo.prototype.sceneChemTrail = function ()
         perspective: '2d',
         position: [
           {
-            x: 0,
-            y: 0,
+            y: ()=>.1*Math.cos(getSceneTimeFromStart()),
+            y: ()=>.12*Math.sin(getSceneTimeFromStart()),
             z: 0
           }
         ],  
-        scale: [{ uniform2d: 1.9 }],
+        scale: [{ uniform2d: 2.1 }],
       }
     ]);
 
@@ -70,7 +70,7 @@ Demo.prototype.sceneChemTrail = function ()
       }
     ]);
 
-    this.addEffectParticleStream(0,200,100,.25,"multiSceneEffects/tex_basicParticle.png",.25,-.1,0,5,5,.02,100);
+    this.addEffectParticleStream(0,200,100,.25,"images/chemParticle.png",.25,-.1,0,5,5,.02,100);
 
   this.loader.addAnimation({fbo:{name:'chemTrail',action:'unbind'}});
 }
