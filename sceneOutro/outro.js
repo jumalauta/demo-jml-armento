@@ -97,7 +97,30 @@ Demo.prototype.sceneOutro = function () {
           scale: [{ x: .2, z: .23 }]
         }
       ]);
-
+      this.loader.addAnimation([
+        {
+          image: 'images/factCheck.png',
+          perspective: "3d",
+          position: [{
+              x: 2.13,
+              y: -1.39,
+              z: -.14
+            }],
+          scale: [{ uniform3d: 0.05 }],
+          color: [{r:.5,g:0,b:0,a:.55}],
+          material:{
+            transparent:true,
+            //depthTest: true,
+           // depthWrite: true,
+            blending: 'NormalBlending'
+          },
+          angle: [
+            {
+              degreesZ: ()=>- 15,
+            }
+        ],
+        }
+      ]);
     // Investigators
     // Anteeksi Henkilö
     // Haluttu Maksullinen Engine
