@@ -1,4 +1,3 @@
-
 Demo.prototype.sceneGreetings = function () 
 {
   this.loader.setScene('greetings');
@@ -32,7 +31,25 @@ Demo.prototype.sceneGreetings = function ()
     }
   ]);
 
-  
+  this.loader.addAnimation([
+    {
+      image: {
+        name: 'images/tex_boat.png'
+      },
+      perspective: '2d',
+      position: [
+        {
+          x:()=>(getSceneTimeFromStart()*0.01)%0.3,
+          y:0.27,
+        },
+
+      ],
+      angle: [{ degreesZ: ()=>Math.sin(getSceneTimeFromStart()*2.0)*4+2}],
+      scale: [{ uniform2d: 0.1 }],
+      color: [{r:0.1,g:0.1,b:0.1,a:0.4}],
+    }
+  ]);
+
   this.loader.addAnimation({
     image: ['images/greets_layer_2.png'],
     perspective: '2d',
@@ -257,8 +274,6 @@ Demo.prototype.sceneGreetings = function ()
           scale: [{ x: .93, y: .922 }],
         }
       ]);        
-
-
 
   this.loader.addAnimation({fbo:{name:'greetings',action:'unbind'}});
 }
