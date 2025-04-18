@@ -40,7 +40,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.photo15x10(0.0 ,0, 0, -3,.5,'endZoomer.color.fbo',{visible:false});
   this.textPaperAnimated(124*endZoomerMultiplier+12*window.tick,.5, -.2, 0.28, .5, 0, -6, .35, .18,.11,'???',{visible:false});
   this.textPaperAnimated(130*endZoomerMultiplier+12*window.tick,.5, -.2, 0.28, .5, 0.01, 3, .35, .28,.11,'jmlparty???',{visible:false});
-  this.imagePaperAnimated(135*endZoomerMultiplier+12*window.tick,.5, .03, 0.24, .5, 0.02, -2, .15, 2 ,.47,'asmlogo.png',{visible:false}, -.02,.02);
+  this.imagePaperAnimated(135*endZoomerMultiplier+12*window.tick,.5, .04, 0.24, .5, 0.02, -3, .15, 2 ,.47,'asmlogo.png',{visible:false}, -.02,.02);
   this.textPaperAnimated(129*endZoomerMultiplier+12*window.tick,.5, .45, 0.05, .5, 0, 6, .35, .23 ,.12,'290825?',{visible:false});
   this.textPaperAnimated(134*endZoomerMultiplier+12*window.tick,.5, .51, 0.05, .5, 0.01, -5, .35, .42 ,.12,'31.07.-03.08.2025',{visible:false});
   this.textPaperAnimated(138*endZoomerMultiplier+12*window.tick,.5, .51, -0.035, .5, 0.0, 6, .35, .37 ,.12,'MESSUKESKUS',{visible:false});
@@ -98,10 +98,10 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   // right center
   this.polaroid(0.0 ,1.5, -.2, 90,.28,'introPolaroid.color.fbo',{visible:false});
-  this.image(1.65,.02,.09,-7,'290825paper.png', .5);
-  this.image(1.72,-.17,.06,-110,'290825paper.png', .5);
-  this.image(1.41,-.44,.1,5,'290825paper.png', .5);
-  this.image(1.61,-.43,.07,185,'290825paper.png', .5);
+  this.image(1.65,.02,.09,-7,'290825paper.png', .5,{visible:false});
+  this.image(1.72,-.17,.06,-110,'290825paper.png', .5,{visible:false});
+  this.image(1.41,-.44,.1,5,'290825paper.png', .5,{visible:false});
+  this.image(1.61,-.43,.07,185,'290825paper.png', .5,{visible:false});
     // linedraw 1, photo 2
   this.polaroid(0.0 ,0.84, -.14, -3,.28,'elite.color.fbo',{visible:false});
   this.polaroid(0.0 ,1.07, -.04, 2,.25,'lamer.color.fbo');
@@ -222,38 +222,36 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.text(892*window.tick-9*window.pattern, omiwthX-.01, omiwthY, 5, .25,'IT WAS','monoSpace',0);
   this.text(896*window.tick-9*window.pattern, omiwthX-.01, omiwthY-.05, 4, .25,'THE...','monoSpace',0);
 
-
-
   // upper left corner thread
   this.addRedThread({
     shapePoints: [
-      [-1.69, 1.17],
-      [-1.27, 1.07],
-      [-0.8, 1.07],
-      [-0.65, 0.49],
-      [0.015, 0.03], // Finland
-      [1.5, -0.09],
+      {x:-1.69, y:1.17},
+      {x:-1.27, y:1.07},
+      {x:-0.8, y:1.07},
+      {x:-0.65, y:0.49},
+      {x:0.015, y:0.03},
+      {x:1.50, y:-0.09},
     ]
   });
 
   // upper-central starting cam path thread
   this.addRedThread({
     shapePoints: [
-      [-.25, 1.08],
-      [0.9, -0.005],
-      [0.2, -0.71],
-      [-0.64, -0.253],
-      [-1.17, 0.28],
+      {x:-.25, y:1.08},
+      {x: 0.9, y:-0.005},
+      {x: 0.2, y:-0.71},
+      {x:-0.64, y:-0.253},
+      {x:-1.17, y:0.28},
     ]
   });
 
   // upper central-left starting cam path thread
   this.addRedThread({
     shapePoints: [
-      [-0.83, 1.05],
-      [-0.67, 0.49],
-      [-0.69, -0.253],
-      [-1.5, -0.258],
+      {x:-0.83, y:1.05},
+      {x:-0.67, y:0.49},
+      {x:-0.69, y:-0.253},
+      {x:-1.50, y:-0.38},
     ]
   });
 
