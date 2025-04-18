@@ -52,7 +52,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaperAnimated(128.5*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.03, -4, .35, .3 ,.12,'FINLAND',{visible:false});
   // left bottom corner 
   this.textPaper(0, -1.15, -.71, 6, .35, .5,.5,'',{visible:false});
-  this.polaroid(0.0 ,-1.5, -.78, -15.5,.43,'mrna.color.fbo');
+  this.polaroid(0.0 ,-1.5, -.78, -15.5,.43,'mrna.color.fbo',{visible:false});
   
   this.textPaper(0, -1.65, -0.55, 3, .35, .2,.12,'mRNA',{visible:false});
   
@@ -70,7 +70,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   // left center
   // Cam 1 photo 3
   this.polaroid(0.0 ,-1.15, 0, -2,.55,'AsmA.color.fbo',{visible:false});
-  this.polaroid(0.0 ,-1.35, .5, 5,.4,'deepState.color.fbo');
+  this.polaroid(0.0 ,-1.35, .5, 5,.4,'deepState.color.fbo',{visible:false});
   this.textPaper(0, -1.65, .6, 3, .35, .36,.12,'DEEP STATE',{visible:false});
   this.textPaper(0, -1.7, .54, -3, .35, .36,.12,'HoW DEEP',{visible:false});
   this.textPaper(0, -1.65, .48, 4, .35, .36,.12,'DOES IT GO?!',{visible:false});
@@ -117,7 +117,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   this.polaroid(0.0 ,1.1, -.5 , 5,.2,'images/bzdrm.png');
 
-  this.photo15x10(0.0 ,0.7, -.75, -5,.28,'chess.color.fbo');
+  this.photo15x10(0.0 ,0.7, -.75, -5,.28,'chess.color.fbo',{visible:false});
   this.textPaper(0,0.8, -.60, 11, .18, .7,.12,'Are YOU being played?',{visible:false});
 
   // right bottom corner
@@ -161,7 +161,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
  
   // cam 2
   this.polaroid(0.0 ,-.8, .95 , 5,.23,'anagram0.color.fbo',{visible:false});
-  this.image(-.565,.93,.06,-15,'keyart_temp.png',.7);
+  this.image(-.565,.93,.06,-15,'keyart_temp.png',.7,{visible:false});
   
 
   this.polaroid(0.0 ,-.65, .375 , 5,.23,'anagram1.color.fbo',{visible:false});
@@ -173,11 +173,11 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.photo15x10(0.0 ,-.5, -.35 , -10,.13,'film2.color.fbo');
 
   this.polaroid(0.0 ,-1.5, -.375 , 5,.23,'anagram3.color.fbo',{visible:false});
-  this.image(-1.14,-.385,.05,-7,'glenz.png',.5);
+  this.image(-1.14,-.385,.05,-7,'glenz.png',.5,{visible:false});
   
   // pre-aliens
 
-  this.polaroid(0.0 ,.42, 1.05, -7.5,.25,'plasma.color.fbo');
+  this.polaroid(0.0 ,.42, 1.05, -7.5,.25,'plasma.color.fbo',{visible:false});
   this.textPaper(0, .67, 1.17, -5, .35, .4 ,.1,'MOTIVATIONS?!',{visible:false});
   this.textPaper(0, .62, 1.07, 5, .25, .45,.1,'OLDSCHOOL EFFECT',{visible:false});
   this.textPaper(0, .62, 1.02, -2, .25, .32,.1,'VISUAL LSD',{visible:false});
@@ -187,14 +187,14 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0, .50, .88, -2, .24, .54,.1,'DEMOSCENE DISCOUNT',{visible:false});
   this.textPaper(0, .50, .83 , 3, .24, .46,.1,'PYRAMID SCHEME',{visible:false});
 
-  this.polaroid(0.0 ,.41, .68, 5.5,.19,'culturalMatrix.color.fbo');
+  this.polaroid(0.0 ,.41, .68, 5.5,.19,'culturalMatrix.color.fbo',{visible:false});
   this.textPaper(0, .55, .68, 5, .25, .27,.1,'CULTURAL',{visible:false});
   this.textPaper(0, .56 , .64, -2, .25, .25 ,.1,'MATRIX',{visible:false});
   this.textPaper(0, .42, .60, 3, .16, .57,.1,'the numbers dont match!',{visible:false});
   
   this.image(0,.5,.15,-7,'demopartyDenies.png',1.0);
   
-  this.polaroid(0.0 ,.67, .47, -9.5,.26,'military.color.fbo');
+  this.polaroid(0.0 ,.67, .47, -9.5,.26,'military.color.fbo',{visible:false});
   this.textPaper(0, .44, .5, 5, .25, .47,.1,'GAME COMPETITION',{visible:false});
   this.textPaper(0, .44, .45, 5, .25, .50,.1,'MILITARY INDUSTRIAL',{visible:false});
   this.textPaper(0, .45, .4, -1, .25, .52,.1,'COMPLEX PROPAGANDA',{visible:false});
@@ -251,11 +251,32 @@ Demo.prototype.sceneInvestigationBoard = function () {
     shapePoints: [
       {x:-0.83, y:1.05},
       {x:-0.67, y:0.49},
-      {x:-0.69, y:-0.253},
-      {x:-1.50, y:-0.38},
+      {x:-0.69, y:-0.26},
+      {x:-1.14, y:-0.39},
+      {x:-1.50, y:-0.27},
     ]
   });
 
+  // mrna - assembly - deepstate - asm keyart
+  this.addRedThread({
+    shapePoints: [
+      {x:-1.55, y:-.58},
+      {x:-1.35, y:  .2},
+      {x:-1.27, y:  .68},
+      {x:-.565, y: 1},
+    ]
+  });
+
+  // plasma - cultural matrix - game competitions - or maybe it was - chess
+  this.addRedThread({
+    shapePoints: [
+      {x:.42, y:1.17},
+      {x:.41, y: .77},
+      {x:.67, y: .48},
+      {x:omiwthX-0.02, y: omiwthY+0.05},
+      {x:0.69, y:-.61},
+    ]
+  });
 
   this.loader.addAnimation({
     id:'charlie',
