@@ -59,8 +59,8 @@ Demo.prototype.sceneOutro = function () {
           image: 'images/end_graffiti.png',
           perspective: "3d",
           position: [{
-              x: 0,
-              y: 0,
+              x: -0.3,
+              y: 1.0,
               z: -.15
             }],
           scale: [{ uniform3d: 3.5 }],
@@ -71,6 +71,14 @@ Demo.prototype.sceneOutro = function () {
            // depthWrite: true,
             blending: 'NormalBlending'
           },
+          angle: [
+            {
+              degreesZ: 17,
+            }
+          ],
+          shader:{
+            name: 'sceneOutro/graffiti.fs'
+          }     
         }
       ]);
 
