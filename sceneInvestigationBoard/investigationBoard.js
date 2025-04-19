@@ -97,10 +97,10 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   // right center
   this.polaroid(0.0 ,1.5, -.2, 90,.28,'introPolaroid.color.fbo',{visible:false});
-  this.image(1.65,.02,.09,-7,'290825paper.png', .5,{visible:false});
-  this.image(1.72,-.17,.06,-110,'290825paper.png', .5,{visible:false});
-  this.image(1.41,-.44,.1,5,'290825paper.png', .5,{visible:false});
-  this.image(1.61,-.43,.07,185,'290825paper.png', .5,{visible:false});
+  this.image(1.65,.02,.09,-7,'290825paper.png',742,853, .5,{visible:false});
+  this.image(1.72,-.17,.06,-110,'290825paper.png',742,853, .5,{visible:false});
+  this.image(1.41,-.44,.1,5,'290825paper.png',742,853, .5,{visible:false});
+  this.image(1.61,-.43,.07,185,'290825paper.png',742,853, .5,{visible:false});
     // linedraw 1, photo 2
   this.polaroid(0.0 ,0.84, -.14, -3,.28,'elite.color.fbo');
   this.polaroid(0.0 ,1.07, -.04, 2,.25,'lamer.color.fbo',{visible:false});
@@ -160,19 +160,21 @@ Demo.prototype.sceneInvestigationBoard = function () {
  
   // cam 2
   this.polaroid(0.0 ,-.8, .95 , 5,.23,'anagram0.color.fbo',{visible:false});
-  this.image(-.575,.93,.06,-15,'keyart_temp.png',.7,{visible:false});
-  this.image(-.64,.68,.06,-3,'290825paper.png', .5,{visible:false});
+  this.image(-.565,.93,.06,-15,'keyart_temp.png',1620,1080,.5,{visible:false});
+  this.image(-.64,.68,.06,-3,'290825paper.png',742,853, .5,{visible:false});
   this.textPaper(0, -.62, .59, 5, .25, .45,.1,'PRECALC IS A LIE',{visible:false});
+  
+
   this.polaroid(0.0 ,-.65, .375 , 5,.23,'anagram1.color.fbo',{visible:false});
   this.farjanNotes();
 
-  this.image(-.675,0,.05,-7,'teffectLeadsToHell.png',.8);
+  this.image(-.675,0,.05,-7,'teffectLeadsToHell.png',1260,1050,.8);
   
   this.polaroid(0.0 ,-.7 , -.375 , 5,.23,'anagram2.color.fbo',{visible:false});
   this.photo15x10(0.0 ,-.5, -.35 , -10,.13,'film2.color.fbo');
 
   this.polaroid(0.0 ,-1.5, -.375 , 5,.23,'anagram3.color.fbo',{visible:false});
-  this.image(-1.14,-.385,.05,-7,'glenz.png',.5,{visible:false});
+  this.image(-1.14,-.385,.05,-7,'glenz.png',1200,1200,.5,{visible:false});
   
   // pre-aliens
 
@@ -191,7 +193,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0, .56 , .64, -2, .25, .25 ,.1,'MATRIX',{visible:false});
   this.textPaper(0, .42, .60, 3, .16, .57,.1,'the numbers dont match!',{visible:false});
   
-  this.image(0,.5,.15,-7,'demopartyDenies.png',1.0);
+  this.image(0,.5,.15,-7,'demopartyDenies.png',1187,725,0.6);
   
   this.polaroid(0.0 ,.67, .47, -9.5,.26,'military.color.fbo',{visible:false});
   this.textPaper(0, .44, .5, 5, .25, .47,.1,'GAME COMPETITION',{visible:false});
@@ -486,23 +488,28 @@ Demo.prototype.imagePaperAnimated = function (startTime, animDur, x, y, zStart, 
   ]);
 }
 
-Demo.prototype.image = function (x,y,scale,angle, imageName, luminance, pinConfig)
+const settings = new Settings();
+
+Demo.prototype.image = function (x,y,scale,angle, imageName, w,h, luminance, pinConfig)
 {
   this.addPin(x, y, pinConfig);
 
+  const luminanceConstant = 0.5;
+  let planeW =
+  (w / settings.demo.screen.width) *
+  settings.demo.screen.aspectRatio * 3;
+  let planeH = h / settings.demo.screen.height * 3;
   this.loader.addAnimation([{
-    image:'images/'+imageName,
-    perspective:"3d", 
+    object: 'images/'+imageName,
+    shape: {
+      type: 'PLANE',
+      width: planeW,
+      height: planeH,
+    },
     position:[{x:x, y:y}],
-    color:[{"r":luminance,"g":luminance,"b":luminance}],
+    color:[{"r":luminance*luminanceConstant,"g":luminance*luminanceConstant,"b":luminance*luminanceConstant}],
     scale: [{ uniform3d: scale }],
     angle:[{degreesZ:angle+Math.random()}],
-    material:{
-      blending: 'NormalBlending',
-      transparent:true,
-      alphaTest:0.01,
-      receiveShadow:true,
-    }
  }]);
 }
 
