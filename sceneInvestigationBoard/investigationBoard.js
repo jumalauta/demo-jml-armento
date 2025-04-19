@@ -42,7 +42,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.imagePaperAnimated(135*endZoomerMultiplier+12*window.tick,.5, .04, 0.24, .5, 0.02, -3, .15, 2 ,.47,'asmlogo.png',{visible:false}, -.02,.02);
   this.textPaperAnimated(129*endZoomerMultiplier+12*window.tick,.5, .45, 0.05, .5, 0, 6, .35, .23 ,.12,'290825?',{visible:false});
   this.textPaperAnimated(134*endZoomerMultiplier+12*window.tick,.5, .51, 0.05, .5, 0.01, -5, .35, .42 ,.12,'31.07.-03.08.2025',{visible:false});
-  this.textPaperAnimated(138*endZoomerMultiplier+12*window.tick,.5, .51, -0.076, .1, 0.03, -6, .35, .37 ,.12,'MESSUKESKUS',{visible:false});
+  this.textPaperAnimated(138*endZoomerMultiplier+12*window.tick,.5, .51, -0.034, .1, 0.03, -6, .35, .37 ,.12,'MESSUKESKUS',{visible:false});
   this.textPaperAnimated(131*endZoomerMultiplier+12*window.tick,.5, .51, -0.11, .5, 0.01, 3, .31, .38 ,.125,'HÄMEENLINNA',{visible:false});
   this.textPaperAnimated(133*endZoomerMultiplier+12*window.tick,.5, .504, -0.11, .5, 0.02, -1, .35, .28 ,.11,'HELSINKI',{visible:false});
   this.textPaperAnimated(120.5*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.00, 6, .35, .24 ,.12,'NIBIRU',{visible:false});
@@ -60,7 +60,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.text(0, -1.1, -.75, 8, .39,'NEARFIELD','handWriting');
   this.text(0, -1.15, -.825, 9, .35,'ACTION','handWriting');
 
-  this.polaroid(0.0 ,-.7, -.9, 2,.38,'flatTorus.color.fbo');
+  this.polaroid(0.0 ,-.7, -.9, 2,.38,'flatTorus.color.fbo',{visible:false});
   this.textPaper(0, -.75, -1.05, 3, .25, .5,.12,'TORUS IS FLAT!',{visible:false});
   this.textPaper(0, -.61, -1.085, -2, .25, .4,.12,'RESEARCH IT!',{visible:false});
 //  this.polaroid(0.0 ,-.95, -.91, -1,.35,'chemTrail.color.fbo');
@@ -74,12 +74,12 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0, -1.7, .54, -3, .35, .36,.12,'HoW DEEP',{visible:false});
   this.textPaper(0, -1.65, .48, 4, .35, .36,.12,'DOES IT GO?!',{visible:false});
 
-  this.polaroid(0.0 ,-1.64 , .1 , 5,.26,'images/falseflag.png');
+  this.polaroid(0.0 ,-1.64 , .1 , 5,.26,'images/falseflag.png',{visible:false});
   // left top corner
 
 
   this.photo15x10(0.0 ,-1.25, .9, 5,.33,'farjan.color.fbo',{visible:false});
-  this.photo15x10(0.0 ,-1.65, 1.0, -10,.22,'film1.color.fbo');
+  this.photo15x10(0.0 ,-1.65, 1.0, -10,.22,'film1.color.fbo',{visible:false});
   this.textPaper(0,-1.25, 1.05, 15, .25, .88,.12,'BIG FÄRJAN IS HIDING THE TRUTH',{visible:false});
   
   // top center
@@ -102,8 +102,8 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.image(1.41,-.44,.1,5,'290825paper.png', .5,{visible:false});
   this.image(1.61,-.43,.07,185,'290825paper.png', .5,{visible:false});
     // linedraw 1, photo 2
-  this.polaroid(0.0 ,0.84, -.14, -3,.28,'elite.color.fbo',{visible:false});
-  this.polaroid(0.0 ,1.07, -.04, 2,.25,'lamer.color.fbo');
+  this.polaroid(0.0 ,0.84, -.14, -3,.28,'elite.color.fbo');
+  this.polaroid(0.0 ,1.07, -.04, 2,.25,'lamer.color.fbo',{visible:false});
   this.textPaper(0,.82, .1, 6, .25, .46,.12,'DARK ASSEMBLY',{visible:false});
   this.textPaper(0,.76, .04, -3, .25, .23,.12,'OF THE',{visible:false});
   this.textPaper(0,.89, .04, 4 , .4, .162,.09,'ELITE',{visible:false});
@@ -121,7 +121,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   // right bottom corner
   this.polaroid(0.0 ,1.55, -.7, 90,.25,'chemTrail.color.fbo',{x:0.08,y:-0.03});
-  this.polaroid(0.0 ,1.25, -.9, -2,.45,'chemTrail.color.fbo');
+  this.polaroid(0.0 ,1.25, -.9, -2,.45,'chemTrail.color.fbo',{visible:false});
   
   this.textPaper(0, 1.6, -.97, 20, 1., .16,.16,'',{visible:false});
   this.text(0, 1.55, -.89, 17, .4,'CHEMTRAILS=','handWriting');
@@ -134,7 +134,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0,0.34, -.44, -2 , .3, .73,.33,'',{visible:false});
   this.text(0, 0.34, -.4, 5, .4,'Proof-Of-Ink','handWriting');
   this.text(0, 0.34, -.44, 1, .4,'=','handWriting');
-  this.text(0, 0.34, -.48, -1, .4,'Number of the BEAST','handWriting');
+  this.text(0, 0.34, -.48, -1, .4,'Mark of the BEAST','handWriting');
 
  
   this.photo15x10(0.0 ,.04, -.88, -5,.35,'bzm.color.fbo',{visible:false});
@@ -182,7 +182,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0, .62, 1.02, -2, .25, .32,.1,'VISUAL LSD',{visible:false});
   this.textPaper(0, .62, .97, 3, .25, .37,.1,'MIND CONTROL',{visible:false});
 
-  this.polaroid(0.0 ,.72, .81, -3.5,.22,'pyramid.color.fbo');
+  this.polaroid(0.0 ,.72, .81, -3.5,.22,'pyramid.color.fbo',{visible:false}); 
   this.textPaper(0, .50, .88, -2, .24, .54,.1,'DEMOSCENE DISCOUNT',{visible:false});
   this.textPaper(0, .50, .83 , 3, .24, .46,.1,'PYRAMID SCHEME',{visible:false});
 
@@ -199,7 +199,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.textPaper(0, .45, .4, -1, .25, .52,.1,'COMPLEX PROPAGANDA',{visible:false});
   
 
-  this.polaroid(0.0 ,.47, .22 , 4.5,.23,'images/invitation_qr.png');
+  this.polaroid(0.0 ,.47, .22 , 4.5,.23,'images/invitation_qr.png',{visible:false}); 
 
   const omiwthX = .78;
   const omiwthY = .26;
@@ -223,57 +223,78 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.text(896*window.tick-9*window.pattern, omiwthX-.01, omiwthY-.05, 4, .25,'THE...','monoSpace',0);
 
   // upper left corner thread
+  // farjans and graphics
   this.addRedThread({
     shapePoints: [
-      {x:-1.69, y:1.17},
-      {x:-1.27, y:1.07},
-      {x:-0.8, y:1.07},
-      {x:-0.65, y:0.49},
-      {x:0.015, y:0.03},
-      {x:1.50, y:-0.09},
+      {x:-1.65, y:1.1},
+      {x:-1.27, y:1.03},
+      {x:-0.89, y:1.05},
+
     ]
   });
 
   // upper-central starting cam path thread
   this.addRedThread({
     shapePoints: [
-      {x:-.25, y:1.08},
-      {x: 0.9, y:-0.005},
+      {x:-.13, y:1.08},
+      {x: 1., y:-0.025},
       {x: 0.2, y:-0.71},
-      {x:-0.64, y:-0.253},
-      {x:-1.17, y:0.28},
+      {x:-0.78, y:-0.46},
+      {x:-.95, y:0.27},
+      {x:-.38, y:0.185},
     ]
   });
 
   // upper central-left starting cam path thread
   this.addRedThread({
     shapePoints: [
-      {x:-0.83, y:1.05},
-      {x:-0.67, y:0.49},
-      {x:-0.69, y:-0.26},
-      {x:-1.14, y:-0.39},
-      {x:-1.50, y:-0.27},
+      {x:-0.72, y:.84},
+      {x:-0.57, y:0.46},
+      {x:-0.71, y:-0.26},
+      {x:-1.14, y:-0.33},
+      {x:-1.46, y:-0.27},
     ]
   });
 
-  // mrna - assembly - deepstate - asm keyart
+  // mrna - false flag - deepstate - asm keyart
   this.addRedThread({
     shapePoints: [
       {x:-1.55, y:-.58},
-      {x:-1.35, y:  .2},
-      {x:-1.27, y:  .68},
-      {x:-.565, y: 1},
+      {x:-1.65, y:  .2},
+      {x:-1.43, y:  .68},
+      {x:-.565, y: .9},
     ]
   });
 
-  // plasma - cultural matrix - game competitions - or maybe it was - chess
+  // torus is flat - mrna
   this.addRedThread({
     shapePoints: [
-      {x:.42, y:1.17},
-      {x:.41, y: .77},
-      {x:.67, y: .48},
-      {x:omiwthX-0.02, y: omiwthY+0.05},
-      {x:0.69, y:-.61},
+      {x:-.8, y:-.74},
+      {x:-1.35, y:-.92},
+    ]
+  });
+
+  // intro - chemtrail - chess - ink - end
+  this.addRedThread({
+    shapePoints: [
+      {x:1.39, y:-.15},
+      {x:1.3, y: -.68},
+      {x:0.7,y: -.62},
+      {x:0.34,y: -.4},
+      {x:0,y:-.25}
+      
+    ]
+  });
+
+  // plasma - pyramid - cultural matrix - game competitions - or maybe it was - qr
+  this.addRedThread({
+    shapePoints: [
+      {x:.5, y:1.17},
+      {x:.64, y:0.9},
+      {x:.48, y: .74},
+      {x:.71, y: .59},
+      {x:omiwthX+0.06, y: omiwthY+0.08},
+      {x:.5, y: .33}
     ]
   });
 
