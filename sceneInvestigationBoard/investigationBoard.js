@@ -665,6 +665,7 @@ Demo.prototype.photo15x10 = function (startTime, x, y, zAngle, scale, imageName,
             coord.s=coord.s+fakeTime;
             coord.t=-coord.t;
             gl_FragColor = texture2D(map, coord);
+            gl_FragColor.a = vMapUv.t;
           `,
           variable: [
             { name: 'fakeTime', value: [()=>.1*getSceneTimeFromStart()] }
