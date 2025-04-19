@@ -68,6 +68,24 @@ Demo.prototype.sceneDeepState = function ()
   this.loader.addAnimation(
     {
       image: {
+        name: 'images/logo_revision_part_2.png'
+      },
+      position: [
+        {
+          x: 0,
+          y: 0,
+        }
+      ],  
+
+      scale: [{ uniform2d: 0.18 }],
+      color:[{a:()=>1-Sync.get('Misc:Logo')}],
+      angle: [{degreesZ: ()=>getSceneTimeFromStart()*50.0 }],
+    }
+  );
+
+  this.loader.addAnimation(
+    {
+      image: {
         name: 'images/logo_fist.png'
       },
       position: [
