@@ -76,6 +76,8 @@ Demo.prototype.addRedThread = function (definition) {
       xBias = 0.0;
       yBias = 0.0;
     }
+    xBias = 0.0;
+    yBias = 0.0;
 
     const pmidpoint = {
       x:(p1.x + p2.x) / 2 + xLength*xBias*0.5 + centerPos.x,
