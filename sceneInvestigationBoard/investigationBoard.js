@@ -80,7 +80,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
 
   this.photo15x10(0.0 ,-1.25, .9, 5,.33,'farjan.color.fbo',{visible:false});
   this.photo15x10(0.0 ,-1.65, 1.0, -10,.22,'film1.color.fbo',{visible:false});
-  this.textPaper(0,-1.25, 1.05, 15, .25, .88,.12,'BIG FÄRJAN IS HIDING THE TRUTH',{visible:false});
+  this.textPaper(0,-1.25, 1.05, 15, .25, .81,.12,'BIG FÄRJAN IS LYING TO YOU!',{visible:false});
   
   // top center
   this.photo15x10(0.0 ,-.22, .95, 90,.25,'wordCloud.color.fbo',{visible:false});
@@ -160,9 +160,9 @@ Demo.prototype.sceneInvestigationBoard = function () {
  
   // cam 2
   this.polaroid(0.0 ,-.8, .95 , 5,.23,'anagram0.color.fbo',{visible:false});
-  this.image(-.565,.93,.06,-15,'keyart_temp.png',.7,{visible:false});
-  
-
+  this.image(-.575,.93,.06,-15,'keyart_temp.png',.7,{visible:false});
+  this.image(-.64,.68,.06,-3,'290825paper.png', .5,{visible:false});
+  this.textPaper(0, -.62, .59, 5, .25, .45,.1,'PRECALC IS A LIE',{visible:false});
   this.polaroid(0.0 ,-.65, .375 , 5,.23,'anagram1.color.fbo',{visible:false});
   this.farjanNotes();
 
@@ -279,7 +279,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
     shapePoints: [
       {x:1.39, y:-.15},
       {x:1.3, y: -.68},
-      {x:0.7,y: -.62},
+      {x:0.68,y: -.62},
       {x:0.34,y: -.4},
       {x:0,y:-.25}
       
