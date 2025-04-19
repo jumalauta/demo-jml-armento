@@ -42,7 +42,7 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.imagePaperAnimated(135*endZoomerMultiplier+12*window.tick,.5, .04, 0.24, .5, 0.02, -3, .15, 2 ,.47,'asmlogo.png',{visible:false}, -.02,.02);
   this.textPaperAnimated(129*endZoomerMultiplier+12*window.tick,.5, .45, 0.05, .5, 0, 6, .35, .23 ,.12,'290825?',{visible:false});
   this.textPaperAnimated(134*endZoomerMultiplier+12*window.tick,.5, .51, 0.05, .5, 0.01, -5, .35, .42 ,.12,'31.07.-03.08.2025',{visible:false});
-  this.textPaperAnimated(138*endZoomerMultiplier+12*window.tick,.5, .51, -0.034, .1, 0.03, -6, .35, .37 ,.12,'MESSUKESKUS',{visible:false});
+  this.textPaperAnimated(138*endZoomerMultiplier+12*window.tick,.5, .51, -0.034, .5, 0.03, -6, .35, .37 ,.12,'MESSUKESKUS',{visible:false});
   this.textPaperAnimated(131*endZoomerMultiplier+12*window.tick,.5, .51, -0.11, .5, 0.01, 3, .31, .38 ,.125,'HÄMEENLINNA',{visible:false});
   this.textPaperAnimated(133*endZoomerMultiplier+12*window.tick,.5, .504, -0.11, .5, 0.02, -1, .35, .28 ,.11,'HELSINKI',{visible:false});
   this.textPaperAnimated(120.5*endZoomerMultiplier+12*window.tick,.5, .51, -0.19, .5, 0.00, 6, .35, .24 ,.12,'NIBIRU',{visible:false});
