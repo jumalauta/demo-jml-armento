@@ -1,47 +1,3 @@
-/*
-bpm 80, mutta ticks per beat 6
-tä on siis 3/4 ja 4/4 juttuja synkopoituna
-ei nyt ihan loppuun asti, mut tästä voi alkaa kasaamaan jo demoa
-
----
-
-Intro:
--Paljon numeroita ruudulla. Esim starfield numeroilla tunnelissa
--Yksittäisiä numeroita ”valikoituu” joukosta, kunnes muodostavat numerosarjan
-
-Tekstit samaan aikaan:
-Multiple independent parties have witnessed their existence, but so far no coherent theory has been presented
-
-This documentation will present new facts and theories and try to answer into three questions:
--What?
--Where?
--When?
-
-Jumalauta Independent Research Force presents:
-
-THE NUMBERS
-
-Part 2:
-Tämä on käytännössä koko loppudemo:
-Investigation board
-
-Kiinnitetyissä polaroideissa yms jollain tapaa animoituja tai effuja sisältäviä asioita esim:
--Glitchieffuilla olevia screenshotteja demojen kohdista missä numerosarja on ollut
--Färjan (tekstiehdotus: BIG FÄRJAN HIDING THE TRUTH?
--All-seeing eye pyörimässä
--Rotatoiva Aulangon suuri huvila (Sauli modellaa)
--Hämeenlinnan rajat (2D-plane ja esim teksti ”FLAT HÄMEENLINNA PROVED”
--Jotain perusjuttuja oikeita määriä, esim starfield missä 29 tähteä, 8 metapalloa, joku 25 polygonin juttu
--numerologiajuttu missä 666 muuttuu 290825:ksi. Pentagrammi taustagraffaan
--Eri compoja esiteltynä joidenkin taustaeffujen kanssa
--Greetsit ja creditsit
--Lopussa näytetään sisään zoomaava kokonaiskuva investigation boardista. ”It’s all connected”. Zoomataan keskimmäiseen kuvaan mihin kaikki yhtyy ja siinä zoomataan pilviverhon läpi hämeenlinnaan Aulangon suurelle huvilalle ja kamera glitchaa pois
-
-Part 3:
-Muffled voice ja spektrogrammi tai jotain ja subtitlet:
-”I have seen the truth and now these visions wont stop haunting me. I have to be there. I have to be there. I have to be there.”
-*/
-
 const deg2rad = 0.01745329251;
 window.camPos = [0.0,0.0,0.0];
 window.camPosLength = 1.0;
@@ -60,7 +16,6 @@ includeFile('multiSceneEffects/EffectStarfield.js');
 includeFile('sceneIntro/intro.js');
 includeFile('sceneIntro/introTexts.js');
 includeFile('sceneInvestigationBoard/investigationBoard.js');
-includeFile('sceneInvestigationBoard/shadow.js');
 includeFile('sceneInvestigationBoard/redThread.js');
 includeFile('sceneInvestigationBoard/chemTrail.js');
 includeFile('sceneInvestigationBoard/farjan.js');
@@ -206,7 +161,6 @@ Demo.prototype.init = function () {
   this.sceneIntro();
   this.sceneIntroTexts();
   this.sceneInvestigationBoard();
-  this.sceneShadow();
   this.sceneChemTrail();
   this.sceneFarjan();
   this.sceneFlatTorus();
@@ -236,7 +190,6 @@ Demo.prototype.init = function () {
     {start: 0*window.pattern, duration: 9*window.pattern, name: 'intro', dof:true, polaroid:false},
     {start: 0*window.pattern, duration: 9*window.pattern, name: 'introTexts', dof:false, polaroid:false},
     {start: 9*window.pattern, duration: 48*window.pattern+12*window.tick, name: 'investigationBoard', dof:true, polaroid:false},
-    {start: 9*window.pattern, duration: 48*window.pattern+12*window.tick, name: 'shadow', dof:false, polaroid:false},
     //polaroid scenes
     {start: 9*window.pattern, duration: 58*window.pattern, name: 'chemTrail', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:chemTrail')}},
     {start: 9*window.pattern, duration: 58*window.pattern, name: 'farjan', dof:false, polaroid:true, parameters:{pause:()=>Sync.get('Pause:farjan')}},

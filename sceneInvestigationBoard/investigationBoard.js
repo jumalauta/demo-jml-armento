@@ -4,7 +4,6 @@ Demo.prototype.sceneInvestigationBoard = function () {
   this.loader.addAnimation({image: '_embedded/defaultWhite.png', color: [{r:.6,g:.3,b:.1}]});
 
   //this.loader.addAnimation({image: 'chemTrail.color.fbo'});
-  this.addShadowFigure();
 
   this.loader.addAnimation([
     {
