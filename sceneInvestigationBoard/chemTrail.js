@@ -20,8 +20,8 @@ Demo.prototype.sceneChemTrail = function ()
         perspective: '2d',
         position: [
           {
-            y: ()=>.1*Math.cos(getSceneTimeFromStart()),
-            y: ()=>.12*Math.sin(getSceneTimeFromStart()),
+            x: ()=>.05*Math.cos(.5*getSceneTimeFromStart()),
+            y: ()=>.1*Math.sin(-.3*getSceneTimeFromStart()),
             z: 0
           }
         ],  
