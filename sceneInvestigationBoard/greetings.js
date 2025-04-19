@@ -45,7 +45,7 @@ Demo.prototype.sceneGreetings = function ()
 
       ],
       angle: [{ degreesZ: ()=>Math.sin(getSceneTimeFromStart()*2.0)*4+2}],
-      scale: [{ uniform2d: 0.1 }],
+      scale: [{ uniform2d: 0.15 }],
       color: [{r:0.1,g:0.1,b:0.1,a:0.4}],
     }
   ]);
